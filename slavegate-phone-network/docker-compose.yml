@@ -24,6 +24,13 @@ services:
       # Optional: key used to encrypt the Nostr secret key at rest in DB
       CREDENTIAL_ENCRYPTION_KEY: ${CREDENTIAL_ENCRYPTION_KEY:-}
 
+      # API & Auth
+      API_KEY: "24018503cf6bd0ae1e5b1f829a5f66cf23fc2160aea90dff3b91427419cec746"
+      JWT_SECRET: "88e43882eb6af62fc45ee602ed1b2d91789e81e695071c7e0740587c7b12023f"
+      CREDENTIAL_ENCRYPTION_KEY: "d3b10ccdd00f9c5fff603deeb009f9e893a53b0a2781a0ee01740ade8c838c52"
+      DASHBOARD_USERNAME: "admin"
+      DASHBOARD_PASSWORD: "62fa93907efb78288aaa826d0a8dd6f1"
+
       # Data directory (keys, SQLite fallback, uploads)
       DATA_DIR: /data
 
