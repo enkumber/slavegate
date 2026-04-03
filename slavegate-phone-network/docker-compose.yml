@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   phone-network-server:
     image: ghcr.io/enkumber/slavegate-server:latest
@@ -34,7 +32,6 @@ services:
 
     networks:
       - default
-      - nostr-relay_default
 
     depends_on:
       postgres:
@@ -59,7 +56,5 @@ services:
 
 networks:
   default:
-    name: phone-network_default
-  nostr-relay_default:
+    name: umbrel_main_network
     external: true
-    name: nostr-relay_default
