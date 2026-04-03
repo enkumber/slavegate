@@ -10,7 +10,7 @@ services:
       PORT: 3000
 
       # Database — PostgreSQL
-      DATABASE_URL: ${DATABASE_URL:-postgresql://phoneNetwork:${POSTGRES_PASSWORD}@postgres:5432/phoneNetwork}
+      DATABASE_URL: postgresql://phoneNetwork:phoneNetwork_umbrel@postgres:5432/phoneNetwork
 
       # Nostr relay configuration
       NOSTR_ENABLED: "true"
@@ -43,7 +43,7 @@ services:
     environment:
       POSTGRES_DB: phoneNetwork
       POSTGRES_USER: phoneNetwork
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme_in_production}
+      POSTGRES_PASSWORD: phoneNetwork_umbrel
     volumes:
       - ${APP_DATA_DIR:-./data}/postgres:/var/lib/postgresql/data
     healthcheck:
