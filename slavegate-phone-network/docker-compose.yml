@@ -2,9 +2,7 @@ version: "3.8"
 
 services:
   phone-network-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/enkumber/slavegate-server:latest
     restart: unless-stopped
     ports:
       - "${APP_PHONE_NETWORK_PORT:-3000}:3000"
