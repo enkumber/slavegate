@@ -21,9 +21,6 @@ services:
       # load from DB (nostr_server_keys table) or auto-generate on first run.
       NOSTR_SECRET_KEY: ${NOSTR_SECRET_KEY:-}
 
-      # Optional: key used to encrypt the Nostr secret key at rest in DB
-      CREDENTIAL_ENCRYPTION_KEY: ${CREDENTIAL_ENCRYPTION_KEY:-}
-
       # API & Auth
       API_KEY: "24018503cf6bd0ae1e5b1f829a5f66cf23fc2160aea90dff3b91427419cec746"
       JWT_SECRET: "88e43882eb6af62fc45ee602ed1b2d91789e81e695071c7e0740587c7b12023f"
