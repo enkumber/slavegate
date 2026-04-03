@@ -1,6 +1,6 @@
 manifestVersion: 1
 
-id: phone-network
+id: slavegate-phone-network
 name: Phone Network
 tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
