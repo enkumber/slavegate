@@ -12,7 +12,7 @@ services:
       NOSTR_ENABLED: "true"
       NOSTR_RELAY_PRIMARY: ${NOSTR_RELAY_PRIMARY:-ws://nostr-relay_relay_1:8080}
       NOSTR_RELAY_SECONDARY: ${NOSTR_RELAY_SECONDARY:-wss://relay.damus.io}
-      NOSTR_RELAY_PUBLIC: ${NOSTR_RELAY_PUBLIC:-ws://192.168.50.57:4848}
+      NOSTR_RELAY_PUBLIC: ${NOSTR_RELAY_PUBLIC:-ws://enkzoned.go.ro:4848}
       NOSTR_SECRET_KEY: ${NOSTR_SECRET_KEY:-}
       API_KEY: ${API_KEY}
       JWT_SECRET: ${JWT_SECRET}
