@@ -1,0 +1,39 @@
+package com.google.android.gms.internal.play_billing;
+
+import android.os.BadParcelableException;
+import android.os.Parcel;
+import android.os.Parcelable;
+import androidx.compose.foundation.text.y0;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes5.dex */
+public final class zzas {
+    public static final /* synthetic */ int zza = 0;
+
+    static {
+        zzas.class.getClassLoader();
+    }
+
+    private zzas() {
+    }
+
+    public static Parcelable zza(Parcel parcel, Parcelable.Creator creator) {
+        if (parcel.readInt() == 0) {
+            return null;
+        }
+        return (Parcelable) creator.createFromParcel(parcel);
+    }
+
+    public static void zzb(Parcel parcel) {
+        int dataAvail = parcel.dataAvail();
+        if (dataAvail <= 0) {
+        } else {
+            throw new BadParcelableException(y0.j(dataAvail, "Parcel data not fully consumed, unread size: "));
+        }
+    }
+
+    public static void zzc(Parcel parcel, Parcelable parcelable) {
+        parcel.writeInt(1);
+        parcelable.writeToParcel(parcel, 0);
+    }
+}

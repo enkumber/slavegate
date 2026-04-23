@@ -1,0 +1,44 @@
+.class public interface abstract Lkotlin/text/MatchResult;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u000c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\u0008f\u0018\u00002\u00020\u0001:\u0001\u0002\u00a8\u0006\u0003"
+    }
+    d2 = {
+        "Lkotlin/text/MatchResult;",
+        "",
+        "f8/f",
+        "kotlin-stdlib"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x3,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# virtual methods
+.method public abstract a()Lkotlin/ranges/IntRange;
+.end method
+
+.method public abstract b()Lf8/f;
+.end method
+
+.method public abstract c()Ljava/util/List;
+.end method
+
+.method public abstract d()Lkotlin/text/g;
+.end method
+
+.method public abstract getValue()Ljava/lang/String;
+.end method
+
+.method public abstract next()Lkotlin/text/h;
+.end method

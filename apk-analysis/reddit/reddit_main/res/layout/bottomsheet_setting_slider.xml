@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:gravity="center|bottom" android:id="@id/bottomsheet_setting_current" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" />
+    <SeekBar android:id="@id/bottomsheet_setting_slider" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/slider_view_height" android:progressTint="?rdt_ds_color_primary" android:thumbTint="?rdt_ds_color_primary" android:layout_marginHorizontal="@dimen/single_pad" />
+    <Button android:id="@id/bottomsheet_setting_done" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/action_done" style="?bottomActionButtonStyle" />
+</LinearLayout>

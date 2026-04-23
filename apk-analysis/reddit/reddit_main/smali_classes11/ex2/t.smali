@@ -1,0 +1,46 @@
+.class public final Lex2/t;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Lex2/y;
+
+
+# instance fields
+.field public final a:Ley2/a;
+
+
+# direct methods
+.method public constructor <init>(Ley2/a;Ljava/lang/String;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "fallbackTopAppBarUiModel"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const-string v0, "username"
+
+    .line 7
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 12
+    .line 13
+    .line 14
+    iput-object p1, p0, Lex2/t;->a:Ley2/a;
+
+    .line 15
+    .line 16
+    return-void
+.end method

@@ -1,0 +1,34 @@
+package kz2;
+
+import kotlin.jvm.internal.Intrinsics;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes12.dex */
+public final class lg1 {
+
+    /* renamed from: a, reason: collision with root package name */
+    public final tg1 f109023a;
+
+    public lg1(tg1 template) {
+        Intrinsics.checkNotNullParameter(template, "template");
+        this.f109023a = template;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if ((obj instanceof lg1) && Intrinsics.areEqual(this.f109023a, ((lg1) obj).f109023a)) {
+            return true;
+        }
+        return false;
+    }
+
+    public final int hashCode() {
+        return this.f109023a.hashCode();
+    }
+
+    public final String toString() {
+        return "Flair(template=" + this.f109023a + ")";
+    }
+}

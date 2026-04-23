@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/icon_mark_read" android:id="@id/action_chats_mark_all_as_read" android:title="@string/matrix_chats_mark_all_as_read" app:iconTint="?rdt_menu_icon_color" app:showAsAction="always" />
+    <item android:icon="@drawable/icon_filter" android:id="@id/action_chats_filter" android:title="@string/matrix_chats_filter" app:iconTint="?rdt_menu_icon_color" app:showAsAction="always" />
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="24.0dp" android:width="24.0dp" android:viewportWidth="16.0" android:viewportHeight="16.0"
+  xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@drawable/$ic_icon_instagram_20__0" android:pathData="M8,1H4c-0.4,0 -0.9,0.2 -1.3,0.4A3,3 0,0 0,1 3.7l-0.1,2V12c0,0.4 0.2,0.9 0.4,1.3a3,3 0,0 0,1.9 1.5l1,0.2h7.4l1,-0.1a3,3 0,0 0,2 -1.6c0.2,-0.4 0.3,-0.9 0.3,-1.3V4a3.4,3.4 0,0 0,-0.3 -1.3,3 3,0 0,0 -2.3,-1.6 13,13 0,0 0,-2.1 -0.1H8Z" />
+    <path android:fillColor="@drawable/$ic_icon_instagram_20__1" android:pathData="M8,1H4c-0.4,0 -0.9,0.2 -1.3,0.4A3,3 0,0 0,1 3.7l-0.1,2V12c0,0.4 0.2,0.9 0.4,1.3a3,3 0,0 0,1.9 1.5l1,0.2h7.4l1,-0.1a3,3 0,0 0,2 -1.6c0.2,-0.4 0.3,-0.9 0.3,-1.3V4a3.4,3.4 0,0 0,-0.3 -1.3,3 3,0 0,0 -2.3,-1.6 13,13 0,0 0,-2.1 -0.1H8Z" />
+    <path android:fillColor="#fff" android:pathData="M8,2.8a32.8,32.8 0,0 0,-3.4 0.3,2.6 2.6,0 0,0 -1.5,1.5L2.9,6v2a32.8,32.8 0,0 0,0.2 3.4,2.6 2.6,0 0,0 1.5,1.5l1.3,0.2L10,13.1c0.5,0 0.9,0 1.3,-0.2a2.7,2.7 0,0 0,1.5 -1.5l0.2,-1.3L13,6c0,-0.5 0,-0.9 -0.2,-1.3a2.6,2.6 0,0 0,-1.5 -1.5A3.8,3.8 0,0 0,10 3L8,3ZM7.5,3.8L8,3.8a31.7,31.7 0,0 1,3 0.2c0.3,0 0.5,0.2 0.7,0.4 0.1,0.1 0.3,0.3 0.3,0.6l0.2,1v4c0,0.4 0,0.7 -0.2,1a1.6,1.6 0,0 1,-0.4 0.6c-0.1,0.2 -0.3,0.3 -0.6,0.4l-1,0.2L6,12.2c-0.4,0 -0.7,0 -1,-0.2a1.7,1.7 0,0 1,-1 -1,3.2 3.2,0 0,1 -0.2,-1L3.8,8A31.3,31.3 0,0 1,4 5a1.7,1.7 0,0 1,1 -1,3 3,0 0,1 1,-0.2h1.5Z" />
+    <path android:fillColor="#fff" android:pathData="M10.8,4.6a0.6,0.6 0,1 0,0 1.3,0.6 0.6,0 0,0 0,-1.3Z" />
+    <path android:fillColor="#fff" android:pathData="M8,5.4a2.6,2.6 0,1 0,0 5.2,2.6 2.6,0 0,0 0,-5.3ZM8,6.3a1.7,1.7 0,1 1,0 3.4,1.7 1.7,0 0,1 0,-3.4Z" />
+</vector>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/screen_sheet_background_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/reply_content" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constrainedHeight="true" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <com.reddit.ui.sheet.SheetIndicatorView android:id="@id/sheet_indicator_view" android:layout_width="match_parent" android:layout_height="wrap_content" app:rdtIndicatorDrawableGravity="center" />
+        <com.reddit.screen.RedditComposeView android:id="@id/commenting_info" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/single_quarter_pad" android:paddingVertical="@dimen/single_pad" />
+        <ScrollView android:id="@id/scroll_content" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.reddit.screen.RedditComposeView android:id="@id/video_comment_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+                <com.reddit.reply.ui.EditTextSelectable android:textAppearance="?textAppearanceRedditBody" android:textColor="@color/reply_text_text_color" android:textColorHint="@color/reply_text_hint_color" android:gravity="top" android:id="@id/reply_text" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56.0dp" android:inputType="textCapSentences|textMultiLine" android:paddingHorizontal="@dimen/double_pad" android:paddingVertical="@dimen/single_pad" android:importantForAutofill="no" />
+                <com.reddit.screen.RedditComposeView android:id="@id/comment_guidance_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

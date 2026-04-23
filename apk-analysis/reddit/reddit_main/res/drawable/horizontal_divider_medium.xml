@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/half_pad" android:width="@dimen/half_pad" />
+    <solid android:color="?rdt_canvas_color" />
+</shape>

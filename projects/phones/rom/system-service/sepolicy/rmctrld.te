@@ -1,0 +1,42 @@
+# SELinux policy for rmctrld daemon
+# Place in: device/oneplus/dumpling/sepolicy/rmctrld.te
+# (or: device/oneplus/msm8998-common/sepolicy/rmctrld.te)
+
+# Define the rmctrld domain
+type rmctrld, domain;
+type rmctrld_exec, exec_type, file_type, system_ext_file_type;
+
+# Allow init to transition into rmctrld domain
+init_daemon_domain(rmctrld)
+
+# Allow rmctrld to talk to SurfaceFlinger
+allow rmctrld surfaceflinger:binder { call transfer };
+allow rmctrld surfaceflinger_service:service_manager find;
+
+# Allow rmctrld to talk to Accessibility service
+allow rmctrld accessibility_service:service_manager find;
+
+# Allow rmctrld to read the secret key
+allow rmctrld system_data_file:file { read open getattr };
+
+# Allow rmctrld to read system properties (for our rmctrl props)
+# The persist.sys.rmctrl.* props need their own type in property_contexts
+get_prop(rmctrld, system_prop)
+set_prop(rmctrld, rmctrl_prop)
+
+# Unix socket
+type rmctrld_socket, file_type, sock_file_type;
+allow rmctrld rmctrld_socket:sock_file { create unlink };
+allow rmctrld rmctrld_socket:unix_stream_socket { 
+    create bind listen accept read write setopt getattr 
+};
+
+# Allow our agent app (running as system) to connect to the socket
+# Replace "rmctrl_app" with the actual app domain if different
+allow rmctrl_app rmctrld_socket:unix_stream_socket connectto;
+allow rmctrl_app rmctrld:unix_stream_socket { read write };
+
+# Allow rmctrld to use graphic buffer / HardwareBuffer for screenshots
+allow rmctrld gpu_device:chr_file { read write open ioctl };
+allow rmctrld hal_graphics_allocator:binder { call transfer };
+allow rmctrld hal_graphics_composer:binder { call transfer };

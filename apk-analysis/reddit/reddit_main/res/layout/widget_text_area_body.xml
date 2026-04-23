@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.reddit.basehtmltextview.BaseHtmlTextView android:textAppearance="?textAppearanceRedditBody" android:id="@id/body_html_textview" android:background="?rdt_body_color" android:paddingTop="@dimen/single_half_pad" android:paddingBottom="@dimen/single_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/triple_pad" android:paddingEnd="@dimen/triple_pad"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

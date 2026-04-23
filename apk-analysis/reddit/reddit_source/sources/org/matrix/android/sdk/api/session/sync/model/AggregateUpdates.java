@@ -1,0 +1,76 @@
+package org.matrix.android.sdk.api.session.sync.model;
+
+import com.squareup.moshi.o;
+import com.squareup.moshi.s;
+import java.util.List;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.matrix.android.sdk.api.session.events.model.Event;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+@s(generateAdapter = true)
+@Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0010\b\u0087\b\u0018\u00002\u00020\u0001B+\u0012\u0010\b\u0003\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002\u0012\u0010\b\u0003\u0010\u0005\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002¢\u0006\u0004\b\u0006\u0010\u0007J4\u0010\b\u001a\u00020\u00002\u0010\b\u0003\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u00022\u0010\b\u0003\u0010\u0005\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002HÆ\u0001¢\u0006\u0004\b\b\u0010\tR(\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u00028\u0006X\u0087\u0004¢\u0006\u0012\n\u0004\b\n\u0010\u000b\u0012\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\rR(\u0010\u0005\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u00028\u0006X\u0087\u0004¢\u0006\u0012\n\u0004\b\u0010\u0010\u000b\u0012\u0004\b\u0012\u0010\u000f\u001a\u0004\b\u0011\u0010\r¨\u0006\u0013"}, d2 = {"Lorg/matrix/android/sdk/api/session/sync/model/AggregateUpdates;", "", "", "Lorg/matrix/android/sdk/api/session/events/model/Event;", "full", "partial", "<init>", "(Ljava/util/List;Ljava/util/List;)V", "copy", "(Ljava/util/List;Ljava/util/List;)Lorg/matrix/android/sdk/api/session/sync/model/AggregateUpdates;", "a", "Ljava/util/List;", "getFull", "()Ljava/util/List;", "getFull$annotations", "()V", "b", "getPartial", "getPartial$annotations", "matrix-sdk-android_model"}, k = 1, mv = {2, 3, 0}, xi = 50)
+/* loaded from: classes3.dex */
+public final /* data */ class AggregateUpdates {
+
+    /* renamed from: a, reason: collision with root package name and from kotlin metadata */
+    public final List full;
+
+    /* renamed from: b, reason: collision with root package name and from kotlin metadata */
+    public final List partial;
+
+    public AggregateUpdates(@o(name = "full") @Nullable List<Event> list, @o(name = "partial") @Nullable List<Event> list2) {
+        this.full = list;
+        this.partial = list2;
+    }
+
+    @NotNull
+    public final AggregateUpdates copy(@o(name = "full") @Nullable List<Event> full, @o(name = "partial") @Nullable List<Event> partial) {
+        return new AggregateUpdates(full, partial);
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof AggregateUpdates)) {
+            return false;
+        }
+        AggregateUpdates aggregateUpdates = (AggregateUpdates) obj;
+        if (Intrinsics.areEqual(this.full, aggregateUpdates.full) && Intrinsics.areEqual(this.partial, aggregateUpdates.partial)) {
+            return true;
+        }
+        return false;
+    }
+
+    public final int hashCode() {
+        int hashCode;
+        int i = 0;
+        List list = this.full;
+        if (list == null) {
+            hashCode = 0;
+        } else {
+            hashCode = list.hashCode();
+        }
+        int i15 = hashCode * 31;
+        List list2 = this.partial;
+        if (list2 != null) {
+            i = list2.hashCode();
+        }
+        return i15 + i;
+    }
+
+    public final String toString() {
+        return "AggregateUpdates(full=" + this.full + ", partial=" + this.partial + ")";
+    }
+
+    @o(name = "full")
+    public static /* synthetic */ void getFull$annotations() {
+    }
+
+    @o(name = "partial")
+    public static /* synthetic */ void getPartial$annotations() {
+    }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/single_pad" android:paddingBottom="@dimen/single_pad" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.reddit.ui.BottomSheetOptionItemView android:id="@id/card_option" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/option_card" android:contentDescription="@string/option_card" />
+    <com.reddit.ui.BottomSheetOptionItemView android:id="@id/classic_option" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/option_compact" android:contentDescription="@string/option_compact" />
+</LinearLayout>

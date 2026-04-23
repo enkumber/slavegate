@@ -1,0 +1,103 @@
+.class public final Lig1/a;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Landroidx/compose/ui/input/pointer/PointerInputEventHandler;
+
+
+# instance fields
+.field public final synthetic a:Landroidx/compose/runtime/f1;
+
+.field public final synthetic b:Lkotlin/jvm/functions/Function1;
+
+
+# direct methods
+.method public constructor <init>(Landroidx/compose/runtime/f1;Lkotlin/jvm/functions/Function1;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Lig1/a;->a:Landroidx/compose/runtime/f1;
+
+    .line 5
+    .line 6
+    iput-object p2, p0, Lig1/a;->b:Lkotlin/jvm/functions/Function1;
+
+    .line 7
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Landroidx/compose/ui/input/pointer/u;Ldm3/a;)Ljava/lang/Object;
+    .locals 6
+
+    .line 1
+    new-instance v3, Landroidx/compose/foundation/text/i0;
+
+    .line 2
+    .line 3
+    const/16 v0, 0x1c
+
+    .line 4
+    .line 5
+    iget-object v1, p0, Lig1/a;->a:Landroidx/compose/runtime/f1;
+
+    .line 6
+    .line 7
+    iget-object p0, p0, Lig1/a;->b:Lkotlin/jvm/functions/Function1;
+
+    .line 8
+    .line 9
+    invoke-direct {v3, v1, p0, v0}, Landroidx/compose/foundation/text/i0;-><init>(Landroidx/compose/runtime/f1;Lkotlin/jvm/functions/Function1;I)V
+
+    .line 10
+    .line 11
+    .line 12
+    const/4 v5, 0x7
+
+    .line 13
+    const/4 v1, 0x0
+
+    .line 14
+    const/4 v2, 0x0
+
+    .line 15
+    move-object v0, p1
+
+    .line 16
+    move-object v4, p2
+
+    .line 17
+    invoke-static/range {v0 .. v5}, Landroidx/compose/foundation/gestures/i2;->g(Landroidx/compose/ui/input/pointer/u;Landroidx/compose/foundation/text/i0;Lnm3/n;Lkotlin/jvm/functions/Function1;Ldm3/a;I)Ljava/lang/Object;
+
+    .line 18
+    .line 19
+    .line 20
+    move-result-object p0
+
+    .line 21
+    sget-object p1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->COROUTINE_SUSPENDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+
+    .line 22
+    .line 23
+    if-ne p0, p1, :cond_0
+
+    .line 24
+    .line 25
+    return-object p0
+
+    .line 26
+    :cond_0
+    sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    .line 27
+    .line 28
+    return-object p0
+.end method

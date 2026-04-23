@@ -545,6 +545,8 @@ const JOB_TYPES: { value: string; label: string; defaultParams: string; customEn
   // ─── Remote Access ────────────────────────────────────────────────────────
   { value: "rustdesk_enable", label: "🖥️ RustDesk Enable (a11y)", defaultParams: '{}', customEndpoint: "/hydra/rustdesk/enable" },
   { value: "rustdesk_enable_cascade", label: "🖥️ RustDesk Enable (cascade)", defaultParams: '{}', customEndpoint: "/hydra/rustdesk/enable-cascade" },
+  { value: "rustdesk_enable_cascade_fast", label: "⚡ RustDesk Enable (fast)", defaultParams: '{}', customEndpoint: "/hydra/rustdesk/enable-cascade-fast" },
+  { value: "rustdesk_workflow", label: "🔄 RustDesk (workflow)", defaultParams: '{}', customEndpoint: "/hydra/workflow/rustdesk-enable/dispatch" },
 ];
 
 function JobDispatchModal({ device, onClose, onDispatched }: {

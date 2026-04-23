@@ -1,0 +1,115 @@
+.class public abstract Lsm3/b;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Ljava/lang/Iterable;
+.implements Lkotlin/jvm/internal/markers/KMappedMarker;
+
+
+# static fields
+.field public static final d:Lsm3/a;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
+# instance fields
+.field public final a:C
+
+.field public final b:C
+
+.field public final c:I
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 1
+    new-instance v0, Lsm3/a;
+
+    .line 2
+    .line 3
+    const/4 v1, 0x0
+
+    .line 4
+    invoke-direct {v0, v1}, Lsm3/a;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    .line 5
+    .line 6
+    .line 7
+    sput-object v0, Lsm3/b;->d:Lsm3/a;
+
+    .line 8
+    .line 9
+    return-void
+.end method
+
+.method public constructor <init>(CC)V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-char p1, p0, Lsm3/b;->a:C
+
+    .line 5
+    .line 6
+    const/4 v0, 0x1
+
+    .line 7
+    invoke-static {p1, p2, v0}, Lgm3/c;->a(III)I
+
+    .line 8
+    .line 9
+    .line 10
+    move-result p1
+
+    .line 11
+    int-to-char p1, p1
+
+    .line 12
+    iput-char p1, p0, Lsm3/b;->b:C
+
+    .line 13
+    .line 14
+    iput v0, p0, Lsm3/b;->c:I
+
+    .line 15
+    .line 16
+    return-void
+.end method
+
+
+# virtual methods
+.method public final iterator()Ljava/util/Iterator;
+    .locals 3
+
+    .line 1
+    new-instance v0, Lsm3/c;
+
+    .line 2
+    .line 3
+    iget-char v1, p0, Lsm3/b;->b:C
+
+    .line 4
+    .line 5
+    iget v2, p0, Lsm3/b;->c:I
+
+    .line 6
+    .line 7
+    iget-char p0, p0, Lsm3/b;->a:C
+
+    .line 8
+    .line 9
+    invoke-direct {v0, p0, v1, v2}, Lsm3/c;-><init>(CCI)V
+
+    .line 10
+    .line 11
+    .line 12
+    return-object v0
+.end method

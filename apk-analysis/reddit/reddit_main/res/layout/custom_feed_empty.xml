@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:paddingBottom="@dimen/quint_pad" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="@dimen/double_pad"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/empty_vault_image" android:paddingBottom="@dimen/double_pad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@null" android:contentDescription="@null" />
+    <TextView android:textSize="24.0sp" android:textStyle="bold" android:gravity="center|top" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/label_empty_custom_feed" android:fontFamily="?rdt_font_bold_content" style="?textAppearanceRedditDisplayH0" />
+    <TextView android:textAppearance="?textAppearanceRedditBodyH3" android:textColor="?rdt_meta_text_color" android:gravity="center|top" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" android:text="@string/description_no_communities_custom_feed" android:fontFamily="?rdt_font_regular_content" />
+</LinearLayout>

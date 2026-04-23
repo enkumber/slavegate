@@ -1,0 +1,97 @@
+From 0000000000000000000000000000000000000001 Mon Sep 17 00:00:00 2001
+From: Team ROM <rom@team.local>
+Date: Tue, 03 Mar 2026 00:00:00 +0000
+Subject: [PATCH] SurfaceFlinger: Bypass FLAG_SECURE when remote control property is set
+
+This patch allows screenshots of FLAG_SECURE layers when the system property
+`persist.sys.rmctrl.capture` is set to 1. The bypass is invisible to apps —
+they still set the flag, but it is silently ignored at the compositor level.
+
+Changes:
+1. DisplayRenderArea::isSecure() — always returns true when property active
+2. SurfaceFlinger::captureDisplay() — forces allowSecureLayers=true when property active
+3. Layer.cpp (isVisible) — removes blackout logic for secure layers when property active
+
+Based on LineageOS 19.1 / android_frameworks_native @ lineage-19.1
+
+diff --git a/services/surfaceflinger/DisplayRenderArea.cpp b/services/surfaceflinger/DisplayRenderArea.cpp
+index a1b2c3d..e4f5678 100644
+--- a/services/surfaceflinger/DisplayRenderArea.cpp
++++ b/services/surfaceflinger/DisplayRenderArea.cpp
+@@ -14,6 +14,7 @@
+  * limitations under the License.
+  */
+ 
++#include <cutils/properties.h>
+ #include "DisplayRenderArea.h"
+ #include "DisplayDevice.h"
+ 
+@@ -56,7 +57,15 @@ DisplayRenderArea::DisplayRenderArea(sp<const DisplayDevice> display, const Rect
+ 
+ bool DisplayRenderArea::isSecure() const {
+-    return mAllowSecureLayers && mDisplay->isSecure();
++    // Check if remote control bypass is active — invisible to apps
++    char prop[PROPERTY_VALUE_MAX];
++    property_get("persist.sys.rmctrl.capture", prop, "0");
++    if (strcmp(prop, "1") == 0) {
++        // Always report as secure so layers are not blacked out
++        return true;
++    }
++    return mAllowSecureLayers && mDisplay->isSecure();
+ }
+ 
+ sp<const DisplayDevice> DisplayRenderArea::getDisplayDevice() const {
+
+diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
+index b2c1d34..f893456 100644
+--- a/services/surfaceflinger/SurfaceFlinger.cpp
++++ b/services/surfaceflinger/SurfaceFlinger.cpp
+@@ -5483,6 +5483,17 @@ status_t SurfaceFlinger::captureDisplay(const DisplayCaptureArgs& args,
+         return BAD_VALUE;
+     }
+ 
++    // Remote control bypass: if property is set, allow capturing secure surfaces
++    // This is checked here AND in DisplayRenderArea::isSecure() for belt-and-suspenders.
++    char rmctrlProp[PROPERTY_VALUE_MAX];
++    property_get("persist.sys.rmctrl.capture", rmctrlProp, "0");
++    const bool rmctrlActive = (strcmp(rmctrlProp, "1") == 0);
++
+     const auto display = getDisplayDeviceLocked(args.displayToken);
+     if (!display) {
+         return BAD_VALUE;
+@@ -5498,7 +5509,7 @@ status_t SurfaceFlinger::captureDisplay(const DisplayCaptureArgs& args,
+         return BAD_VALUE;
+     }
+ 
+-    const bool allowSecureLayers = false;
++    const bool allowSecureLayers = rmctrlActive ? true : false;
+ 
+     auto renderAreaFuture = mScheduler->schedule([=]() -> std::shared_ptr<RenderArea> {
+         return DisplayRenderArea::create(displayWeak, sourceCrop, reqSize, dataspace,
+
+diff --git a/services/surfaceflinger/Layer.cpp b/services/surfaceflinger/Layer.cpp
+index c3d4e56..d7e8901 100644
+--- a/services/surfaceflinger/Layer.cpp
++++ b/services/surfaceflinger/Layer.cpp
+@@ -19,6 +19,7 @@
+ 
+ #undef LOG_TAG
+ #define LOG_TAG "Layer"
++#include <cutils/properties.h>
+ 
+ // ... (existing includes)
+ 
+@@ -271,6 +272,14 @@ bool Layer::isVisible() const {
+ }
+ 
+ bool Layer::isLayerExcludedFromScreenshot(const sp<const DisplayDevice>& hw) const {
++    // Remote control capture bypass: never exclude any layer when property is set
++    char prop[PROPERTY_VALUE_MAX];
++    property_get("persist.sys.rmctrl.capture", prop, "0");
++    if (strcmp(prop, "1") == 0) {
++        return false;
++    }
++
+     if (const auto outputLayer = findOutputLayerForDisplay(hw)) {
+         return mDrawingState.flags & layer_state_t::eLayerSkipScreenshot;
+     }

@@ -1,0 +1,13 @@
+package com.google.android.gms.internal.p002firebaseauthapi;
+
+import libcore.io.Memory;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes5.dex */
+final class zzajs {
+    private static final Class<?> zza = Memory.class;
+
+    public static Class<?> zza() {
+        return zza;
+    }
+}

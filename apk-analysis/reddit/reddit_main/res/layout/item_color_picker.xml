@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/color_switcher_item_size" android:layout_height="@dimen/color_switcher_item_size" android:layout_margin="@dimen/single_pad" android:importantForAccessibility="no" android:elevation="@dimen/flair_button_elevation"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/color_picker_container" android:background="@drawable/color_picker_square" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent" android:foreground="?selectableItemBackground" android:importantForAccessibility="yes" />
+    <View android:id="@id/color_picker_diagonal_line" android:background="@drawable/diagonal_line" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

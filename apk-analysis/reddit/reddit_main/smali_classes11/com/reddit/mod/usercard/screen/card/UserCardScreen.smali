@@ -1,0 +1,637 @@
+.class public final Lcom/reddit/mod/usercard/screen/card/UserCardScreen;
+.super Lcom/reddit/screen/ComposeBottomSheetScreen;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Lnh2/a;
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0004\u0008\u0007\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\u0008\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u00a2\u0006\u0004\u0008\u0005\u0010\u0006\u00a8\u0006\u0007"
+    }
+    d2 = {
+        "Lcom/reddit/mod/usercard/screen/card/UserCardScreen;",
+        "Lcom/reddit/screen/ComposeBottomSheetScreen;",
+        "Lnh2/a;",
+        "Landroid/os/Bundle;",
+        "args",
+        "<init>",
+        "(Landroid/os/Bundle;)V",
+        "mod_usercard_impl"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x3,
+        0x0
+    }
+    xi = 0x32
+.end annotation
+
+.annotation build Lkotlin/jvm/internal/SourceDebugExtension;
+    value = {
+        "SMAP\nUserCardScreen.kt\nKotlin\n*S Kotlin\n*F\n+ 1 UserCardScreen.kt\ncom/reddit/mod/usercard/screen/card/UserCardScreen\n+ 2 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,177:1\n1128#2,6:178\n1128#2,6:184\n*S KotlinDebug\n*F\n+ 1 UserCardScreen.kt\ncom/reddit/mod/usercard/screen/card/UserCardScreen\n*L\n137#1:178,6\n146#1:184,6\n*E\n"
+    }
+.end annotation
+
+
+# static fields
+.field public static final synthetic U0:I
+
+
+# instance fields
+.field public final Q0:Lkotlin/jvm/functions/Function1;
+
+.field public R0:Lcom/reddit/mod/usercard/screen/card/UserCardViewModel;
+
+.field public final S0:Lgo/d;
+
+.field public final T0:Z
+
+
+# direct methods
+.method public constructor <init>(Landroid/os/Bundle;)V
+    .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    const-string v0, "args"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 7
+    new-instance v0, Lcom/reddit/mod/usercard/screen/action/g;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Lcom/reddit/mod/usercard/screen/action/g;-><init>(I)V
+
+    .line 8
+    invoke-direct {p0, p1, v0}, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;-><init>(Landroid/os/Bundle;Lkotlin/jvm/functions/Function1;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Bundle;Lkotlin/jvm/functions/Function1;)V
+    .locals 1
+
+    const-string v0, "args"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 1
+    invoke-direct {p0, p1}, Lcom/reddit/screen/ComposeBottomSheetScreen;-><init>(Landroid/os/Bundle;)V
+
+    .line 2
+    iput-object p2, p0, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->Q0:Lkotlin/jvm/functions/Function1;
+
+    .line 3
+    new-instance p1, Lgo/d;
+
+    .line 4
+    const-string p2, "mod_user_card_screen"
+
+    .line 5
+    invoke-direct {p1, p2}, Lgo/d;-><init>(Ljava/lang/String;)V
+
+    iput-object p1, p0, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->S0:Lgo/d;
+
+    const/4 p1, 0x1
+
+    .line 6
+    iput-boolean p1, p0, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->T0:Z
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final B0(ILjava/lang/String;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "username"
+
+    .line 2
+    .line 3
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    invoke-virtual {p0}, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->O5()Lcom/reddit/mod/usercard/screen/card/UserCardViewModel;
+
+    .line 7
+    .line 8
+    .line 9
+    move-result-object p0
+
+    .line 10
+    new-instance v0, Lcom/reddit/mod/usercard/screen/card/w;
+
+    .line 11
+    .line 12
+    invoke-direct {v0, p1, p2}, Lcom/reddit/mod/usercard/screen/card/w;-><init>(ILjava/lang/String;)V
+
+    .line 13
+    .line 14
+    .line 15
+    invoke-virtual {p0, v0}, Lcom/reddit/screen/presentation/CompositionViewModel;->onEvent(Ljava/lang/Object;)V
+
+    .line 16
+    .line 17
+    .line 18
+    return-void
+.end method
+
+.method public final B5(Lcom/reddit/ui/compose/ds/j1;Lcom/reddit/ui/compose/ds/i2;Landroidx/compose/runtime/m;I)V
+    .locals 6
+
+    .line 1
+    const-string v0, "<this>"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const-string v0, "sheetState"
+
+    .line 7
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    check-cast p3, Landroidx/compose/runtime/r;
+
+    .line 12
+    .line 13
+    const v0, 0x23dd4634
+
+    .line 14
+    .line 15
+    .line 16
+    invoke-virtual {p3, v0}, Landroidx/compose/runtime/r;->m0(I)Landroidx/compose/runtime/r;
+
+    .line 17
+    .line 18
+    .line 19
+    and-int/lit16 v0, p4, 0x180
+
+    .line 20
+    .line 21
+    const/16 v1, 0x80
+
+    .line 22
+    .line 23
+    if-nez v0, :cond_1
+
+    .line 24
+    .line 25
+    invoke-virtual {p3, p0}, Landroidx/compose/runtime/r;->h(Ljava/lang/Object;)Z
+
+    .line 26
+    .line 27
+    .line 28
+    move-result v0
+
+    .line 29
+    if-eqz v0, :cond_0
+
+    .line 30
+    .line 31
+    const/16 v0, 0x100
+
+    .line 32
+    .line 33
+    goto :goto_0
+
+    .line 34
+    :cond_0
+    move v0, v1
+
+    .line 35
+    :goto_0
+    or-int/2addr v0, p4
+
+    .line 36
+    goto :goto_1
+
+    .line 37
+    :cond_1
+    move v0, p4
+
+    .line 38
+    :goto_1
+    and-int/lit16 v2, v0, 0x81
+
+    .line 39
+    .line 40
+    const/4 v3, 0x0
+
+    .line 41
+    const/4 v4, 0x1
+
+    .line 42
+    if-eq v2, v1, :cond_2
+
+    .line 43
+    .line 44
+    move v1, v4
+
+    .line 45
+    goto :goto_2
+
+    .line 46
+    :cond_2
+    move v1, v3
+
+    .line 47
+    :goto_2
+    and-int/2addr v0, v4
+
+    .line 48
+    invoke-virtual {p3, v0, v1}, Landroidx/compose/runtime/r;->a0(IZ)Z
+
+    .line 49
+    .line 50
+    .line 51
+    move-result v0
+
+    .line 52
+    if-eqz v0, :cond_5
+
+    .line 53
+    .line 54
+    invoke-virtual {p0}, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->O5()Lcom/reddit/mod/usercard/screen/card/UserCardViewModel;
+
+    .line 55
+    .line 56
+    .line 57
+    move-result-object v0
+
+    .line 58
+    invoke-virtual {v0}, Lcom/reddit/screen/presentation/CompositionViewModel;->E()Lcom/reddit/screen/presentation/i;
+
+    .line 59
+    .line 60
+    .line 61
+    move-result-object v0
+
+    .line 62
+    iget-object v0, v0, Lcom/reddit/screen/presentation/i;->c:Lcom/reddit/screen/presentation/h;
+
+    .line 63
+    .line 64
+    invoke-virtual {v0}, Lcom/reddit/screen/presentation/h;->getValue()Ljava/lang/Object;
+
+    .line 65
+    .line 66
+    .line 67
+    move-result-object v0
+
+    .line 68
+    check-cast v0, Lcom/reddit/mod/usercard/screen/card/i0;
+
+    .line 69
+    .line 70
+    invoke-virtual {p0}, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->O5()Lcom/reddit/mod/usercard/screen/card/UserCardViewModel;
+
+    .line 71
+    .line 72
+    .line 73
+    move-result-object v1
+
+    .line 74
+    const v2, 0x4c5de2
+
+    .line 75
+    .line 76
+    .line 77
+    invoke-virtual {p3, v2}, Landroidx/compose/runtime/r;->k0(I)V
+
+    .line 78
+    .line 79
+    .line 80
+    invoke-virtual {p3, v1}, Landroidx/compose/runtime/r;->h(Ljava/lang/Object;)Z
+
+    .line 81
+    .line 82
+    .line 83
+    move-result v2
+
+    .line 84
+    invoke-virtual {p3}, Landroidx/compose/runtime/r;->V()Ljava/lang/Object;
+
+    .line 85
+    .line 86
+    .line 87
+    move-result-object v4
+
+    .line 88
+    if-nez v2, :cond_3
+
+    .line 89
+    .line 90
+    sget-object v2, Landroidx/compose/runtime/l;->a:Landroidx/compose/runtime/g;
+
+    .line 91
+    .line 92
+    if-ne v4, v2, :cond_4
+
+    .line 93
+    .line 94
+    :cond_3
+    new-instance v4, Lcom/reddit/mod/usercard/screen/card/UserCardScreen$SheetContent$1$1;
+
+    .line 95
+    .line 96
+    invoke-direct {v4, v1}, Lcom/reddit/mod/usercard/screen/card/UserCardScreen$SheetContent$1$1;-><init>(Ljava/lang/Object;)V
+
+    .line 97
+    .line 98
+    .line 99
+    invoke-virtual {p3, v4}, Landroidx/compose/runtime/r;->v0(Ljava/lang/Object;)V
+
+    .line 100
+    .line 101
+    .line 102
+    :cond_4
+    check-cast v4, Ltm3/g;
+
+    .line 103
+    .line 104
+    invoke-virtual {p3, v3}, Landroidx/compose/runtime/r;->r(Z)V
+
+    .line 105
+    .line 106
+    .line 107
+    check-cast v4, Lkotlin/jvm/functions/Function1;
+
+    .line 108
+    .line 109
+    const/4 v1, 0x0
+
+    .line 110
+    invoke-static {v0, v4, v1, p3, v3}, Lcom/reddit/mod/usercard/screen/card/k;->a(Lcom/reddit/mod/usercard/screen/card/i0;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/s;Landroidx/compose/runtime/m;I)V
+
+    .line 111
+    .line 112
+    .line 113
+    goto :goto_3
+
+    .line 114
+    :cond_5
+    invoke-virtual {p3}, Landroidx/compose/runtime/r;->d0()V
+
+    .line 115
+    .line 116
+    .line 117
+    :goto_3
+    invoke-virtual {p3}, Landroidx/compose/runtime/r;->v()Landroidx/compose/runtime/b2;
+
+    .line 118
+    .line 119
+    .line 120
+    move-result-object p3
+
+    .line 121
+    if-eqz p3, :cond_6
+
+    .line 122
+    .line 123
+    new-instance v0, Lcom/reddit/mod/notesv2/composables/h;
+
+    .line 124
+    .line 125
+    const/16 v5, 0x1c
+
+    .line 126
+    .line 127
+    move-object v1, p0
+
+    .line 128
+    move-object v2, p1
+
+    .line 129
+    move-object v3, p2
+
+    .line 130
+    move v4, p4
+
+    .line 131
+    invoke-direct/range {v0 .. v5}, Lcom/reddit/mod/notesv2/composables/h;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;II)V
+
+    .line 132
+    .line 133
+    .line 134
+    iput-object v0, p3, Landroidx/compose/runtime/b2;->d:Lkotlin/jvm/functions/Function2;
+
+    .line 135
+    .line 136
+    :cond_6
+    return-void
+.end method
+
+.method public final I5()Z
+    .locals 0
+
+    .line 1
+    iget-boolean p0, p0, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->T0:Z
+
+    .line 2
+    .line 3
+    return p0
+.end method
+
+.method public final M5(Lcom/reddit/ui/compose/ds/i2;Landroidx/compose/runtime/m;I)Lkotlin/jvm/functions/Function2;
+    .locals 0
+
+    .line 1
+    const-string p3, "sheetState"
+
+    .line 2
+    .line 3
+    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    check-cast p2, Landroidx/compose/runtime/r;
+
+    .line 7
+    .line 8
+    const p1, 0x33a9b6e9
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {p2, p1}, Landroidx/compose/runtime/r;->k0(I)V
+
+    .line 12
+    .line 13
+    .line 14
+    new-instance p1, Lcom/reddit/mod/usercard/screen/action/f;
+
+    .line 15
+    .line 16
+    const/4 p3, 0x1
+
+    .line 17
+    invoke-direct {p1, p0, p3}, Lcom/reddit/mod/usercard/screen/action/f;-><init>(Ljava/lang/Object;I)V
+
+    .line 18
+    .line 19
+    .line 20
+    const p0, -0x1e9b6a3a
+
+    .line 21
+    .line 22
+    .line 23
+    invoke-static {p0, p1, p2}, Lp0/c;->e(ILzl3/f;Landroidx/compose/runtime/m;)Landroidx/compose/runtime/internal/a;
+
+    .line 24
+    .line 25
+    .line 26
+    move-result-object p0
+
+    .line 27
+    const/4 p1, 0x0
+
+    .line 28
+    invoke-virtual {p2, p1}, Landroidx/compose/runtime/r;->r(Z)V
+
+    .line 29
+    .line 30
+    .line 31
+    return-object p0
+.end method
+
+.method public final O5()Lcom/reddit/mod/usercard/screen/card/UserCardViewModel;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->R0:Lcom/reddit/mod/usercard/screen/card/UserCardViewModel;
+
+    .line 2
+    .line 3
+    if-eqz p0, :cond_0
+
+    .line 4
+    .line 5
+    return-object p0
+
+    .line 6
+    :cond_0
+    const-string p0, "viewModel"
+
+    .line 7
+    .line 8
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    const/4 p0, 0x0
+
+    .line 12
+    return-object p0
+.end method
+
+.method public final u5()V
+    .locals 5
+
+    .line 1
+    invoke-super {p0}, Lcom/reddit/screen/ComposeBottomSheetScreen;->u5()V
+
+    .line 2
+    .line 3
+    .line 4
+    new-instance v0, Lcom/reddit/mod/usercard/screen/card/b0;
+
+    .line 5
+    .line 6
+    const/4 v1, 0x0
+
+    .line 7
+    invoke-direct {v0, p0, v1}, Lcom/reddit/mod/usercard/screen/card/b0;-><init>(Lcom/reddit/mod/usercard/screen/card/UserCardScreen;I)V
+
+    .line 8
+    .line 9
+    .line 10
+    const-string v1, "<this>"
+
+    .line 11
+    .line 12
+    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 13
+    .line 14
+    .line 15
+    const-string v1, "factory"
+
+    .line 16
+    .line 17
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 18
+    .line 19
+    .line 20
+    sget-object v1, Lec1/a;->a:Lec1/a;
+
+    .line 21
+    .line 22
+    sget-object v2, Lcom/reddit/di/metrics/GraphMetric;->Injection:Lcom/reddit/di/metrics/GraphMetric;
+
+    .line 23
+    .line 24
+    new-instance v3, Lcom/reddit/mod/rules/screen/savedresponselist/c;
+
+    .line 25
+    .line 26
+    const/16 v4, 0x17
+
+    .line 27
+    .line 28
+    invoke-direct {v3, v4, v0, p0}, Lcom/reddit/mod/rules/screen/savedresponselist/c;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    .line 29
+    .line 30
+    .line 31
+    const-string p0, "UserCardScreen"
+
+    .line 32
+    .line 33
+    invoke-virtual {v1, v2, p0, v3}, Lec1/a;->b(Lcom/reddit/di/metrics/GraphMetric;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+
+    .line 34
+    .line 35
+    .line 36
+    move-result-object p0
+
+    .line 37
+    check-cast p0, Lac1/j;
+
+    .line 38
+    .line 39
+    return-void
+.end method
+
+.method public final x0()Lgo/a;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/reddit/mod/usercard/screen/card/UserCardScreen;->S0:Lgo/d;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method

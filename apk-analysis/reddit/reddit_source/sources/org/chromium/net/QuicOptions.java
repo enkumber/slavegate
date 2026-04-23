@@ -1,0 +1,275 @@
+package org.chromium.net;
+
+import androidx.annotation.NonNull;
+import j$.time.DesugarDuration;
+import java.time.Duration;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes3.dex */
+public final class QuicOptions {
+    private final Set<String> mClientConnectionOptions;
+    private final Boolean mCloseSessionsOnIpChange;
+    private final Set<String> mConnectionOptions;
+    private final Long mCryptoHandshakeTimeoutSeconds;
+    private final Boolean mDelayJobsWithAvailableSpdySession;
+    private final Boolean mEnableTlsZeroRtt;
+    private final Set<String> mEnabledQuicVersions;
+    private final Set<String> mExtraQuicheFlags;
+    private final Boolean mGoawaySessionsOnIpChange;
+    private final String mHandshakeUserAgent;
+    private final Long mIdleConnectionTimeoutSeconds;
+    private final Integer mInMemoryServerConfigsCacheSize;
+    private final Boolean mIncreaseBrokenServicePeriodExponentially;
+    private final Long mInitialBrokenServicePeriodSeconds;
+    private final Long mPreCryptoHandshakeIdleTimeoutSeconds;
+    private final Set<String> mQuicHostAllowlist;
+    private final Long mRetransmittableOnWireTimeoutMillis;
+    private final Boolean mRetryWithoutAltSvcOnQuicErrors;
+
+    /* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+    /* loaded from: classes3.dex */
+    public static class Builder {
+        private Boolean mCloseSessionsOnIpChange;
+        private Long mCryptoHandshakeTimeoutSeconds;
+        private Boolean mDelayJobsWithAvailableSpdySession;
+        private Boolean mEnableTlsZeroRtt;
+        private Boolean mGoawaySessionsOnIpChange;
+        private String mHandshakeUserAgent;
+        private Long mIdleConnectionTimeoutSeconds;
+        private Integer mInMemoryServerConfigsCacheSize;
+        private Boolean mIncreaseBrokenServicePeriodExponentially;
+        private Long mInitialBrokenServicePeriodSeconds;
+        private Long mPreCryptoHandshakeIdleTimeoutSeconds;
+        private Long mRetransmittableOnWireTimeoutMillis;
+        private Boolean mRetryWithoutAltSvcOnQuicErrors;
+        private final Set<String> mQuicHostAllowlist = new LinkedHashSet();
+        private final Set<String> mEnabledQuicVersions = new LinkedHashSet();
+        private final Set<String> mConnectionOptions = new LinkedHashSet();
+        private final Set<String> mClientConnectionOptions = new LinkedHashSet();
+        private final Set<String> mExtraQuicheFlags = new LinkedHashSet();
+
+        public Builder addAllowedQuicHost(String str) {
+            this.mQuicHostAllowlist.add(str);
+            return this;
+        }
+
+        @QuichePassthroughOption
+        public Builder addClientConnectionOption(String str) {
+            this.mClientConnectionOptions.add(str);
+            return this;
+        }
+
+        @QuichePassthroughOption
+        public Builder addConnectionOption(String str) {
+            this.mConnectionOptions.add(str);
+            return this;
+        }
+
+        @QuichePassthroughOption
+        public Builder addEnabledQuicVersion(String str) {
+            this.mEnabledQuicVersions.add(str);
+            return this;
+        }
+
+        @QuichePassthroughOption
+        public Builder addExtraQuicheFlag(String str) {
+            this.mExtraQuicheFlags.add(str);
+            return this;
+        }
+
+        public QuicOptions build() {
+            return new QuicOptions(this);
+        }
+
+        @Experimental
+        public Builder closeSessionsOnIpChange(boolean z15) {
+            this.mCloseSessionsOnIpChange = Boolean.valueOf(z15);
+            return this;
+        }
+
+        @Experimental
+        public Builder delayJobsWithAvailableSpdySession(boolean z15) {
+            this.mDelayJobsWithAvailableSpdySession = Boolean.valueOf(z15);
+            return this;
+        }
+
+        @Experimental
+        public Builder enableTlsZeroRtt(boolean z15) {
+            this.mEnableTlsZeroRtt = Boolean.valueOf(z15);
+            return this;
+        }
+
+        @Experimental
+        public Builder goawaySessionsOnIpChange(boolean z15) {
+            this.mGoawaySessionsOnIpChange = Boolean.valueOf(z15);
+            return this;
+        }
+
+        @Experimental
+        public Builder increaseBrokenServicePeriodExponentially(boolean z15) {
+            this.mIncreaseBrokenServicePeriodExponentially = Boolean.valueOf(z15);
+            return this;
+        }
+
+        @Experimental
+        public Builder retryWithoutAltSvcOnQuicErrors(boolean z15) {
+            this.mRetryWithoutAltSvcOnQuicErrors = Boolean.valueOf(z15);
+            return this;
+        }
+
+        @Experimental
+        public Builder setCryptoHandshakeTimeoutSeconds(long j3) {
+            this.mCryptoHandshakeTimeoutSeconds = Long.valueOf(j3);
+            return this;
+        }
+
+        public Builder setHandshakeUserAgent(String str) {
+            this.mHandshakeUserAgent = str;
+            return this;
+        }
+
+        public Builder setIdleConnectionTimeout(@NonNull Duration duration) {
+            Objects.requireNonNull(duration);
+            return setIdleConnectionTimeoutSeconds(DesugarDuration.toSeconds(duration));
+        }
+
+        public Builder setIdleConnectionTimeoutSeconds(long j3) {
+            this.mIdleConnectionTimeoutSeconds = Long.valueOf(j3);
+            return this;
+        }
+
+        public Builder setInMemoryServerConfigsCacheSize(int i) {
+            this.mInMemoryServerConfigsCacheSize = Integer.valueOf(i);
+            return this;
+        }
+
+        @Experimental
+        public Builder setInitialBrokenServicePeriodSeconds(long j3) {
+            this.mInitialBrokenServicePeriodSeconds = Long.valueOf(j3);
+            return this;
+        }
+
+        @Experimental
+        public Builder setPreCryptoHandshakeIdleTimeoutSeconds(long j3) {
+            this.mPreCryptoHandshakeIdleTimeoutSeconds = Long.valueOf(j3);
+            return this;
+        }
+
+        @Experimental
+        public Builder setRetransmittableOnWireTimeoutMillis(long j3) {
+            this.mRetransmittableOnWireTimeoutMillis = Long.valueOf(j3);
+            return this;
+        }
+    }
+
+    /* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+    /* loaded from: classes3.dex */
+    public @interface Experimental {
+    }
+
+    /* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+    /* loaded from: classes3.dex */
+    public @interface QuichePassthroughOption {
+    }
+
+    public QuicOptions(Builder builder) {
+        this.mQuicHostAllowlist = Collections.unmodifiableSet(new LinkedHashSet(builder.mQuicHostAllowlist));
+        this.mEnabledQuicVersions = Collections.unmodifiableSet(new LinkedHashSet(builder.mEnabledQuicVersions));
+        this.mConnectionOptions = Collections.unmodifiableSet(new LinkedHashSet(builder.mConnectionOptions));
+        this.mClientConnectionOptions = Collections.unmodifiableSet(new LinkedHashSet(builder.mClientConnectionOptions));
+        this.mInMemoryServerConfigsCacheSize = builder.mInMemoryServerConfigsCacheSize;
+        this.mHandshakeUserAgent = builder.mHandshakeUserAgent;
+        this.mRetryWithoutAltSvcOnQuicErrors = builder.mRetryWithoutAltSvcOnQuicErrors;
+        this.mEnableTlsZeroRtt = builder.mEnableTlsZeroRtt;
+        this.mPreCryptoHandshakeIdleTimeoutSeconds = builder.mPreCryptoHandshakeIdleTimeoutSeconds;
+        this.mCryptoHandshakeTimeoutSeconds = builder.mCryptoHandshakeTimeoutSeconds;
+        this.mIdleConnectionTimeoutSeconds = builder.mIdleConnectionTimeoutSeconds;
+        this.mRetransmittableOnWireTimeoutMillis = builder.mRetransmittableOnWireTimeoutMillis;
+        this.mCloseSessionsOnIpChange = builder.mCloseSessionsOnIpChange;
+        this.mGoawaySessionsOnIpChange = builder.mGoawaySessionsOnIpChange;
+        this.mInitialBrokenServicePeriodSeconds = builder.mInitialBrokenServicePeriodSeconds;
+        this.mIncreaseBrokenServicePeriodExponentially = builder.mIncreaseBrokenServicePeriodExponentially;
+        this.mDelayJobsWithAvailableSpdySession = builder.mDelayJobsWithAvailableSpdySession;
+        this.mExtraQuicheFlags = Collections.unmodifiableSet(new LinkedHashSet(builder.mExtraQuicheFlags));
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public Set<String> getClientConnectionOptions() {
+        return this.mClientConnectionOptions;
+    }
+
+    public Boolean getCloseSessionsOnIpChange() {
+        return this.mCloseSessionsOnIpChange;
+    }
+
+    public Set<String> getConnectionOptions() {
+        return this.mConnectionOptions;
+    }
+
+    public Long getCryptoHandshakeTimeoutSeconds() {
+        return this.mCryptoHandshakeTimeoutSeconds;
+    }
+
+    public Boolean getDelayJobsWithAvailableSpdySession() {
+        return this.mDelayJobsWithAvailableSpdySession;
+    }
+
+    public Boolean getEnableTlsZeroRtt() {
+        return this.mEnableTlsZeroRtt;
+    }
+
+    public Set<String> getEnabledQuicVersions() {
+        return this.mEnabledQuicVersions;
+    }
+
+    public Set<String> getExtraQuicheFlags() {
+        return this.mExtraQuicheFlags;
+    }
+
+    public Boolean getGoawaySessionsOnIpChange() {
+        return this.mGoawaySessionsOnIpChange;
+    }
+
+    public String getHandshakeUserAgent() {
+        return this.mHandshakeUserAgent;
+    }
+
+    public Long getIdleConnectionTimeoutSeconds() {
+        return this.mIdleConnectionTimeoutSeconds;
+    }
+
+    public Integer getInMemoryServerConfigsCacheSize() {
+        return this.mInMemoryServerConfigsCacheSize;
+    }
+
+    public Boolean getIncreaseBrokenServicePeriodExponentially() {
+        return this.mIncreaseBrokenServicePeriodExponentially;
+    }
+
+    public Long getInitialBrokenServicePeriodSeconds() {
+        return this.mInitialBrokenServicePeriodSeconds;
+    }
+
+    public Long getPreCryptoHandshakeIdleTimeoutSeconds() {
+        return this.mPreCryptoHandshakeIdleTimeoutSeconds;
+    }
+
+    public Set<String> getQuicHostAllowlist() {
+        return this.mQuicHostAllowlist;
+    }
+
+    public Long getRetransmittableOnWireTimeoutMillis() {
+        return this.mRetransmittableOnWireTimeoutMillis;
+    }
+
+    public Boolean getRetryWithoutAltSvcOnQuicErrors() {
+        return this.mRetryWithoutAltSvcOnQuicErrors;
+    }
+}

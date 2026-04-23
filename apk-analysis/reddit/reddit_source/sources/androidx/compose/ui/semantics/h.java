@@ -1,0 +1,11 @@
+package androidx.compose.ui.semantics;
+
+import androidx.compose.ui.node.x1;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes.dex */
+public final class h extends androidx.compose.ui.r implements x1 {
+    @Override // androidx.compose.ui.node.x1
+    public final void l(c0 c0Var) {
+    }
+}

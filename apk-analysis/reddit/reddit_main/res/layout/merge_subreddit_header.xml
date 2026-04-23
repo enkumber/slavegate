@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.reddit.screen.RedditComposeView android:id="@id/subreddit_header_container" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_collapseMode="pin" />
+    <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="0.0dp" android:paddingEnd="0.0dp" app:contentInsetStart="0.0dp" app:layout_collapseMode="pin" app:layout_scrollFlags="scroll">
+        <com.reddit.screen.RedditComposeView android:id="@id/subreddit_toolbar_container" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </androidx.appcompat.widget.Toolbar>
+</merge>

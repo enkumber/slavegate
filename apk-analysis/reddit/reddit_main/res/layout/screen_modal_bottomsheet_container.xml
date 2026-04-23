@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.reddit.screen.dialog.ModalBackdropView android:id="@id/screen_modal_backdrop" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.reddit.ui.sheet.BottomSheetLayout android:theme="?bottomSheetDialogTheme" android:id="@id/screen_modal_bottomsheet_layout" android:layout_width="0.0dp" android:layout_height="0.0dp" android:elevation="?android:windowElevation" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:sheetBackground="?rdt_modal_bottomsheet_background_drawable">
+        <FrameLayout android:id="@id/screen_modal_container" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </com.reddit.ui.sheet.BottomSheetLayout>
+</com.reddit.screen.dialog.ModalBackdropView>

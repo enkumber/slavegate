@@ -1,0 +1,814 @@
+.class public final Lcom/reddit/postsubmit/tags/TagsSelectorScreen;
+.super Lcom/reddit/screen/ComposeBottomSheetScreen;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008\u0007\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u00a2\u0006\u0004\u0008\u0004\u0010\u0005\u00a8\u0006\u0008\u00b2\u0006\u000c\u0010\u0007\u001a\u00020\u00068\nX\u008a\u0084\u0002\u00b2\u0006\u000c\u0010\u0007\u001a\u00020\u00068\nX\u008a\u0084\u0002"
+    }
+    d2 = {
+        "Lcom/reddit/postsubmit/tags/TagsSelectorScreen;",
+        "Lcom/reddit/screen/ComposeBottomSheetScreen;",
+        "Landroid/os/Bundle;",
+        "args",
+        "<init>",
+        "(Landroid/os/Bundle;)V",
+        "Lcom/reddit/postsubmit/tags/j0;",
+        "viewState",
+        "postsubmit_impl"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x3,
+        0x0
+    }
+    xi = 0x32
+.end annotation
+
+.annotation build Lkotlin/jvm/internal/SourceDebugExtension;
+    value = {
+        "SMAP\nTagsSelectorScreen.kt\nKotlin\n*S Kotlin\n*F\n+ 1 TagsSelectorScreen.kt\ncom/reddit/postsubmit/tags/TagsSelectorScreen\n+ 2 Composer.kt\nandroidx/compose/runtime/ComposerKt\n+ 3 SnapshotState.kt\nandroidx/compose/runtime/SnapshotStateKt__SnapshotStateKt\n*L\n1#1,238:1\n1128#2,6:239\n1128#2,6:247\n85#3:245\n85#3:246\n*S KotlinDebug\n*F\n+ 1 TagsSelectorScreen.kt\ncom/reddit/postsubmit/tags/TagsSelectorScreen\n*L\n92#1:239,6\n114#1:247,6\n99#1:245\n112#1:246\n*E\n"
+    }
+.end annotation
+
+
+# instance fields
+.field public Q0:Lj13/v;
+
+.field public R0:Lcom/reddit/postsubmit/tags/TagsSelectorViewModel;
+
+.field public final S0:Z
+
+.field public final T0:Z
+
+.field public final U0:Lzl3/i;
+
+
+# direct methods
+.method public constructor <init>(Landroid/os/Bundle;)V
+    .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    .line 1
+    const-string v0, "args"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    invoke-direct {p0, p1}, Lcom/reddit/screen/ComposeBottomSheetScreen;-><init>(Landroid/os/Bundle;)V
+
+    .line 7
+    .line 8
+    .line 9
+    const/4 v0, 0x1
+
+    .line 10
+    iput-boolean v0, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->S0:Z
+
+    .line 11
+    .line 12
+    iput-boolean v0, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->T0:Z
+
+    .line 13
+    .line 14
+    new-instance v0, Lbw2/c;
+
+    .line 15
+    .line 16
+    const/16 v1, 0x1a
+
+    .line 17
+    .line 18
+    invoke-direct {v0, v1, p1}, Lbw2/c;-><init>(ILandroid/os/Bundle;)V
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-static {v0}, Lkotlin/a;->b(Lkotlin/jvm/functions/Function0;)Lzl3/i;
+
+    .line 22
+    .line 23
+    .line 24
+    move-result-object p1
+
+    .line 25
+    iput-object p1, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->U0:Lzl3/i;
+
+    .line 26
+    .line 27
+    return-void
+.end method
+
+
+# virtual methods
+.method public final B5(Lcom/reddit/ui/compose/ds/j1;Lcom/reddit/ui/compose/ds/i2;Landroidx/compose/runtime/m;I)V
+    .locals 6
+
+    .line 1
+    const-string v0, "<this>"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const-string v0, "sheetState"
+
+    .line 7
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    check-cast p3, Landroidx/compose/runtime/r;
+
+    .line 12
+    .line 13
+    const v0, -0x59de7a52
+
+    .line 14
+    .line 15
+    .line 16
+    invoke-virtual {p3, v0}, Landroidx/compose/runtime/r;->m0(I)Landroidx/compose/runtime/r;
+
+    .line 17
+    .line 18
+    .line 19
+    and-int/lit16 v0, p4, 0x180
+
+    .line 20
+    .line 21
+    const/16 v1, 0x80
+
+    .line 22
+    .line 23
+    if-nez v0, :cond_1
+
+    .line 24
+    .line 25
+    invoke-virtual {p3, p0}, Landroidx/compose/runtime/r;->h(Ljava/lang/Object;)Z
+
+    .line 26
+    .line 27
+    .line 28
+    move-result v0
+
+    .line 29
+    if-eqz v0, :cond_0
+
+    .line 30
+    .line 31
+    const/16 v0, 0x100
+
+    .line 32
+    .line 33
+    goto :goto_0
+
+    .line 34
+    :cond_0
+    move v0, v1
+
+    .line 35
+    :goto_0
+    or-int/2addr v0, p4
+
+    .line 36
+    goto :goto_1
+
+    .line 37
+    :cond_1
+    move v0, p4
+
+    .line 38
+    :goto_1
+    and-int/lit16 v2, v0, 0x81
+
+    .line 39
+    .line 40
+    const/4 v3, 0x1
+
+    .line 41
+    const/4 v4, 0x0
+
+    .line 42
+    if-eq v2, v1, :cond_2
+
+    .line 43
+    .line 44
+    move v1, v3
+
+    .line 45
+    goto :goto_2
+
+    .line 46
+    :cond_2
+    move v1, v4
+
+    .line 47
+    :goto_2
+    and-int/2addr v0, v3
+
+    .line 48
+    invoke-virtual {p3, v0, v1}, Landroidx/compose/runtime/r;->a0(IZ)Z
+
+    .line 49
+    .line 50
+    .line 51
+    move-result v0
+
+    .line 52
+    if-eqz v0, :cond_6
+
+    .line 53
+    .line 54
+    invoke-virtual {p0}, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->O5()Lcom/reddit/postsubmit/tags/TagsSelectorViewModel;
+
+    .line 55
+    .line 56
+    .line 57
+    move-result-object v0
+
+    .line 58
+    invoke-virtual {v0}, Lcom/reddit/screen/presentation/CompositionViewModel;->E()Lcom/reddit/screen/presentation/i;
+
+    .line 59
+    .line 60
+    .line 61
+    move-result-object v0
+
+    .line 62
+    iget-object v0, v0, Lcom/reddit/screen/presentation/i;->c:Lcom/reddit/screen/presentation/h;
+
+    .line 63
+    .line 64
+    invoke-virtual {v0}, Lcom/reddit/screen/presentation/h;->getValue()Ljava/lang/Object;
+
+    .line 65
+    .line 66
+    .line 67
+    move-result-object v0
+
+    .line 68
+    check-cast v0, Lcom/reddit/postsubmit/tags/j0;
+
+    .line 69
+    .line 70
+    invoke-virtual {p0}, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->O5()Lcom/reddit/postsubmit/tags/TagsSelectorViewModel;
+
+    .line 71
+    .line 72
+    .line 73
+    move-result-object v1
+
+    .line 74
+    const v2, 0x4c5de2
+
+    .line 75
+    .line 76
+    .line 77
+    invoke-virtual {p3, v2}, Landroidx/compose/runtime/r;->k0(I)V
+
+    .line 78
+    .line 79
+    .line 80
+    invoke-virtual {p3, v1}, Landroidx/compose/runtime/r;->h(Ljava/lang/Object;)Z
+
+    .line 81
+    .line 82
+    .line 83
+    move-result v2
+
+    .line 84
+    invoke-virtual {p3}, Landroidx/compose/runtime/r;->V()Ljava/lang/Object;
+
+    .line 85
+    .line 86
+    .line 87
+    move-result-object v3
+
+    .line 88
+    if-nez v2, :cond_3
+
+    .line 89
+    .line 90
+    sget-object v2, Landroidx/compose/runtime/l;->a:Landroidx/compose/runtime/g;
+
+    .line 91
+    .line 92
+    if-ne v3, v2, :cond_4
+
+    .line 93
+    .line 94
+    :cond_3
+    new-instance v3, Lcom/reddit/postsubmit/tags/TagsSelectorScreen$SheetContent$1$1;
+
+    .line 95
+    .line 96
+    invoke-direct {v3, v1}, Lcom/reddit/postsubmit/tags/TagsSelectorScreen$SheetContent$1$1;-><init>(Ljava/lang/Object;)V
+
+    .line 97
+    .line 98
+    .line 99
+    invoke-virtual {p3, v3}, Landroidx/compose/runtime/r;->v0(Ljava/lang/Object;)V
+
+    .line 100
+    .line 101
+    .line 102
+    :cond_4
+    check-cast v3, Ltm3/g;
+
+    .line 103
+    .line 104
+    invoke-virtual {p3, v4}, Landroidx/compose/runtime/r;->r(Z)V
+
+    .line 105
+    .line 106
+    .line 107
+    check-cast v3, Lkotlin/jvm/functions/Function1;
+
+    .line 108
+    .line 109
+    iget-object v1, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->Q0:Lj13/v;
+
+    .line 110
+    .line 111
+    if-eqz v1, :cond_5
+
+    .line 112
+    .line 113
+    goto :goto_3
+
+    .line 114
+    :cond_5
+    const-string v1, "richTextUtil"
+
+    .line 115
+    .line 116
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    .line 117
+    .line 118
+    .line 119
+    const/4 v1, 0x0
+
+    .line 120
+    :goto_3
+    invoke-static {v0, v3, v1, p3, v4}, Lcom/reddit/postsubmit/tags/y;->j(Lcom/reddit/postsubmit/tags/j0;Lkotlin/jvm/functions/Function1;Lj13/v;Landroidx/compose/runtime/m;I)V
+
+    .line 121
+    .line 122
+    .line 123
+    goto :goto_4
+
+    .line 124
+    :cond_6
+    invoke-virtual {p3}, Landroidx/compose/runtime/r;->d0()V
+
+    .line 125
+    .line 126
+    .line 127
+    :goto_4
+    invoke-virtual {p3}, Landroidx/compose/runtime/r;->v()Landroidx/compose/runtime/b2;
+
+    .line 128
+    .line 129
+    .line 130
+    move-result-object p3
+
+    .line 131
+    if-eqz p3, :cond_7
+
+    .line 132
+    .line 133
+    new-instance v0, Lcom/reddit/postdetail/refactor/ui/composables/components/s;
+
+    .line 134
+    .line 135
+    const/16 v5, 0x8
+
+    .line 136
+    .line 137
+    move-object v1, p0
+
+    .line 138
+    move-object v2, p1
+
+    .line 139
+    move-object v3, p2
+
+    .line 140
+    move v4, p4
+
+    .line 141
+    invoke-direct/range {v0 .. v5}, Lcom/reddit/postdetail/refactor/ui/composables/components/s;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;II)V
+
+    .line 142
+    .line 143
+    .line 144
+    iput-object v0, p3, Landroidx/compose/runtime/b2;->d:Lkotlin/jvm/functions/Function2;
+
+    .line 145
+    .line 146
+    :cond_7
+    return-void
+.end method
+
+.method public final G5()Z
+    .locals 0
+
+    .line 1
+    iget-boolean p0, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->T0:Z
+
+    .line 2
+    .line 3
+    return p0
+.end method
+
+.method public final I5()Z
+    .locals 0
+
+    .line 1
+    iget-boolean p0, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->S0:Z
+
+    .line 2
+    .line 3
+    return p0
+.end method
+
+.method public final L5(Lcom/reddit/ui/compose/ds/i2;Landroidx/compose/runtime/m;)Lkotlin/jvm/functions/Function2;
+    .locals 1
+
+    .line 1
+    const-string v0, "sheetState"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    check-cast p2, Landroidx/compose/runtime/r;
+
+    .line 7
+    .line 8
+    const p1, 0x6fbf4c3d
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {p2, p1}, Landroidx/compose/runtime/r;->k0(I)V
+
+    .line 12
+    .line 13
+    .line 14
+    new-instance p1, Lcom/reddit/postsubmit/tags/i0;
+
+    .line 15
+    .line 16
+    const/4 v0, 0x0
+
+    .line 17
+    invoke-direct {p1, p0, v0}, Lcom/reddit/postsubmit/tags/i0;-><init>(Lcom/reddit/postsubmit/tags/TagsSelectorScreen;I)V
+
+    .line 18
+    .line 19
+    .line 20
+    const p0, -0x568354a6
+
+    .line 21
+    .line 22
+    .line 23
+    invoke-static {p0, p1, p2}, Lp0/c;->e(ILzl3/f;Landroidx/compose/runtime/m;)Landroidx/compose/runtime/internal/a;
+
+    .line 24
+    .line 25
+    .line 26
+    move-result-object p0
+
+    .line 27
+    const/4 p1, 0x0
+
+    .line 28
+    invoke-virtual {p2, p1}, Landroidx/compose/runtime/r;->r(Z)V
+
+    .line 29
+    .line 30
+    .line 31
+    return-object p0
+.end method
+
+.method public final M5(Lcom/reddit/ui/compose/ds/i2;Landroidx/compose/runtime/m;I)Lkotlin/jvm/functions/Function2;
+    .locals 0
+
+    .line 1
+    const-string p3, "sheetState"
+
+    .line 2
+    .line 3
+    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    check-cast p2, Landroidx/compose/runtime/r;
+
+    .line 7
+    .line 8
+    const p1, 0x7d59aa59
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {p2, p1}, Landroidx/compose/runtime/r;->k0(I)V
+
+    .line 12
+    .line 13
+    .line 14
+    new-instance p1, Lcom/reddit/postsubmit/tags/i0;
+
+    .line 15
+    .line 16
+    const/4 p3, 0x1
+
+    .line 17
+    invoke-direct {p1, p0, p3}, Lcom/reddit/postsubmit/tags/i0;-><init>(Lcom/reddit/postsubmit/tags/TagsSelectorScreen;I)V
+
+    .line 18
+    .line 19
+    .line 20
+    const p0, -0x2a770424
+
+    .line 21
+    .line 22
+    .line 23
+    invoke-static {p0, p1, p2}, Lp0/c;->e(ILzl3/f;Landroidx/compose/runtime/m;)Landroidx/compose/runtime/internal/a;
+
+    .line 24
+    .line 25
+    .line 26
+    move-result-object p0
+
+    .line 27
+    const/4 p1, 0x0
+
+    .line 28
+    invoke-virtual {p2, p1}, Landroidx/compose/runtime/r;->r(Z)V
+
+    .line 29
+    .line 30
+    .line 31
+    return-object p0
+.end method
+
+.method public final O5()Lcom/reddit/postsubmit/tags/TagsSelectorViewModel;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->R0:Lcom/reddit/postsubmit/tags/TagsSelectorViewModel;
+
+    .line 2
+    .line 3
+    if-eqz p0, :cond_0
+
+    .line 4
+    .line 5
+    return-object p0
+
+    .line 6
+    :cond_0
+    const-string p0, "viewModel"
+
+    .line 7
+    .line 8
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    const/4 p0, 0x0
+
+    .line 12
+    return-object p0
+.end method
+
+.method public final P0()Lao/s;
+    .locals 20
+
+    .line 1
+    invoke-super/range {p0 .. p0}, Lcom/reddit/screen/screenevent/AnalyticsTrackableScreen;->P0()Lao/s;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v1
+
+    .line 5
+    move-object/from16 v0, p0
+
+    .line 6
+    .line 7
+    iget-object v0, v0, Lcom/reddit/postsubmit/tags/TagsSelectorScreen;->U0:Lzl3/i;
+
+    .line 8
+    .line 9
+    invoke-interface {v0}, Lzl3/i;->getValue()Ljava/lang/Object;
+
+    .line 10
+    .line 11
+    .line 12
+    move-result-object v0
+
+    .line 13
+    move-object v9, v0
+
+    .line 14
+    check-cast v9, Ljava/lang/String;
+
+    .line 15
+    .line 16
+    const/16 v18, 0x0
+
+    .line 17
+    .line 18
+    const v19, 0x1ffeff
+
+    .line 19
+    .line 20
+    .line 21
+    const/4 v2, 0x0
+
+    .line 22
+    const/4 v3, 0x0
+
+    .line 23
+    const/4 v4, 0x0
+
+    .line 24
+    const/4 v5, 0x0
+
+    .line 25
+    const/4 v6, 0x0
+
+    .line 26
+    const/4 v7, 0x0
+
+    .line 27
+    const/4 v8, 0x0
+
+    .line 28
+    const/4 v10, 0x0
+
+    .line 29
+    const/4 v11, 0x0
+
+    .line 30
+    const/4 v12, 0x0
+
+    .line 31
+    const/4 v13, 0x0
+
+    .line 32
+    const/4 v14, 0x0
+
+    .line 33
+    const/4 v15, 0x0
+
+    .line 34
+    const/16 v16, 0x0
+
+    .line 35
+    .line 36
+    const/16 v17, 0x0
+
+    .line 37
+    .line 38
+    invoke-static/range {v1 .. v19}, Lao/s;->a(Lao/s;Lao/a;Lao/f;Lao/q;Lnn/a;Lao/b;Lao/r;Lao/p;Ljava/lang/String;Lao/h;Ljava/lang/String;Lao/n;Lao/l;Lao/g;Lao/k;Lao/i;Lao/j;Lao/m;I)Lao/s;
+
+    .line 39
+    .line 40
+    .line 41
+    move-result-object v0
+
+    .line 42
+    return-object v0
+.end method
+
+.method public final u5()V
+    .locals 5
+
+    .line 1
+    invoke-super {p0}, Lcom/reddit/screen/ComposeBottomSheetScreen;->u5()V
+
+    .line 2
+    .line 3
+    .line 4
+    new-instance v0, Lcom/reddit/postsubmit/tags/h0;
+
+    .line 5
+    .line 6
+    const/4 v1, 0x0
+
+    .line 7
+    invoke-direct {v0, p0, v1}, Lcom/reddit/postsubmit/tags/h0;-><init>(Lcom/reddit/postsubmit/tags/TagsSelectorScreen;I)V
+
+    .line 8
+    .line 9
+    .line 10
+    const-string v1, "<this>"
+
+    .line 11
+    .line 12
+    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 13
+    .line 14
+    .line 15
+    const-string v1, "factory"
+
+    .line 16
+    .line 17
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 18
+    .line 19
+    .line 20
+    sget-object v1, Lec1/a;->a:Lec1/a;
+
+    .line 21
+    .line 22
+    sget-object v2, Lcom/reddit/di/metrics/GraphMetric;->Injection:Lcom/reddit/di/metrics/GraphMetric;
+
+    .line 23
+    .line 24
+    new-instance v3, Lcom/reddit/postsubmit/tags/k;
+
+    .line 25
+    .line 26
+    const/4 v4, 0x3
+
+    .line 27
+    invoke-direct {v3, v4, v0, p0}, Lcom/reddit/postsubmit/tags/k;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    .line 28
+    .line 29
+    .line 30
+    const-string p0, "TagsSelectorScreen"
+
+    .line 31
+    .line 32
+    invoke-virtual {v1, v2, p0, v3}, Lec1/a;->b(Lcom/reddit/di/metrics/GraphMetric;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+
+    .line 33
+    .line 34
+    .line 35
+    move-result-object p0
+
+    .line 36
+    check-cast p0, Lac1/j;
+
+    .line 37
+    .line 38
+    return-void
+.end method
+
+.method public final x0()Lgo/a;
+    .locals 1
+
+    .line 1
+    new-instance p0, Lgo/d;
+
+    .line 2
+    .line 3
+    sget-object v0, Lcom/reddit/postsubmit/analytics/PageTypes;->POST_FLAIR_PICKER:Lcom/reddit/postsubmit/analytics/PageTypes;
+
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Lcom/reddit/postsubmit/analytics/PageTypes;->getValue()Ljava/lang/String;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-direct {p0, v0}, Lgo/d;-><init>(Ljava/lang/String;)V
+
+    .line 10
+    .line 11
+    .line 12
+    return-object p0
+.end method

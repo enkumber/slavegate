@@ -1,0 +1,28 @@
+package com.apollographql.apollo.network.ws;
+
+import kotlin.Metadata;
+import kotlin.coroutines.jvm.internal.ContinuationImpl;
+import kotlin.jvm.internal.IntCompanionObject;
+
+@em3.c(c = "com.apollographql.apollo.network.ws.WebSocketNetworkTransport$execute$$inlined$map$1$2", f = "WebSocketNetworkTransport.kt", l = {50}, m = "emit")
+@Metadata(k = 3, mv = {2, 0, 0}, xi = 48)
+/* loaded from: classes.dex */
+public final class WebSocketNetworkTransport$execute$$inlined$map$1$2$1 extends ContinuationImpl {
+    Object L$0;
+    int label;
+    /* synthetic */ Object result;
+    final /* synthetic */ k this$0;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public WebSocketNetworkTransport$execute$$inlined$map$1$2$1(k kVar, dm3.a aVar) {
+        super(aVar);
+        this.this$0 = kVar;
+    }
+
+    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
+    public final Object invokeSuspend(Object obj) {
+        this.result = obj;
+        this.label |= IntCompanionObject.MIN_VALUE;
+        return this.this$0.emit(null, this);
+    }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/linearLayout" android:background="?selectableItemBackground" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/bottomsheet_header_height" android:paddingStart="@dimen/double_pad" android:paddingEnd="@dimen/double_pad"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/start_container" android:layout_width="0.0dp" android:layout_height="wrap_content" android:paddingEnd="@dimen/single_pad" app:layout_constraintBottom_toBottomOf="@id/select_option_bottomsheet_item_title" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@id/select_option_bottomsheet_item_title">
+        <ImageView android:id="@id/select_option_bottomsheet_item_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" app:tint="?rdt_icon_color_selector" />
+        <RadioButton android:id="@id/select_option_bottomsheet_radio_button" android:padding="0.0dp" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="40.0dp" />
+    </RelativeLayout>
+    <TextView android:textAppearance="?textAppearanceRedditBodyH3" android:textColor="?rdt_ds_color_tone1" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/select_option_bottomsheet_item_title" android:layout_width="0.0dp" android:layout_height="wrap_content" android:drawablePadding="@dimen/single_half_pad" app:layout_constrainedWidth="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintStart_toEndOf="@id/start_container" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

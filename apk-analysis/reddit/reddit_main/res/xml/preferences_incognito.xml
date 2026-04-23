@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.reddit.screen.settings.preferences.PreferenceCategoryWithDescription android:title="@string/label_view_options" android:key="@string/key_pref_view_options">
+        <SwitchPreferenceCompat android:icon="@drawable/icon_user" android:title="@string/label_over18" android:key="@string/key_pref_over18" app:singleLineTitle="false" />
+        <SwitchPreferenceCompat android:icon="@drawable/icon_nsfw" android:title="@string/label_blur_nsfw_images" android:key="@string/key_pref_blur_nsfw" android:dependency="@string/key_pref_over18" app:singleLineTitle="false" />
+    </com.reddit.screen.settings.preferences.PreferenceCategoryWithDescription>
+    <PreferenceCategory android:title="@string/data_saver_settings_section_title" android:key="@string/key_pref_data_usage_category" app:isPreferenceVisible="false">
+        <Preference android:icon="@drawable/icon_warning" android:title="@string/data_saver_title" android:key="@string/key_pref_data_saver" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/accessibility_settings_section_title" android:key="@string/key_pref_accessibility_category">
+        <Preference android:icon="@drawable/icon_text_size" android:title="@string/font_size_setting_title" android:key="@string/key_pref_font_size" />
+        <Preference android:icon="@drawable/icon_video_thread" android:title="@string/media_and_animations_setting_title" android:key="@string/key_pref_media_and_animations" />
+        <com.reddit.screen.settings.preferences.PreferenceWithNewBadge android:icon="@drawable/icon_screen_reader" android:title="@string/screen_reader_customization_setting_title" android:key="@string/key_pref_screen_reader_customization" app:isPreferenceVisible="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/label_about">
+        <Preference android:icon="@drawable/icon_text_post" android:title="@string/label_content_policy" android:key="@string/key_pref_content_policy" />
+        <Preference android:icon="@drawable/icon_settings" android:title="@string/label_privacy_policy" android:key="@string/key_pref_privacy_policy" />
+        <Preference android:icon="@drawable/icon_user" android:title="@string/label_user_agreement" android:key="@string/key_pref_user_agreement" />
+        <Preference android:icon="@drawable/icon_text_post" android:title="@string/label_acknowledgements" android:key="@string/key_pref_acknowledgements" />
+        <Preference android:icon="@drawable/icon_help" android:title="@string/label_impressum" android:key="@string/key_impressum" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/label_support">
+        <Preference android:icon="@drawable/icon_help" android:title="@string/label_help_center" android:key="@string/key_pref_help_center" />
+        <Preference android:icon="@drawable/icon_admin" android:title="@string/label_visit_bugs_subreddit" android:key="@string/key_pref_bugs_subreddit" />
+        <Preference android:icon="@drawable/icon_message" android:title="@string/title_submit_bug" android:key="@string/key_pref_submit_bug" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_employee_only" android:key="@string/key_pref_employee_only_category" app:isPreferenceVisible="false">
+        <Preference android:title="@string/title_send_test_crash" android:key="@string/key_pref_send_test_crash" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_build_info" android:key="@string/key_pref_build_info_category">
+        <Preference android:title="Build version" android:key="@string/key_pref_build_version" />
+    </PreferenceCategory>
+</PreferenceScreen>

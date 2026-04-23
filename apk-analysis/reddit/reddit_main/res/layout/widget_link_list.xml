@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.percentlayout.widget.PercentFrameLayout android:id="@id/content_container" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@id/refresh_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/link_list" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" style="@style/Widget.RedditBase.RecyclerView" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <ViewStub android:layout_gravity="center_horizontal" android:id="@id/refresh_pill_stub" android:layout="@layout/refresh_pill" android:inflatedId="@id/refresh_pill" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ViewStub android:layout_gravity="center_horizontal" android:id="@id/new_content_pill_stub" android:layout="@layout/new_content_pill" android:inflatedId="@id/new_content_pill" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_marginTopPercent="1.9999981%" />
+    <View android:layout_gravity="center_horizontal" android:id="@id/progress_bar" android:layout_width="@dimen/progress_bar_width" android:layout_height="@dimen/progress_bar_width" app:layout_marginTopPercent="39.999996%" />
+    <com.reddit.screen.RedditComposeView android:layout_gravity="center_horizontal" android:id="@id/page_loader_compose_view" android:layout_width="@dimen/progress_bar_width_v2" android:layout_height="@dimen/progress_bar_width_v2" app:layout_marginTopPercent="39.999996%" />
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:id="@id/empty_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_marginBottomPercent="10.000002%">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/header_empty" />
+        <TextView android:textAppearance="?textAppearanceRedditMeta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" android:text="@string/label_empty" />
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView android:id="@id/error_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/widget_listing_error" />
+    </androidx.core.widget.NestedScrollView>
+</androidx.percentlayout.widget.PercentFrameLayout>

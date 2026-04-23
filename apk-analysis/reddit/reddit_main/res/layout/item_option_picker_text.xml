@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textAppearance="?textAppearanceRedditBodyH3" android:textSize="16.0sp" android:textColor="?rdt_ds_color_tone1" android:gravity="center" android:id="@id/picker_select_option_text" android:background="@drawable/pick_selection_background_ripple" android:layout_width="match_parent" android:layout_height="@dimen/quint_pad"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

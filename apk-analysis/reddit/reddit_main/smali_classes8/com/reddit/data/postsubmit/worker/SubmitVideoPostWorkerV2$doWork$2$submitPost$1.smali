@@ -1,0 +1,128 @@
+.class final Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2$doWork$2$submitPost$1;
+.super Lkotlin/coroutines/jvm/internal/ContinuationImpl;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# annotations
+.annotation runtime Lem3/c;
+    c = "com.reddit.data.postsubmit.worker.SubmitVideoPostWorkerV2$doWork$2"
+    f = "SubmitVideoPostWorkerV2.kt"
+    l = {
+        0x122,
+        0x82
+    }
+    m = "invokeSuspend$submitPost"
+    v = 0x2
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x2,
+        0x3,
+        0x0
+    }
+    xi = 0x32
+.end annotation
+
+
+# instance fields
+.field I$0:I
+
+.field I$1:I
+
+.field L$0:Ljava/lang/Object;
+
+.field L$1:Ljava/lang/Object;
+
+.field L$2:Ljava/lang/Object;
+
+.field L$3:Ljava/lang/Object;
+
+.field L$4:Ljava/lang/Object;
+
+.field L$5:Ljava/lang/Object;
+
+.field label:I
+
+.field synthetic result:Ljava/lang/Object;
+
+
+# direct methods
+.method public constructor <init>(Ldm3/a;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ldm3/a<",
+            "-",
+            "Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2$doWork$2$submitPost$1;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0, p1}, Lkotlin/coroutines/jvm/internal/ContinuationImpl;-><init>(Ldm3/a;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 7
+
+    .line 1
+    iput-object p1, p0, Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2$doWork$2$submitPost$1;->result:Ljava/lang/Object;
+
+    .line 2
+    .line 3
+    iget p1, p0, Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2$doWork$2$submitPost$1;->label:I
+
+    .line 4
+    .line 5
+    const/high16 v0, -0x80000000
+
+    .line 6
+    .line 7
+    or-int/2addr p1, v0
+
+    .line 8
+    iput p1, p0, Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2$doWork$2$submitPost$1;->label:I
+
+    .line 9
+    .line 10
+    const/4 v4, 0x0
+
+    .line 11
+    const/4 v5, 0x0
+
+    .line 12
+    const/4 v0, 0x0
+
+    .line 13
+    const/4 v1, 0x0
+
+    .line 14
+    const/4 v2, 0x0
+
+    .line 15
+    const/4 v3, 0x0
+
+    .line 16
+    move-object v6, p0
+
+    .line 17
+    invoke-static/range {v0 .. v6}, Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2$doWork$2;->access$invokeSuspend$submitPost(Lcom/reddit/data/postsubmit/worker/SubmitVideoPostWorkerV2;Lcom/reddit/domain/usecase/submit/y;Lcom/reddit/domain/usecase/submit/u;Ljava/lang/String;Ljava/lang/String;ILdm3/a;)Ljava/lang/Object;
+
+    .line 18
+    .line 19
+    .line 20
+    move-result-object p0
+
+    .line 21
+    return-object p0
+.end method

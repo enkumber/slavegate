@@ -1,0 +1,102 @@
+.class public final Lqg3/j;
+.super Lqg3/o;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# static fields
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/Parcelable$Creator<",
+            "Lqg3/j;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final e:Lqg3/j;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    .line 1
+    new-instance v0, Lqg3/j;
+
+    .line 2
+    .line 3
+    const/4 v1, 0x4
+
+    .line 4
+    const v2, 0x7f08056a
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-direct {v0, v1, v2}, Lqg3/o;-><init>(II)V
+
+    .line 8
+    .line 9
+    .line 10
+    sput-object v0, Lqg3/j;->e:Lqg3/j;
+
+    .line 11
+    .line 12
+    new-instance v0, Lqg3/h;
+
+    .line 13
+    .line 14
+    const/4 v1, 0x1
+
+    .line 15
+    invoke-direct {v0, v1}, Lqg3/h;-><init>(I)V
+
+    .line 16
+    .line 17
+    .line 18
+    sput-object v0, Lqg3/j;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    .line 19
+    .line 20
+    return-void
+.end method
+
+
+# virtual methods
+.method public final describeContents()I
+    .locals 0
+
+    .line 1
+    const/4 p0, 0x0
+
+    .line 2
+    return p0
+.end method
+
+.method public final writeToParcel(Landroid/os/Parcel;I)V
+    .locals 0
+
+    .line 1
+    const-string p0, "dest"
+
+    .line 2
+    .line 3
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const/4 p0, 0x1
+
+    .line 7
+    invoke-virtual {p1, p0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 8
+    .line 9
+    .line 10
+    return-void
+.end method

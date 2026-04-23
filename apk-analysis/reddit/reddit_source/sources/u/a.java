@@ -1,0 +1,16 @@
+package u;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes.dex */
+public final class a extends b {
+
+    /* renamed from: a, reason: collision with root package name */
+    public final t.d f142553a;
+
+    /* renamed from: b, reason: collision with root package name */
+    public final com.reddit.presence.delegate.a f142554b = new com.reddit.presence.delegate.a(this);
+
+    public a(t.d dVar) {
+        this.f142553a = dVar;
+    }
+}

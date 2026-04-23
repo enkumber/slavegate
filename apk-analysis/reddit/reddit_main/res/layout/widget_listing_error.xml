@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="52.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/error_image" android:layout_width="@dimen/retry_icon_size" android:layout_height="@dimen/retry_icon_size" android:src="@drawable/icon_refresh_fill" android:contentDescription="@string/listing_load_error_image_description" app:tint="?rdt_ds_color_tone2" />
+    <TextView android:textAppearance="?textAppearanceRedditDisplayH2" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/error_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_half_pad" android:text="@string/listing_load_error_title" />
+    <TextView android:textAppearance="?textAppearanceRedditMeta" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/error_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" android:text="@string/listing_load_error_message" />
+    <com.reddit.ui.button.RedditButton android:layout_gravity="center_horizontal" android:id="@id/retry_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_half_pad" android:text="@string/action_retry" app:rdtButtonSize="small" />
+</LinearLayout>

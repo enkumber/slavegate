@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/preference_header" />
+    <TextView android:textAppearance="?textAppearanceRedditBody" android:textColor="?rdt_meta_text_color" android:id="@id/description" android:background="?rdt_body_color" android:paddingTop="@dimen/single_half_pad" android:paddingBottom="@dimen/single_pad" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/double_pad" />
+</LinearLayout>

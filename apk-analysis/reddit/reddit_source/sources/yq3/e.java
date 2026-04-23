@@ -1,0 +1,80 @@
+package yq3;
+
+/* loaded from: classes13.dex */
+public interface e {
+    public static final uq3.e G;
+    public static final uq3.e H;
+    public static final uq3.e I;
+    public static final uq3.e J;
+    public static final uq3.e K;
+    public static final uq3.e L;
+
+    static {
+        uq3.e eVar = new uq3.e("1.2.840.10045");
+        uq3.e eVar2 = new uq3.e("1", eVar);
+        G = new uq3.e("1", eVar2);
+        uq3.e eVar3 = new uq3.e("2", eVar2);
+        H = eVar3;
+        new uq3.e("3.1", eVar3);
+        I = new uq3.e("3.2", eVar3);
+        J = new uq3.e("3.3", eVar3);
+        uq3.e eVar4 = new uq3.e("4", eVar);
+        new uq3.e("1", eVar4);
+        new uq3.e("1", new uq3.e("2", eVar));
+        uq3.e eVar5 = new uq3.e("3", eVar4);
+        new uq3.e("1", eVar5);
+        new uq3.e("2", eVar5);
+        new uq3.e("3", eVar5);
+        new uq3.e("4", eVar5);
+        uq3.e eVar6 = new uq3.e("3", eVar);
+        uq3.e eVar7 = new uq3.e("0", eVar6);
+        new uq3.e("1", eVar7);
+        new uq3.e("2", eVar7);
+        new uq3.e("3", eVar7);
+        new uq3.e("4", eVar7);
+        new uq3.e("5", eVar7);
+        new uq3.e("6", eVar7);
+        new uq3.e("7", eVar7);
+        new uq3.e("8", eVar7);
+        new uq3.e("9", eVar7);
+        new uq3.e("10", eVar7);
+        new uq3.e("11", eVar7);
+        new uq3.e("12", eVar7);
+        new uq3.e("13", eVar7);
+        new uq3.e("14", eVar7);
+        new uq3.e("15", eVar7);
+        new uq3.e("16", eVar7);
+        new uq3.e("17", eVar7);
+        new uq3.e("18", eVar7);
+        new uq3.e("19", eVar7);
+        new uq3.e("20", eVar7);
+        uq3.e eVar8 = new uq3.e("1", eVar6);
+        K = new uq3.e("1", eVar8);
+        new uq3.e("2", eVar8);
+        new uq3.e("3", eVar8);
+        new uq3.e("4", eVar8);
+        new uq3.e("5", eVar8);
+        new uq3.e("6", eVar8);
+        L = new uq3.e("7", eVar8);
+        new uq3.e("1.2.840.10040.4.1");
+        new uq3.e("1.2.840.10040.4.3");
+        uq3.e eVar9 = new uq3.e("1.3.133.16.840.63.0");
+        new uq3.e("2", eVar9);
+        new uq3.e("3", eVar9);
+        new uq3.e("16", eVar9);
+        uq3.e eVar10 = new uq3.e("1.2.840.10046");
+        new uq3.e("2.1", eVar10);
+        uq3.e eVar11 = new uq3.e("3", eVar10);
+        new uq3.e("1", eVar11);
+        new uq3.e("2", eVar11);
+        new uq3.e("3", eVar11);
+        new uq3.e("4", eVar11);
+        new uq3.e("5", eVar11);
+        new uq3.e("6", eVar11);
+        new uq3.e("7", eVar11);
+        new uq3.e("8", eVar11);
+        uq3.e eVar12 = new uq3.e("1", new uq3.e("1.3.133.16.840.9.44"));
+        new uq3.e("1", eVar12);
+        new uq3.e("2", eVar12);
+    }
+}

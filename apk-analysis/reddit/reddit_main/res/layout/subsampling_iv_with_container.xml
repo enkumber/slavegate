@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.reddit.fullbleedplayer.views.FrameLayoutInterceptive android:id="@id/container" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.reddit.ui.image.SizeChangeResettingSubsamplingScaleImageView android:id="@id/imageView" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/lottieLoader" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="4.0dp" android:outlineProvider="none" app:lottie_autoPlay="true" app:lottie_rawRes="@raw/video_loading" app:lottie_repeatCount="-1" />
+</com.reddit.fullbleedplayer.views.FrameLayoutInterceptive>

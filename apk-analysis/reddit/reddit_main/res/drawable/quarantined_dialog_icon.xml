@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="fill" android:height="64.0dp" android:width="64.0dp" android:drawable="@drawable/circle_quarantined" />
+    <item android:gravity="center" android:height="36.0dp" android:width="34.0dp" android:drawable="@drawable/ic_icon_quarantined_alert" />
+</layer-list>

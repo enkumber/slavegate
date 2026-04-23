@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button android:id="@id/menu_item_button" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/action_save" style="?borderlessColoredButtonStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,31 @@
+.class public final Lpz1/b;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# instance fields
+.field public final synthetic a:Lcom/apollographql/apollo/d;
+
+.field public final synthetic b:Lcom/reddit/common/coroutines/a;
+
+
+# direct methods
+.method public constructor <init>(Lcom/apollographql/apollo/d;Lcom/reddit/common/coroutines/a;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Lpz1/b;->a:Lcom/apollographql/apollo/d;
+
+    .line 5
+    .line 6
+    iput-object p2, p0, Lpz1/b;->b:Lcom/reddit/common/coroutines/a;
+
+    .line 7
+    .line 8
+    return-void
+.end method

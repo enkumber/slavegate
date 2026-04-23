@@ -1,0 +1,42 @@
+// RmCtrl System Service — Custom ROM service for remote control
+// Placed in: frameworks/base/services/rmctrl/
+// Build: included via frameworks/base/services/Android.bp
+
+java_library_static {
+    name: "services.rmctrl",
+    srcs: [
+        "java/**/*.java",
+    ],
+    libs: [
+        "framework",
+        "services.core",
+        "services.accessibility",
+    ],
+    platform_apis: true,
+    installable: false,
+}
+
+// Native helper daemon — exposes Unix socket to our app
+cc_binary {
+    name: "rmctrld",
+    srcs: [
+        "native/rmctrld.cpp",
+        "native/ScreenCapture.cpp",
+        "native/A11yQuery.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libcutils",
+        "libgui",
+        "liblog",
+        "libui",
+        "libutils",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+    ],
+    init_rc: ["native/rmctrld.rc"],
+    system_ext_specific: true,
+}

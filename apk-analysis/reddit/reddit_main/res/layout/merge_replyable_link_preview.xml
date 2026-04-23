@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?textAppearanceRedditBody" android:id="@id/reply_target_text" android:padding="@dimen/double_pad" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:textIsSelectable="true" />
+        <ImageButton android:id="@id/reply_target_expand" android:background="?selectableItemBackgroundBorderless" android:layout_width="@dimen/post_reply_op_preview_button_width" android:layout_height="match_parent" android:src="@drawable/icon_arrow_down" android:tint="?rdt_action_icon_color" android:contentDescription="@string/action_show_original_post" android:tooltipText="@string/action_show_original_post" />
+    </LinearLayout>
+</merge>

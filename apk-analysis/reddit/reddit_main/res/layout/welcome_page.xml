@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.reddit.screen.RedditComposeView android:id="@id/welcome_page_view" android:background="?rdt_body_color" android:paddingBottom="@dimen/single_pad" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

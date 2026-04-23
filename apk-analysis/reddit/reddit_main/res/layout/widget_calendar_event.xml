@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.reddit.basehtmltextview.BaseHtmlTextView android:textAppearance="?textAppearanceRedditBody" android:id="@id/event_title" android:paddingTop="@dimen/single_half_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/triple_pad" />
+    <TextView android:textAppearance="?textAppearanceRedditBodySmall" android:id="@id/event_date_and_time" android:paddingTop="@dimen/half_pad" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/triple_pad" />
+    <TextView android:textAppearance="?textAppearanceRedditBodySmall" android:id="@id/event_description" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/triple_pad" />
+    <View android:id="@id/event_divider" android:background="?rdt_line_color" android:layout_width="match_parent" android:layout_height="@null" android:layout_marginTop="@dimen/single_half_pad" android:layout_marginHorizontal="@dimen/triple_pad" />
+</LinearLayout>

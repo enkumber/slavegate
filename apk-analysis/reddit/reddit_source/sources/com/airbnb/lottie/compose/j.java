@@ -1,0 +1,9 @@
+package com.airbnb.lottie.compose;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes.dex */
+public abstract class j {
+    public abstract float a(s8.h hVar);
+
+    public abstract float b(s8.h hVar);
+}

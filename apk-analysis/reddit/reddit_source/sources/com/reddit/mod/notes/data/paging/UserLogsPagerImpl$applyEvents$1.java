@@ -1,0 +1,51 @@
+package com.reddit.mod.notes.data.paging;
+
+import com.reddit.mod.notes.screen.log.g;
+import com.reddit.mod.notes.screen.log.h;
+import em3.c;
+import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.coroutines.intrinsics.CoroutineSingletons;
+import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
+import qb2.l;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+@c(c = "com.reddit.mod.notes.data.paging.UserLogsPagerImpl$applyEvents$1", f = "UserLogsPagerImpl.kt", l = {}, m = "invokeSuspend", v = 2)
+@Metadata(d1 = {"\u0000\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u0000H\n¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"Lqb2/l;", "it", "", "<anonymous>", "(Lqb2/l;)Z"}, k = 3, mv = {2, 3, 0})
+/* loaded from: classes9.dex */
+final class UserLogsPagerImpl$applyEvents$1 extends SuspendLambda implements Function2<l, dm3.a<? super Boolean>, Object> {
+    final /* synthetic */ h $event;
+    /* synthetic */ Object L$0;
+    int label;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public UserLogsPagerImpl$applyEvents$1(h hVar, dm3.a<? super UserLogsPagerImpl$applyEvents$1> aVar) {
+        super(2, aVar);
+        this.$event = hVar;
+    }
+
+    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
+    public final dm3.a<Unit> create(Object obj, dm3.a<?> aVar) {
+        UserLogsPagerImpl$applyEvents$1 userLogsPagerImpl$applyEvents$1 = new UserLogsPagerImpl$applyEvents$1(this.$event, aVar);
+        userLogsPagerImpl$applyEvents$1.L$0 = obj;
+        return userLogsPagerImpl$applyEvents$1;
+    }
+
+    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
+    public final Object invokeSuspend(Object obj) {
+        l lVar = (l) this.L$0;
+        CoroutineSingletons coroutineSingletons = CoroutineSingletons.COROUTINE_SUSPENDED;
+        if (this.label == 0) {
+            kotlin.b.b(obj);
+            return Boolean.valueOf(!Intrinsics.areEqual(((g) this.$event).f55420a, lVar.f133224a));
+        }
+        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+    }
+
+    @Override // kotlin.jvm.functions.Function2
+    public final Object invoke(l lVar, dm3.a<? super Boolean> aVar) {
+        return ((UserLogsPagerImpl$applyEvents$1) create(lVar, aVar)).invokeSuspend(Unit.f104956a);
+    }
+}

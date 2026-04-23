@@ -1,0 +1,11 @@
+package qk1;
+
+import p82.f;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes8.dex */
+public final class a extends ak1.a {
+    public a() {
+        super(0, new f(28));
+    }
+}

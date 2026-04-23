@@ -1,0 +1,247 @@
+.class public final Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Lcom/reddit/feeds/ui/actions/g;
+
+
+# instance fields
+.field public final a:Lkotlinx/coroutines/b0;
+
+.field public final b:Lcom/reddit/common/coroutines/a;
+
+.field public final c:Lcom/reddit/uxtargetingservice/e;
+
+.field public final d:Lcom/reddit/screen/o0;
+
+.field public final e:Lkk1/i;
+
+.field public final f:Lcom/reddit/feeds/ui/actions/h;
+
+.field public final g:Lgn2/c;
+
+.field public final i:Lgo/a;
+
+.field public final r:Ltm3/d;
+
+
+# direct methods
+.method public constructor <init>(Lkotlinx/coroutines/b0;Lcom/reddit/common/coroutines/a;Lcom/reddit/uxtargetingservice/e;Lcom/reddit/screen/o0;Lkk1/i;Lcom/reddit/feeds/ui/actions/h;Lgn2/c;Lgo/a;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "coroutineScope"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const-string v0, "dispatcherProvider"
+
+    .line 7
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    const-string v0, "uxTargetingServiceUseCase"
+
+    .line 12
+    .line 13
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 14
+    .line 15
+    .line 16
+    const-string v0, "toaster"
+
+    .line 17
+    .line 18
+    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 19
+    .line 20
+    .line 21
+    const-string v0, "feedPager"
+
+    .line 22
+    .line 23
+    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 24
+    .line 25
+    .line 26
+    const-string v0, "performIfLoggedInCondition"
+
+    .line 27
+    .line 28
+    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 29
+    .line 30
+    .line 31
+    const-string v0, "communityRecommendationAnalytics"
+
+    .line 32
+    .line 33
+    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 34
+    .line 35
+    .line 36
+    const-string v0, "analyticsScreenData"
+
+    .line 37
+    .line 38
+    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 39
+    .line 40
+    .line 41
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 42
+    .line 43
+    .line 44
+    iput-object p1, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->a:Lkotlinx/coroutines/b0;
+
+    .line 45
+    .line 46
+    iput-object p2, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->b:Lcom/reddit/common/coroutines/a;
+
+    .line 47
+    .line 48
+    iput-object p3, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->c:Lcom/reddit/uxtargetingservice/e;
+
+    .line 49
+    .line 50
+    iput-object p4, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->d:Lcom/reddit/screen/o0;
+
+    .line 51
+    .line 52
+    iput-object p5, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->e:Lkk1/i;
+
+    .line 53
+    .line 54
+    iput-object p6, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->f:Lcom/reddit/feeds/ui/actions/h;
+
+    .line 55
+    .line 56
+    iput-object p7, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->g:Lgn2/c;
+
+    .line 57
+    .line 58
+    iput-object p8, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->i:Lgo/a;
+
+    .line 59
+    .line 60
+    const-class p1, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/events/CustomPostHidden;
+
+    .line 61
+    .line 62
+    invoke-static {p1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Ltm3/d;
+
+    .line 63
+    .line 64
+    .line 65
+    move-result-object p1
+
+    .line 66
+    iput-object p1, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->r:Ltm3/d;
+
+    .line 67
+    .line 68
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Lsn1/a;Lcom/reddit/feeds/ui/actions/f;Lkotlin/coroutines/jvm/internal/SuspendLambda;)Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    check-cast p1, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/events/CustomPostHidden;
+
+    .line 2
+    .line 3
+    new-instance p2, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/CustomPostHiddenEventHandler$handleEvent$2;
+
+    .line 4
+    .line 5
+    const/4 v0, 0x0
+
+    .line 6
+    invoke-direct {p2, p0, p1, v0}, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/CustomPostHiddenEventHandler$handleEvent$2;-><init>(Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/events/CustomPostHidden;Ldm3/a;)V
+
+    .line 7
+    .line 8
+    .line 9
+    iget-object p0, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->f:Lcom/reddit/feeds/ui/actions/h;
+
+    .line 10
+    .line 11
+    check-cast p0, Lcom/reddit/feeds/impl/ui/actions/w1;
+
+    .line 12
+    .line 13
+    invoke-virtual {p0, p2, p3}, Lcom/reddit/feeds/impl/ui/actions/w1;->d(Lkotlin/jvm/functions/Function1;Ldm3/a;)Ljava/lang/Object;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object p0
+
+    .line 17
+    sget-object p1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->COROUTINE_SUSPENDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+
+    .line 18
+    .line 19
+    if-ne p0, p1, :cond_0
+
+    .line 20
+    .line 21
+    return-object p0
+
+    .line 22
+    :cond_0
+    sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    .line 23
+    .line 24
+    return-object p0
+.end method
+
+.method public final b(Lsn1/a;Lcom/reddit/feeds/ui/actions/f;Ldm3/a;)Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    check-cast p1, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/events/CustomPostHidden;
+
+    .line 2
+    .line 3
+    invoke-static {p0, p1, p2, p3}, Lcom/reddit/feeds/ui/actions/g;->c(Lcom/reddit/feeds/ui/actions/g;Lsn1/a;Lcom/reddit/feeds/ui/actions/f;Ldm3/a;)Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    return-object p0
+.end method
+
+.method public final getHandledEventType()Ltm3/d;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/reddit/onboardingfeedscomponents/communityrecommendation/impl/feed/actions/a;->r:Ltm3/d;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method

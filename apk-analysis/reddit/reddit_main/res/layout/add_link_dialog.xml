@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.RedditBase.Action" android:textColor="?rdt_onboarding_title_color" android:gravity="center_horizontal" android:id="@id/add_link_dialog_heading_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/half_pad" />
+    <EditText android:textAppearance="@style/TextAppearance.RedditBase.Action" android:gravity="top" android:id="@id/name_edit_text" android:background="@null" android:padding="@dimen/double_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_name" android:maxLines="1" android:inputType="text" android:importantForAutofill="no" />
+    <EditText android:textAppearance="@style/TextAppearance.RedditBase.Action" android:gravity="top" android:id="@id/link_edit_text" android:background="@null" android:padding="@dimen/double_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_link" android:maxLines="1" android:inputType="textUri" android:importantForAutofill="no" />
+</LinearLayout>

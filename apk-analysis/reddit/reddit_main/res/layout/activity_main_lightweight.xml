@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/drawer_layout" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <FrameLayout android:id="@id/frame_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ViewStub android:layout_gravity="center" android:id="@id/main_activity_page_loader_stub" android:layout="@layout/$activity_main_lightweight__0" android:layout_width="@dimen/progress_bar_width_v2" android:layout_height="@dimen/progress_bar_width_v2" android:layout_margin="20.0dp" />
+        <com.reddit.screen.widget.ScreenContainerView android:id="@id/controller_container" android:background="?rdt_ds_color_tone8" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <ViewStub android:id="@id/main_activity_navhost_stub" android:layout="@layout/$activity_main_lightweight__1" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </FrameLayout>
+    <com.reddit.screen.widget.ScreenContainerView android:layout_gravity="start" android:id="@id/community_drawer_container" android:background="?rdt_body_color" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:minWidth="@dimen/drawer_min_width" />
+</androidx.drawerlayout.widget.DrawerLayout>

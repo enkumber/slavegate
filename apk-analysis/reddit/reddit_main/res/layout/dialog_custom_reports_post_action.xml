@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/single_half_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/single_half_pad" android:paddingEnd="@dimen/single_half_pad">
+        <TextView android:textAppearance="?textAppearanceRedditBodySmall" android:id="@id/select_reason" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/custom_report_subtitle_margin_bottom" android:text="@string/success_report_thanks" />
+        <LinearLayout android:background="?selectableItemBackground" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/user_icon" android:layout_width="@dimen/custom_report_user_icon_width" android:layout_height="@dimen/custom_report_user_icon_height" android:src="@drawable/icon_user_fill" android:importantForAccessibility="no" app:tint="?rdt_active_color" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6.0dp">
+                <TextView android:textAppearance="?textAppearanceRedditBody" android:id="@id/action" android:background="?selectableItemBackground" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textAppearance="?textAppearanceRedditMeta" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:textAppearance="?textAppearanceRedditBodySmall" android:id="@id/terms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/custom_report_terms_margin_top" android:layout_marginBottom="@dimen/custom_report_terms_margin_bottom" android:foreground="?selectableItemBackground" android:text="@string/mod_report_rules_subreddit" />
+    </LinearLayout>
+    <Button android:id="@id/cancel" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/half_pad" android:text="@string/action_close" style="?tertiaryButtonStyle" />
+</LinearLayout>

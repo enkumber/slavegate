@@ -1,0 +1,167 @@
+package com.reddit.domain.model.post;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import kotlin.Metadata;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import sf4.a;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B'\u0012\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0003¢\u0006\u0004\b\u0007\u0010\bJ\u000b\u0010\u000e\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\t\u0010\u000f\u001a\u00020\u0005HÆ\u0003J\t\u0010\u0010\u001a\u00020\u0003HÆ\u0003J)\u0010\u0011\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0003HÆ\u0001J\u0006\u0010\u0012\u001a\u00020\u0013J\u0014\u0010\u0014\u001a\u00020\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017HÖ\u0083\u0004J\n\u0010\u0018\u001a\u00020\u0013HÖ\u0081\u0004J\n\u0010\u0019\u001a\u00020\u0003HÖ\u0081\u0004J\u0016\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u0013R\u0013\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\u0006\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\n¨\u0006\u001f"}, d2 = {"Lcom/reddit/domain/model/post/NavigationSession;", "Landroid/os/Parcelable;", "referringPageType", "", "source", "Lcom/reddit/domain/model/post/NavigationSessionSource;", "id", "<init>", "(Ljava/lang/String;Lcom/reddit/domain/model/post/NavigationSessionSource;Ljava/lang/String;)V", "getReferringPageType", "()Ljava/lang/String;", "getSource", "()Lcom/reddit/domain/model/post/NavigationSessionSource;", "getId", "component1", "component2", "component3", "copy", "describeContents", "", "equals", "", "other", "", "hashCode", "toString", "writeToParcel", "", "dest", "Landroid/os/Parcel;", "flags", "domain_model"}, k = 1, mv = {2, 3, 0}, xi = 50)
+/* loaded from: classes9.dex */
+public final /* data */ class NavigationSession implements Parcelable {
+
+    @NotNull
+    public static final Parcelable.Creator<NavigationSession> CREATOR = new Creator();
+
+    @NotNull
+    private final String id;
+
+    @Nullable
+    private final String referringPageType;
+
+    @NotNull
+    private final NavigationSessionSource source;
+
+    /* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+    @Metadata(k = 3, mv = {2, 3, 0}, xi = 50)
+    /* loaded from: classes9.dex */
+    public static final class Creator implements Parcelable.Creator<NavigationSession> {
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public final NavigationSession createFromParcel(Parcel parcel) {
+            Intrinsics.checkNotNullParameter(parcel, "parcel");
+            return new NavigationSession(parcel.readString(), NavigationSessionSource.valueOf(parcel.readString()), parcel.readString());
+        }
+
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public final NavigationSession[] newArray(int i) {
+            return new NavigationSession[i];
+        }
+    }
+
+    public NavigationSession() {
+        this(null, null, null, 7, null);
+    }
+
+    public static /* synthetic */ NavigationSession copy$default(NavigationSession navigationSession, String str, NavigationSessionSource navigationSessionSource, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = navigationSession.referringPageType;
+        }
+        if ((i & 2) != 0) {
+            navigationSessionSource = navigationSession.source;
+        }
+        if ((i & 4) != 0) {
+            str2 = navigationSession.id;
+        }
+        return navigationSession.copy(str, navigationSessionSource, str2);
+    }
+
+    @Nullable
+    /* renamed from: component1, reason: from getter */
+    public final String getReferringPageType() {
+        return this.referringPageType;
+    }
+
+    @NotNull
+    /* renamed from: component2, reason: from getter */
+    public final NavigationSessionSource getSource() {
+        return this.source;
+    }
+
+    @NotNull
+    /* renamed from: component3, reason: from getter */
+    public final String getId() {
+        return this.id;
+    }
+
+    @NotNull
+    public final NavigationSession copy(@Nullable String referringPageType, @NotNull NavigationSessionSource source, @NotNull String id5) {
+        Intrinsics.checkNotNullParameter(source, "source");
+        Intrinsics.checkNotNullParameter(id5, "id");
+        return new NavigationSession(referringPageType, source, id5);
+    }
+
+    @Override // android.os.Parcelable
+    public final int describeContents() {
+        return 0;
+    }
+
+    public boolean equals(@Nullable Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof NavigationSession)) {
+            return false;
+        }
+        NavigationSession navigationSession = (NavigationSession) other;
+        if (Intrinsics.areEqual(this.referringPageType, navigationSession.referringPageType) && this.source == navigationSession.source && Intrinsics.areEqual(this.id, navigationSession.id)) {
+            return true;
+        }
+        return false;
+    }
+
+    @NotNull
+    public final String getId() {
+        return this.id;
+    }
+
+    @Nullable
+    public final String getReferringPageType() {
+        return this.referringPageType;
+    }
+
+    @NotNull
+    public final NavigationSessionSource getSource() {
+        return this.source;
+    }
+
+    public int hashCode() {
+        int hashCode;
+        String str = this.referringPageType;
+        if (str == null) {
+            hashCode = 0;
+        } else {
+            hashCode = str.hashCode();
+        }
+        int hashCode2 = this.source.hashCode();
+        return this.id.hashCode() + ((hashCode2 + (hashCode * 31)) * 31);
+    }
+
+    @NotNull
+    public String toString() {
+        String str = this.referringPageType;
+        NavigationSessionSource navigationSessionSource = this.source;
+        String str2 = this.id;
+        StringBuilder sb2 = new StringBuilder("NavigationSession(referringPageType=");
+        sb2.append(str);
+        sb2.append(", source=");
+        sb2.append(navigationSessionSource);
+        sb2.append(", id=");
+        return a.o(sb2, str2, ")");
+    }
+
+    @Override // android.os.Parcelable
+    public final void writeToParcel(@NotNull Parcel dest, int flags) {
+        Intrinsics.checkNotNullParameter(dest, "dest");
+        dest.writeString(this.referringPageType);
+        dest.writeString(this.source.name());
+        dest.writeString(this.id);
+    }
+
+    public NavigationSession(@Nullable String str, @NotNull NavigationSessionSource source, @NotNull String id5) {
+        Intrinsics.checkNotNullParameter(source, "source");
+        Intrinsics.checkNotNullParameter(id5, "id");
+        this.referringPageType = str;
+        this.source = source;
+        this.id = id5;
+    }
+
+    public /* synthetic */ NavigationSession(String str, NavigationSessionSource navigationSessionSource, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? null : str, (i & 2) != 0 ? NavigationSessionSource.VIDEO_POST : navigationSessionSource, (i & 4) != 0 ? pb.a.o("toString(...)") : str2);
+    }
+}

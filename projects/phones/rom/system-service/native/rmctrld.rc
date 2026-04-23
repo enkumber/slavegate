@@ -1,0 +1,23 @@
+# rmctrld — Remote Control Daemon
+# Init script for Android init system
+# Place in: system_ext/etc/init/rmctrld.rc
+# OR: device/oneplus/dumpling/rmctrld.rc
+
+service rmctrld /system_ext/bin/rmctrld
+    class main
+    user system
+    group system graphics inet
+    socket rmctrld stream 660 system system
+    # onrestart restart rmctrld
+    seclabel u:r:rmctrld:s0
+
+# SELinux: define rmctrld domain
+# Add to device sepolicy:
+#   type rmctrld, domain;
+#   type rmctrld_exec, exec_type, file_type, system_ext_file_type;
+#   init_daemon_domain(rmctrld)
+#   allow rmctrld surfaceflinger_service:service_manager find;
+#   allow rmctrld accessibility_service:service_manager find;
+#   allow rmctrld system_data_file:file { read open };
+#   allow rmctrld rmctrld_socket:unix_stream_socket { create listen accept read write };
+#   allow rmctrld app_data_file:unix_stream_socket connectto;

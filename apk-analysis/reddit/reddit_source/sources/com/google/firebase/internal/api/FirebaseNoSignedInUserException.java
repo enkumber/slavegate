@@ -1,0 +1,12 @@
+package com.google.firebase.internal.api;
+
+import androidx.annotation.NonNull;
+import com.google.firebase.FirebaseException;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes5.dex */
+public class FirebaseNoSignedInUserException extends FirebaseException {
+    public FirebaseNoSignedInUserException(@NonNull String str) {
+        super(str);
+    }
+}

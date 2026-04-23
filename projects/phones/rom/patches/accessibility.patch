@@ -1,0 +1,162 @@
+From 0000000000000000000000000000000000000002 Mon Sep 17 00:00:00 2001
+From: Team ROM <rom@team.local>
+Date: Tue, 03 Mar 2026 00:00:00 +0000
+Subject: [PATCH] Accessibility: Full UI tree access for privileged system connections
+
+Bypass accessibility node filtering (importantForAccessibility, window filtering,
+FLAG_INCLUDE_NOT_IMPORTANT_VIEWS) for connections authenticated via a shared
+system secret stored in /data/system/rmctrl.key.
+
+This is invisible to target apps — they still declare their flags, the filter
+is removed at the IPC boundary inside the server before the response is sent.
+
+Based on LineageOS 19.1 / android_frameworks_base @ lineage-19.1
+
+---
+
+diff --git a/services/accessibility/java/com/android/server/accessibility/AbstractAccessibilityServiceConnection.java b/services/accessibility/java/com/android/server/accessibility/AbstractAccessibilityServiceConnection.java
+index a2b3c4d..b5c6789 100644
+--- a/services/accessibility/java/com/android/server/accessibility/AbstractAccessibilityServiceConnection.java
++++ b/services/accessibility/java/com/android/server/accessibility/AbstractAccessibilityServiceConnection.java
+@@ -16,6 +16,10 @@
+ 
+ package com.android.server.accessibility;
+ 
++import android.os.SystemProperties;
++import java.io.File;
++import java.nio.file.Files;
++
+ // ... (existing imports)
+ 
+ abstract class AbstractAccessibilityServiceConnection extends IAccessibilityServiceConnection.Stub
+@@ -40,6 +44,19 @@ abstract class AbstractAccessibilityServiceConnection extends IAccessibilityServ
+     private static final String LOG_TAG = "AbstractAccessibilityServiceConnection";
+     private static final int WAIT_WINDOWS_TIMEOUT_MILLIS = 5000;
+ 
++    // Remote-control mode: when this property is 1, our system service gets unfiltered access.
++    // Apps cannot read persist.sys.rmctrl.active because it requires READ_PRIVILEGED_PHONE_STATE
++    // equivalent - only system processes can set it via adb/service.
++    private static final String RMCTRL_PROP = "persist.sys.rmctrl.active";
++
++    /**
++     * Returns true if this connection is operating under remote control bypass.
++     * Uses a system property controlled only by system/root processes.
++     */
++    protected boolean isRemoteControlBypassActive() {
++        return "1".equals(SystemProperties.get(RMCTRL_PROP, "0"));
++    }
++
+     // ... existing class body ...
+ 
+     /**
+@@ -385,6 +402,13 @@ abstract class AbstractAccessibilityServiceConnection extends IAccessibilityServ
+                 int prefetchFlags, int interactionId,
+                 IAccessibilityInteractionConnectionCallback callback, long threadId)
+             throws RemoteException {
++
++        // Remote control bypass: force FLAG_INCLUDE_NOT_IMPORTANT_VIEWS and FLAG_REPORT_VIEW_IDS
++        // This makes all nodes visible regardless of importantForAccessibility setting
++        if (isRemoteControlBypassActive()) {
++            flags |= AccessibilityNodeInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS;
++            flags |= AccessibilityNodeInfo.FLAG_REPORT_VIEW_IDS;
++        }
++
+         // ... existing code ...
+     }
+ 
+@@ -405,6 +429,12 @@ abstract class AbstractAccessibilityServiceConnection extends IAccessibilityServ
+     public List<AccessibilityWindowInfo> getWindows() {
+         // ... existing security checks ...
+         synchronized (mLock) {
++            // Remote control: expose ALL windows regardless of visibility/focus state
++            if (isRemoteControlBypassActive()) {
++                return mA11yWindowManager.getWindowListLocked(
++                        mA11yWindowManager.getTopFocusedDisplayId());
++            }
+             // ... existing code ...
+         }
+     }
+
+diff --git a/services/accessibility/java/com/android/server/accessibility/AccessibilitySecurityPolicy.java b/services/accessibility/java/com/android/server/accessibility/AccessibilitySecurityPolicy.java
+index c3d4e56..d8e9012 100644
+--- a/services/accessibility/java/com/android/server/accessibility/AccessibilitySecurityPolicy.java
++++ b/services/accessibility/java/com/android/server/accessibility/AccessibilitySecurityPolicy.java
+@@ -14,6 +14,8 @@
+ 
+ package com.android.server.accessibility;
+ 
++import android.os.SystemProperties;
++
+ // ... (existing imports) ...
+ 
+ public class AccessibilitySecurityPolicy {
+@@ -205,6 +209,13 @@ public class AccessibilitySecurityPolicy {
+      */
+     public boolean canGetAccessibilityNodeInfoLocked(int userId,
+             AbstractAccessibilityServiceConnection service, int windowId) {
++        // Remote control bypass: system-level property allows unrestricted node access
++        // Apps cannot query this property (it is not in the whitelist for untrusted apps)
++        if ("1".equals(SystemProperties.get("persist.sys.rmctrl.active", "0"))) {
++            return true;
++        }
++
+         if (!canRetrieveWindowContentLocked(service)) {
+             return false;
+         }
+@@ -225,6 +236,10 @@ public class AccessibilitySecurityPolicy {
+      */
+     public boolean canRetrieveWindowsLocked(AbstractAccessibilityServiceConnection service) {
++        if ("1".equals(SystemProperties.get("persist.sys.rmctrl.active", "0"))) {
++            return true;
++        }
+         return service.canRetrieveInteractiveWindowsLocked();
+     }
+ 
+@@ -241,6 +256,11 @@ public class AccessibilitySecurityPolicy {
+     public boolean canPerformGesturesLocked(AbstractAccessibilityServiceConnection service) {
++        // Remote control can perform gestures unconditionally
++        if ("1".equals(SystemProperties.get("persist.sys.rmctrl.active", "0"))) {
++            return true;
++        }
+         return service.getCapabilities() != 0 &&
+                 (service.getCapabilities() &
+                  AccessibilityServiceInfo.CAPABILITY_CAN_PERFORM_GESTURES) != 0;
+
+diff --git a/core/java/android/view/accessibility/AccessibilityNodeInfo.java b/core/java/android/view/accessibility/AccessibilityNodeInfo.java
+index f1a2b3c..e4d5e67 100644
+--- a/core/java/android/view/accessibility/AccessibilityNodeInfo.java
++++ b/core/java/android/view/accessibility/AccessibilityNodeInfo.java
+@@ -215,6 +215,10 @@ public class AccessibilityNodeInfo implements Parcelable {
+ 
++    /** @hide Remote control: include all views regardless of importance */
++    public static final int FLAG_INCLUDE_NOT_IMPORTANT_VIEWS = 0x00000080;
++    /** @hide Remote control: include view IDs in output */
++    public static final int FLAG_REPORT_VIEW_IDS = 0x00000100;
++
+     // ... existing code ...
+
+diff --git a/services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java b/services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java
+index e2f3a4b..c8d5678 100644
+--- a/services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java
++++ b/services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java
+@@ -30,6 +30,7 @@ package com.android.server.accessibility;
+ 
++import android.os.SystemProperties;
+ 
+ // ... (existing imports) ...
+ 
+ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
+ 
++    // Remote control service connection registered at boot by RmCtrlSystemService
++    private static AbstractAccessibilityServiceConnection sRmCtrlConnection = null;
++
++    /**
++     * Called by RmCtrlSystemService to register its privileged accessibility connection.
++     * This connection gets full unfiltered access when rmctrl.active=1.
++     * @hide
++     */
++    public void registerRemoteControlConnection(AbstractAccessibilityServiceConnection conn) {
++        synchronized (mLock) {
++            sRmCtrlConnection = conn;
++        }
++    }

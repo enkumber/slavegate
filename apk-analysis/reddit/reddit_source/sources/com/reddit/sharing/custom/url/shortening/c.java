@@ -1,0 +1,11 @@
+package com.reddit.sharing.custom.url.shortening;
+
+import java.util.HashMap;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes11.dex */
+public final class c {
+
+    /* renamed from: a, reason: collision with root package name */
+    public final HashMap f76422a = new HashMap();
+}

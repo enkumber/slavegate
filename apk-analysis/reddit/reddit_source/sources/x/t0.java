@@ -1,0 +1,24 @@
+package x;
+
+import androidx.compose.foundation.layout.FlowLayoutOverflow$OverflowType;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes.dex */
+public abstract /* synthetic */ class t0 {
+
+    /* renamed from: a, reason: collision with root package name */
+    public static final /* synthetic */ int[] f147956a;
+
+    static {
+        int[] iArr = new int[FlowLayoutOverflow$OverflowType.values().length];
+        try {
+            iArr[FlowLayoutOverflow$OverflowType.ExpandIndicator.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            iArr[FlowLayoutOverflow$OverflowType.ExpandOrCollapseIndicator.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        f147956a = iArr;
+    }
+}

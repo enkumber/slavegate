@@ -1,0 +1,44 @@
+package com.google.android.gms.internal.p002firebaseauthapi;
+
+import java.security.GeneralSecurityException;
+import javax.crypto.Cipher;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes5.dex */
+public final class zzip implements zzba {
+    private static final ThreadLocal<Cipher> zza = new zzir();
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static Cipher zzb() {
+        try {
+            Cipher cipher = zza.get();
+            if (cipher != null) {
+                return cipher;
+            }
+            throw new GeneralSecurityException("AES GCM SIV cipher is invalid.");
+        } catch (IllegalStateException e9) {
+            throw new GeneralSecurityException("AES GCM SIV cipher is not available or is invalid.", e9);
+        }
+    }
+
+    public static zzba zza(zzdz zzdzVar) {
+        return zzgz.zza(zzdzVar, (zzhc<Cipher>) new zzhc() { // from class: com.google.android.gms.internal.firebase-auth-api.zzis
+            @Override // com.google.android.gms.internal.p002firebaseauthapi.zzhc
+            public final Object zza() {
+                Cipher zzb;
+                zzb = zzip.zzb();
+                return zzb;
+            }
+        });
+    }
+
+    @Override // com.google.android.gms.internal.p002firebaseauthapi.zzba
+    public final byte[] zza(byte[] bArr, byte[] bArr2) {
+        throw new NoSuchMethodError();
+    }
+
+    @Override // com.google.android.gms.internal.p002firebaseauthapi.zzba
+    public final byte[] zzb(byte[] bArr, byte[] bArr2) {
+        throw new NoSuchMethodError();
+    }
+}

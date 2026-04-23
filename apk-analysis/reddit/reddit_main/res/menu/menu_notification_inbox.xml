@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/icon_overflow_vertical" android:id="@id/action_overflow_menu" android:orderInCategory="1" android:title="@string/action_more_v2" app:iconTint="?rdt_menu_icon_color" app:showAsAction="always" />
+    <item android:icon="@drawable/icon_archive" android:id="@id/action_archived_messages_menu" android:visible="false" android:orderInCategory="0" android:title="@string/action_archived_viewer" app:iconTint="?rdt_menu_icon_color" app:showAsAction="always" />
+</menu>

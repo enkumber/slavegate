@@ -1,0 +1,22 @@
+package com.appsflyer.internal;
+
+import com.appsflyer.AFLogger;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes.dex */
+public abstract class AFi1cSDK extends AFj1tSDK {
+    private AFc1oSDK getCurrencyIso4217Code;
+
+    public AFi1cSDK(String str, String str2, AFc1oSDK aFc1oSDK, Runnable runnable) {
+        super(str, str2, runnable);
+        this.getCurrencyIso4217Code = aFc1oSDK;
+    }
+
+    public final boolean getRevenue() {
+        if (this.getCurrencyIso4217Code.getMediationNetwork.getRevenue("appsFlyerCount", 0) > 0) {
+            AFLogger.INSTANCE.d(AFg1cSDK.REFERRER, "Install referrer will not load, the counter >= 1, ");
+            return false;
+        }
+        return true;
+    }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="?rdt_pager_dot_selector" />
+    <size android:height="@dimen/dotted_view_pager_dot" android:width="@dimen/dotted_view_pager_dot" />
+</shape>

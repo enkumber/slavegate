@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="database" path="." />
+    <include domain="database" path="analytics_v2" />
+    <include domain="database" path="puree.db" />
+</full-backup-content>

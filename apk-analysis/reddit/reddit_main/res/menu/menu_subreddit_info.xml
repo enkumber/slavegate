@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/icon_info" android:id="@id/action_view_wiki" android:title="@string/action_view_wiki" app:iconTint="?rdt_popup_menu_icon_color" app:showAsAction="never" />
+    <item android:icon="@drawable/icon_message" android:id="@id/action_contact_moderators" android:title="@string/action_contact_moderators" app:iconTint="?rdt_popup_menu_icon_color" app:showAsAction="never" />
+</menu>

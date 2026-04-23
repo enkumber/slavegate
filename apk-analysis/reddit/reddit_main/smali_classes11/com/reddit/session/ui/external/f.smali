@@ -1,0 +1,169 @@
+.class public final Lcom/reddit/session/ui/external/f;
+.super Lcom/reddit/presentation/b;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# instance fields
+.field public final B:Ljq/b;
+
+.field public final e:Lhx/d;
+
+.field public final f:Lcom/reddit/session/ui/external/e;
+
+.field public final g:Lpc1/c;
+
+.field public final i:Lkc1/a;
+
+.field public final r:Lcom/reddit/auth/login/domain/usecase/f0;
+
+.field public final v:Lcom/reddit/session/s;
+
+.field public final w:Lbx/b;
+
+.field public final x:Lcom/reddit/common/coroutines/a;
+
+.field public final y:Lcx1/c;
+
+
+# direct methods
+.method public constructor <init>(Lhx/d;Lcom/reddit/session/ui/external/e;Lpc1/c;Lkc1/a;Lcom/reddit/auth/login/domain/usecase/f0;Lcom/reddit/session/s;Lbx/b;Lcom/reddit/common/coroutines/a;Lcx1/c;Ljq/b;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "getContext"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const-string v0, "view"
+
+    .line 7
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    const-string v0, "internalFeatures"
+
+    .line 12
+    .line 13
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 14
+    .line 15
+    .line 16
+    const-string v0, "accountUtilDelegate"
+
+    .line 17
+    .line 18
+    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 19
+    .line 20
+    .line 21
+    const-string v0, "loginUseCase"
+
+    .line 22
+    .line 23
+    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 24
+    .line 25
+    .line 26
+    const-string v0, "sessionManager"
+
+    .line 27
+    .line 28
+    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 29
+    .line 30
+    .line 31
+    const-string v0, "resourceProvider"
+
+    .line 32
+    .line 33
+    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 34
+    .line 35
+    .line 36
+    const-string v0, "dispatcherProvider"
+
+    .line 37
+    .line 38
+    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 39
+    .line 40
+    .line 41
+    const-string v0, "redditLogger"
+
+    .line 42
+    .line 43
+    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 44
+    .line 45
+    .line 46
+    const-string v0, "authFeatures"
+
+    .line 47
+    .line 48
+    invoke-static {p10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 49
+    .line 50
+    .line 51
+    invoke-direct {p0}, Lcom/reddit/presentation/b;-><init>()V
+
+    .line 52
+    .line 53
+    .line 54
+    iput-object p1, p0, Lcom/reddit/session/ui/external/f;->e:Lhx/d;
+
+    .line 55
+    .line 56
+    iput-object p2, p0, Lcom/reddit/session/ui/external/f;->f:Lcom/reddit/session/ui/external/e;
+
+    .line 57
+    .line 58
+    iput-object p3, p0, Lcom/reddit/session/ui/external/f;->g:Lpc1/c;
+
+    .line 59
+    .line 60
+    iput-object p4, p0, Lcom/reddit/session/ui/external/f;->i:Lkc1/a;
+
+    .line 61
+    .line 62
+    iput-object p5, p0, Lcom/reddit/session/ui/external/f;->r:Lcom/reddit/auth/login/domain/usecase/f0;
+
+    .line 63
+    .line 64
+    iput-object p6, p0, Lcom/reddit/session/ui/external/f;->v:Lcom/reddit/session/s;
+
+    .line 65
+    .line 66
+    iput-object p7, p0, Lcom/reddit/session/ui/external/f;->w:Lbx/b;
+
+    .line 67
+    .line 68
+    iput-object p8, p0, Lcom/reddit/session/ui/external/f;->x:Lcom/reddit/common/coroutines/a;
+
+    .line 69
+    .line 70
+    iput-object p9, p0, Lcom/reddit/session/ui/external/f;->y:Lcx1/c;
+
+    .line 71
+    .line 72
+    iput-object p10, p0, Lcom/reddit/session/ui/external/f;->B:Ljq/b;
+
+    .line 73
+    .line 74
+    return-void
+.end method

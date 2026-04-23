@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/coordinator" android:background="?rdt_canvas_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout android:id="@id/appBarLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="@dimen/appbar_elevation">
+        <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" app:layout_scrollFlags="scroll" app:navigationContentDescription="@string/action_back" app:navigationIcon="@drawable/automirror_icon_arrow_back" app:title="@string/title_saved" />
+        <com.google.android.material.tabs.TabLayout android:id="@id/tab_layout" android:layout_width="match_parent" android:layout_height="@dimen/tab_bar_height" android:layout_below="@id/toolbar" app:tabSelectedTextColor="?rdt_body_text_color" app:tabTextColor="?rdt_ds_color_tone2" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <com.reddit.screen.widget.ScreenPager android:id="@id/screen_pager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/appBarLayout" app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    <View android:background="@drawable/shadow_up" android:layout_width="match_parent" android:layout_height="@dimen/single_pad" android:layout_below="@id/appBarLayout" android:rotationX="180.0" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

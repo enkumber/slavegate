@@ -1,0 +1,124 @@
+.class final synthetic Lcom/reddit/chat/modtools/bannedcontent/presentation/composables/BannedContentUi$LinkSharingOptions$2$5$1;
+.super Lkotlin/jvm/internal/FunctionReferenceImpl;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function1;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/jvm/internal/FunctionReferenceImpl;",
+        "Lkotlin/jvm/functions/Function1<",
+        "Lcom/reddit/chat/modtools/bannedcontent/domain/model/LinkSharingOption;",
+        "Ljava/lang/Boolean;",
+        ">;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x2,
+        0x3,
+        0x0
+    }
+    xi = 0x32
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/Object;)V
+    .locals 7
+
+    .line 1
+    const-string v5, "isTextAreaVisible(Lcom/reddit/chat/modtools/bannedcontent/domain/model/LinkSharingOption;)Z"
+
+    .line 2
+    .line 3
+    const/4 v6, 0x0
+
+    .line 4
+    const/4 v1, 0x1
+
+    .line 5
+    const-class v3, Lcom/reddit/chat/modtools/bannedcontent/presentation/composables/l;
+
+    .line 6
+    .line 7
+    const-string v4, "isTextAreaVisible"
+
+    .line 8
+    .line 9
+    move-object v0, p0
+
+    .line 10
+    move-object v2, p1
+
+    .line 11
+    invoke-direct/range {v0 .. v6}, Lkotlin/jvm/internal/FunctionReferenceImpl;-><init>(ILjava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Lcom/reddit/chat/modtools/bannedcontent/domain/model/LinkSharingOption;)Ljava/lang/Boolean;
+    .locals 1
+
+    const-string v0, "p0"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 1
+    iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
+
+    check-cast p0, Lcom/reddit/chat/modtools/bannedcontent/presentation/composables/l;
+
+    .line 2
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 3
+    sget-object p0, Lcom/reddit/chat/modtools/bannedcontent/presentation/composables/j;->a:[I
+
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+
+    move-result p1
+
+    aget p0, p0, p1
+
+    const/4 p1, 0x1
+
+    if-eq p0, p1, :cond_0
+
+    const/4 v0, 0x2
+
+    if-eq p0, v0, :cond_0
+
+    const/4 p1, 0x0
+
+    .line 4
+    :cond_0
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    .line 5
+    check-cast p1, Lcom/reddit/chat/modtools/bannedcontent/domain/model/LinkSharingOption;
+
+    invoke-virtual {p0, p1}, Lcom/reddit/chat/modtools/bannedcontent/presentation/composables/BannedContentUi$LinkSharingOptions$2$5$1;->invoke(Lcom/reddit/chat/modtools/bannedcontent/domain/model/LinkSharingOption;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method

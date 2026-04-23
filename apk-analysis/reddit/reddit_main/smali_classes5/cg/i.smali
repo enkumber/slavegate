@@ -1,0 +1,55 @@
+.class public final Lcg/i;
+.super Ljava/lang/Object;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# static fields
+.field public static final e:Luc/a;
+
+
+# instance fields
+.field public volatile a:J
+
+.field public volatile b:J
+
+.field public c:Lcom/google/android/gms/internal/firebase-auth-api/zze;
+
+.field public d:Landroidx/recyclerview/widget/d;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    .line 1
+    new-instance v0, Luc/a;
+
+    .line 2
+    .line 3
+    const-string v1, "FirebaseAuth:"
+
+    .line 4
+    .line 5
+    filled-new-array {v1}, [Ljava/lang/String;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v1
+
+    .line 9
+    const-string v2, "TokenRefresher"
+
+    .line 10
+    .line 11
+    invoke-direct {v0, v2, v1}, Luc/a;-><init>(Ljava/lang/String;[Ljava/lang/String;)V
+
+    .line 12
+    .line 13
+    .line 14
+    sput-object v0, Lcg/i;->e:Luc/a;
+
+    .line 15
+    .line 16
+    return-void
+.end method

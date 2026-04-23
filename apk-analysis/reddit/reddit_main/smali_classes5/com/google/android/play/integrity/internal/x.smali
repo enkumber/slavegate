@@ -1,0 +1,10 @@
+.class public abstract Lcom/google/android/play/integrity/internal/x;
+.super Lcom/google/android/play/integrity/internal/m;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Lcom/google/android/play/integrity/internal/y;
+
+
+# static fields
+.field public static final synthetic s:I

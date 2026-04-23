@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <layout name="exoplayer_progress_view_footer" />
+</resources>

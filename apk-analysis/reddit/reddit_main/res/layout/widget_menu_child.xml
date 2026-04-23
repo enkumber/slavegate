@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/menu_child_container" android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="?rdt_line_color" android:layout_width="@dimen/quarter_pad" android:layout_height="match_parent" android:layout_marginStart="@dimen/double_pad" />
+    <TextView android:textAppearance="?textAppearanceRedditDisplayH4" android:id="@id/menu_child_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/double_pad" android:layout_marginVertical="@dimen/half_pad" />
+</LinearLayout>

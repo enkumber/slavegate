@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="@dimen/appbar_elevation" app:navigationContentDescription="@string/close" app:navigationIcon="@drawable/icon_close" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0.0dp" android:fillViewport="true" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/replyable_container" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <TextView android:textAppearance="?textAppearanceRedditBody" android:textColor="@color/reply_info_text_color" android:id="@id/reply_info" android:paddingBottom="@dimen/single_half_pad" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/double_pad" />
+            <View android:id="@id/divider_line" android:background="?rdt_line_color" android:layout_width="match_parent" android:layout_height="@null" android:layout_marginStart="@dimen/double_pad" android:layout_marginEnd="@dimen/double_pad" />
+            <com.reddit.screen.RedditComposeView android:id="@id/video_comment_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <com.reddit.reply.ui.EditTextSelectable android:textAppearance="?textAppearanceRedditBody" android:id="@id/reply_text" android:background="@null" android:padding="@dimen/double_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textCapSentences|textMultiLine" android:importantForAutofill="no" />
+        </LinearLayout>
+    </ScrollView>
+    <com.reddit.screen.RedditComposeView android:id="@id/comment_guidance_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.reddit.screen.widget.ScreenContainerView android:id="@id/keyboard_extensions_screen_container" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</LinearLayout>

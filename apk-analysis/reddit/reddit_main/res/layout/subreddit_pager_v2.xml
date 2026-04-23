@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/coordinator" android:background="?rdt_canvas_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.reddit.ui.header.ConsistentAppBarLayoutView android:id="@id/appbar" android:layout_width="match_parent" android:layout_height="wrap_content" app:elevation="@dimen/appbar_elevation" style="@style/Reddit.Widget.Design.AppBarLayout">
+        <com.reddit.screens.header.SubredditHeaderView android:id="@id/subreddit_header" android:layout_width="match_parent" android:layout_height="wrap_content" app:collapsedTitleTextAppearance="@style/TextAppearance.RedditBase.Title.Nav" app:layout_scrollFlags="scroll|exitUntilCollapsed" app:toolbarId="@id/toolbar" />
+        <com.google.android.material.tabs.TabLayout android:layout_gravity="start" android:id="@id/tab_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/tab_bar_height" app:tabMode="scrollable" />
+    </com.reddit.ui.header.ConsistentAppBarLayoutView>
+    <com.reddit.screens.pager.widgets.NestedScrollCoordinatorLayout android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <com.reddit.ui.header.ConsistentAppBarLayoutView android:id="@id/tabs_appbar" android:layout_width="match_parent" android:layout_height="wrap_content" app:elevation="@dimen/appbar_elevation" style="@style/Reddit.Widget.Design.AppBarLayout">
+            <com.reddit.screen.RedditComposeView android:id="@id/tab_layout_compose" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_scrollFlags="scroll|enterAlways" />
+        </com.reddit.ui.header.ConsistentAppBarLayoutView>
+        <com.reddit.screen.RedditComposeView android:layout_gravity="center" android:id="@id/page_loader_compose_view" android:visibility="gone" android:layout_width="@dimen/progress_bar_width_v2" android:layout_height="@dimen/progress_bar_width_v2" />
+        <com.reddit.screen.widget.ScreenPager android:id="@id/screen_pager" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </com.reddit.screens.pager.widgets.NestedScrollCoordinatorLayout>
+    <ViewStub android:layout_gravity="bottom" android:id="@id/join_toaster" android:layout="@layout/join_toaster_view" android:inflatedId="@id/join_toaster" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <View android:layout_gravity="end|bottom" android:id="@id/dim_view" android:background="@color/gray40" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

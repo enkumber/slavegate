@@ -1,0 +1,5 @@
+# Property contexts for rmctrl properties
+# Add these lines to your device's property_contexts or
+# to system/sepolicy/private/property_contexts
+
+persist.sys.rmctrl.         u:object_r:rmctrl_prop:s0

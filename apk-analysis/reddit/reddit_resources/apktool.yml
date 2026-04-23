@@ -1,0 +1,9 @@
+version: 3.0.1
+apkFileName: reddit.apk
+doNotCompress:
+- png
+- com.reddit.frontpage.apk
+- config.armeabi_v7a.apk
+- config.en.apk
+- config.mdpi.apk
+- manifest.json

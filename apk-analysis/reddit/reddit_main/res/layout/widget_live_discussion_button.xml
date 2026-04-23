@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/circles" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/anim_live_discussion" android:contentDescription="@string/action_live_chat" />
+    <TextView android:textAppearance="@style/TextAppearance.RedditBase.Action" android:textColor="@color/rdt_orangered" android:gravity="center" android:layout_gravity="center" android:background="@drawable/live_discussion_bg" android:padding="@dimen/quarter_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/action_live_chat" android:lines="1" android:breakStrategy="simple" />
+</merge>

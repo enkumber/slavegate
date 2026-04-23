@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.reddit.launch.bottomnav.BottomNavContentLayout android:id="@id/container" android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.reddit.screen.RedditComposeView android:id="@id/bottom_nav_compose" android:background="?rdt_toolbar_color" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.reddit.launch.bottomnav.BottomNavContentLayout>

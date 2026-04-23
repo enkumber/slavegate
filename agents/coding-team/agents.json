@@ -1,0 +1,74 @@
+{
+  "team": "coding",
+  "version": "1.0.0",
+  "agents": [
+    {
+      "id": "atlas",
+      "name": "ATLAS",
+      "emoji": "🗺️",
+      "role": "Project Manager",
+      "model": "minimax/MiniMax-M2.7-highspeed",
+      "sessionKey": "agent:atlas:main",
+      "systemPrompt": "agents/coding-team/ATLAS.md"
+    },
+    {
+      "id": "forge",
+      "name": "FORGE",
+      "emoji": "🔨",
+      "role": "Architect / Tech Lead",
+      "model": "minimax/MiniMax-M2.7-highspeed",
+      "sessionKey": "agent:forge:main",
+      "systemPrompt": "agents/coding-team/FORGE.md"
+    },
+    {
+      "id": "volt",
+      "name": "VOLT",
+      "emoji": "⚡",
+      "role": "Senior Developer",
+      "model": "minimax/MiniMax-M2.7-highspeed",
+      "sessionKey": "agent:volt:main",
+      "systemPrompt": "agents/coding-team/VOLT.md"
+    },
+    {
+      "id": "spark",
+      "name": "SPARK",
+      "emoji": "💡",
+      "role": "Junior Developer",
+      "model": "minimax/MiniMax-M2.7-highspeed",
+      "sessionKey": "agent:spark:main",
+      "systemPrompt": "agents/coding-team/SPARK.md"
+    },
+    {
+      "id": "lens",
+      "name": "LENS",
+      "emoji": "🔍",
+      "role": "QA Engineer",
+      "model": "minimax/MiniMax-M2.7-highspeed",
+      "sessionKey": "agent:lens:main",
+      "systemPrompt": "agents/coding-team/LENS.md"
+    },
+    {
+      "id": "echo",
+      "name": "ECHO",
+      "emoji": "📡",
+      "role": "Code Reviewer",
+      "model": "minimax/MiniMax-M2.7-highspeed",
+      "sessionKey": "agent:echo:main",
+      "systemPrompt": "agents/coding-team/ECHO.md"
+    }
+  ],
+  "workflow": {
+    "entry": "atlas",
+    "flow": [
+      { "from": "atlas", "to": "forge", "on": "story_created" },
+      { "from": "forge", "to": ["volt", "spark"], "on": "task_assigned" },
+      { "from": "volt", "to": "lens", "on": "code_complete" },
+      { "from": "spark", "to": "lens", "on": "code_complete" },
+      { "from": "lens", "to": "echo", "on": "tests_pass" },
+      { "from": "lens", "to": ["volt", "spark"], "on": "tests_fail" },
+      { "from": "echo", "to": "forge", "on": "approved" },
+      { "from": "echo", "to": ["volt", "spark"], "on": "changes_requested" },
+      { "from": "forge", "to": "nox", "on": "story_done" }
+    ]
+  }
+}

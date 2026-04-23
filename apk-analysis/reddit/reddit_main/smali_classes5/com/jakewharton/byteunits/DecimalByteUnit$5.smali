@@ -1,0 +1,188 @@
+.class final enum Lcom/jakewharton/byteunits/DecimalByteUnit$5;
+.super Lcom/jakewharton/byteunits/DecimalByteUnit;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/jakewharton/byteunits/DecimalByteUnit;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4009
+    name = null
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;I)V
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    invoke-direct {p0, p1, p2, v0}, Lcom/jakewharton/byteunits/DecimalByteUnit;-><init>(Ljava/lang/String;ILcom/jakewharton/byteunits/DecimalByteUnit$1;)V
+
+    .line 3
+    .line 4
+    .line 5
+    return-void
+.end method
+
+
+# virtual methods
+.method public convert(JLcom/jakewharton/byteunits/DecimalByteUnit;)J
+    .locals 0
+
+    .line 1
+    invoke-virtual {p3, p1, p2}, Lcom/jakewharton/byteunits/DecimalByteUnit;->toTerabytes(J)J
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-wide p0
+
+    .line 5
+    return-wide p0
+.end method
+
+.method public toBytes(J)J
+    .locals 6
+
+    .line 1
+    const-wide v2, 0xe8d4a51000L
+
+    .line 2
+    .line 3
+    .line 4
+    .line 5
+    .line 6
+    const-wide/32 v4, 0x8cbccc
+
+    .line 7
+    .line 8
+    .line 9
+    move-wide v0, p1
+
+    .line 10
+    invoke-static/range {v0 .. v5}, Lij2/a;->E(JJJ)J
+
+    .line 11
+    .line 12
+    .line 13
+    move-result-wide p0
+
+    .line 14
+    return-wide p0
+.end method
+
+.method public toGigabytes(J)J
+    .locals 6
+
+    .line 1
+    const-wide/16 v2, 0x3e8
+
+    .line 2
+    .line 3
+    const-wide v4, 0x20c49ba5e353f7L
+
+    .line 4
+    .line 5
+    .line 6
+    .line 7
+    .line 8
+    move-wide v0, p1
+
+    .line 9
+    invoke-static/range {v0 .. v5}, Lij2/a;->E(JJJ)J
+
+    .line 10
+    .line 11
+    .line 12
+    move-result-wide p0
+
+    .line 13
+    return-wide p0
+.end method
+
+.method public toKilobytes(J)J
+    .locals 6
+
+    .line 1
+    const-wide/32 v2, 0x3b9aca00
+
+    .line 2
+    .line 3
+    .line 4
+    const-wide v4, 0x225c17d04L
+
+    .line 5
+    .line 6
+    .line 7
+    .line 8
+    .line 9
+    move-wide v0, p1
+
+    .line 10
+    invoke-static/range {v0 .. v5}, Lij2/a;->E(JJJ)J
+
+    .line 11
+    .line 12
+    .line 13
+    move-result-wide p0
+
+    .line 14
+    return-wide p0
+.end method
+
+.method public toMegabytes(J)J
+    .locals 6
+
+    .line 1
+    const-wide/32 v2, 0xf4240
+
+    .line 2
+    .line 3
+    .line 4
+    const-wide v4, 0x8637bd05af6L
+
+    .line 5
+    .line 6
+    .line 7
+    .line 8
+    .line 9
+    move-wide v0, p1
+
+    .line 10
+    invoke-static/range {v0 .. v5}, Lij2/a;->E(JJJ)J
+
+    .line 11
+    .line 12
+    .line 13
+    move-result-wide p0
+
+    .line 14
+    return-wide p0
+.end method
+
+.method public toPetabytes(J)J
+    .locals 2
+
+    .line 1
+    const-wide/16 v0, 0x3e8
+
+    .line 2
+    .line 3
+    div-long/2addr p1, v0
+
+    .line 4
+    return-wide p1
+.end method
+
+.method public toTerabytes(J)J
+    .locals 0
+
+    .line 1
+    return-wide p1
+.end method

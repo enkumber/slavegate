@@ -1,0 +1,24 @@
+package com.reddit.marketplace.impl.screens.nft.detail.ctasection;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes10.dex */
+public final class d extends f {
+
+    /* renamed from: a, reason: collision with root package name */
+    public static final d f45967a = new Object();
+
+    public final boolean equals(Object obj) {
+        if (this == obj || (obj instanceof d)) {
+            return true;
+        }
+        return false;
+    }
+
+    public final int hashCode() {
+        return -441618797;
+    }
+
+    public final String toString() {
+        return "ShopForMoreAvatars";
+    }
+}

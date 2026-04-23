@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="?textAppearanceRedditBodyH3" android:textColor="?rdt_ds_color_tone2" android:id="@id/header_name" android:paddingTop="@dimen/single_half_pad" android:paddingBottom="@dimen/single_half_pad" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/community_rules_header" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

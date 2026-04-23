@@ -1,0 +1,11 @@
+package com.google.android.gms.internal.identity_credentials;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes5.dex */
+public final class zzf {
+    private static volatile zzg zza = new zzg();
+
+    public static zzg zza() {
+        return zza;
+    }
+}

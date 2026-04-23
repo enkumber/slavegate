@@ -1,0 +1,17 @@
+package com.reddit.network.orchestrator;
+
+import kotlin.coroutines.jvm.internal.ContinuationImpl;
+
+/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
+/* loaded from: classes11.dex */
+public interface a {
+    Object a(long j3, ContinuationImpl continuationImpl);
+
+    ConditionResetPolicy b();
+
+    boolean c();
+
+    void d();
+
+    void reset();
+}

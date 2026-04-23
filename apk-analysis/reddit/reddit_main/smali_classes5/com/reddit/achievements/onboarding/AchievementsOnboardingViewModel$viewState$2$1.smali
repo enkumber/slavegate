@@ -1,0 +1,149 @@
+.class final synthetic Lcom/reddit/achievements/onboarding/AchievementsOnboardingViewModel$viewState$2$1;
+.super Lkotlin/jvm/internal/AdaptedFunctionReference;
+.source "r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function1;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/jvm/internal/AdaptedFunctionReference;",
+        "Lkotlin/jvm/functions/Function1<",
+        "Ldm3/a<",
+        "-",
+        "Lkotlin/Unit;",
+        ">;",
+        "Ljava/lang/Object;",
+        ">;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x2,
+        0x3,
+        0x0
+    }
+    xi = 0x32
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/Object;)V
+    .locals 7
+
+    .line 1
+    const-string v5, "markOnboardingAsSeen()V"
+
+    .line 2
+    .line 3
+    const/4 v6, 0x4
+
+    .line 4
+    const/4 v1, 0x1
+
+    .line 5
+    const-class v3, Lcom/reddit/achievements/onboarding/AchievementsOnboardingViewModel;
+
+    .line 6
+    .line 7
+    const-string v4, "markOnboardingAsSeen"
+
+    .line 8
+    .line 9
+    move-object v0, p0
+
+    .line 10
+    move-object v2, p1
+
+    .line 11
+    invoke-direct/range {v0 .. v6}, Lkotlin/jvm/internal/AdaptedFunctionReference;-><init>(ILjava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Ldm3/a;)Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ldm3/a<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object p0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->receiver:Ljava/lang/Object;
+
+    check-cast p0, Lcom/reddit/achievements/onboarding/AchievementsOnboardingViewModel;
+
+    .line 2
+    iget-object p1, p0, Lcom/reddit/achievements/onboarding/AchievementsOnboardingViewModel;->w:Lcom/reddit/achievements/a;
+
+    .line 3
+    iget-object p1, p1, Lcom/reddit/achievements/a;->a:Lcom/reddit/eventkit/b;
+
+    .line 4
+    new-instance v0, Lmw3/a;
+
+    sget-object v1, Lcom/reddit/achievements/AchievementsAnalytics$Noun;->Onboarding:Lcom/reddit/achievements/AchievementsAnalytics$Noun;
+
+    invoke-virtual {v1}, Lcom/reddit/achievements/AchievementsAnalytics$Noun;->getValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v2, 0x3f
+
+    const/4 v3, 0x0
+
+    invoke-direct {v0, v3, v1, v2}, Lmw3/a;-><init>(Lfo4/a;Ljava/lang/String;I)V
+
+    .line 5
+    invoke-interface {p1, v0}, Lcom/reddit/eventkit/b;->a(Lsh/a;)V
+
+    .line 6
+    iget-object p0, p0, Lcom/reddit/achievements/onboarding/AchievementsOnboardingViewModel;->v:Lcom/reddit/achievements/data/d;
+
+    .line 7
+    iget-object p1, p0, Lcom/reddit/achievements/data/d;->a:Lcom/reddit/preferences/b;
+
+    .line 8
+    sget-object v0, Lcom/reddit/achievements/data/d;->b:[Ltm3/x;
+
+    const/4 v1, 0x0
+
+    aget-object v0, v0, v1
+
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-virtual {p1, v0, p0, v1}, Lcom/reddit/preferences/b;->a(Ltm3/x;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    .line 9
+    sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    return-object p0
+.end method
+
+.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    .line 10
+    check-cast p1, Ldm3/a;
+
+    invoke-virtual {p0, p1}, Lcom/reddit/achievements/onboarding/AchievementsOnboardingViewModel$viewState$2$1;->invoke(Ldm3/a;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
