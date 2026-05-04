@@ -6,13 +6,13 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.0.0"
+version: "3.1.0"
 port: 3000
 
 developer: Dan
-website: https://github.com/dan-ciprian/phone-network
-repo: https://github.com/dan-ciprian/phone-network
-support: https://github.com/dan-ciprian/phone-network/issues
+website: https://github.com/enkumber/slavegate
+repo: https://github.com/enkumber/slavegate-server
+support: https://github.com/enkumber/slavegate-server/issues
 
 description: >-
   Phone Network server for remote Android fleet management.
@@ -27,10 +27,12 @@ description: >-
   - Device registry with health monitoring
   - Coordinate learning cache for reliable UI automation
   - Screen detection cascade (UI tree → OCR → VLM)
+  - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
-  v3.0.0: Nostr transport layer. NAT-friendly encrypted device messaging
-  via configurable Nostr relay. Full fleet management API.
+  v3.1.0: App mapping persistence migrated from filesystem to PostgreSQL.
+  Reddit fixed elements expanded to 150+ elements across 11 screens.
+  Improved UI tree dump parsing for app crawler.
 
 dependencies:
   - nostr-relay
