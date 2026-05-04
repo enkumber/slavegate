@@ -1,0 +1,53 @@
+name: Auto-update app on server push
+
+on:
+  repository_dispatch:
+    types: [server-updated]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'New version (e.g. 3.2.1)'
+        required: false
+        default: ''
+      commit_sha:
+        description: 'Server commit SHA'
+        required: false
+        default: ''
+
+jobs:
+  update-app:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update version in umbrel-app.yml
+        run: |
+          VERSION="${{ github.event.inputs.version || 'patch' }}"
+          SHA="${{ github.event.inputs.commit_sha || 'latest' }}"
+
+          # If version is 'patch', bump the patch version
+          if [ "$VERSION" = "patch" ]; then
+            CURRENT=$(grep '^version:' slavegate-phone-network/umbrel-app.yml | awk '{print $2}' | tr -d '"')
+            MAJOR=$(echo "$CURRENT" | cut -d. -f1)
+            MINOR=$(echo "$CURRENT" | cut -d. -f2)
+            PATCH=$(echo "$CURRENT" | cut -d. -f3)
+            PATCH=$((PATCH + 1))
+            VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          fi
+
+          # Update version
+          sed -i "s/^version:.*/version: \"${VERSION}\"/" slavegate-phone-network/umbrel-app.yml
+
+          # Update release notes
+          MSG="${{ github.event.client_payload.message || github.event.inputs.commit_sha || 'Automated update' }}"
+          if [ -n "$MSG" ]; then
+            sed -i "s|^releaseNotes:.*|releaseNotes: >-|; /^releaseNotes: >-/{n;s|.*|  v${VERSION}: ${MSG}|}" slavegate-phone-network/umbrel-app.yml
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "release: v${VERSION} (server ${SHA:0:12})" || echo "No changes"
+          git push
