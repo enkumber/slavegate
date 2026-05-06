@@ -6,7 +6,7 @@
 #
 # Reference: https://github.com/getumbrel/umbrel/blob/master/docs/app-manifest.md
 
-export APP_PHONE_NETWORK_PORT=3000
+export APP_PHONE_NETWORK_PORT=21211
 
 # Data directory for persistence (keys, DB, uploads)
 # Umbrel sets APP_DATA_DIR; fallback for local dev.
