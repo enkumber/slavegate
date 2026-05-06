@@ -1,6 +1,8 @@
 services:
   phone-network-server:
     image: ghcr.io/enkumber/slavegate-server:latest
+    env_file:
+      - .env
     restart: unless-stopped
     ports:
       - "${APP_PHONE_NETWORK_PORT:-21211}:21211"

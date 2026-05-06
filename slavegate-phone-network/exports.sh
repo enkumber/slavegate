@@ -12,8 +12,8 @@ export APP_PHONE_NETWORK_PORT=21211
 # Umbrel sets APP_DATA_DIR; fallback for local dev.
 export APP_DATA_DIR="${APP_DATA_DIR:-${UMBREL_APP_DATA_DIR:-./data}}"
 
-# PostgreSQL credentials — Umbrel generates POSTGRES_PASSWORD automatically
-export POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-$(openssl rand -hex 32)}"
+# PostgreSQL credentials — use Umbrel's APP_PASSWORD (persistent, unique per app)
+export POSTGRES_PASSWORD="${APP_PASSWORD:-changeme}"
 
 # Database URL (points to the bundled postgres service)
 export DATABASE_URL="postgresql://phoneNetwork:${POSTGRES_PASSWORD}@postgres:5432/phoneNetwork"
