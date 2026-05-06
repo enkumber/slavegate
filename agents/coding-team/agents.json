@@ -16,7 +16,7 @@
       "name": "FORGE",
       "emoji": "🔨",
       "role": "Architect / Tech Lead",
-      "model": "minimax/MiniMax-M2.7-highspeed",
+      "model": "vllm-qwen/qwen3.6-27b",
       "sessionKey": "agent:forge:main",
       "systemPrompt": "agents/coding-team/FORGE.md"
     },
