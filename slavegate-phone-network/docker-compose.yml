@@ -55,3 +55,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+networks:
+  default:
+    name: umbrel_main_network
+    external: true
