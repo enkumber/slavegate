@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.2.2"
+version: "3.2.3"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
+  v3.2.3: Fixed app_proxy format to match official Umbrel documentation.
   v3.2.2: Fixed app_proxy configuration for Umbrel.
   v3.2.1: Fixed app_proxy image for proper Umbrel health checks.
   v3.2.0: Added app_proxy for proper Umbrel integration.
