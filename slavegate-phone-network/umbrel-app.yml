@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.1.7"
+version: "3.1.8"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,8 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
+  v3.1.8: Fixed device flags column (text[] → jsonb), fixed 011 migration
+  (timestamp → created_at), all migrations non-fatal.
   v3.1.7: Removed shell-based migration that was crashing the container.
   Node.js auto-migrate is now fully non-fatal — server always starts.
   v3.1.6: Migration resilience fix — server starts even if migrations have errors.
