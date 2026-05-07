@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.1.2"
+version: "3.1.3"
 port: 21211
 
 developer: Dan
@@ -30,9 +30,9 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
-  v3.1.0: App mapping persistence migrated from filesystem to PostgreSQL.
-  Reddit fixed elements expanded to 150+ elements across 11 screens.
-  Improved UI tree dump parsing for app crawler.
+  v3.1.3: Auto-migrate DB schema at startup. Added POST /api/mapping/upload
+  endpoint. Reddit app map seed (12 pages, 22 transitions). Fixed canary_rollouts
+  table creation. Improved migration path resolution for Docker deployments.
 
 dependencies:
   - nostr-relay
