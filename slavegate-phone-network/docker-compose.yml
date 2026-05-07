@@ -1,5 +1,6 @@
 services:
   app_proxy:
+    image: getumbrel/app-proxy:1.7.0@sha256:ec0de0b944a2e63d52fdd82b3760d90a35f8b442d17a8407afdee3af3e842d5a
     environment:
       APP_HOST: phone-network-server
       APP_PORT: 21211
