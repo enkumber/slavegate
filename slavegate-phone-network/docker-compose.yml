@@ -1,11 +1,15 @@
+version: "3.7"
+
 services:
+  app_proxy:
+    environment:
+      APP_HOST: phone-network-server
+      APP_PORT: 21211
+
   phone-network-server:
     image: ghcr.io/enkumber/slavegate-server:latest
-    env_file:
-      - .env
     restart: unless-stopped
-    ports:
-      - "${APP_PHONE_NETWORK_PORT:-21211}:21211"
+    stop_grace_period: 1m
     environment:
       NODE_ENV: production
       PORT: 21211
@@ -19,9 +23,7 @@ services:
       DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD}
       DATA_DIR: /data
     volumes:
-      - ${APP_DATA_DIR:-./data}/phone-network:/data
-    networks:
-      - default
+      - ${APP_DATA_DIR}/phone-network:/data
     depends_on:
       redis:
         condition: service_healthy
@@ -37,8 +39,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - default
 
   postgres:
     hostname: phone-network-db
@@ -49,16 +49,9 @@ services:
       POSTGRES_USER: phoneNetwork
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
     volumes:
-      - ${APP_DATA_DIR:-./data}/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U phoneNetwork -d phoneNetwork"]
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - default
-
-networks:
-  default:
-    name: umbrel_main_network
-    external: true
