@@ -1,11 +1,14 @@
 services:
+  app_proxy:
+    environment:
+      APP_HOST: phone-network-server
+      APP_PORT: 21211
+
   phone-network-server:
     image: ghcr.io/enkumber/slavegate-server:latest
     env_file:
       - .env
     restart: unless-stopped
-    ports:
-      - "${APP_PHONE_NETWORK_PORT:-21211}:21211"
     environment:
       NODE_ENV: production
       PORT: 21211
