@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.1.8"
+version: "3.1.9"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
+  v3.1.9: Removed nostr-relay dependency.
   v3.1.8: Fixed device flags column (text[] → jsonb), fixed 011 migration
   (timestamp → created_at), all migrations non-fatal.
   v3.1.7: Removed shell-based migration that was crashing the container.
@@ -42,7 +43,6 @@ releaseNotes: >-
   table creation. Improved migration path resolution for Docker deployments.
 
 dependencies:
-  - nostr-relay
 
 submitter: Dan
 submission: https://github.com/getumbrel/umbrel-apps
