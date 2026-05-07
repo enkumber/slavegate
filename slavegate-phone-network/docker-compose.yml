@@ -1,9 +1,10 @@
 services:
   app_proxy:
-    image: getumbrel/app-proxy:1.0.0
     environment:
       APP_HOST: phone-network-server
       APP_PORT: 21211
+    volumes:
+      - ${APP_DATA_DIR}/umbrel-app.yml:/extra/umbrel-app.yml:ro
 
   phone-network-server:
     image: ghcr.io/enkumber/slavegate-server:latest
