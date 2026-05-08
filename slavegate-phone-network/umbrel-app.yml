@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.2.5"
+version: "3.2.6"
 port: 21211
 
 developer: Dan
@@ -30,10 +30,10 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
+  v3.2.6: Removed app_proxy image and networks from docker-compose.
+  Umbrel injects these automatically during install/update.
+  env_file properly configured for all services.
   v3.2.5: Fixed docker-compose for reliable Umbrel updates.
-  app_proxy now has explicit image, env_file properly configured.
-  v3.2.4: Complete docker-compose rewrite with env_file, proper app_proxy,
-  and umbrel_main_network.
   v3.1.9: Removed nostr-relay dependency.
 
 dependencies:
