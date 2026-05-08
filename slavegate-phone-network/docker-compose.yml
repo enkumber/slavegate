@@ -1,6 +1,5 @@
 services:
   app_proxy:
-    image: getumbrel/app-proxy:1.7.0
     environment:
       APP_HOST: phone-network-server
       APP_PORT: 21211
@@ -67,8 +66,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-networks:
-  default:
-    name: umbrel_main_network
-    external: true
