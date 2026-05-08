@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.3.4"
+version: "3.4.0"
 port: 21211
 
 developer: Dan
@@ -28,10 +28,12 @@ description: >-
   - Coordinate learning cache for reliable UI automation
   - Screen detection cascade (UI tree -> OCR -> VLM)
   - App mapping with PostgreSQL persistence
+  - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.3.4: Fixed postgres volume path to use existing data directory.
-  Devices and data should now persist across updates.
+  v3.4.0: Workflow Compiler + Runner with AI Fallback.
+  Natural language instructions converted to deterministic workflows
+  using app maps. AI recovery on errors only. Auth on all endpoints.
 
 dependencies:
 
