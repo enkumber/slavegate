@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.2.6"
+version: "3.2.7"
 port: 21211
 
 developer: Dan
@@ -26,15 +26,12 @@ description: >-
   - Workflow automation engine with step verification
   - Device registry with health monitoring
   - Coordinate learning cache for reliable UI automation
-  - Screen detection cascade (UI tree → OCR → VLM)
+  - Screen detection cascade (UI tree -> OCR -> VLM)
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
-  v3.2.6: Removed app_proxy image and networks from docker-compose.
-  Umbrel injects these automatically during install/update.
-  env_file properly configured for all services.
-  v3.2.5: Fixed docker-compose for reliable Umbrel updates.
-  v3.1.9: Removed nostr-relay dependency.
+  v3.2.7: Fixed env_file path resolution for Umbrel's multi-file
+  docker compose. Uses APP_DATA_DIR for absolute paths.
 
 dependencies:
 
