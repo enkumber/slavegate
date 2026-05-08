@@ -9,6 +9,8 @@ services:
     env_file:
       - ${APP_DATA_DIR}/.env
     restart: unless-stopped
+    ports:
+      - "${APP_PHONE_NETWORK_DIRECT_PORT:-21212}:21211"
     environment:
       NODE_ENV: production
       PORT: 21211
