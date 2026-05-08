@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.3.1"
+version: "3.3.2"
 port: 21211
 
 developer: Dan
@@ -30,8 +30,8 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
-  v3.3.1: DATABASE_URL now built dynamically from POSTGRES_PASSWORD.
-  Guarantees password sync between server and postgres.
+  v3.3.2: Removed DATABASE_URL from docker-compose environment.
+  All DB credentials come from .env file only via env_file.
 
 dependencies:
 
