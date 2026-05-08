@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.3.3"
+version: "3.3.4"
 port: 21211
 
 developer: Dan
@@ -30,8 +30,8 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
-  v3.3.3: Added direct port 21212 for device WebSocket access.
-  app_proxy handles 21211 (Umbrel UI), 21212 is direct (devices).
+  v3.3.4: Fixed postgres volume path to use existing data directory.
+  Devices and data should now persist across updates.
 
 dependencies:
 
