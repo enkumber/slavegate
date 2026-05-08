@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.2.7"
+version: "3.2.8"
 port: 21211
 
 developer: Dan
@@ -30,8 +30,8 @@ description: >-
   - App mapping with PostgreSQL persistence
 
 releaseNotes: >-
-  v3.2.7: Fixed env_file path resolution for Umbrel's multi-file
-  docker compose. Uses APP_DATA_DIR for absolute paths.
+  v3.2.8: Removed ports from phone-network-server to avoid conflict
+  with app_proxy. Umbrel's app_proxy handles external port binding.
 
 dependencies:
 
