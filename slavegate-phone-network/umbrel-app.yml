@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.5.1"
+version: "3.5.2"
 port: 21211
 
 developer: Dan
@@ -31,8 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.5.1: Fix OTA upload endpoint (multer compat). Upload APKs directly
-  to server with POST /api/ota/upload.
+  v3.5.2: Fix OTA upload endpoint.
 
 dependencies:
 
