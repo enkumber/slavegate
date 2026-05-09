@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.4.2"
+version: "3.4.3"
 port: 21211
 
 developer: Dan
@@ -31,8 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.4.2: APK v3.1.0 bundled in Docker image (BatchExecutor import fix).
-  arm64 + arm32 builds included. Dockerfile now COPYs APKs from repo.
+  v3.4.3: Fix APK download path in container. APK v3.1.0 bundled.
 
 dependencies:
 
