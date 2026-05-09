@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.4.3: Fix APK download path in container. APK v3.1.0 bundled.
+  v3.4.3: e2495bd
 
 dependencies:
 
