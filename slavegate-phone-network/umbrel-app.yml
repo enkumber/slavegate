@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.5.7"
+version: "3.5.8"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.5.7: Increase BFS launch timeout to 25s for slower devices.
+  v3.5.8: Fix BFS app mapping - increase element depth limit for deep UI trees (Reddit etc).
 
 dependencies:
 
