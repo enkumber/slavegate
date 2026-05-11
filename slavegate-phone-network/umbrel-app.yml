@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.6.3"
+version: "3.6.4"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,8 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.6.3: Fix workflow dispatch — actually send job to device via WebSocket.
+  v3.6.4: Server-side fix for workflow unlock — sends screen_wake + unlock as
+  individual jobs before the workflow, bypassing device-side bug.
 
 dependencies:
 
