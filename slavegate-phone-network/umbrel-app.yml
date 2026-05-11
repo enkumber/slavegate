@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.6.5"
+version: "3.6.6"
 port: 21211
 
 developer: Dan
@@ -31,6 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
+  Add cascade_tap support + increase OTA timeout to 10min
   v3.6.5: Stable device IDs via hardware serial, auto re-auth on reinstall.
 
 dependencies:
