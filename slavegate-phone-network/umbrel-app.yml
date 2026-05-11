@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.5.9"
+version: "3.6.0"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.5.9: Add Reddit-specific automation rules to planner — voting (bounds-relative tapping for hidden a11y buttons), feed scrolling, comments, search, subreddit navigation, create post, profile interactions, error detection (rate limit/banned/login), and timing constraints.
+  v3.6.0: Reddit karma farming workflow — auto-navigate to r/AskReddit, analyze posts, generate dramatic/helpful/funny comments with VLM, auto-post. Reddit planner rules for automation. Minor: max session entries increased to 500.
 
 dependencies:
 
