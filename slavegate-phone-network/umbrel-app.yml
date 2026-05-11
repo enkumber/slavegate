@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.6.1"
+version: "3.6.2"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.6.1: DB-backed system prompts and runtime config API — edit planner prompts and workflow templates from API without Docker rebuilds. Reddit karma farming workflow template.
+  v3.6.2: Fix workflow dispatch — add workflow_execute to allowed job types.
 
 dependencies:
 
