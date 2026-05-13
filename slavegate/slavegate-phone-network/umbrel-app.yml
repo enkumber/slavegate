@@ -1,0 +1,44 @@
+manifestVersion: 1
+
+id: slavegate-phone-network
+name: Phone Network
+tagline: Fleet management for Android devices with edge workflow execution
+icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
+
+category: automation
+version: "3.8.0"
+port: 21211
+
+developer: Dan
+website: https://github.com/enkumber/slavegate
+repo: https://github.com/enkumber/slavegate-server
+support: https://github.com/enkumber/slavegate-server/issues
+
+description: >-
+  Phone Network server for remote Android fleet management.
+  Communicates with devices through Nostr relay for NAT-friendly,
+  encrypted messaging.
+
+  Features:
+  - Fleet management for Android devices
+  - Nostr-based encrypted device communication (NIP-04 / NIP-17)
+  - Real-time job dispatch: tap, swipe, type, screenshot, OTA updates
+  - Workflow automation engine with step verification
+  - Device registry with health monitoring
+  - Coordinate learning cache for reliable UI automation
+  - Screen detection cascade (UI tree -> OCR -> VLM)
+  - App mapping with PostgreSQL persistence
+  - Workflow Compiler: NL instructions to executable workflows with AI fallback
+
+releaseNotes: >-
+  v3.8.0: Edge workflow execution (ADR-001) — templates run on-device, LLM via server VLM. Agent version routing, template OTA, backward compatible.
+  v3.7.7: Clean reinstall — all workflow engine fixes included
+  v3.7.4: Fix JOB_RESULT not reaching workflow executor
+  v3.7.2: Fix infinite loop in compileBatchSegments (server freeze)
+  v3.7.1: Scalability for 100 devices
+  v3.7.0: Fix BASE_URL env var for OTA push
+
+dependencies:
+
+submitter: Dan
+submission: https://github.com/getumbrel/umbrel-apps
