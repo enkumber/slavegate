@@ -1,7 +1,3 @@
-# Phone Network — Slavegate Server
-# Umbrel app store: https://github.com/enkumber/slavegate
-# Image: ghcr.io/enkumber/slavegate-server:latest
-
 services:
   app_proxy:
     environment:
