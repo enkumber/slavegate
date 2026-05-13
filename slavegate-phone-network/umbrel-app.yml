@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.7.3"
+version: "3.7.4"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,8 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.7.3: Fix JOB_RESULT not reaching workflow executor — workflows now execute end-to-end
+  v3.7.4: Fix JOB_RESULT not reaching workflow executor — workflows execute end-to-end now
+  v3.7.3: Scalability for 100 devices + batch loop fix
   v3.7.2: Fix infinite loop in compileBatchSegments
   v3.7.1: Scalability for 100 devices
 
