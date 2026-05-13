@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.7.5"
+version: "3.7.6"
 port: 21211
 
 developer: Dan
@@ -20,8 +20,10 @@ description: >-
   encrypted messaging.
 
 releaseNotes: >-
-  v3.7.5: Fix docker-compose variable interpolation
+  v3.7.6: Reinstall fix — all workflow and scalability fixes included
   v3.7.4: Fix JOB_RESULT not reaching workflow executor
+  v3.7.2: Fix infinite loop in compileBatchSegments
+  v3.7.1: Scalability for 100 devices
 
 dependencies:
 
