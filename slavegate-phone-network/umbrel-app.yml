@@ -6,7 +6,7 @@ tagline: Manage and orchestrate Android devices via Nostr
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.7.2"
+version: "3.7.3"
 port: 21211
 
 developer: Dan
@@ -31,9 +31,9 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.7.2: Fix infinite loop in workflow executor — non-batchable actions (screen_wake, unlock, screenshot) blocked event loop. Added step-level logging.
-  v3.7.1: Scalability for 100 devices — per-device concurrency, DB pool sizing, request timeouts, monitoring endpoint
-  v3.7.0: Fix BASE_URL env var for OTA push
+  v3.7.3: Fix JOB_RESULT not reaching workflow executor — workflows now execute end-to-end
+  v3.7.2: Fix infinite loop in compileBatchSegments
+  v3.7.1: Scalability for 100 devices
 
 dependencies:
 
