@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.8.10"
+version: "3.9.0"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.8.10: Fix edge VLM bridge so Android workflows receive screenshot analysis results instead of empty strings.
+  v3.9.0: Fix edge VLM bridge so Android workflows receive screenshot analysis results instead of empty strings.
   v3.8.9: Fix Reddit workflow loop counter, increase search budget, and relax candidate criteria so runs do not stop after 10 skipped posts.
   v3.8.8: Persist edge workflow status using canonical workflow columns; remove dependency on missing progress/result DB columns.
   v3.8.7: Preserve WORKFLOW_START protocol type after template merge so edge devices always receive runnable workflow messages.
