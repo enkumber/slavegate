@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.8.0"
+version: "3.8.1"
 port: 21211
 
 developer: Dan
@@ -31,6 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
+  v3.8.1: Fix edge workflow monitoring by passing concrete workflowId to devices; includes Android agent 4.0.5 OTA/restart observability fixes.
   v3.8.0: Edge workflow execution (ADR-001) — templates run on-device, LLM via server VLM. Agent version routing, template OTA, backward compatible.
   v3.7.7: Clean reinstall — all workflow engine fixes included
   v3.7.4: Fix JOB_RESULT not reaching workflow executor
