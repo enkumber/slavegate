@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.8.3"
+version: "3.8.4"
 port: 21211
 
 developer: Dan
@@ -31,13 +31,17 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
+  v3.8.4: Manifest normalized to Umbrel community app store template fields and pinned fixed server image.
   v3.8.3: Pin Docker image to server build be4fd8f so Umbrel pulls the fixed edge workflow server.
   v3.8.2: Fix edge workflow monitoring by passing concrete workflowId to devices; includes Android agent 4.0.5 OTA/restart observability fixes.
   v3.8.1: Edge Workflow Execution - docker-compose fix
   v3.8.0: Edge Workflow Execution - workflows run on device
   v3.7.0: Fix BASE_URL env var for OTA push
 
-dependencies:
-
+gallery: []
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
 submitter: Dan
 submission: https://github.com/getumbrel/umbrel-apps
