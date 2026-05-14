@@ -5,7 +5,7 @@ services:
       APP_PORT: 21211
 
   phone-network-server:
-    image: ghcr.io/enkumber/slavegate-server:c61d26dc8e7b089345c35cce7a21b09f2cb10c03
+    image: ghcr.io/enkumber/slavegate-server:d3fd5ab3a83a31030604b066f70db519b4160a14
     env_file:
       - ${APP_DATA_DIR}/.env
     restart: unless-stopped
