@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.6"
+version: "3.9.7"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.6: manual dispatch test/fix for Phone Network update
+  v3.9.7: fix dashboard API URLs for external browsers
   v3.9.1: Add server-side Tokens/Models config for decision_llm and vision_vlm with encrypted/redacted credentials and DirectWS role routing.
   v3.9.0: Fix edge VLM bridge so Android workflows receive screenshot analysis results instead of empty strings.
   v3.8.9: Fix Reddit workflow loop counter, increase search budget, and relax candidate criteria so runs do not stop after 10 skipped posts.
