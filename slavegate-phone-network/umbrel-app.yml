@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.10"
+version: "3.9.11"
 port: 21211
 
 developer: Dan
@@ -31,7 +31,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.10: fix device-direct model config auth; align all Phone Network app manifests.
+  v3.9.11: restore top-level legacy phone-network app id and fix device-direct model config auth.
 gallery: []
 dependencies: []
 path: ""
