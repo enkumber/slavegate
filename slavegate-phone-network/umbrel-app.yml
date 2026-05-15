@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.8"
+version: "3.9.9"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - App mapping with PostgreSQL persistence
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
-releaseNotes: >-
+releaseNotes: "v3.9.9: fix device-direct model config auth (no dashboard API key required)."
   v3.9.8: device-direct LLM/VLM config broker
   v3.9.1: Add server-side Tokens/Models config for decision_llm and vision_vlm with encrypted/redacted credentials and DirectWS role routing.
   v3.9.0: Fix edge VLM bridge so Android workflows receive screenshot analysis results instead of empty strings.
