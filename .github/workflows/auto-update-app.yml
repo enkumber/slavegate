@@ -24,8 +24,8 @@ jobs:
 
       - name: Update version in umbrel-app.yml
         run: |
-          VERSION="${{ github.event.inputs.version || 'patch' }}"
-          SHA="${{ github.event.inputs.commit_sha || 'latest' }}"
+          VERSION="${{ github.event.client_payload.version || github.event.inputs.version || 'patch' }}"
+          SHA="${{ github.event.client_payload.commit_sha || github.event.inputs.commit_sha || 'latest' }}"
 
           # If version is 'patch', bump the patch version
           if [ "$VERSION" = "patch" ]; then
@@ -39,6 +39,11 @@ jobs:
 
           # Update version
           sed -i "s/^version:.*/version: \"${VERSION}\"/" slavegate-phone-network/umbrel-app.yml
+
+          # Update pinned server image in docker-compose.yml
+          if [ -n "$SHA" ] && [ "$SHA" != "latest" ]; then
+            sed -i "s|image: ghcr.io/enkumber/slavegate-server:.*|image: ghcr.io/enkumber/slavegate-server:${SHA}|" slavegate-phone-network/docker-compose.yml
+          fi
 
           # Update release notes
           MSG="${{ github.event.client_payload.message || github.event.inputs.commit_sha || 'Automated update' }}"
