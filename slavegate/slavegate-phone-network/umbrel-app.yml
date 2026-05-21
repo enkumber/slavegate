@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.16"
+version: "3.9.18"
 port: 21211
 
 developer: Dan
@@ -30,8 +30,8 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.16: Add cache-first generated workflow execution with request keys,
-  compiled plan reuse, cache resolve/execute paths, and local-only validation.
+  v3.9.18: Harden generated workflow cache/prompt routes, add cache behavior
+  tests, and expose app version plus image commit in health checks.
 
 gallery: []
 dependencies: []
