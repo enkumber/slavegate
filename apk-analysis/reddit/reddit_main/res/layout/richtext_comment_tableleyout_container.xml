@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView android:paddingBottom="@dimen/single_pad" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TableLayout android:textAppearance="?textAppearanceRedditBody" android:orientation="horizontal" android:id="@id/richtext_table_layout" android:padding="@dimen/richtext_cell_border_half_width" android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="@drawable/table_cell_border" />
-</HorizontalScrollView>

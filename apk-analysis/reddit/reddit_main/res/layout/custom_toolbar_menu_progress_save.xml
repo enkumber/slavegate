@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:id="@id/menu_item_save" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/action_save" style="?borderlessColoredButtonStyle" />
-    <ProgressBar android:layout_gravity="center" android:id="@id/menu_item_progress" android:visibility="gone" android:layout_width="@dimen/menu_progress_size" android:layout_height="@dimen/menu_progress_size" />
-</FrameLayout>

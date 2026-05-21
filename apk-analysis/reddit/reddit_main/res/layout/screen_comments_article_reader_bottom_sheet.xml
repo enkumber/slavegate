@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/content_root" android:background="@color/neutral_background" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.reddit.ui.sheet.SheetIndicatorView android:id="@id/sheet_indicator_view" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:contentDescription="@string/fbp_accessibility_label_close_comment_sheet" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:rdtIndicatorDrawableGravity="center" />
-    <FrameLayout android:id="@id/child_screen_container" android:layout_width="0.0dp" android:layout_height="0.0dp" android:fillViewport="true" app:behavior_hideable="true" app:layout_behavior="@string/bottom_sheet_behavior" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/sheet_indicator_view" />
-</androidx.constraintlayout.widget.ConstraintLayout>

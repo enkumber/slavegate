@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ProgressBar android:layout_gravity="center" android:id="@id/progress_bar" android:visibility="visible" android:layout_width="48.0dp" android:layout_height="48.0dp" android:indeterminateTint="?rdt_ds_color_primary" />
-    <ViewStub android:id="@id/error_stub" android:inflatedId="@id/error_inflated" android:layout_width="match_parent" android:layout_height="match_parent" />
-</FrameLayout>

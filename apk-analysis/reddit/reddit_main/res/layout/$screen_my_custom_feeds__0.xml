@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/quad_pad"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH2" android:gravity="center|top" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/label_no_custom_feeds_available" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:textColor="?rdt_meta_text_color" android:gravity="center|top" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" android:text="@string/description_not_created_or_followed_custom_feeds" />
-    <Button android:layout_gravity="center_horizontal" android:id="@id/my_custom_feeds_empty_create" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/triple_pad" android:text="@string/action_create_custom_feed" style="?primaryButtonStyle" />
-</LinearLayout>

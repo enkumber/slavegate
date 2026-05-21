@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center|bottom" android:id="@id/inner_peeking_snoovatar" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
-    <com.reddit.ui.SquareImageView android:layout_gravity="center|bottom" android:id="@id/inner_user_icon" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerInside" />
-</merge>

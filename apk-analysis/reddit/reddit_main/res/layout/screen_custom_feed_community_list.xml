@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.recyclerview.widget.RecyclerView android:id="@id/custom_feed_community_list_list" android:layout_width="match_parent" android:layout_height="match_parent" />
-    <ViewStub android:id="@id/custom_feed_empty_stub" android:layout="@layout/custom_feed_empty" android:layout_width="match_parent" android:layout_height="match_parent" />
-</FrameLayout>

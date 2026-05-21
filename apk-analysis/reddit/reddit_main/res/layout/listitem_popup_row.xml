@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:background="?selectableItemBackground" android:padding="@dimen/single_pad" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/icon" android:padding="@dimen/half_pad" android:layout_width="@dimen/simple_listitem_icon_height" android:layout_height="@dimen/simple_listitem_icon_height" android:contentDescription="@null" />
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH4" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/text" android:layout_width="match_parent" android:layout_height="@dimen/simple_listitem_icon_height" android:maxLines="1" android:paddingStart="@dimen/single_pad" />
-</LinearLayout>

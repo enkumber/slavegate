@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/nft_inner_circle_background" android:padding="0.5dp" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/ic_nft_background" app:layout_constraintBottom_toBottomOf="@id/nft_border" app:layout_constraintTop_toTopOf="@id/nft_border" />
-    <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/nft_border" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/nft_hexagon_border" />
-    <ImageView android:id="@id/nft_avatar" android:paddingBottom="2.0dp" android:layout_width="match_parent" android:layout_height="match_parent" />
-    <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/nft_border_bottom_half" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/ic_nft_hexagon_border_bottom_half" />
-</merge>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/quad_half_pad" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/gild_loading_header" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/single_half_pad" android:scaleType="fitXY" />
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH2" android:layout_gravity="center_horizontal" android:id="@id/gild_loading_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/double_pad" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:layout_gravity="center_horizontal" android:id="@id/gild_loading_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/premium_purchase_in_progress" />
-</LinearLayout>

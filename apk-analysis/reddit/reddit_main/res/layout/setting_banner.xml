@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="?rdt_body_color" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/double_pad"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH4" android:id="@id/setting_banner_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:id="@id/setting_banner_body" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" />
-    <com.reddit.ui.DrawableSizeTextView android:id="@id/setting_banner_cta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" android:layout_marginBottom="@dimen/single_pad" android:drawablePadding="@dimen/single_pad" app:drawableSize="@dimen/icon_size_medium" app:drawableTint="?rdt_button_color" style="?borderlessColoredButtonStyle" />
-</LinearLayout>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@drawable/text_input_background" android:paddingTop="@dimen/double_pad" android:paddingBottom="@dimen/double_pad" android:layout_width="match_parent" android:layout_height="106.0dp" android:paddingStart="@dimen/single_half_pad" android:paddingEnd="@dimen/single_half_pad"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="2.0">
-        <TextView android:textSize="@dimen/body_h5_text_size" android:textColor="?rdt_ds_color_tone1" android:gravity="start" android:id="@id/input_label" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
-        <TextView android:textSize="@dimen/body_h5_text_size" android:textColor="?rdt_ds_color_tone1" android:gravity="end" android:id="@id/input_label_max_chars" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
-    </LinearLayout>
-    <EditText android:textSize="@dimen/body_h4_text_size" android:textColor="?rdt_ds_color_tone1" android:textColorHint="?rdt_ds_color_tone3" android:id="@id/input_value" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" android:inputType="textMultiLine" android:paddingStart="0.0dp" android:paddingEnd="0.0dp" android:importantForAutofill="no" />
-</LinearLayout>

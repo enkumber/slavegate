@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/triple_pad" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ProgressBar android:id="@id/progress_dialog_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" />
-    <TextView android:textAppearance="?textAppearanceRedditBody" android:id="@id/progress_dialog_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/double_pad" />
-</LinearLayout>

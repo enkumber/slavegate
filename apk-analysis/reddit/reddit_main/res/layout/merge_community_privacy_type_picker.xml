@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="match_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH3" android:id="@id/community_privacy_type_picker_title_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" android:drawablePadding="@dimen/three_quarter_pad" app:drawableEndCompat="@null" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH5" android:textColor="?rdt_ds_color_tone3" android:id="@id/community_privacy_type_picker_description_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" />
-</merge>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="rectangle"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <size android:height="@dimen/nft_benefit_grid_divider_width" android:width="@dimen/nft_benefit_grid_divider_width" />
-    <solid android:color="?rdt_ds_color_tone5" />
-</shape>

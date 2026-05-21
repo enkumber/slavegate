@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:orientation="vertical" android:background="@drawable/modal_bottomsheet_background" android:padding="@dimen/double_pad" android:layout_width="match_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:layout_gravity="center" android:id="@id/widget_bottom_dialog_icon" android:background="@drawable/gray_circle" android:padding="@dimen/half_pad" android:layout_width="@dimen/icon_size_large_plus" android:layout_height="@dimen/icon_size_large_plus" android:contentDescription="@string/label_content_description_bottom_dialog_icon" />
-    <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:gravity="center" android:layout_gravity="center" android:id="@id/widget_bottom_dialog_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" />
-    <TextView android:textAppearance="@style/TextAppearance.AppCompat.Headline" android:layout_gravity="center" android:id="@id/widget_bottom_dialog_sub_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" />
-    <com.reddit.ui.button.RedditButton android:layout_gravity="center" android:id="@id/widget_bottom_dialog_confirm_button" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" />
-    <Button android:textAppearance="@style/TextAppearance.RedditBase.Action" android:layout_gravity="center" android:id="@id/widget_bottom_dialog_cancel_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" style="@style/Widget.RedditBase.Button.Borderless" />
-</merge>

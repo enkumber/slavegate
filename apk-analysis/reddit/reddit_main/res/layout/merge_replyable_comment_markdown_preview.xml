@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" android:layout_marginStart="@dimen/double_pad" android:layout_marginEnd="@dimen/double_pad" layout="@layout/comment_header" />
-    <com.reddit.screen.RedditComposeView android:id="@id/preview_video_comment" android:paddingTop="@dimen/double_pad" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/double_pad" />
-    <TextView android:textAppearance="?textAppearanceRedditBody" android:id="@id/reply_target_text" android:padding="@dimen/double_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:textIsSelectable="true" />
-</merge>

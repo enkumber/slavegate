@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/gifs_no_results" android:paddingTop="7.0dp" android:paddingBottom="7.0dp" android:layout_width="match_parent" android:layout_height="@dimen/gifs_picker_height" android:paddingStart="13.0dp" android:paddingEnd="13.0dp"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:background="@drawable/reload_outline" android:layout_width="match_parent" android:layout_height="match_parent">
-        <TextView android:textSize="@dimen/body_h3_text_size" android:textColor="?rdt_meta_text_color" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_results" android:fontFamily="@font/reddit_sans_regular" />
-    </FrameLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

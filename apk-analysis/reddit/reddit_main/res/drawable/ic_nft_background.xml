@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector android:height="36.0dp" android:width="32.0dp" android:viewportWidth="146.0" android:viewportHeight="160.0"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-    <path android:fillColor="@drawable/$ic_nft_background__0" android:pathData="M58.115,4.621C67.397,-0.738 78.833,-0.738 88.115,4.621L130.761,29.243C140.044,34.602 145.761,44.506 145.761,55.224V104.468C145.761,115.186 140.044,125.09 130.761,130.449L88.115,155.071C78.833,160.43 67.397,160.43 58.115,155.071L15.468,130.449C6.186,125.09 0.468,115.186 0.468,104.468V55.224C0.468,44.506 6.186,34.602 15.468,29.243L58.115,4.621Z" />
-</vector>

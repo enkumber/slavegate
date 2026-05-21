@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView android:textAppearance="?textAppearanceRedditDisplayH4" android:gravity="start|center" android:id="@id/text1" android:layout_width="match_parent" android:layout_height="@dimen/list_item_height" android:paddingStart="@dimen/double_pad" android:paddingEnd="@dimen/double_pad"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

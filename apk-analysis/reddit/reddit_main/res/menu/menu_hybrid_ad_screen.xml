@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:icon="@drawable/ic_reload" android:id="@id/webview_refresh" android:title="@string/webview_refresh" app:iconTint="?rdt_popup_menu_icon_color" />
-    <item android:icon="@drawable/icon_browser" android:id="@id/webview_open_in_browser" android:title="@string/webview_open_in_browser" app:iconTint="?rdt_popup_menu_icon_color" />
-</menu>

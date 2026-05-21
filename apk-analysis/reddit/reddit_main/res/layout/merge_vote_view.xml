@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:id="@id/vote_view_upvote" android:background="@drawable/vote_up_ripple" android:visibility="gone" android:layout_width="@dimen/icon_size_medium" android:layout_height="@dimen/icon_size_medium" android:src="@drawable/icon_upvote" android:contentDescription="@string/upvote_content_description" app:tint="?rdt_upvote_color_selector" />
-    <ViewStub android:layout_gravity="center_vertical" android:id="@id/vote_view_stub" android:inflatedId="@id/vote_view_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="@dimen/single_pad" />
-    <ImageView android:id="@id/vote_view_downvote" android:background="@drawable/vote_down_ripple" android:layout_width="@dimen/icon_size_medium" android:layout_height="@dimen/icon_size_medium" android:src="@drawable/icon_downvote" android:contentDescription="@string/downvote_content_description" app:tint="?rdt_downvote_color_selector" />
-</merge>

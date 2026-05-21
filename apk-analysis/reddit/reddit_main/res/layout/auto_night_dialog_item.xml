@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.reddit.ui.DrawableSizeTextView android:textAppearance="?textAppearanceRedditDisplayH4" android:textColor="?rdt_icon_color_selector" android:gravity="start|center" android:background="?selectableItemBackground" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/list_item_height" android:drawablePadding="@dimen/double_pad" android:drawableStart="@drawable/radio_checkbox_selector" android:paddingStart="@dimen/double_pad" app:drawableSize="@dimen/icon_size_medium"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

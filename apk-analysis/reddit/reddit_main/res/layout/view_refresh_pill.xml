@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Button android:layout_gravity="center_horizontal" android:id="@id/refresh_pill" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" android:minHeight="@dimen/refresh_pill_minheight" android:text="@string/action_refresh" android:paddingStart="@dimen/sex_pad" android:paddingEnd="@dimen/sex_pad" style="?primaryButtonStyle"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

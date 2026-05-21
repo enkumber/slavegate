@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView android:textAppearance="?textAppearanceRedditBody" android:textColor="?rdt_meta_text_color" android:gravity="end|center" android:layout_width="wrap_content" android:layout_height="match_parent" android:maxLines="1" android:drawablePadding="@dimen/single_half_pad" android:contentDescription="@string/label_account_setting_open" android:paddingEnd="@dimen/double_pad" app:drawableEndCompat="@drawable/automirror_icon_arrow_right" app:drawableTint="?rdt_action_icon_color"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

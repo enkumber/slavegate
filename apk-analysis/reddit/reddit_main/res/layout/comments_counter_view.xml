@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/comments_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="?selectableItemBackground"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:id="@id/comments_icon" android:layout_width="@dimen/icon_size_medium" android:layout_height="@dimen/icon_size_medium" android:src="@drawable/icon_comment" android:importantForAccessibility="no" android:layout_marginEnd="@dimen/half_pad" app:tint="?rdt_ds_color_tone2" />
-    <com.reddit.presence.widgets.ticker.TickerCounterView android:textAppearance="@style/TextAppearance.RedditBase.Action" android:id="@id/comments" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" app:animationDuration="@integer/comment_count_animation_duration" app:minWidthByNumChars="6" />
-</LinearLayout>

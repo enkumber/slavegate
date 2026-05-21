@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.reddit.comment.ui.presentation.CommentIndentView android:id="@id/indent_indicator" android:layout_width="wrap_content" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_weight="1.0" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:lineBottomMargin="@dimen/single_pad" style="@style/rdt_indent_view"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

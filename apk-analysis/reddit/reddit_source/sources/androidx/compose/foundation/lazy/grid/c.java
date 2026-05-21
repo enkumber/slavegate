@@ -1,9 +1,0 @@
-package androidx.compose.foundation.lazy.grid;
-
-import java.util.ArrayList;
-
-/* compiled from: r8-map-id-e80f24f96f1ccf116f81bc3e46b51cedd71acc29abd4f2606e8114f6ad393ac2 */
-/* loaded from: classes.dex */
-public interface c {
-    ArrayList a(t1.c cVar, int i, int i15);
-}

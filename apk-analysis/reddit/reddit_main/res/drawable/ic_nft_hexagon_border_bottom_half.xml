@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector android:height="36.0dp" android:width="32.0dp" android:viewportWidth="285.0" android:viewportHeight="320.0"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-    <path android:fillColor="#00000000" android:pathData="M278.561,224.912C278.561,233.486 273.987,241.409 266.561,245.696L154.286,310.519C146.86,314.806 137.711,314.806 130.286,310.519L18.01,245.696C10.585,241.409 6.01,233.486 6.01,224.912" android:strokeColor="@drawable/$ic_nft_hexagon_border_bottom_half__0" android:strokeWidth="12.0" android:strokeLineJoin="round" />
-    <path android:fillColor="#00000000" android:pathData="M209.345,51.947l0,0" android:strokeColor="@drawable/$ic_nft_hexagon_border_bottom_half__1" android:strokeWidth="12.0" android:strokeLineJoin="round" android:fillType="nonZero" />
-</vector>

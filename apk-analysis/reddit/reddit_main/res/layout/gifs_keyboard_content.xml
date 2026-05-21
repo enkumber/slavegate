@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView android:layout_gravity="start" android:id="@id/gifs_recycler_view" android:paddingTop="@dimen/single_pad" android:paddingBottom="@dimen/single_pad" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="@dimen/gifs_picker_height" android:paddingStart="@dimen/single_half_pad" android:paddingEnd="@dimen/single_half_pad"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

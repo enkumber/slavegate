@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:icon="@drawable/automirror_icon_share" android:id="@id/action_share" android:title="@string/action_share" app:iconTint="?rdt_menu_icon_color" app:showAsAction="always" />
-    <item android:icon="@drawable/ic_icon_download" android:id="@id/action_download" android:title="@string/action_download" app:iconTint="?rdt_popup_menu_icon_color" app:showAsAction="never" />
-</menu>

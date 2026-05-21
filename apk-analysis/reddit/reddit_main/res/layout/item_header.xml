@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.reddit.ui.DrawableSizeTextView android:textAppearance="?textAppearanceRedditDisplayH4" android:id="@id/header_title" android:background="?selectableItemBackground" android:layout_width="match_parent" android:layout_height="wrap_content" android:drawableTint="?rdt_ds_color_tone3" android:paddingHorizontal="@dimen/double_pad" android:paddingVertical="@dimen/single_pad" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/divider"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:id="@id/bottomsheet_frame" android:background="?rdt_bottomsheet_background_drawable" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/single_pad" android:layout_marginStart="@dimen/single_pad" android:layout_marginEnd="@dimen/single_pad">
-        <ViewStub android:id="@id/bottomsheet_frame_header_stub" android:layout="@layout/bottomsheet_header" android:layout_width="match_parent" android:layout_height="@dimen/bottomsheet_header_height" />
-    </LinearLayout>
-</FrameLayout>

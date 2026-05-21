@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView android:textAppearance="?textAppearanceRedditBody" android:linksClickable="true" android:padding="@dimen/single_pad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="@drawable/table_cell_border"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <EditText android:id="@id/search_view" android:background="@drawable/rounded_corners_field" android:layout_width="match_parent" android:layout_height="@dimen/edittextsearchview_height" android:hint="@string/action_search" android:lines="1" android:drawablePadding="@dimen/single_pad" android:inputType="text" android:paddingStart="@dimen/single_quarter_pad" android:paddingEnd="@dimen/quad_pad" android:importantForAutofill="no" />
-    <androidx.appcompat.widget.AppCompatImageButton android:layout_gravity="end|center" android:id="@id/clear_view" android:padding="@dimen/single_pad" android:visibility="gone" android:layout_width="32.0dp" android:layout_height="32.0dp" android:src="@drawable/ic_icon_close_filled" android:scaleType="centerInside" android:tint="?rdt_action_icon_color" android:contentDescription="@string/action_clear_selection" app:tint="?rdt_nav_icon_color" />
-</merge>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Widget.Design.TabLayout" parent="@style/Base.Widget.Design.TabLayout">
-        <item name="tabGravity">center_res_0x7f0b0131</item>
-        <item name="tabMode">fixed</item>
-    </style>
-</resources>

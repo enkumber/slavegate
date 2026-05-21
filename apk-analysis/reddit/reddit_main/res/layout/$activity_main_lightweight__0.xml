@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.reddit.screen.RedditComposeView android:layout_gravity="center" android:id="@id/main_activity_page_loader" android:layout_width="@dimen/progress_bar_width_v2" android:layout_height="@dimen/progress_bar_width_v2" android:layout_margin="20.0dp"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" />

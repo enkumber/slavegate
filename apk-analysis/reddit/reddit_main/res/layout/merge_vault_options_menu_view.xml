@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="54.0dp" android:layout_height="36.0dp"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/ic_vault" />
-    <ImageView android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/ic_right_arrow" android:rotation="90.0" android:layout_marginStart="4.0dp" app:tint="?rdt_ds_color_tone1" />
-</merge>

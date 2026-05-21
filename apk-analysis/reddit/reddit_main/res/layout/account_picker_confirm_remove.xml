@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH4" android:textColor="@color/rdt_red" android:gravity="start|center" android:id="@id/confirm_remove_account_logout" android:background="?selectableItemBackground" android:layout_width="match_parent" android:layout_height="@dimen/list_item_height" android:text="@string/action_log_out" android:drawablePadding="@dimen/single_half_pad" android:paddingStart="@dimen/single_half_pad" app:drawableStartCompat="@drawable/icon_logout" app:drawableTint="@color/rdt_red" />
-    <Button android:id="@id/confirm_remove_account_cancel" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_pad" android:text="@string/action_cancel" style="?bottomActionButtonStyle" />
-</LinearLayout>

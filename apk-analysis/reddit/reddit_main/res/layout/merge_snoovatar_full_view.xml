@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:id="@id/glow_background" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerInside" android:importantForAccessibility="no" app:layout_constraintBottom_toBottomOf="@id/snoovatar" app:layout_constraintEnd_toEndOf="@id/snoovatar" app:layout_constraintStart_toStartOf="@id/snoovatar" app:layout_constraintTop_toTopOf="@id/snoovatar" />
-    <View android:id="@id/particles" android:visibility="gone" android:layout_width="@dimen/snoovatar_full_body_width" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="@id/snoovatar" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
-    <ImageView android:id="@id/snoovatar" android:layout_width="@dimen/snoovatar_full_body_width" android:layout_height="wrap_content" android:src="@drawable/img_placeholder_snoovatar" android:minHeight="@dimen/snoovatar_full_body_min_height" android:importantForAccessibility="no" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
-</merge>

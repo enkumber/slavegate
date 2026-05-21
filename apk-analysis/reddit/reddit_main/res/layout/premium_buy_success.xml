@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/single_half_pad" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/double_pad" android:paddingEnd="@dimen/double_pad"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center_horizontal" android:id="@id/premium_buy_success_image" android:layout_width="@dimen/purchase_success_image_width" android:layout_height="@dimen/purchase_success_image_height" />
-    <TextView android:textAppearance="?textAppearanceRedditDisplayH2" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/single_half_pad" android:text="@string/premium_buy_success_title" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/double_pad" android:text="@string/premium_buy_success_p1" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:id="@id/premium_buy_success_p2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/premium_buy_success_p2" />
-    <TextView android:textAppearance="?textAppearanceRedditBodyH4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/premium_buy_success_p3" />
-</LinearLayout>
