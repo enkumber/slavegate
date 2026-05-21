@@ -31,12 +31,12 @@ Dan
 ### Echipa de Coding 💻 (Software House Workflow)
 | Agent | Rol | Session | Model |
 |-------|-----|---------|-------|
-| **ATLAS** 🗺️ | Project Manager | `agent:atlas:main` | Opus 4 |
-| **FORGE** 🔨 | Architect/Tech Lead | `agent:forge:main` | Opus 4 |
-| **VOLT** ⚡ | Senior Dev | `agent:volt:main` | Sonnet 4 |
-| **SPARK** 💡 | Junior Dev | `agent:spark:main` | Sonnet 4 |
-| **LENS** 🔍 | QA Engineer | `agent:lens:main` | Sonnet 4 |
-| **ECHO** 📡 | Code Reviewer | `agent:echo:main` | Sonnet 4 |
+| **ATLAS** 🗺️ | Project Manager | `agent:atlas:main` | gpt-5.5 |
+| **FORGE** 🔨 | Architect/Tech Lead | `agent:forge:main` | gpt-5.5 |
+| **VOLT** ⚡ | Senior Dev | `agent:volt:main` | gpt-5.5 |
+| **SPARK** 💡 | Junior Dev | `agent:spark:main` | gpt-5.5 |
+| **LENS** 🔍 | QA Engineer | `agent:lens:main` | gpt-5.5 |
+| **ECHO** 📡 | Code Reviewer | `agent:echo:main` | gpt-5.5 |
 
 **Flow:** Request → ATLAS → FORGE → VOLT/SPARK → LENS → ECHO → FORGE → Done
 **Config:** `/data/.openclaw/workspace/agents/coding-team/`
@@ -55,23 +55,7 @@ Dan
 ## Provideri activi
 
 - **OpenAI Codex** (gpt-5.5) — model principal pentru toți agenții
-- **MiniMax** — echipa de coding (atlas, forge, volt, spark, lens, echo)
-- **Moonshot** — kimi-for-coding fallback
 - **vLLM local** (GX10) — Qwen3.6-27B, Gemma-4-31B
-
-## MiniMax API (echipa de coding)
-
-- **Group ID:** `2038969487058805010`
-- **Plan:** Max High Speed
-- **Endpoint:** `https://api.minimax.io/anthropic/v1/messages`
-- **Header:** `x-api-key` (nu Authorization Bearer)
-- **Modele:** MiniMax-M2.7, MiniMax-M2.7-highspeed, MiniMax-M2.5, MiniMax-M2.5-highspeed
-- **Context:** 204,800 tokens
-- **Speed:** ~100 tps (highspeed), ~60 tps (standard)
-
-## Șters (2026-05-15)
-
-- **Z.AI / GLM** — Dan a cerut ștergerea completă. Provider, auth, models, fallbacks — totul eliminat din openclaw.json.
 
 ## Phone Network — decizie arhitecturală (2026-05-21)
 

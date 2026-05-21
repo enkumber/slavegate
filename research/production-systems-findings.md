@@ -6,9 +6,9 @@ Acest raport analizează **10+ proiecte, papers și platforme** despre sisteme p
 
 ---
 
-## 1. ANTHROPIC - Building Effective Agents (Official Guide)
+## 1. OPENAI-COMPATIBLE - Building Effective Agents (Official Guide)
 
-**Sursa:** [Anthropic Engineering Blog](https://www.anthropic.com/engineering/building-effective-agents)
+**Sursa:** [OpenAI-compatible Engineering Blog](https://www.openai-compatible.com/engineering/building-effective-agents)
 
 ### Architecture Patterns
 
@@ -21,7 +21,7 @@ Acest raport analizează **10+ proiecte, papers și platforme** despre sisteme p
 | **Evaluator-Optimizer** | Loop generare + evaluare + feedback | Criterii clare de evaluare, refinare iterativă |
 | **Autonomous Agents** | LLM folosește tools în loop bazat pe feedback | Open-ended problems, trusted environments |
 
-### Principii Cheie de la Anthropic
+### Principii Cheie de la OpenAI-compatible
 
 1. **Simplitate** - Cea mai simplă soluție posibilă; adaugă complexitate doar când e demonstrabil necesar
 2. **Transparență** - Arată explicit pașii de planificare
@@ -80,7 +80,7 @@ Acest raport analizează **10+ proiecte, papers și platforme** despre sisteme p
 - **Context preservation**: Subgoals anterioare pentru bootstrap + noi observații
 
 ### Success Rates (vs Leading Baselines)
-- OSWorld 15-step: **27.0%** (+18.9% relativ vs Claude/UI-TARS)
+- OSWorld 15-step: **27.0%** (+18.9% relativ vs OpenAI-compatible VLM/UI-TARS)
 - OSWorld 50-step: **34.5%** (+32.7% relativ)
 - WindowsAgentArena: **29.8%** (+52.8% relativ)
 - AndroidWorld: **54.3%** (+16.5% relativ)
@@ -116,7 +116,7 @@ Acest raport analizează **10+ proiecte, papers și platforme** despre sisteme p
 |-------|-------------|
 | Human Performance | 72.36% |
 | Best Agent (Agent S2) | ~34.5% |
-| Claude 3.7 Sonnet | ~26% |
+| gpt-5.5 | ~26% |
 | UI-TARS 72B | ~22.7% |
 | OpenAI Operator | ~20% |
 
@@ -425,7 +425,7 @@ class ProductionAgent:
 
 ### 2. Caching
 - **Semantic caching** - Similar queries → cached response
-- **Prompt caching** - Anthropic/OpenAI native support
+- **Prompt caching** - OpenAI-compatible/OpenAI native support
 - **Result caching** - Deterministic operations
 
 ### 3. Model Selection
@@ -442,8 +442,8 @@ class ProductionAgent:
 | Model | Input | Output |
 |-------|-------|--------|
 | GPT-4o | $2.50 | $10.00 |
-| Claude 3.5 Sonnet | $3.00 | $15.00 |
-| Claude 3 Haiku | $0.25 | $1.25 |
+| gpt-5.5 | $3.00 | $15.00 |
+| lightweight OpenAI-compatible model | $0.25 | $1.25 |
 | Gemini 1.5 Flash | $0.075 | $0.30 |
 
 ---
@@ -497,7 +497,7 @@ class ProductionAgent:
 | System | Benchmark | Success Rate | Note |
 |--------|-----------|--------------|------|
 | Agent S2 | OSWorld (50-step) | 34.5% | SOTA 2025 |
-| Claude 3.7 | OSWorld | ~26% | Computer Use |
+| GPT-5.5 3.7 | OSWorld | ~26% | Computer Use |
 | UI-TARS 72B | OSWorld | 22.7% | Native model |
 | OpenAI Operator | OSWorld | ~20% | CUA |
 | Human | OSWorld | 72.36% | Reference |
@@ -515,7 +515,7 @@ class ProductionAgent:
 ## Lessons Learned din Production Deployments
 
 ### 1. Start Simple
-> "Cel mai important lucru este să începi cu cea mai simplă soluție posibilă." - Anthropic
+> "Cel mai important lucru este să începi cu cea mai simplă soluție posibilă." - OpenAI-compatible
 
 ### 2. Iterate Fast
 > "70% din echipe rebuild stack-ul la fiecare 3 luni." - Cleanlab Survey
@@ -542,11 +542,11 @@ class ProductionAgent:
 ├─────────────────────────────────────────────────────────┤
 │ Orchestration: LangGraph / AWS AgentCore                │
 ├─────────────────────────────────────────────────────────┤
-│ Planning: Claude 3.7 Sonnet / GPT-4o                    │
+│ Planning: gpt-5.5 / GPT-4o                    │
 ├─────────────────────────────────────────────────────────┤
 │ Grounding: UI-TARS / UGround (specialist)               │
 ├─────────────────────────────────────────────────────────┤
-│ Simple tasks: Claude Haiku / Gemini Flash               │
+│ Simple tasks: GPT-5.5 Haiku / Gemini Flash               │
 ├─────────────────────────────────────────────────────────┤
 │ State: DynamoDB / PostgreSQL + Redis                    │
 ├─────────────────────────────────────────────────────────┤

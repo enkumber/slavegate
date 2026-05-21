@@ -7,7 +7,7 @@
       "name": "ATLAS",
       "emoji": "🗺️",
       "role": "Project Manager",
-      "model": "minimax/MiniMax-M2.7-highspeed",
+      "model": "openai-codex/gpt-5.5",
       "sessionKey": "agent:atlas:main",
       "systemPrompt": "agents/coding-team/ATLAS.md"
     },
@@ -16,7 +16,7 @@
       "name": "FORGE",
       "emoji": "🔨",
       "role": "Architect / Tech Lead",
-      "model": "vllm-qwen/qwen3.6-27b",
+      "model": "openai-codex/gpt-5.5",
       "sessionKey": "agent:forge:main",
       "systemPrompt": "agents/coding-team/FORGE.md"
     },
@@ -25,7 +25,7 @@
       "name": "VOLT",
       "emoji": "⚡",
       "role": "Senior Developer",
-      "model": "minimax/MiniMax-M2.7-highspeed",
+      "model": "openai-codex/gpt-5.5",
       "sessionKey": "agent:volt:main",
       "systemPrompt": "agents/coding-team/VOLT.md"
     },
@@ -34,7 +34,7 @@
       "name": "SPARK",
       "emoji": "💡",
       "role": "Junior Developer",
-      "model": "minimax/MiniMax-M2.7-highspeed",
+      "model": "openai-codex/gpt-5.5",
       "sessionKey": "agent:spark:main",
       "systemPrompt": "agents/coding-team/SPARK.md"
     },
@@ -43,7 +43,7 @@
       "name": "LENS",
       "emoji": "🔍",
       "role": "QA Engineer",
-      "model": "minimax/MiniMax-M2.7-highspeed",
+      "model": "openai-codex/gpt-5.5",
       "sessionKey": "agent:lens:main",
       "systemPrompt": "agents/coding-team/LENS.md"
     },
@@ -52,7 +52,7 @@
       "name": "ECHO",
       "emoji": "📡",
       "role": "Code Reviewer",
-      "model": "minimax/MiniMax-M2.7-highspeed",
+      "model": "openai-codex/gpt-5.5",
       "sessionKey": "agent:echo:main",
       "systemPrompt": "agents/coding-team/ECHO.md"
     }

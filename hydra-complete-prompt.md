@@ -48,7 +48,7 @@ curl -X POST "$API_URL/api/hydra/screenshot-to-file" \
 ```
 sessions_spawn({
   task: "Analizează /tmp/screen.jpg. E femeie? Profil public? Răspunde DOAR JSON: {\"is_female\": bool, \"is_public\": bool}",
-  model: "anthropic/claude-sonnet-4-6",
+  model: "openai-codex/gpt-5.5",
   runTimeoutSeconds: 30
 })
 ```

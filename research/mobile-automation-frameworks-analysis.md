@@ -287,7 +287,7 @@ Am analizat **10 proiecte majore** în domeniul mobile/GUI automation cu AI. Ace
 - ✅ **Desktop + Mobile + Browser support**
 - ✅ **Game playing capability** (Minecraft, Poki games)
 - ✅ **OmniTool integration:** Windows VM control
-- ✅ **Multiple LLM backends:** OpenAI, DeepSeek, Qwen, Claude
+- ✅ **Multiple LLM backends:** OpenAI, DeepSeek, Qwen, GPT-5.5
 - ✅ **Inference-time scaling**
 - ✅ **Desktop app available**
 - ✅ **Midscene.js integration** pentru web

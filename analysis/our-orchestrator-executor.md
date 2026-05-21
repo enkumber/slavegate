@@ -13,7 +13,7 @@ executeTask(task, deviceId, platform)
     ├─ [0] Preamble: screen_wake → unlock → open_app_fresh → a11y tap Home → coord tap Home
     │
     ├─ [1] Plan: getCachedPlan() → dacă miss → plannerAgent.plan()
-    │             (Claude Opus — text only, cu desc screenshot)
+    │             (gpt-5.5 — text only, cu desc screenshot)
     │
     └─ [2] Loop pe fiecare step:
               │
@@ -21,7 +21,7 @@ executeTask(task, deviceId, platform)
               ├─ executorAgent.execute(step, screenshot, remainingSteps)
               │       ├─ Non-tap (wait/back/type) → return direct (zero LLM)
               │       ├─ Cascade (L1→L1.5→L2→L2.5→L3) → dacă hit → coords direct
-              │       └─ LLM fallback (Sonnet) → single sau speculative (lookahead=3)
+              │       └─ LLM fallback (gpt-5.5) → single sau speculative (lookahead=3)
               ├─ performAction(deviceId, action)  ← tap/swipe/type/back/wait
               ├─ sleep(300ms settle)
               ├─ captureScreenshot(after)
@@ -264,7 +264,7 @@ Aceste tips sunt injectate în prompt-ul executorului (`buildTipsContext`). Dac�
 
 ### P2 — Îmbunătățiri
 
-7. **Planner cu imagine directă** — trimite screenshot-ul direct la Claude Opus (care suportă vision) în loc de lanțul Ollama→text→Opus.
+7. **Planner cu imagine directă** — trimite screenshot-ul direct la gpt-5.5 (care suportă vision) în loc de lanțul Ollama→text→gpt-5.5.
 
 8. **`learnFromSuccess` validation** — nu adăuga tips cu coordonate dacă confidence verifier-ului e sub 0.8.
 

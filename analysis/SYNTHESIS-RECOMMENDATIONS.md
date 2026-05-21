@@ -27,7 +27,7 @@ Cel mai grav: sistemul nostru suferă de **inconsistență fundamentală a spaț
 | B5 | `skill_tap` trimite **normalized (0-1)** dar device poate interpreta ca pixeli absoluți (0,0 = colț stânga sus) | `skill.cascade.ts` → `executeSkillTapJob()` | 🔴 P0 | 2h | Protocol ambiguu între server și device |
 | B6 | `awaitAction` timeout → **`resolve(true)`** — eșec silențios, chain-ul continuă pe un device offline/crash | `orchestrator.ts` → `awaitAction()` | 🟠 P1 | 1h | Task-urile "reușesc" pe device dead |
 | B7 | `updateSkillCoords` caută `button_map.fixed_elements["nav.search"]` dar structura e **nested** (`button_map.nav.search`) — auto-learn nu scrie nimic | `skill.cascade.ts` → `updateSkillCoords()` | 🟠 P1 | 2h | Self-healing complet nonfuncțional |
-| B8 | Planner: **LLaVA → text → Claude** în loc de imagine directă — telephone effect amplifică orice eroare vizuală | `planner.agent.ts` | 🟠 P1 | 4h | Planuri greșite pe ecrane complexe |
+| B8 | Planner: **LLaVA → text → GPT-5.5** în loc de imagine directă — telephone effect amplifică orice eroare vizuală | `planner.agent.ts` | 🟠 P1 | 4h | Planuri greșite pe ecrane complexe |
 | B9 | `executeUnifiedTapAtCoords` hardcodes **`screenHeight = 2160`** — device-uri cu alte rezoluții tapează sistematic deplasate vertical | `skill.cascade.ts` | 🟠 P1 | 1h | -200px pe device 2340px height |
 | B10 | Speculative execution folosește `afterScreenshot` anterior ca `specBefore` — **nu captează screenshot proaspăt** înainte de acțiune speculativă | `orchestrator.ts` | 🟡 P2 | 2h | Verifier compară stări incorecte |
 | B11 | `screenHeight` citit din obiectul wrapper, nu din tree-ul extras | `skill.service.ts` → `findElementInUiTree()` | 🟡 P2 | 1h | Coordonate Y normalizate greșit din a11y |
@@ -43,7 +43,7 @@ Cel mai grav: sistemul nostru suferă de **inconsistență fundamentală a spaț
 |--------|-------------|--------------|---------|
 | **Agenți** | 1 (VLM decide + execută) | 3 separați (Planner, Executor, Verifier) + cascade 5 nivele | ❌ Complexitate fără beneficiu |
 | **Spațiu coordonate** | 1 singur (999×999), conversie o dată | 3 spații (0-1, pixeli, 999×999) cu conversii inconsistente | ❌ Bug B1 fatal |
-| **Vision** | VLM vede imaginea direct | Planner: LLaVA→text→Claude (2 modele, telephone effect) | ❌ Degradare calitate |
+| **Vision** | VLM vede imaginea direct | Planner: LLaVA→text→GPT-5.5 (2 modele, telephone effect) | ❌ Degradare calitate |
 | **Caching** | Zero cache (fiecare ciclu independent) | Plan cache + coordinate_cache DB | ❌ Contaminare persistentă |
 | **Prompt** | System prompt cu tool `mobile_use` bine definit | Planner prompt cu reguli parțiale Instagram | ❌ Cunoaștere incompletă |
 | **Feedback eșec** | Implicit prin noul screenshot | `awaitAction` timeout = success silențios | ❌ Eșecuri invizibile |
@@ -92,7 +92,7 @@ Cel mai grav: sistemul nostru suferă de **inconsistență fundamentală a spaț
 
 **Obiectiv:** Elimină sursele de erori arhitecturale, adoptă filozofia loop simplu.
 
-1. **[B8 — 4h]** Elimină LLaVA din Planner — trimite screenshot-ul direct la Claude:
+1. **[B8 — 4h]** Elimină LLaVA din Planner — trimite screenshot-ul direct la GPT-5.5:
    ```typescript
    // În planner.agent.ts, Step 1: ȘTERGE describe step
    // Trimite imaginea direct în userContent al plannerului

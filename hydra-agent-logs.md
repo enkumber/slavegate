@@ -1,4 +1,4 @@
-# HYDRA OPUS Session Logs — Analiza Eșecului
+# HYDRA Agent Session Logs — Analiza Eșecului
 
 ## Context
 - **Task:** @timesbrasov.ro → 2 follows + 1 comment

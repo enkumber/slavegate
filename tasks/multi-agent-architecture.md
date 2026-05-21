@@ -22,21 +22,21 @@ Acum implementăm **Multi-Agent Architecture** din Mobile-Agent v2 research (+30
 ```
 ┌─────────────────────────────────────┐
 │         PLANNER AGENT               │
-│  Model: Claude Opus (configurable)  │
+│  Model: gpt-5.5 (configurable)  │
 │  Când: O dată per task              │
 │  Output: Lista de steps             │
 └─────────────┬───────────────────────┘
               │ steps[]
 ┌─────────────▼───────────────────────┐
 │         EXECUTOR AGENT              │
-│  Model: Claude Sonnet               │
+│  Model: gpt-5.5               │
 │  Când: Per step                     │
 │  Output: Acțiune concretă           │
 └─────────────┬───────────────────────┘
               │ action result
 ┌─────────────▼───────────────────────┐
 │         VERIFIER AGENT              │
-│  Model: Claude Sonnet               │
+│  Model: gpt-5.5               │
 │  Când: După fiecare acțiune         │
 │  Output: success/retry/abort        │
 └─────────────────────────────────────┘
@@ -182,17 +182,17 @@ class AgentOrchestrator {
 ```typescript
 export const agentConfig = {
   planner: {
-    model: 'claude-opus-4-5',  // sau anthropic/claude-opus-4-5
+    model: 'gpt-5.5',  // sau openai-codex/gpt-5.5
     temperature: 0.3,
     maxTokens: 2000,
   },
   executor: {
-    model: 'claude-sonnet-4-6',
+    model: 'gpt-5.5',
     temperature: 0.1,
     maxTokens: 1000,
   },
   verifier: {
-    model: 'claude-sonnet-4-6',
+    model: 'gpt-5.5',
     temperature: 0.1,
     maxTokens: 500,
   },

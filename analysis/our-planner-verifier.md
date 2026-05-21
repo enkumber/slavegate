@@ -12,18 +12,18 @@
 Task (text) + Screenshot (optional)
         │
         ▼
-[PLANNER - Claude Opus 4.5]
+[PLANNER - gpt-5.5]
   Step 1: Vision model descrie screenshot → text
   Step 2: Planifică pașii (text-only) → JSON cu steps[]
         │
         ▼ Plan: [{action, target, expectedScreen}, ...]
         │
-[EXECUTOR - Claude Sonnet 4.6]
+[EXECUTOR - gpt-5.5]
   Per step: screenshot + descriere → coordonate (x,y normalized)
         │
         ▼ Action executată pe device
         │
-[VERIFIER - Claude Sonnet 4.6]
+[VERIFIER - gpt-5.5]
   screenshot before + after → {status: success|retry|abort|skip}
         │
         ▼ Orchestrator decide: continuă / retry / abort
@@ -36,13 +36,13 @@ Task (text) + Screenshot (optional)
 ### 2.1 Procesul în 2 etape
 
 **Etapa 1 — Vision (opțională):**
-- Dacă există screenshot, un vision model (Ollama LLaVA local sau Claude) descrie ecranul ca text
+- Dacă există screenshot, un vision model (Ollama LLaVA local sau gpt-5.5) descrie ecranul ca text
 - Promptul `SCREEN_DESCRIBE_PROMPT` instruiește să descrie **doar UI-ul**, nu conținutul fotografiilor
 - Output: text ca "Instagram profile page for @user. Bottom nav shows: home, search..."
 - Maxim 500 tokens
 
 **Etapa 2 — Planificare (text-only):**
-- Model: `claude-opus-4-5` (configurat)
+- Model: `gpt-5.5` (configurat)
 - Folosește `PLANNER_SYSTEM_PROMPT` + descrierea ecranului + task
 - Temperature: 0.3 (relativ deterministic)
 - Max tokens: 2000
@@ -191,7 +191,7 @@ Dacă Verifier returnează `retry` de N ori pe același step → trimite feedbac
 
 ### 6.4 Arhitectural — Separarea Vision de Planning
 
-Actualul flow (LLaVA → text → Claude) introduce erori cumulate. Alternativă: folosește direct Claude cu imagine (Claude are vision nativ) pentru a elimina LLaVA ca intermediar în Step 1.
+Actualul flow (LLaVA → text → gpt-5.5) introduce erori cumulate. Alternativă: folosește direct GPT-5.5 cu imagine (GPT-5.5 are vision nativ) pentru a elimina LLaVA ca intermediar în Step 1.
 
 ---
 

@@ -1,7 +1,7 @@
 # 🎯 SINTEZA FINALĂ: Cele Mai Bune Features pentru Control Android Inteligent
 
 **Data:** 2026-03-25  
-**Agenți:** 5 Opus + analiză ~40 proiecte
+**Agenți:** 5 gpt-5.5 + analiză ~40 proiecte
 
 ---
 
@@ -39,7 +39,7 @@ Level 4: VLM (costisitor, doar când e necesar)
 ┌─────────────────────────────────────────┐
 │           MANAGER (Planner)             │
 │  Task decomposition, goal tracking      │
-│  Model: GPT-4 / Claude (rar apelat)     │
+│  Model: GPT-4 / GPT-5.5 (rar apelat)     │
 └─────────────────┬───────────────────────┘
                   │
 ┌─────────────────▼───────────────────────┐
@@ -240,7 +240,7 @@ override fun onAccessibilityEvent(event: AccessibilityEvent) {
 │                                                              │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐          │
 │  │   PLANNER   │  │  EXECUTOR   │  │  VERIFIER   │          │
-│  │  (Claude)   │  │ (7B local)  │  │ (7B local)  │          │
+│  │  (gpt-5.5)   │  │ (7B local)  │  │ (7B local)  │          │
 │  │  - rare -   │  │ - frequent -│  │ - per step -│          │
 │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘          │
 │         │                │                │                  │
@@ -317,4 +317,4 @@ override fun onAccessibilityEvent(event: AccessibilityEvent) {
 
 ---
 
-*Sinteză generată din analiza a ~40 proiecte de către 5 agenți Opus.*
+*Sinteză generată din analiza a ~40 proiecte de către 5 agenți gpt-5.5.*

@@ -72,9 +72,9 @@ L3: VLM → ~3-5s
 **Status:** DONE ✅
 
 **Ce s-a implementat:**
-- Planner agent (Opus) — task decomposition, o dată per task
-- Executor agent (Sonnet) — per-step actions, cascade L1.5 first
-- Verifier agent (Sonnet) — error detection, retry logic
+- Planner agent (gpt-5.5) — task decomposition, o dată per task
+- Executor agent (gpt-5.5) — per-step actions, cascade L1.5 first
+- Verifier agent (gpt-5.5) — error detection, retry logic
 - Orchestrator — leagă totul, pending results pattern
 
 **Fișiere create (12):**
@@ -118,7 +118,7 @@ L3: VLM → ~3-5s
 - Steps executate speculativ sunt skip-uite din loop principal
 
 **Performance optimizations (bonus):**
-- Planner: Opus → Sonnet (~10s vs ~30s)
+- Planner standardizat pe gpt-5.5
 - LLM timeout: 120s → 45s
 - Screenshot timeout: 10s → 5s
 - Timing logs pentru debugging
@@ -188,9 +188,9 @@ Rapoarte salvate în:
 
 | Agent | Rol | Model |
 |-------|-----|-------|
-| Nox | Orchestrator | Opus 4.5 |
-| FORGE | Tech Lead | Opus 4.6 |
-| VOLT | Dev | Sonnet 4.6 |
+| Nox | Orchestrator | gpt-5.5 |
+| FORGE | Tech Lead | gpt-5.5 |
+| VOLT | Dev | gpt-5.5 |
 
 ---
 

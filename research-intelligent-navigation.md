@@ -14,7 +14,7 @@ Acest document analizează **10 proiecte majore** în domeniul navigării inteli
 ### 1.1 Cum ia decizii de navigare
 - **Hybrid approach:** Combină LLM reasoning cu Traditional ML
 - **Recording & Replay Model:** Înregistrează acțiuni umane, apoi le replică cu adaptare
-- **Reasoning Module:** GPT-4V/Claude pentru înțelegerea task-urilor complexe
+- **Reasoning Module:** GPT-4V/GPT-5.5 pentru înțelegerea task-urilor complexe
 
 ### 1.2 Screen State Detection
 - **Activity Recording:** Capturează screenshots, mouse events, keyboard inputs continuu
@@ -41,7 +41,7 @@ Acest document analizează **10 proiecte majore** în domeniul navigării inteli
 - ✅ **Recording fără privilegii speciale** - Nu necesită access la sistemul de operare
 - ✅ **Privacy-first design** - Date procesate local
 - ✅ **Cross-platform** - Windows, macOS, Linux
-- ✅ **Multiple AI Models** - GPT-4, Claude, Gemini, local models
+- ✅ **Multiple AI Models** - GPT-4, GPT-5.5, Gemini, local models
 - ✅ **Replay verification** - Verifică dacă replay-ul produce rezultate corecte
 - ✅ **Visual diff detection** - Detectează diferențe între starea așteptată și reală
 - ✅ **Action merging** - Combină acțiuni similare pentru eficiență
@@ -90,7 +90,7 @@ Acest document analizează **10 proiecte majore** în domeniul navigării inteli
 - ✅ **Continue functionality** - Poate continua task-uri întrerupte
 - ✅ **Element type classification** - Clasifică tipuri de elemente UI
 - ✅ **Coordinate-based grounding** - Coordonate precise pentru click
-- ✅ **Commercial deployment ready** - Folosit în GLM-PC product
+- ✅ **Commercial deployment ready** - Folosit în desktop automation benchmark product
 
 ---
 

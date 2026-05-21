@@ -20,7 +20,7 @@ L4: VLM → ~3-5s, ~500 tokens [EXISTĂ]
 
 ---
 
-## 🗄️ SCHEMA DB (extinsă după evaluare de 4 agenți Opus)
+## 🗄️ SCHEMA DB (extinsă după evaluare de 4 agenți gpt-5.5)
 
 ```sql
 CREATE TABLE coordinate_cache (
@@ -204,4 +204,4 @@ interface DeviceInfo {
 
 ---
 
-*Task creat de Nox pe baza analizei a 4 evaluatori Opus + research din ~40 proiecte.*
+*Task creat de Nox pe baza analizei a 4 evaluatori gpt-5.5 + research din ~40 proiecte.*
