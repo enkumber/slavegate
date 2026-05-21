@@ -32,7 +32,7 @@ Trace the real execution path from API request to Android result:
 
 **Priority:** P0  
 **Owner:** VOLT  
-**Status:** partial
+**Status:** done
 
 ### Scope
 
@@ -48,11 +48,11 @@ Add explicit cost counters to workflow runs:
 
 ### Acceptance Criteria
 
-- Every compiled workflow run exposes counters in result/status. ✅ first slice for `compile-and-run` / `run-compiled`
+- Every compiled workflow run exposes counters in result/status. ✅ `compile-and-run` / `run-compiled`
+- Every template workflow run exposes counters in result/status. ✅ `/api/workflows` via `checkpoint.executionStats`
 - Happy-path compiled runs can prove `runtime_llm_calls = 0`. ✅ counters report recovery/runtime LLM calls separately
 - Recovery calls are capped by config. ✅ existing recovery caps remain active
-- Logs include workflowId, deviceId, client/campaign where available. ⏳ workflowId/deviceId present; client/campaign comes with agency layer
-- Remaining: template/edge workflow path needs the same counters.
+- Logs include workflowId, deviceId, client/campaign where available. ✅ workflowId/deviceId present; client/campaign comes with agency layer
 
 ---
 

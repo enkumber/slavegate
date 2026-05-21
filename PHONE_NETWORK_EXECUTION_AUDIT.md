@@ -67,7 +67,7 @@ Minimal first slice:
 - Return counters from compiled workflow runs. ✅
 - Count compile LLM calls and recovery LLM calls. ✅
 - Keep runtime LLM calls at zero unless recovery is invoked. ✅
-- Add deterministic/batched step counters where batch segmentation already exists. ✅ compiled fast-path now increments `batchedSteps`; template/edge path still needs the same explicit budget response.
+- Add deterministic/batched step counters where batch segmentation already exists. ✅ compiled fast-path and `/api/workflows` now expose execution stats.
 
 ## First Slice Delivered
 
@@ -102,6 +102,20 @@ Verification:
 
 - `npm run build` in `slavegate/server`
 - `npm run test -- workflow-compiler` in `slavegate/server`
+
+## Third Slice Delivered
+
+Template workflow execution now exposes the same budget shape:
+
+- `WorkflowCheckpoint.executionStats` tracks compile/recovery/creative/runtime/VLM calls plus deterministic, batched, failed, and retried steps.
+- `workflowService.get/list` returns `executionStats` directly from the checkpoint.
+- Server-side `/api/workflows` increments `deterministicSteps` and `batchedSteps` during single-step and batch execution.
+- Edge-dispatched workflows initialize and persist an `edge` mode execution stats object from `WORKFLOW_STATUS`.
+
+Verification:
+
+- `npm run build` in `slavegate/server`
+- `npm run test -- workflows workflow-compiler` in `slavegate/server`
 
 ## Notes
 
