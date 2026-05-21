@@ -16,12 +16,11 @@ support: https://github.com/enkumber/slavegate-server/issues
 
 description: >-
   Phone Network server for remote Android fleet management.
-  Communicates with devices through Nostr relay for NAT-friendly,
-  encrypted messaging.
+  Devices connect outbound through Direct WebSocket for NAT-friendly control.
 
   Features:
   - Fleet management for Android devices
-  - Nostr-based encrypted device communication (NIP-04 / NIP-17)
+  - Direct WebSocket device communication
   - Real-time job dispatch: tap, swipe, type, screenshot, OTA updates
   - Workflow automation engine with step verification
   - Device registry with health monitoring

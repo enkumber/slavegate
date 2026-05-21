@@ -79,6 +79,13 @@ Dan
 - Direcția Phone Network rămâne non-Nostr: control telefoane Android prin OpenClaw/Phone Network, cu telefonul conectându-se outbound și serverul gestionând registry, queue/locking, health, OTA și execuție workflows.
 - Documentele Nostr vechi au fost mutate în `trash/2026-05-21-obsolete-nostr/` pentru arhivă recuperabilă.
 
+## Phone Network — ownership produs (2026-05-21)
+
+- Dan a cerut ca Nox să preia controlul pentru ducerea proiectului Phone Network la bun sfârșit.
+- Scopul produsului: phone farm pentru o agenție de marketing virtuală, controlată de agenți AI, care execută workflow-uri customizate per client pe rețele sociale.
+- Prioritatea tehnică actuală: execuție workflow-uri cât mai economică, cu cât mai puține requesturi LLM.
+- Principiu: LLM doar la compilare, recovery și generare creativă; happy path deterministic prin app maps, cache coordonate, batch/edge execution și Direct WebSocket.
+
 ## SSH API pe GX10
 
 **Token:** în `/data/.openclaw/credentials/gx10-api.json`
