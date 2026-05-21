@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.14"
+version: "3.9.15"
 port: 21211
 
 developer: Dan
@@ -30,8 +30,8 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.14: Add strict recursive validation for generated workflow steps with
-  explicit agent-facing error messages.
+  v3.9.15: Add generated workflow contract, prompt, validation, app-map context,
+  platform screen hints, Reddit launch hardening, and dry-run canaries.
 
 gallery: []
 dependencies: []
