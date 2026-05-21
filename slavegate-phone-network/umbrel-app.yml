@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.5"
+version: "3.9.12"
 port: 21211
 
 developer: Dan
@@ -30,20 +30,9 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.5: Fix dashboard API URL for external browsers (use relative /api). v3.9.4: Revert API URL change - restore localhost:21211. v3.9.3: Fix dashboard API URL (relative /api). v3.9.2: Merge model config into Tokens tab - configure Decision LLM and Vision VLM directly from dashboard.
-  v3.9.1: Add server-side Tokens/Models config for decision_llm and vision_vlm with encrypted/redacted credentials and DirectWS role routing.
-  v3.9.0: Fix edge VLM bridge so Android workflows receive screenshot analysis results instead of empty strings.
-  v3.8.9: Fix Reddit workflow loop counter, increase search budget, and relax candidate criteria so runs do not stop after 10 skipped posts.
-  v3.8.8: Persist edge workflow status using canonical workflow columns; remove dependency on missing progress/result DB columns.
-  v3.8.7: Preserve WORKFLOW_START protocol type after template merge so edge devices always receive runnable workflow messages.
-  v3.8.6: Dispatch WORKFLOW_CANCEL to edge devices when cancelling DB workflows, preventing stale local runs from blocking new runs.
-  v3.8.5: Persist edge workflow WORKFLOW_STATUS into current_step/checkpoint so Umbrel/API shows real device progress.
-  v3.8.4: Manifest normalized to Umbrel community app store template fields and pinned fixed server image.
-  v3.8.3: Pin Docker image to server build be4fd8f so Umbrel pulls the fixed edge workflow server.
-  v3.8.2: Fix edge workflow monitoring by passing concrete workflowId to devices; includes Android agent 4.0.5 OTA/restart observability fixes.
-  v3.8.1: Edge Workflow Execution - docker-compose fix
-  v3.8.0: Edge Workflow Execution - workflows run on device
-  v3.7.0: Fix BASE_URL env var for OTA push
+  v3.9.12: Generated workflow execution endpoint, DB-owned workflow templates,
+  deterministic batch execution stats, Reddit screen detection rules, and
+  cleanup of obsolete architecture docs.
 
 gallery: []
 dependencies: []
