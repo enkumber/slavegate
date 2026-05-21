@@ -11,7 +11,7 @@
 
 **Priority:** P0  
 **Owner:** Nox / FORGE  
-**Status:** new
+**Status:** done
 
 ### Scope
 
@@ -21,10 +21,10 @@ Trace the real execution path from API request to Android result:
 
 ### Acceptance Criteria
 
-- Document which modules are complete, partial, dead, or duplicated.
-- Identify the current runnable endpoint for workflow dispatch.
-- Identify missing wiring between compiler, workflow executor, and device.
-- Produce a short fix list ordered by blocker severity.
+- Document which modules are complete, partial, dead, or duplicated. ✅ `PHONE_NETWORK_EXECUTION_AUDIT.md`
+- Identify the current runnable endpoint for workflow dispatch. ✅ `POST /api/workflows`
+- Identify missing wiring between compiler, workflow executor, and device. ✅ compiled workflow path does not reuse batch/edge path
+- Produce a short fix list ordered by blocker severity. ✅ bridge + counters first
 
 ---
 
@@ -32,7 +32,7 @@ Trace the real execution path from API request to Android result:
 
 **Priority:** P0  
 **Owner:** VOLT  
-**Status:** new
+**Status:** partial
 
 ### Scope
 
@@ -48,10 +48,11 @@ Add explicit cost counters to workflow runs:
 
 ### Acceptance Criteria
 
-- Every workflow run exposes counters in result/status.
-- Happy-path runs can prove `runtime_llm_calls = 0`.
-- Recovery calls are capped by config.
-- Logs include workflowId, deviceId, client/campaign where available.
+- Every compiled workflow run exposes counters in result/status. ✅ first slice for `compile-and-run` / `run-compiled`
+- Happy-path compiled runs can prove `runtime_llm_calls = 0`. ✅ counters report recovery/runtime LLM calls separately
+- Recovery calls are capped by config. ✅ existing recovery caps remain active
+- Logs include workflowId, deviceId, client/campaign where available. ⏳ workflowId/deviceId present; client/campaign comes with agency layer
+- Remaining: template/edge workflow path needs the same counters.
 
 ---
 
