@@ -52,6 +52,13 @@ Dan
 - Vine ASUS GX10 (GB10 Grace Blackwell, 128GB) → Qwen3.5-122B-A10B FP4 + vLLM → OpenClaw local
 - Timezone: Romania (EET/EEST)
 
+## Provideri activi
+
+- **OpenAI Codex** (gpt-5.5) — model principal pentru toți agenții
+- **MiniMax** — echipa de coding (atlas, forge, volt, spark, lens, echo)
+- **Moonshot** — kimi-for-coding fallback
+- **vLLM local** (GX10) — Qwen3.6-27B, Gemma-4-31B
+
 ## MiniMax API (echipa de coding)
 
 - **Group ID:** `2038969487058805010`
@@ -61,6 +68,16 @@ Dan
 - **Modele:** MiniMax-M2.7, MiniMax-M2.7-highspeed, MiniMax-M2.5, MiniMax-M2.5-highspeed
 - **Context:** 204,800 tokens
 - **Speed:** ~100 tps (highspeed), ~60 tps (standard)
+
+## Șters (2026-05-15)
+
+- **Z.AI / GLM** — Dan a cerut ștergerea completă. Provider, auth, models, fallbacks — totul eliminat din openclaw.json.
+
+## Phone Network — decizie arhitecturală (2026-05-21)
+
+- **Nostr este abandonat.** Varianta v2 Nostr nu mai trebuie tratată ca plan activ, roadmap sau fallback.
+- Direcția Phone Network rămâne non-Nostr: control telefoane Android prin OpenClaw/Phone Network, cu telefonul conectându-se outbound și serverul gestionând registry, queue/locking, health, OTA și execuție workflows.
+- Documentele Nostr vechi au fost mutate în `trash/2026-05-21-obsolete-nostr/` pentru arhivă recuperabilă.
 
 ## SSH API pe GX10
 
@@ -87,4 +104,3 @@ Dan
 - **Scripts:** `/data/.openclaw/workspace/slavegate/scripts/`
 - **Keystore:** În repo android-agent, SHA-256 `2C:48:D8:07...`
 - **OTA APK:** `/data/.openclaw/workspace/slavegate/server/apk/phone-network.apk`
-
