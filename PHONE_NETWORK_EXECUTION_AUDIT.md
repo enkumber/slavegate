@@ -22,7 +22,8 @@ The economical execution foundation exists, but it is split across three paths:
 3. **Compiled workflow path:** `POST /api/hydra/workflow/compile-and-run`
    - Compiles natural language to `compiled_workflows`.
    - Caches compiled results by instruction/app-map version.
-   - Executes through `runner.service.ts`, but currently step-by-step, not through the batch fast-path or edge `WORKFLOW_START`.
+   - Executes through `runner.service.ts`.
+   - First fast-path is now wired: consecutive deterministic compiled steps are grouped into `BATCH_START`.
 
 ## Working Pieces
 
@@ -36,9 +37,9 @@ The economical execution foundation exists, but it is split across three paths:
 
 ## Gaps Blocking The Product Goal
 
-1. **Compiled workflows do not reuse the batch/edge path.**
-   - They run through `workflow-compiler/runner.service.ts`, which sends individual jobs and verifies per step.
-   - This prevents the compiled workflow path from benefiting from `BATCH_START`.
+1. **Compiled workflows only partially reuse the batch/edge path.**
+   - `workflow-compiler/runner.service.ts` now batches consecutive mappable compiled steps through `BATCH_START`.
+   - Remaining bridge work: compile into the canonical workflow template/edge schema instead of maintaining a parallel runner.
 
 2. **No explicit LLM budget counters on run results.**
    - There is `recovery_count`, but not `compile_llm_calls`, `runtime_llm_calls`, `creative_llm_calls`, `vlm_calls`, `batched_steps`, or `deterministic_steps`.
@@ -66,7 +67,7 @@ Minimal first slice:
 - Return counters from compiled workflow runs. ✅
 - Count compile LLM calls and recovery LLM calls. ✅
 - Keep runtime LLM calls at zero unless recovery is invoked. ✅
-- Add deterministic/batched step counters where batch segmentation already exists. ⏳ compiled path has deterministic counters; template/edge path still needs batch counters.
+- Add deterministic/batched step counters where batch segmentation already exists. ✅ compiled fast-path now increments `batchedSteps`; template/edge path still needs the same explicit budget response.
 
 ## First Slice Delivered
 
@@ -81,6 +82,21 @@ Minimal first slice:
 - `batchedSteps`
 - `failedSteps`
 - `retriedSteps`
+
+Verification:
+
+- `npm run build` in `slavegate/server`
+- `npm run test -- workflow-compiler` in `slavegate/server`
+
+## Second Slice Delivered
+
+Compiled workflow execution now has a deterministic batch fast-path:
+
+- Converts consecutive compiled `tap`, `type`, `swipe`, `wait`, and `open_app` steps into `BATCH_START`.
+- Uses Direct WebSocket `sendBatch()` / `waitForBatchResult()` instead of one server round-trip per action.
+- Maps batch results back to original compiled step indexes.
+- Increments `deterministicSteps` and `batchedSteps` for successful batched steps.
+- Falls back to single-step execution from the failed step on batch failure, timeout, offline device, or final fingerprint mismatch.
 
 Verification:
 

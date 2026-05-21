@@ -79,7 +79,7 @@ Ensure natural-language workflow compilation happens once and produces a reusabl
 
 **Priority:** P0  
 **Owner:** VOLT  
-**Status:** new
+**Status:** partial
 
 ### Scope
 
@@ -87,10 +87,11 @@ Batch consecutive deterministic steps and keep dynamic steps outside the batch.
 
 ### Acceptance Criteria
 
-- Consecutive action/wait steps are sent as one `BATCH_START`.
+- Consecutive compiled action/wait steps are sent as one `BATCH_START`. ✅ first slice in `workflow-compiler/runner.service.ts`
 - Dynamic steps create boundaries: cascade tap, verification, condition, recovery, VLM/LLM, variable-dependent text.
-- Batch result maps back to original workflow step indexes.
-- Failed batch resumes from the failed step, not from the beginning.
+- Batch result maps back to original workflow step indexes. ✅ compiled path
+- Failed batch resumes from the failed step, not from the beginning. ✅ compiled path
+- Remaining: move compiled workflows fully onto the canonical workflow template/edge schema.
 
 ---
 
