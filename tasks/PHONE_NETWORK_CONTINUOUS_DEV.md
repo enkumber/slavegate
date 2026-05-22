@@ -19,7 +19,7 @@ Nox owns continuity. Small patches are not stopping points. Work only pauses whe
 - Live Umbrel release: `3.9.20`
 - Live server commit: `d8398a1baf14b3b0441ec18d1af83804340c4796`
 - Unreleased server commit: `9e56262` (`feat: expose generated workflow prompt cache readiness`)
-- Latest unreleased server commit: `9789dc5` (`fix: constrain generated workflow safety surface`)
+- Latest unreleased server commit: `9d5845b` (`docs: add generated workflow release checklist`)
 - Happy path requirement: generated workflow execution remains `llmBudget.happyPathRequests=0`
 - Workflow source of truth: dynamically generated templates via DB/API, not hardcoded runtime templates
 
@@ -87,7 +87,8 @@ Implemented:
 ### Story 4: Release Verification Checklist
 
 Owner: ATLAS -> LENS
-Status: pending
+Status: done, unreleased
+Commit: `9d5845b`
 
 Acceptance:
 
@@ -99,6 +100,11 @@ Acceptance:
   - direct dryRun from requestKey,
   - `happyPathRequests=0`.
 - Checklist lives in repo and is referenced by release notes.
+
+Implemented:
+
+- Checklist added at `docs/generated-workflow-release-checklist.md`.
+- Covers baseline `3.9.20` / `d8398a1...`, unreleased head, local build/test gates, health/edge gates, prompt miss/hit, dryRun persist, cache-only dry-run, real-device non-mutating smoke, metrics scrape evidence, safety rejects, and rollback.
 
 ### Story 5: ECHO Review Gate
 
@@ -119,6 +125,8 @@ Findings addressed:
 - `9789dc5` constrains generated workflow `action` to a strict non-root/non-VLM/non-file allowlist before persist/dispatch.
 - `9789dc5` normalizes generated workflow `platform` to a bounded set before it can be used as a Prometheus label.
 - Verification: `npm run build` OK; `npm run test -- generated-workflow-canary workflow.blocking generated-workflow-cache generated-workflow-execution-smoke generated-workflow-prompt` OK, 47 tests; `npm run test -- workflows workflow-compiler` OK, 127 tests.
+- ECHO re-review: GO, no remaining blockers for the two prior NO-GO findings.
+- LENS follow-up: server-side GO; release remains gated by real-device Reddit dry-run evidence.
 
 ## Next Orchestration Step
 
