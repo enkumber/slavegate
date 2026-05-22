@@ -20,6 +20,7 @@ Nox owns continuity. Small patches are not stopping points. Work only pauses whe
 - Live server commit: `fee20898441aa3bfb78b4a21bf02ceb4689c26c5`
 - Release gate: Sprint 1 task-runner `generated_workflow` LIVE GO, closed by ATLAS/LENS/ECHO
 - Current internal block: Sprint 2 marketing workflow hardening, unreleased
+- Candidate package: `3.9.23` points to server `f487e8af82a1d658c1b98a1855f14e80a0e5ba36` for Sprint 2 B+C evidence only; not final GO until live evidence and LENS/ECHO pass.
 - Happy path requirement: generated workflow execution remains `llmBudget.happyPathRequests=0`
 - Workflow source of truth: dynamically generated templates via DB/API, not hardcoded runtime templates
 
