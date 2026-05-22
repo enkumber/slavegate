@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.20"
+version: "3.9.21"
 port: 21211
 
 developer: Dan
@@ -30,8 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.20: Return generated workflow cache handles and readiness hints so
-  agents can reuse cacheKey/requestKey paths without regenerating workflows.
+  v3.9.21: Constrain generated workflow safety, add cache-first metrics, record Reddit real-device dry-run evidence, and expose full edge device IDs for execution.
 
 gallery: []
 dependencies: []
