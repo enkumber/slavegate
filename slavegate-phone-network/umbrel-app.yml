@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.29"
+version: "3.9.30"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.29: Allows product-level Reddit account health scans to supply an explicit clientId for existing unlinked Reddit accounts, while rejecting client mismatches.
+  v3.9.30: Packages edge agent 4.0.24 to persist Reddit workflow screenshot evidence as a recoverable checkpoint artifact and fail scans when screenshot bytes are missing.
 
 gallery: []
 dependencies: []
