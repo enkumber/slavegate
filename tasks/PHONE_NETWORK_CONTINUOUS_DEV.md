@@ -16,14 +16,87 @@ Nox owns continuity. Small patches are not stopping points. Work only pauses whe
 
 ## Current Baseline
 
-- Live Umbrel release: `3.9.20`
-- Live server commit: `d8398a1baf14b3b0441ec18d1af83804340c4796`
-- Unreleased server commit: `9e56262` (`feat: expose generated workflow prompt cache readiness`)
-- Latest unreleased server commit: `9d5845b` (`docs: add generated workflow release checklist`)
+- Live Umbrel release: `3.9.21`
+- Live server commit: `040fff78a2cc30d38c3be49d74d20be89804b1c4`
+- Release gate: final GO, closed by ATLAS/LENS/ECHO
+- Current internal block: post-release product milestone, unreleased
 - Happy path requirement: generated workflow execution remains `llmBudget.happyPathRequests=0`
 - Workflow source of truth: dynamically generated templates via DB/API, not hardcoded runtime templates
 
-## Active Development Block: Generated Workflow Execution Hardening
+## Active Development Block: First Concrete Marketing Workflow
+
+Goal: move from verified generated workflow infrastructure to a real marketing workflow capability: client/account context, deterministic happy path, bounded recovery, run evidence, and clear QA gates.
+
+### Story A: Recovery Budget Enforcement
+
+Owner: Nox
+Status: done, unreleased
+Commit: `b4d3e45` in `slavegate/server`
+
+Acceptance:
+
+- Default compiled workflow recovery is max one AI recovery attempt per failed step.
+- Total workflow recovery budget remains bounded and observable.
+- Tests prove the second recovery attempt on the same failed step is blocked.
+- This is internal until grouped with the next coherent release block.
+
+Implemented:
+
+- Compiler recovery default is now one AI recovery attempt per failed step.
+- Planner default `maxRecoveryAttempts` is now 1.
+- Recovery tests cover second-attempt blocking.
+
+### Story A2: Canonical Generated Workflow Artifact
+
+Owner: Nox
+Status: done, unreleased
+Commit: `b4d3e45` in `slavegate/server`
+
+Acceptance:
+
+- Generated workflow cache rows have canonical workflow id/version, compiled plan hash, and source metadata.
+- Deterministic execution by `requestKey` or `cacheKey` rejects a simultaneous `workflow` payload.
+- Responses expose `canonicalHit`, `canonicalWorkflowId`, `canonicalWorkflowVersion`, and `compiledPlanHash`.
+- Cache metrics distinguish `canonical_hit`, `cache_hit`, and `compiled_new` with low-cardinality labels.
+- Tests cover cache service mapping, cache-only route execution, payload rejection, and blocking/canary guards.
+- Verification: `npm run test -- workflows workflow-compiler` and `npm run build` passed.
+
+### Story B: First E2E Marketing Workflow
+
+Owner: FORGE -> VOLT
+Status: assigned
+
+Acceptance:
+
+- Pick one Reddit workflow that is useful for agency operations and safe to smoke test.
+- Attach execution to client/account/device context where schema exists.
+- Happy path runs from generated/cached workflow with zero runtime LLM calls.
+- Creative LLM is allowed only if the workflow explicitly needs content generation.
+- Live evidence includes workflow id, device id, account/client context, execution stats, and safety result.
+
+### Story C: Control Plane Skeleton
+
+Owner: ATLAS/FORGE -> SPARK
+Status: assigned
+
+Acceptance:
+
+- Identify existing client/account/material/task schema that can be reused now.
+- Add only the smallest missing API/schema piece needed to tie a generated workflow run to client/campaign/account.
+- Avoid UI work until the API contract is usable and tested.
+
+### Story D: QA/Review Gates
+
+Owner: LENS/ECHO
+Status: assigned
+
+Acceptance:
+
+- LENS defines evidence before next Umbrel release.
+- ECHO defines safety and review gates before implementation merges.
+- No next release claim until E2E evidence exists.
+
+## Previous Block: Generated Workflow Execution Hardening
 
 Goal: make agent-generated workflows usable as a deterministic, cache-first runtime path on real devices, with observable LLM savings and safe Reddit smoke coverage.
 

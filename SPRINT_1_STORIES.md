@@ -60,7 +60,7 @@ Add explicit cost counters to workflow runs:
 
 **Priority:** P0  
 **Owner:** FORGE/VOLT  
-**Status:** new
+**Status:** in progress
 
 ### Scope
 
@@ -69,8 +69,8 @@ Ensure natural-language workflow compilation happens once and produces a reusabl
 ### Acceptance Criteria
 
 - Compiled workflows are persisted and reusable.
-- Repeated client workflow can run from cached compiled JSON.
-- Planner is not called when a valid compiled workflow exists.
+- Repeated client workflow can run from cached compiled JSON. ✅ generated workflow artifact has canonical request/cache identity
+- Planner is not called when a valid compiled workflow exists. ✅ canonical execution rejects workflow payload with request/cache handles
 - Compiler output validates against workflow schema before dispatch.
 
 ---
@@ -99,7 +99,7 @@ Batch consecutive deterministic steps and keep dynamic steps outside the batch.
 
 **Priority:** P1  
 **Owner:** FORGE  
-**Status:** new
+**Status:** in progress
 
 ### Scope
 
@@ -110,7 +110,7 @@ Use AI only when deterministic execution fails.
 - Recovery receives screenshot, UI tree, failed step, expected screen, and previous attempts.
 - Recovery returns one of: retry, adapt, dismiss popup, navigate back, skip, abort, escalate.
 - Deny-list blocks dangerous actions automatically.
-- Max one AI recovery attempt per failed step by default.
+- Max one AI recovery attempt per failed step by default. ✅ compiler recovery default tightened to 1
 
 ---
 
