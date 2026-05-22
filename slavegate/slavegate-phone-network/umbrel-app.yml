@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.27"
+version: "3.9.28"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.27: Waits for generated workflow final completion before agency workflow runs are marked completed, so output and screenshot evidence come from the final checkpoint.
+  v3.9.28: Adds product-level Reddit account health scan API that chooses the latest cache-safe read-only workflow artifact and creates an agency workflow run without requiring agents to pass cache keys manually.
 
 gallery: []
 dependencies: []
