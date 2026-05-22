@@ -113,7 +113,7 @@ Implemented:
 
 Owner: FORGE -> VOLT
 Status: active, partial live evidence, unreleased
-Commits: `d4db966`, `c25b7e3`, `a4b9d4f` in `slavegate/server`
+Commits: `d4db966`, `c25b7e3`, `a4b9d4f`, `467a396`, `f487e8a` in `slavegate/server`
 
 Acceptance:
 
@@ -138,7 +138,9 @@ FORGE accepted this as first live E2E workflow and expanded the output contract.
 - Validator safety coverage now explicitly rejects read-only Reddit workflows containing mutating semantics: vote/upvote/downvote, comment, post, join, follow, message, login, settings, profile edit, and `type_text`.
 - Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-cache generated-workflow-contract-fixtures` OK, 46 tests; `npm run test -- workflows workflow-compiler task-runner agency-workflow-runs` OK, 156 tests.
 - Partial live evidence exists in `reports/phone-network/2026-05-22-reddit-account-health-scan-live.md`: live `3.9.22` executed the scan from `requestKey` only on full UUID `deviceId`, no workflow payload, actions were `open_app`, `ui_tree_dump`, `screenshot`, `checkpoint`, workflow completed, and execution stats showed all LLM/VLM counters zero.
-- Remaining Story B NO-GO: final edge checkpoint returned empty variables, so required output fields were present in schema/request but not materialized in final result. Next live run must persist explicit output fields.
+- Local blocker fixed after partial live evidence: `467a396` makes `set_variable` accept canonical output variable maps, and `f487e8a` materializes `outputSchema.required` defaults into task-runner variables and preserves existing checkpoint variables when edge `WORKFLOW_STATUS` arrives without output variables.
+- Verification for the output-field fix: `npm run build` OK; `npm run test -- task-runner direct-ws` OK, 9 tests; `npm run test -- workflows workflow-compiler task-runner agency-workflow-runs direct-ws skill.actions` OK, 181 tests.
+- Remaining Story B live gate: rerun on candidate deploy and prove final result/checkpoint includes explicit required output fields. Live `3.9.22` evidence remains NO-GO for output fields because it predates `467a396`/`f487e8a`.
 
 ### Story C: Control Plane Skeleton
 
