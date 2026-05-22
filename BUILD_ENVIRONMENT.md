@@ -1,6 +1,6 @@
 # BUILD ENVIRONMENT — CANONICAL REFERENCE
 
-**ULTIMA ACTUALIZARE:** 2026-03-29
+**ULTIMA ACTUALIZARE:** 2026-05-22
 **OBLIGATORIU:** Orice build Android folosește DOAR aceste path-uri
 
 ---
@@ -8,7 +8,7 @@
 ## Java
 
 ```bash
-export JAVA_HOME=/data/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.18/libexec
+export JAVA_HOME=/data/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.19/libexec
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
@@ -24,7 +24,7 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:
 
 ## Android Project
 
-**Locație CANONICĂ:** `/data/.openclaw/workspace-volt/phone-network/android-agent/`
+**Locație CANONICĂ:** `/data/.openclaw/workspace/slavegate/android-agent/`
 
 **NU EXISTĂ** alte copii valide. Ignoră:
 - `/data/.openclaw/workspace-kraken/docs/phone-network-package/android-app/` — doar documentație
@@ -32,7 +32,7 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:
 
 ## Keystore
 
-**LOCAȚIE:** `/data/.openclaw/workspace-volt/phone-network/android-agent/debug.keystore`
+**LOCAȚIE:** `/data/.openclaw/workspace/slavegate/android-agent/debug.keystore`
 
 **ATENȚIE:** Keystore-ul original (SHA-256: `1581847c...`) S-A PIERDUT pe 2026-03-29.
 Device-urile au APK semnat cu keystore-ul vechi. Trebuie dezinstalare + reinstalare pentru update.
@@ -44,11 +44,11 @@ Device-urile au APK semnat cu keystore-ul vechi. Trebuie dezinstalare + reinstal
 ## Build Command
 
 ```bash
-export JAVA_HOME=/data/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.18/libexec
+export JAVA_HOME=/data/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.19/libexec
 export ANDROID_HOME=/data/android-sdk
 export PATH=$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 
-cd /data/.openclaw/workspace-volt/phone-network/android-agent
+cd /data/.openclaw/workspace/slavegate/android-agent
 ./gradlew assembleDebug
 ```
 
@@ -59,7 +59,7 @@ cd /data/.openclaw/workspace-volt/phone-network/android-agent
 ```bash
 # Copiază APK în server
 cp app/build/outputs/apk/debug/app-arm64-v8a-debug.apk \
-   /data/.openclaw/workspace-kraken/phone-network-server/apk/phone-network.apk
+   /data/.openclaw/workspace/slavegate/server/apk/phone-network.apk
 
 # Trigger OTA (necesită server online)
 curl -X POST -H "X-API-Key: 928b9e0ba7caeb3e039dafde99076d2d" \
