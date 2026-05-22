@@ -1,0 +1,258 @@
+{
+  "ts": "2026-05-22T08:09:16.967Z",
+  "baseUrl": "http://enkzoned.go.ro:3000",
+  "tokenRedacted": true,
+  "steps": [
+    {
+      "name": "health",
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "status": "healthy",
+          "ts": "2026-05-22T08:09:17.038Z",
+          "appVersion": "3.9.20",
+          "buildCommit": "d8398a1baf14b3b0441ec18d1af83804340c4796"
+        }
+      }
+    },
+    {
+      "name": "edge status",
+      "method": "GET",
+      "path": "/api/edge/status",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "totalOnline": 2,
+          "edgeCapable": 2,
+          "legacyOnly": 0,
+          "executionMode": "edge",
+          "devices": [
+            {
+              "deviceId": "d35b34cb",
+              "agentVersion": "4.0.22",
+              "edgeCapable": true
+            },
+            {
+              "deviceId": "22cfa4b5",
+              "agentVersion": "4.0.19",
+              "edgeCapable": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "metrics before",
+      "method": "GET",
+      "path": "/metrics",
+      "status": 200,
+      "ok": true,
+      "generatedWorkflowLines": []
+    },
+    {
+      "name": "prompt requestKey",
+      "method": "POST",
+      "path": "/api/workflows/generated/prompt",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "platform": "reddit",
+        "appId": "com.reddit.frontpage",
+        "goal": "Open Reddit home feed, wait for home to load, and checkpoint only. Do not vote, comment, post, join, follow, message, login, or change settings.",
+        "clientContext": "release-checklist non-mutating smoke 2026-05-22T08Z"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "cacheHit": false,
+          "nextAction": "generate_validate_and_cache_workflow",
+          "appMapLoaded": true,
+          "screenCount": 22,
+          "prompt": "You are generating a Phone Network WorkflowTemplate for deterministic Android execution.\nReturn ONLY valid JSON. Do not wrap it in markdown.\n\n## Goal\nOpen Reddit home feed, wait for home to load, and checkpoint only. Do not vote, comment, post, join, follow, message, login, or change settings.\n\n## Platform\nplatform: reddit\npackageName: com.reddit.frontpage\n\n## Client Context\nrelease-checklist non-mutating smoke 2026-05-22T08Z\n\n## Available Screens\n- REDDIT_HOME_FEED\n- REDDIT_SUBREDDIT\n- REDDIT_POST_DETAIL\n- REDDIT_COMMENTS\n- REDDIT_COMMENT_COMPOSE\n- REDDIT_SEARCH\n- REDDIT_SEARCH_RESULTS\n- REDDIT_PROFILE_OWN\n- REDDIT_PROFILE_OTHER\n- REDDIT_INBOX\n- REDDIT_SETTINGS\n- REDDIT_RATE_LIMITED\n- REDDIT_BANNED\n- REDDIT_LOGIN\n- REDDIT_CREATE_POST\n- KEYBOARD_OPEN\n- ACTION_SHEET\n- CONFIRMATION_DIALOG\n- SUGGESTIONS_POPUP\n- LOGIN_REQUIRED\n- ACTION_BLOCKED\n- UNKNOWN\n\n## App Map Hints\n- App map Reddit (com.reddit.frontpage) version 3.0.0: 11 pages, 38 transitions\n- page_home_feed: home_feed; signature=undefined; anchors=text:Home, text:Discover, text:Create, text:Inbox, text:You\n-   hot: fixed; label=Hot\n-   new: fixed; label=New\n-   top: fixed; label=Top\n-   you: fixed; label=You -> page_profile\n-   best: fixed; label=Best\n-   find: fixed; label=Find -> page_search\n- page_search: search; signature=undefined; anchors=text:Search Reddit, text:Back, text:Cancel, text:Trending today, text:Popular\n-   back: fixed; label=Back -> page_home_feed\n-   join: fixed; label=Join -> page_community\n-   clear: fixed; label=Clear\n-   posts: fixed; label=Posts\n-   cancel: fixed; label=Cancel -> page_home_feed\n-   follow: fixed; label=Follow\n- page_post_detail: post_detail; signature=undefined; anchors=text:Back, text:Share, text:More options, text:Upvote, text:Downvote\n-   new: fixed; label=New\n-   top: fixed; label=Top\n-   back: fixed; label=Back -> page_home_feed\n-   best: fixed; label=Best\n-   award: fixed; label=Award\n-   reply: fixed; label=Reply\n- page_post_menu: post_menu; signature=undefined; anchors=text:Save, text:Hide, text:Report, text:Block, text:Share\n-   edit: fixed; label=Edit\n-   hide: fixed; label=Hide\n-   mute: fixed; label=Mute\n-   save: fixed; label=Save\n-   block: fixed; label=Block\n-   share: fixed; label=Share\n- page_create_post: create_post; signature=undefined; anchors=text:Back, text:Post, text:Image, text:Link, text:Video\n-   oc: fixed; label=OC\n-   back: fixed; label=Back -> page_home_feed\n-   body: fixed; label=Body\n-   link: fixed; label=Link\n-   nsfw: fixed; label=NSFW\n-   poll: fixed; label=Poll\n- page_settings: settings; signature=undefined; anchors=text:Back, text:Account settings, text:Edit profile, text:Privacy, text:Notifications\n-   auto: fixed; label=Auto\n-   back: fixed; label=Back -> page_profile\n-   about: fixed; label=About\n-   email: fixed; label=Email\n-   log_out: fixed; label=Log out -> page_home_feed\n-   privacy: fixed; label=Privacy\n- page_profile: profile; signature=undefined; anchors=text:Back, text:Settings, text:Edit profile, text:Posts, text:Comments\n-   back: fixed; label=Back -> page_home_feed\n-   block: fixed; label=Block\n-   karma: fixed; label=Karma\n-   posts: fixed; label=Posts\n-   saved: fixed; label=Saved\n-   follow: fixed; label=Follow\n- page_community: community; signature=undefined; anchors=text:Back, text:Join, text:Joined, text:Community options, text:About\n-   hot: fixed; label=Hot\n-   new: fixed; label=New\n-   top: fixed; label=Top\n-   back: fixed; label=Back -> page_home_feed\n-   join: fixed; label=Join\n-   menu: fixed; label=Menu\n- ... 3 more app-map pages omitted\n\n## Server Contract\n{\n  \"sourceOfTruth\": \"Agents generate workflow templates dynamically; server validates, optionally persists, then dispatches.\",\n  \"endpoints\": {\n    \"validate\": \"POST /api/workflows/generated/validate\",\n    \"dryRun\": \"POST /api/workflows/generated with { dryRun: true }\",\n    \"resolveCache\": \"POST /api/workflows/generated/cache/resolve\",\n    \"cache\": \"GET /api/workflows/generated/cache/:cacheKey\",\n    \"execute\": \"POST /api/workflows/generated with { deviceId, workflow | cacheKey | requestKey }\"\n  },\n  \"compiledPlan\": {\n    \"returnedBy\": [\n      \"POST /api/workflows/generated/validate\",\n      \"POST /api/workflows/generated with { dryRun: true }\"\n    ],\n    \"cacheKey\": \"Stable hash of the validated template fields that affect deterministic execution.\",\n    \"requestKey\": \"Stable hash returned by /prompt before LLM generation; use it to check cache first.\",\n    \"cacheFirstPrompt\": \"POST /api/workflows/generated/prompt returns cached workflow+plan when requestKey is already known.\",\n    \"executeFromCache\": \"POST /api/workflows/generated can execute cached templates directly by cacheKey or requestKey.\",\n    \"canExecuteFromCache\": \"Boolean response hint; true means a later call can use cacheKey/requestKey without regenerating the workflow.\",\n    \"happyPathLlmRequests\": 0,\n    \"recovery\": \"LLM is reserved for recovery after deterministic execution fails.\"\n  },\n  \"template\": {\n    \"required\": [\n      \"id\",\n      \"name\",\n      \"platform\",\n      \"description\",\n      \"version\",\n      \"steps\"\n    ],\n    \"optional\": [\n      \"defaultVerificationStrategy\",\n      \"dataRetentionDays\",\n      \"compatibleAppVersions\"\n    ],\n    \"defaultVerificationStrategy\": [\n      \"local_only\",\n      \"local_with_screenshot\"\n    ],\n    \"stepTypes\": [\n      \"action\",\n      \"wait\",\n      \"condition\",\n      \"loop\",\n      \"checkpoint\"\n    ]\n  },\n  \"steps\": {\n    \"action\": {\n      \"required\": [\n        \"type\",\n        \"action\"\n      ],\n      \"optional\": [\n        \"id\",\n        \"target\",\n        \"x\",\n        \"y\",\n        \"params\",\n        \"verification\",\n        \"retries\",\n        \"timeoutMs\",\n        \"expectedScreen\"\n      ]\n    },\n    \"wait\": {\n      \"required\": [\n        \"type\",\n        \"duration or condition\"\n      ],\n      \"optional\": [\n        \"id\",\n        \"element\",\n        \"timeoutMs\"\n      ]\n    },\n    \"condition\": {\n      \"required\": [\n        \"type\",\n        \"check\",\n        \"if_true\"\n      ],\n      \"optional\": [\n        \"id\",\n        \"probability\",\n        \"if_false\"\n      ]\n    },\n    \"loop\": {\n      \"required\": [\n        \"type\",\n        \"count\",\n        \"steps\"\n      ],\n      \"optional\": [\n        \"id\",\n        \"breakOn\"\n      ]\n    },\n    \"checkpoint\": {\n      \"required\": [\n        \"type\",\n        \"id\"\n      ],\n      \"optional\": [\n        \"reason\"\n      ]\n    }\n  },\n  \"example\": {\n    \"id\": \"agent_generated_reddit_open_home_v1\",\n    \"name\": \"Agent generated Reddit open home\",\n    \"platform\": \"reddit\",\n    \"description\": \"Minimal generated workflow contract example.\",\n    \"version\": \"1.0.0\",\n    \"defaultVerificationStrategy\": \"local_with_screenshot\",\n    \"dataRetentionDays\": 7,\n    \"steps\": [\n      {\n        \"type\": \"action\",\n        \"id\": \"open_reddit\",\n        \"action\": \"open_app\",\n        \"params\": {\n          \"packageName\": \"com.reddit.frontpage\"\n        }\n      },\n      {\n        \"type\": \"wait\",\n        \"id\": \"wait_home\",\n        \"condition\": \"app_launched\",\n        \"timeoutMs\": 10000\n      },\n      {\n        \"type\": \"checkpoint\",\n        \"id\": \"home_loaded\",\n        \"reason\": \"App reached expected starting screen\"\n      }\n    ]\n  }\n}\n\n## Rules\n- Generate a complete WorkflowTemplate object, not a wrapper.\n- The workflow id must be stable, lowercase, and specific to this generated goal.\n- Use action steps for deterministic device actions only.\n- Use wait steps for loading, debounce, or explicit UI conditions.\n- Use checkpoint steps after important navigation or irreversible actions.\n- Include expectedScreen on action steps when a known screen should result.\n- Keep runtime LLM calls at zero on the happy path.\n- Before calling an LLM for the same goal/context again, call POST /api/workflows/generated/cache/resolve with requestKey.\n- After validation, cache compiledPlan.cacheKey and reuse the same validated workflow for identical goals/context.\n- Do not include client secrets, account passwords, API keys, or private tokens.\n- Do not add hardcoded content unless it is present in the client context or goal.\n- Prefer dry-run validation before persistence or execution.\n\nReturn JSON now."
+        }
+      }
+    },
+    {
+      "name": "dryRun persist workflow",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "dryRun": true,
+        "persist": true,
+        "requestKey": "185432c1eb0e390c80d94d21",
+        "workflow": {
+          "id": "release_reddit_home_smoke_v1",
+          "name": "Release Reddit home smoke",
+          "platform": "reddit",
+          "description": "Non-mutating release smoke: open Reddit, wait, checkpoint only.",
+          "version": "1.0.0",
+          "defaultVerificationStrategy": "local_with_screenshot",
+          "dataRetentionDays": 1,
+          "steps": [
+            {
+              "type": "action",
+              "id": "open_reddit",
+              "action": "open_app",
+              "params": {
+                "packageName": "com.reddit.frontpage"
+              },
+              "expectedScreen": "REDDIT_HOME_FEED",
+              "timeoutMs": 15000
+            },
+            {
+              "type": "wait",
+              "id": "wait_for_home",
+              "condition": "app_launched",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "checkpoint",
+              "id": "home_loaded",
+              "reason": "Home feed reached or launch validated"
+            }
+          ]
+        }
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": false,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "generated": true,
+          "dryRun": true,
+          "persisted": true,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "cache-only dryRun by requestKey",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "dryRun": true,
+        "requestKey": "185432c1eb0e390c80d94d21"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "generated": true,
+          "dryRun": true,
+          "persisted": false,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "real-device execution from requestKey no workflow payload",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 500,
+      "ok": false,
+      "requestBody": {
+        "requestKey": "185432c1eb0e390c80d94d21",
+        "deviceId": "d35b34cb"
+      },
+      "response": {
+        "ok": false,
+        "error": "invalid input syntax for type uuid: \"d35b34cb\"",
+        "code": "22P02"
+      }
+    }
+  ],
+  "selectedDeviceId": "d35b34cb",
+  "requestKey": "185432c1eb0e390c80d94d21",
+  "cacheKey": "e008bc222ce4f68047ab6c28",
+  "error": "Error: real-device execution from requestKey no workflow payload failed 500: {\"ok\":false,\"error\":\"invalid input syntax for type uuid: \\\"d35b34cb\\\"\",\"code\":\"22P02\"}\n    at req ([stdin]:19:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async [stdin]:74:16"
+}

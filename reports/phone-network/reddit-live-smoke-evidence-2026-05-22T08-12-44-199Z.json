@@ -1,0 +1,675 @@
+{
+  "ts": "2026-05-22T08:12:44.199Z",
+  "baseUrl": "http://enkzoned.go.ro:3000",
+  "tokenRedacted": true,
+  "selectedDeviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+  "steps": [
+    {
+      "name": "health",
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "status": "healthy",
+          "ts": "2026-05-22T08:12:44.366Z",
+          "appVersion": "3.9.20",
+          "buildCommit": "d8398a1baf14b3b0441ec18d1af83804340c4796"
+        }
+      }
+    },
+    {
+      "name": "edge status",
+      "method": "GET",
+      "path": "/api/edge/status",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "totalOnline": 2,
+          "edgeCapable": 2,
+          "legacyOnly": 0,
+          "executionMode": "edge",
+          "devices": [
+            {
+              "deviceId": "d35b34cb",
+              "agentVersion": "4.0.22",
+              "edgeCapable": true
+            },
+            {
+              "deviceId": "22cfa4b5",
+              "agentVersion": "4.0.19",
+              "edgeCapable": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "devices list",
+      "method": "GET",
+      "path": "/api/devices?pageSize=100",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "items": [
+            {
+              "id": "22cfa4b5-f35b-4949-982f-8bb4a15b059d",
+              "hardwareUuid": null,
+              "friendlyName": "Mama",
+              "model": "ONEPLUS A6013",
+              "androidVersion": "11",
+              "agentVersion": "4.0.19",
+              "locationId": null,
+              "isCanary": false,
+              "status": "online",
+              "lastSeenAt": "2026-05-22T08:12:37.697Z",
+              "lastIp": "::ffff:86.124.202.110",
+              "health": {
+                "charging": false,
+                "activeApp": "",
+                "networkType": "none",
+                "agentVersion": "4.0.19",
+                "batteryLevel": 75,
+                "thermalStatus": "nominal",
+                "networkQuality": "none",
+                "storageFreeBytes": 231878893568
+              },
+              "createdAt": "2026-04-05T20:34:36.387Z"
+            },
+            {
+              "id": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+              "hardwareUuid": null,
+              "friendlyName": "acasa",
+              "model": "ONEPLUS A5010",
+              "androidVersion": "10",
+              "agentVersion": "4.0.22",
+              "locationId": null,
+              "isCanary": false,
+              "status": "online",
+              "lastSeenAt": "2026-05-22T08:12:37.004Z",
+              "lastIp": "::ffff:192.168.50.1",
+              "health": {
+                "charging": false,
+                "activeApp": "",
+                "networkType": "none",
+                "agentVersion": "4.0.22",
+                "batteryLevel": 70,
+                "thermalStatus": "nominal",
+                "networkQuality": "none",
+                "storageFreeBytes": 108306767872
+              },
+              "createdAt": "2026-05-11T13:52:46.576Z"
+            },
+            {
+              "id": "b711b148-3b1a-487c-a56f-2ec3f1bb712a",
+              "hardwareUuid": null,
+              "friendlyName": "tata",
+              "model": "ONEPLUS A5010",
+              "androidVersion": "10",
+              "agentVersion": "3.0.9",
+              "locationId": null,
+              "isCanary": false,
+              "status": "offline",
+              "lastSeenAt": "2026-04-09T11:19:02.742Z",
+              "lastIp": "::ffff:86.124.202.213",
+              "health": {
+                "charging": false,
+                "activeApp": "",
+                "networkType": "none",
+                "agentVersion": "3.0.9",
+                "batteryLevel": 1,
+                "thermalStatus": "nominal",
+                "networkQuality": "none",
+                "storageFreeBytes": 49177673728
+              },
+              "createdAt": "2026-04-06T11:25:10.830Z"
+            }
+          ],
+          "total": 3,
+          "page": 1,
+          "pageSize": 100
+        }
+      }
+    },
+    {
+      "name": "metrics before",
+      "method": "GET",
+      "path": "/metrics",
+      "status": 200,
+      "ok": true,
+      "generatedWorkflowLines": []
+    },
+    {
+      "name": "prompt requestKey",
+      "method": "POST",
+      "path": "/api/workflows/generated/prompt",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "platform": "reddit",
+        "appId": "com.reddit.frontpage",
+        "goal": "Open Reddit home feed, wait for home to load, and checkpoint only. Do not vote, comment, post, join, follow, message, login, or change settings.",
+        "clientContext": "release-checklist non-mutating smoke 2026-05-22T08Z"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": true,
+          "nextAction": "reuse_cached_workflow",
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "templateVersion": "1.0.0",
+          "workflow": {
+            "id": "release_reddit_home_smoke_v1",
+            "name": "Release Reddit home smoke",
+            "steps": [
+              {
+                "id": "open_reddit",
+                "type": "action",
+                "action": "open_app",
+                "params": {
+                  "packageName": "com.reddit.frontpage"
+                },
+                "timeoutMs": 15000,
+                "expectedScreen": "REDDIT_HOME_FEED"
+              },
+              {
+                "id": "wait_for_home",
+                "type": "wait",
+                "condition": "app_launched",
+                "timeoutMs": 10000
+              },
+              {
+                "id": "home_loaded",
+                "type": "checkpoint",
+                "reason": "Home feed reached or launch validated"
+              }
+            ],
+            "version": "1.0.0",
+            "platform": "reddit",
+            "description": "Non-mutating release smoke: open Reddit, wait, checkpoint only.",
+            "dataRetentionDays": 1,
+            "defaultVerificationStrategy": "local_with_screenshot"
+          },
+          "compiledPlan": {
+            "steps": [
+              {
+                "id": "open_reddit",
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "id": "wait_for_home",
+                "path": "workflow.steps[1]",
+                "type": "wait"
+              },
+              {
+                "id": "home_loaded",
+                "path": "workflow.steps[2]",
+                "type": "checkpoint"
+              }
+            ],
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "maxDepth": 1,
+            "platform": "reddit",
+            "llmBudget": {
+              "recoveryRequests": "only_on_failure",
+              "happyPathRequests": 0
+            },
+            "stepCount": 3,
+            "templateId": "release_reddit_home_smoke_v1",
+            "actionCount": 1,
+            "planVersion": "generated-workflow-plan/v1",
+            "checkpointCount": 1,
+            "templateVersion": "1.0.0"
+          },
+          "hitCount": 4,
+          "createdAt": "2026-05-22T08:09:17.143Z",
+          "updatedAt": "2026-05-22T08:11:28.966Z",
+          "lastUsedAt": "2026-05-22T08:12:44.485Z"
+        }
+      }
+    },
+    {
+      "name": "dryRun persist workflow",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "dryRun": true,
+        "persist": true,
+        "requestKey": "185432c1eb0e390c80d94d21",
+        "workflow": {
+          "id": "release_reddit_home_smoke_v1",
+          "name": "Release Reddit home smoke",
+          "platform": "reddit",
+          "description": "Non-mutating release smoke: open Reddit, wait, checkpoint only.",
+          "version": "1.0.0",
+          "defaultVerificationStrategy": "local_with_screenshot",
+          "dataRetentionDays": 1,
+          "steps": [
+            {
+              "type": "action",
+              "id": "open_reddit",
+              "action": "open_app",
+              "params": {
+                "packageName": "com.reddit.frontpage"
+              },
+              "expectedScreen": "REDDIT_HOME_FEED",
+              "timeoutMs": 15000
+            },
+            {
+              "type": "wait",
+              "id": "wait_for_home",
+              "condition": "app_launched",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "checkpoint",
+              "id": "home_loaded",
+              "reason": "Home feed reached or launch validated"
+            }
+          ]
+        }
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": false,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "generated": true,
+          "dryRun": true,
+          "persisted": true,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "cache-only dryRun by requestKey no workflow payload",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "dryRun": true,
+        "requestKey": "185432c1eb0e390c80d94d21"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "generated": true,
+          "dryRun": true,
+          "persisted": false,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "cache-only dryRun by cacheKey no workflow payload",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "dryRun": true,
+        "cacheKey": "e008bc222ce4f68047ab6c28"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "generated": true,
+          "dryRun": true,
+          "persisted": false,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "real-device execution from requestKey no workflow payload",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 202,
+      "ok": true,
+      "requestBody": {
+        "requestKey": "185432c1eb0e390c80d94d21",
+        "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "workflowId": "88bb7a8e-4227-4827-9dfa-23af16a8dbb1",
+          "status": "running",
+          "mode": "edge",
+          "templateId": "release_reddit_home_smoke_v1",
+          "generated": true,
+          "cacheHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "workflow status after 7s",
+      "method": "GET",
+      "path": "/api/workflows/88bb7a8e-4227-4827-9dfa-23af16a8dbb1",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "88bb7a8e-4227-4827-9dfa-23af16a8dbb1",
+          "templateId": "release_reddit_home_smoke_v1",
+          "accountId": null,
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "status": "completed",
+          "currentStep": 3,
+          "totalSteps": 3,
+          "checkpoint": {
+            "error": null,
+            "result": {
+              "step": 3,
+              "total": 3,
+              "variables": {}
+            },
+            "source": "edge",
+            "loopStack": [],
+            "stepIndex": 3,
+            "variables": {},
+            "totalSteps": 3,
+            "checkpointAt": "2026-05-22T08:12:47.618Z",
+            "executionStats": {
+              "mode": "edge",
+              "vlmCalls": 0,
+              "failedSteps": 0,
+              "batchedSteps": 0,
+              "retriedSteps": 0,
+              "compileLlmCalls": 0,
+              "runtimeLlmCalls": 0,
+              "creativeLlmCalls": 0,
+              "recoveryLlmCalls": 0,
+              "deterministicSteps": 3
+            }
+          },
+          "executionStats": {
+            "mode": "edge",
+            "vlmCalls": 0,
+            "failedSteps": 0,
+            "batchedSteps": 0,
+            "retriedSteps": 0,
+            "compileLlmCalls": 0,
+            "runtimeLlmCalls": 0,
+            "creativeLlmCalls": 0,
+            "recoveryLlmCalls": 0,
+            "deterministicSteps": 3
+          },
+          "hbeParams": {
+            "mood": {
+              "mood": "explorer",
+              "errorRate": 0.06,
+              "engagementRate": 0.25,
+              "explorationRate": 0.5,
+              "timingMultiplier": 1.1,
+              "sessionDurationMultiplier": 1.4
+            },
+            "drift": {
+              "phase": "growth",
+              "agedays": 30,
+              "dailySessionsMax": 4,
+              "timingMultiplier": 1.2163639352346511,
+              "errorRateMultiplier": 1.2163639352346511,
+              "engagementMultiplier": 0.6393934412755815,
+              "sessionLengthMultiplier": 0.7836360647653489
+            },
+            "timingMultiplier": 1.3380003287581164,
+            "scheduledSessions": [
+              {
+                "localHour": 19,
+                "durationMs": 1254457,
+                "scheduledAt": "2026-05-22T17:22:53.679Z"
+              },
+              {
+                "localHour": 20,
+                "durationMs": 1971992,
+                "scheduledAt": "2026-05-22T18:36:47.691Z"
+              },
+              {
+                "localHour": 23,
+                "durationMs": 164382,
+                "scheduledAt": "2026-05-22T21:05:31.103Z"
+              }
+            ],
+            "sessionDurationMs": 562538.794605974
+          },
+          "startedAt": "2026-05-22T08:12:44.569Z",
+          "completedAt": "2026-05-22T08:12:47.628Z",
+          "error": null,
+          "createdAt": "2026-05-22T08:12:44.565Z"
+        }
+      }
+    }
+  ],
+  "error": "fetch failed",
+  "completedAt": "2026-05-22T08:14:53.618Z",
+  "observabilityFollowup": {
+    "healthAfterAuditFailure": {
+      "status": 200,
+      "appVersion": "3.9.20",
+      "buildCommit": "d8398a1baf14b3b0441ec18d1af83804340c4796"
+    },
+    "metricsAfter": {
+      "status": 200,
+      "generatedWorkflowLines": [],
+      "blocker": "No phone_network_generated_workflow* metrics exposed by live 3.9.20/d8398a1 build."
+    },
+    "auditDeviceFilter": {
+      "status": 0,
+      "error": "curl: (52) Empty reply from server; immediately followed by brief connection refusal on health/workflow probes.",
+      "blocker": true
+    }
+  },
+  "safety": {
+    "workflowActions": [
+      "open_app",
+      "wait",
+      "checkpoint"
+    ],
+    "productionExecutionRequestHadWorkflowPayload": false,
+    "forbiddenMutationActionsPresentInWorkflow": false,
+    "forbiddenMutationActionsChecked": [
+      "vote",
+      "comment",
+      "post",
+      "join",
+      "follow",
+      "message",
+      "login",
+      "settings",
+      "type_text",
+      "tap",
+      "swipe"
+    ],
+    "llmEvidence": {
+      "compiledPlanHappyPathRequests": 0,
+      "workflowExecutionStats": {
+        "mode": "edge",
+        "vlmCalls": 0,
+        "failedSteps": 0,
+        "batchedSteps": 0,
+        "retriedSteps": 0,
+        "compileLlmCalls": 0,
+        "runtimeLlmCalls": 0,
+        "creativeLlmCalls": 0,
+        "recoveryLlmCalls": 0,
+        "deterministicSteps": 3
+      }
+    },
+    "note": "The live execution request body contained only requestKey + deviceId. The cached workflow contains open_app, wait, checkpoint only. Workflow completed edge mode with compile/runtime/recovery/creative LLM counters at 0 and vlmCalls=0."
+  }
+}
