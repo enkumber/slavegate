@@ -1,0 +1,309 @@
+{
+  "ts": "2026-05-22T10:41:28.493Z",
+  "baseUrl": "http://enkzoned.go.ro:3000",
+  "expected": {
+    "appVersion": "3.9.22",
+    "buildCommit": "fee20898441aa3bfb78b4a21bf02ceb4689c26c5"
+  },
+  "device": {
+    "id": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+    "name": "acasa"
+  },
+  "redditUsername": "Consistent-Beyond386",
+  "requestKey": "185432c1eb0e390c80d94d21",
+  "steps": [
+    {
+      "name": "health",
+      "response": {
+        "ok": true,
+        "data": {
+          "status": "healthy",
+          "ts": "2026-05-22T10:41:28.524Z",
+          "appVersion": "3.9.22",
+          "buildCommit": "fee20898441aa3bfb78b4a21bf02ceb4689c26c5"
+        }
+      }
+    },
+    {
+      "name": "edge-status",
+      "response": {
+        "ok": true,
+        "data": {
+          "totalOnline": 2,
+          "edgeCapable": 2,
+          "legacyOnly": 0,
+          "executionMode": "edge",
+          "devices": [
+            {
+              "deviceId": "22cfa4b5-f35b-4949-982f-8bb4a15b059d",
+              "shortDeviceId": "22cfa4b5",
+              "agentVersion": "4.0.19",
+              "edgeCapable": true
+            },
+            {
+              "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+              "shortDeviceId": "d35b34cb",
+              "agentVersion": "4.0.22",
+              "edgeCapable": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "cache-only-dry-run",
+      "request": {
+        "dryRun": true,
+        "requestKey": "185432c1eb0e390c80d94d21"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": true,
+          "canonicalHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "canonicalWorkflowId": "release_reddit_home_smoke_v1",
+          "canonicalWorkflowVersion": "1.0.0",
+          "compiledPlanHash": "e008bc222ce4f68047ab6c28",
+          "generated": true,
+          "dryRun": true,
+          "persisted": false,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "steps": [
+              {
+                "id": "open_reddit",
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "id": "wait_for_home",
+                "path": "workflow.steps[1]",
+                "type": "wait"
+              },
+              {
+                "id": "home_loaded",
+                "path": "workflow.steps[2]",
+                "type": "checkpoint"
+              }
+            ],
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "maxDepth": 1,
+            "platform": "reddit",
+            "llmBudget": {
+              "recoveryRequests": "only_on_failure",
+              "happyPathRequests": 0
+            },
+            "stepCount": 3,
+            "templateId": "release_reddit_home_smoke_v1",
+            "actionCount": 1,
+            "planVersion": "generated-workflow-plan/v1",
+            "checkpointCount": 1,
+            "templateVersion": "1.0.0"
+          }
+        }
+      }
+    },
+    {
+      "name": "accounts-before",
+      "response": {
+        "ok": true,
+        "data": {
+          "items": [],
+          "total": 0
+        }
+      }
+    },
+    {
+      "name": "create-tracking-account",
+      "request": {
+        "platform": "reddit",
+        "username": "Consistent-Beyond386",
+        "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+        "type": "farming",
+        "simulatedTimezone": "Europe/Bucharest",
+        "notes": "Smoke-test tracking record only. Reddit login already exists on device acasa; no password or credentials stored."
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "platform": "reddit",
+          "username": "Consistent-Beyond386",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "clientId": null,
+          "type": "farming",
+          "status": "active",
+          "encryptionKeyRef": "vault:accounts/ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722/creds",
+          "ageDays": 0,
+          "sessionCount": 0,
+          "totalActions": 0,
+          "lastActiveAt": null,
+          "simulatedTimezone": "Europe/Bucharest",
+          "createdAt": "2026-05-22T10:41:28.658Z",
+          "notes": "Smoke-test tracking record only. Reddit login already exists on device acasa; no password or credentials stored.",
+          "metrics": {},
+          "flags": {},
+          "strategy": {}
+        }
+      }
+    },
+    {
+      "name": "create-task",
+      "request": {
+        "account_id": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+        "device_id": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+        "routine": "generated_workflow",
+        "params": {
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd"
+        },
+        "scheduled_time": "2026-05-22T10:41:28.700Z"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "b889137c-e86f-40a7-85cd-3972ec465c6a"
+        }
+      }
+    },
+    {
+      "name": "task-runner-start",
+      "response": {
+        "ok": true,
+        "message": "Task runner started"
+      }
+    },
+    {
+      "name": "task-final",
+      "response": {
+        "id": "b889137c-e86f-40a7-85cd-3972ec465c6a",
+        "batch_id": null,
+        "account_id": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+        "device_id": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+        "scheduled_time": "2026-05-22T10:41:28.700Z",
+        "status": "completed",
+        "routine": "generated_workflow",
+        "params": {
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "requestKey": "185432c1eb0e390c80d94d21"
+        },
+        "created_at": "2026-05-22T10:41:28.730Z",
+        "started_at": "2026-05-22T10:41:28.783Z",
+        "completed_at": "2026-05-22T10:41:28.844Z",
+        "result": {
+          "durationMs": 57,
+          "tokenUsage": {
+            "total": 0,
+            "planner": {
+              "input": 0,
+              "output": 0
+            },
+            "executor": {
+              "calls": 0,
+              "input": 0,
+              "output": 0
+            },
+            "verifier": {
+              "calls": 0,
+              "input": 0,
+              "output": 0
+            }
+          },
+          "totalSteps": 3,
+          "stepsCompleted": 3,
+          "generatedWorkflow": {
+            "mode": "edge",
+            "status": "running",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "llmBudget": {
+              "recoveryRequests": "only_on_failure",
+              "happyPathRequests": 0
+            },
+            "requestKey": "185432c1eb0e390c80d94d21",
+            "templateId": "release_reddit_home_smoke_v1",
+            "workflowId": "46503ceb-c41e-41d1-8933-a7d61b64bfde",
+            "compiledPlanHash": "e008bc222ce4f68047ab6c28",
+            "canonicalWorkflowId": "release_reddit_home_smoke_v1",
+            "canonicalWorkflowVersion": "1.0.0"
+          }
+        },
+        "error": null,
+        "updated_at": "2026-05-22T10:41:28.730Z",
+        "retry_count": 0,
+        "account_username": "Consistent-Beyond386",
+        "device_name": "acasa"
+      }
+    },
+    {
+      "name": "task-runner-stop-after-error",
+      "response": {
+        "ok": true,
+        "message": "Task runner stopped"
+      }
+    }
+  ],
+  "metricsBefore": {
+    "lines": [
+      "# HELP phone_network_generated_workflow_cache_lookup_total Generated workflow cache lookups by endpoint and result",
+      "# TYPE phone_network_generated_workflow_cache_lookup_total counter",
+      "phone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"canonical_hit\",service=\"phone-network\"} 2",
+      "# HELP phone_network_generated_workflow_executions_total Generated workflow executions accepted by source and cache state",
+      "# TYPE phone_network_generated_workflow_executions_total counter",
+      "# HELP phone_network_generated_workflow_llm_avoided_total Estimated LLM requests avoided by generated workflow cache-first execution",
+      "# TYPE phone_network_generated_workflow_llm_avoided_total counter",
+      "# HELP phone_network_generated_workflow_task_runner_dispatch_total Generated workflow task-runner dispatch outcomes",
+      "# TYPE phone_network_generated_workflow_task_runner_dispatch_total counter"
+    ],
+    "taskRunnerAccepted": 0,
+    "taskRunnerCanonicalHit": 0,
+    "taskRunnerLlmAvoided": 0
+  },
+  "taskId": "b889137c-e86f-40a7-85cd-3972ec465c6a",
+  "taskResult": {
+    "durationMs": 57,
+    "tokenUsage": {
+      "total": 0,
+      "planner": {
+        "input": 0,
+        "output": 0
+      },
+      "executor": {
+        "calls": 0,
+        "input": 0,
+        "output": 0
+      },
+      "verifier": {
+        "calls": 0,
+        "input": 0,
+        "output": 0
+      }
+    },
+    "totalSteps": 3,
+    "stepsCompleted": 3,
+    "generatedWorkflow": {
+      "mode": "edge",
+      "status": "running",
+      "cacheKey": "e008bc222ce4f68047ab6c28",
+      "llmBudget": {
+        "recoveryRequests": "only_on_failure",
+        "happyPathRequests": 0
+      },
+      "requestKey": "185432c1eb0e390c80d94d21",
+      "templateId": "release_reddit_home_smoke_v1",
+      "workflowId": "46503ceb-c41e-41d1-8933-a7d61b64bfde",
+      "compiledPlanHash": "e008bc222ce4f68047ab6c28",
+      "canonicalWorkflowId": "release_reddit_home_smoke_v1",
+      "canonicalWorkflowVersion": "1.0.0"
+    }
+  },
+  "ok": false,
+  "error": "Task token usage is not zero: {\"total\":0,\"planner\":{\"input\":0,\"output\":0},\"executor\":{\"calls\":0,\"input\":0,\"output\":0},\"verifier\":{\"calls\":0,\"input\":0,\"output\":0}}"
+}

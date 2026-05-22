@@ -69,6 +69,7 @@ Dan
 - Scopul produsului: phone farm pentru o agenție de marketing virtuală, controlată de agenți AI, care execută workflow-uri customizate per client pe rețele sociale.
 - Prioritatea tehnică actuală: execuție workflow-uri cât mai economică, cu cât mai puține requesturi LLM.
 - Principiu: LLM doar la compilare, recovery și generare creativă; happy path deterministic prin app maps, cache coordonate, batch/edge execution și Direct WebSocket.
+- 2026-05-22: Sprint 1 task-runner generated workflows este LIVE GO pe Phone Network `3.9.22`: task scheduled `routine=generated_workflow` a executat workflow canonic/cache-first pe device real în edge mode, cu 3 pași deterministici și 0 LLM/VLM pe happy path.
 
 ## SSH API pe GX10
 
