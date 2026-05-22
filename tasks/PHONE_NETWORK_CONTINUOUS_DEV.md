@@ -113,7 +113,7 @@ Implemented:
 
 Owner: FORGE -> VOLT
 Status: active, contract prepared, unreleased
-Commit: `d4db966` in `slavegate/server`
+Commits: `d4db966`, `a4b9d4f` in `slavegate/server`
 
 Acceptance:
 
@@ -135,7 +135,8 @@ FORGE accepted this as first live E2E workflow and expanded the output contract.
 - Canonical output schema now requires `loggedIn`, `homeFeedVisible`, `searchSurfaceAvailable`, `challengeDetected`, `loginWallDetected`, `accountSwitcherVisible`, `observedUsername`, `screenState`, and `error`.
 - `detect_current_screen` and `set_variable` are allowed generated workflow actions because both are local/read-only and needed for deterministic account-health evidence.
 - Edge `WORKFLOW_STATUS` persistence now keeps `recoveryAttempts=0` and `recoveryBudgetExhausted=0` in happy-path stats instead of dropping those fields.
-- Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-cache generated-workflow-contract-fixtures generated-workflow-execution-smoke task-runner` OK, 57 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 150 tests.
+- Validator safety coverage now explicitly rejects read-only Reddit workflows containing mutating semantics: vote/upvote/downvote, comment, post, join, follow, message, login, settings, profile edit, and `type_text`.
+- Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-cache generated-workflow-contract-fixtures` OK, 46 tests; `npm run test -- workflows workflow-compiler task-runner agency-workflow-runs` OK, 156 tests.
 
 ### Story C: Control Plane Skeleton
 
@@ -175,10 +176,13 @@ Acceptance:
 
 LENS gate received:
 
-- Local build/tests must pass.
-- Live smoke must include raw request/response, workflow action list, execution stats, `/api/metrics` before/after, and account/device/client context.
-- Read-only happy path must keep all runtime/recovery LLM and VLM counters at zero.
-- NO-GO on any Reddit mutation or absent context evidence.
+- Local tests: build OK; real marketing intent/template covered; cache/canonical execution must prove `{requestKey|cacheKey, deviceId}` only, with no `workflow` payload; mutating Reddit semantics rejected; happy path proves `happyPathRequests=0`, recovery only on deterministic failure, and all runtime/recovery LLM/VLM counters zero.
+- Live smoke must include raw request/response, health evidence (`appVersion`, server commit, Android agent version, full UUID `deviceId`), selected account/device/client context, canonical workflow id/version, `cacheKey`/`requestKey`, `compiledPlanHash`, action list, execution stats, and `/api/metrics` before/after.
+- Cache-only dry-run before real execution must prove `cacheHit=true` or `canonicalHit=true`, `canExecuteFromCache=true`, no workflow payload, and `happyPathRequests=0`.
+- Real-device execution must use only cache/canonical key plus full `deviceId` and permitted context references, complete successfully, preserve zero LLM/VLM counters, and output required account-health fields.
+- Safety NO-GO on any Reddit mutation: vote, comment, post, join, follow, message, login, settings, profile edit, type text, submit/send, or account change. Login wall/challenge must be recorded and stop read-only.
+- Metrics gate: `/api/metrics` only; generated workflow counters must increment with low-cardinality labels; `llm_avoided` increments only for accepted cached/canonical happy path with `happyPathRequests=0`; recovery attempt/exhausted counters must not increment on happy path; no cacheKey/requestKey/deviceId/accountId/templateId/prompt/clientContext labels.
+- Release NO-GO if evidence lacks raw bodies, action list, execution stats, metrics before/after, or explicit control-plane context.
 
 ## Previous Block: Generated Workflow Execution Hardening
 
