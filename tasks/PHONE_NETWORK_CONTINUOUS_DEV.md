@@ -140,8 +140,8 @@ FORGE accepted this as first live E2E workflow and expanded the output contract.
 ### Story C: Control Plane Skeleton
 
 Owner: ATLAS/FORGE -> SPARK
-Status: partial, unreleased
-Commit: `7fc744c` in `slavegate/server`
+Status: implemented, unreleased
+Commits: `7fc744c`, `3dd4ef3` in `slavegate/server`
 
 Acceptance:
 
@@ -154,8 +154,13 @@ Implemented:
 - Generated workflow API accepts `clientId` and `campaignId` alongside existing `accountId`/`deviceId`.
 - API and task-runner dispatch attach a structured `controlPlaneContext` to workflow checkpoint variables and execution responses/results.
 - Task-runner derives `clientId` from `accounts.client_id` where available and keeps campaign context from task params.
-- No new DB tables or UI added; this reuses existing `clients`, `accounts`, `tasks`, `workflows`, and `execution_logs`.
-- Verification: `npm run build` OK; `npm run test -- generated-workflow-execution-smoke task-runner` OK, 11 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 150 tests.
+- Added minimal `agency_workflow_runs` ledger table for canonical generated workflow runs, linked to existing `clients`, `accounts`, `devices`, `tasks`, `workflows`, and `generated_workflow_plan_cache`.
+- Added `POST /api/agency/workflow-runs`, `GET /api/agency/workflow-runs/:id`, and filtered `GET /api/agency/workflow-runs`.
+- Creation rejects inline `workflow`, requires exactly one of `requestKey`/`cacheKey`, rejects non-Sprint-2 intents, rejects non-`read_only` artifacts, and rejects cached artifacts whose happy path needs LLM calls.
+- Creation queues a `routine=generated_workflow` task and stores `agencyWorkflowRunId` in task params; task-runner updates the run to `running`, then `completed`/`failed`, linking `workflow_id`, output, token usage, and error.
+- Shared API contract types and route-level contract tests added.
+- Verification: `npm run build` OK; `npm run test -- workflows workflow-compiler task-runner agency-workflow-runs` OK, 156 tests.
+- No UI added and no Umbrel bump yet.
 
 ### Story D: QA/Review Gates
 
