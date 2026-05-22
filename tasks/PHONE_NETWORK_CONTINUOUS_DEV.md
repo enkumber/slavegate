@@ -41,8 +41,8 @@ Acceptance:
 
 ### Story 2: Cached Generated Workflow Execution Smoke
 
-Owner: FORGE -> VOLT
-Status: pending ATLAS routing
+Owner: VOLT
+Status: assigned
 
 Acceptance:
 
@@ -56,7 +56,7 @@ Acceptance:
 
 Owner: Nox
 Status: done, unreleased
-Commit: `3eb5c2e`
+Commits: `3eb5c2e`, `691dcd4`
 
 Acceptance:
 
@@ -68,8 +68,10 @@ Acceptance:
 Implemented:
 
 - `phone_network_generated_workflow_cache_lookup_total{endpoint,result}`
+- `phone_network_generated_workflow_executions_total{platform,cache_hit,source}`
 - `phone_network_generated_workflow_llm_avoided_total{source}`
 - Instrumented endpoints: `prompt`, `cache/resolve`, `execute`.
+- `llm_avoided` increments only after accepted cached execution with `happyPathRequests=0`.
 - Verified with `npm run build` and `npm run test -- workflows workflow-compiler`.
 
 ### Story 4: Release Verification Checklist
