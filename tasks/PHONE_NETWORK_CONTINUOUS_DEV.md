@@ -16,16 +16,16 @@ Nox owns continuity. Small patches are not stopping points. Work only pauses whe
 
 ## Current Baseline
 
-- Live Umbrel release: `3.9.21`
-- Live server commit: `040fff78a2cc30d38c3be49d74d20be89804b1c4`
-- Release gate: final GO, closed by ATLAS/LENS/ECHO
-- Current internal block: post-release product milestone, unreleased
+- Live Umbrel release: `3.9.22`
+- Live server commit: `fee20898441aa3bfb78b4a21bf02ceb4689c26c5`
+- Release gate: Sprint 1 task-runner `generated_workflow` LIVE GO, closed by ATLAS/LENS/ECHO
+- Current internal block: Sprint 2 marketing workflow hardening, unreleased
 - Happy path requirement: generated workflow execution remains `llmBudget.happyPathRequests=0`
 - Workflow source of truth: dynamically generated templates via DB/API, not hardcoded runtime templates
 
-## Active Development Block: First Concrete Marketing Workflow
+## Active Development Block: Sprint 2 Marketing Workflow Hardening
 
-Goal: move from verified generated workflow infrastructure to a real marketing workflow capability: client/account context, deterministic happy path, bounded recovery, run evidence, and clear QA gates.
+Goal: move from verified task-runner generated workflows to safe read-only marketing scans with explicit canonical metadata, bounded recovery, deterministic happy path, run evidence, and clear QA gates.
 
 ### Story A: Recovery Budget Enforcement
 
@@ -49,8 +49,8 @@ Implemented:
 ### Story A2: Canonical Generated Workflow Artifact
 
 Owner: Nox
-Status: done, unreleased
-Commit: `b4d3e45` in `slavegate/server`
+Status: live GO in `3.9.22`
+Commit: `b4d3e45` through `fee2089` in `slavegate/server`
 
 Acceptance:
 
@@ -60,6 +60,42 @@ Acceptance:
 - Cache metrics distinguish `canonical_hit`, `cache_hit`, and `compiled_new` with low-cardinality labels.
 - Tests cover cache service mapping, cache-only route execution, payload rejection, and blocking/canary guards.
 - Verification: `npm run test -- workflows workflow-compiler` and `npm run build` passed.
+
+### Story 1.4: Canonical Edge Schema Hardening
+
+Owner: SPARK/VOLT -> LENS/ECHO
+Status: GO, unreleased
+Commit: `940a7c7` in `slavegate/server`
+
+Acceptance:
+
+- Canonical generated workflows carry `intent`, `safetyClass`, `outputSchema`, and `allowedRecoveryRequests`.
+- Sprint 2 marketing workflows use `safetyClass="read_only"`.
+- Metadata is stable through template validation, `compiledPlan.metadata`, compiled hash, cache `source_metadata`, DTOs, and dispatch.
+- Cache persistence rejects invalid generated workflow metadata and `happyPathRequests != 0`.
+- Mutating Reddit workflows remain rejected by validator/safety guards.
+- Tests cover valid read-only marketing scan and invalid mutating workflow.
+
+Implemented:
+
+- First accepted intent is `reddit_account_health_scan`.
+- Canonical output schema includes `loggedIn`, `homeFeedVisible`, `challengeDetected`, `loginWallDetected`, and `error`.
+- Dispatch revalidates cached templates before workflow creation/cache-only task-runner execution.
+- Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-cache generated-workflow-contract-fixtures` OK, 45 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 146 tests.
+- LENS QA GO and ECHO review GO recorded by ATLAS. No Umbrel bump yet.
+
+### Story 1.5: Recovery Budget Enforcement
+
+Owner: ATLAS/FORGE -> Nox/VOLT/SPARK
+Status: active implementation gate
+
+Acceptance:
+
+- Recovery request types are explicit and bounded by canonical metadata.
+- Read-only marketing scans cannot escalate into mutating Reddit actions during recovery.
+- `happyPathRequests=0` remains invariant and tested.
+- Recovery budget failures are observable and do not dispatch unsafe actions.
+- LENS QA and ECHO review required before release decision.
 
 ### Story B: First E2E Marketing Workflow
 
