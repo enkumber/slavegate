@@ -1,0 +1,1402 @@
+{
+  "verdict": "NO-GO",
+  "generatedAt": "2026-05-22T16:29:12.349Z",
+  "baseUrl": "http://enkzoned.go.ro:3000",
+  "expected": {
+    "expectedAppVersion": "3.9.26",
+    "expectedCommit": "9fb329a2a7605b6944d7b7ac052acc954f76050a",
+    "expectedAgentVersion": "4.0.23",
+    "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+    "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+    "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+    "username": "Consistent-Beyond386"
+  },
+  "ids": {
+    "runId": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+    "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+    "workflowId": "be88cc81-1403-49b2-88a9-735139cf27ab",
+    "cacheKey": "7a82acb95d691e53af1c7555",
+    "screenshotJobId": null
+  },
+  "values": {
+    "loggedIn": "unknown",
+    "homeFeedVisible": "unknown",
+    "searchSurfaceAvailable": "unknown",
+    "challengeDetected": "unknown",
+    "loginWallDetected": "unknown",
+    "accountSwitcherVisible": "unknown",
+    "observedUsername": "",
+    "screenState": "unknown",
+    "error": ""
+  },
+  "assertions": {
+    "liveVersionOk": true,
+    "agentUpdated": true,
+    "edgeOnline": true,
+    "taskRunnerRunning": true,
+    "routeExists": true,
+    "noInlineWorkflowPayload": true,
+    "runCompleted": true,
+    "workflowCompleted": false,
+    "outputKeysComplete": true,
+    "realClassifierOutput": false,
+    "screenshotArtifactPresent": false,
+    "screenshotFileSaved": false,
+    "llmVlmZero": true,
+    "mutatingActionsNone": true
+  },
+  "blockers": [
+    "workflowCompleted",
+    "realClassifierOutput",
+    "screenshotArtifactPresent",
+    "screenshotFileSaved"
+  ],
+  "screenshot": {
+    "file": null,
+    "sha256": null,
+    "bytes": 0,
+    "source": null,
+    "artifact": null
+  },
+  "health": {
+    "status": "healthy",
+    "ts": "2026-05-22T16:28:47.078Z",
+    "appVersion": "3.9.26",
+    "buildCommit": "9fb329a2a7605b6944d7b7ac052acc954f76050a"
+  },
+  "edge": {
+    "totalOnline": 1,
+    "edgeCapable": 1,
+    "legacyOnly": 0,
+    "executionMode": "edge",
+    "devices": [
+      {
+        "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+        "shortDeviceId": "d35b34cb",
+        "agentVersion": "4.0.23",
+        "edgeCapable": true
+      }
+    ]
+  },
+  "device": {
+    "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+    "shortDeviceId": "d35b34cb",
+    "agentVersion": "4.0.23",
+    "edgeCapable": true
+  },
+  "runner": {
+    "running": true,
+    "config": {
+      "pollIntervalMs": 30000,
+      "minGapBetweenTasksMs": 60000,
+      "batchSize": 10,
+      "maxRetries": 3,
+      "retryBackoffMs": 5000
+    },
+    "lockedDevices": [],
+    "deviceGaps": {}
+  },
+  "cacheSummary": {
+    "cacheHit": false,
+    "cacheMiss": false,
+    "canExecuteFromCache": true,
+    "requestedCacheKey": null,
+    "requestedRequestKey": null,
+    "requestKey": null,
+    "nextAction": "reuse_cached_workflow",
+    "persisted": true,
+    "generated": true,
+    "dryRun": true,
+    "templateId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+    "platform": "reddit",
+    "version": "3.0.1",
+    "intent": "reddit_account_health_scan",
+    "safetyClass": "read_only",
+    "outputSchema": {
+      "required": [
+        "loggedIn",
+        "homeFeedVisible",
+        "searchSurfaceAvailable",
+        "challengeDetected",
+        "loginWallDetected",
+        "accountSwitcherVisible",
+        "observedUsername",
+        "screenState",
+        "error"
+      ],
+      "properties": {
+        "loggedIn": {
+          "type": "string"
+        },
+        "homeFeedVisible": {
+          "type": "string"
+        },
+        "searchSurfaceAvailable": {
+          "type": "string"
+        },
+        "challengeDetected": {
+          "type": "string"
+        },
+        "loginWallDetected": {
+          "type": "string"
+        },
+        "accountSwitcherVisible": {
+          "type": "string"
+        },
+        "observedUsername": {
+          "type": "string"
+        },
+        "screenState": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "allowedRecoveryRequests": [
+      "refresh_screen_state",
+      "retry_current_step",
+      "abort_read_only_scan"
+    ],
+    "stepCount": 8,
+    "compiledPlan": {
+      "planVersion": "generated-workflow-plan/v1",
+      "cacheKey": "7a82acb95d691e53af1c7555",
+      "templateId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+      "platform": "reddit",
+      "templateVersion": "3.0.1",
+      "metadata": {
+        "intent": "reddit_account_health_scan",
+        "safetyClass": "read_only",
+        "outputSchema": {
+          "required": [
+            "loggedIn",
+            "homeFeedVisible",
+            "searchSurfaceAvailable",
+            "challengeDetected",
+            "loginWallDetected",
+            "accountSwitcherVisible",
+            "observedUsername",
+            "screenState",
+            "error"
+          ],
+          "properties": {
+            "loggedIn": {
+              "type": "string"
+            },
+            "homeFeedVisible": {
+              "type": "string"
+            },
+            "searchSurfaceAvailable": {
+              "type": "string"
+            },
+            "challengeDetected": {
+              "type": "string"
+            },
+            "loginWallDetected": {
+              "type": "string"
+            },
+            "accountSwitcherVisible": {
+              "type": "string"
+            },
+            "observedUsername": {
+              "type": "string"
+            },
+            "screenState": {
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        },
+        "allowedRecoveryRequests": [
+          "refresh_screen_state",
+          "retry_current_step",
+          "abort_read_only_scan"
+        ]
+      },
+      "stepCount": 8,
+      "actionCount": 7,
+      "checkpointCount": 1,
+      "maxDepth": 1,
+      "llmBudget": {
+        "happyPathRequests": 0,
+        "recoveryRequests": "only_on_failure"
+      },
+      "steps": [
+        {
+          "path": "workflow.steps[0]",
+          "type": "action",
+          "id": "wake_screen",
+          "action": "screen_wake",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[1]",
+          "type": "action",
+          "id": "unlock_device",
+          "action": "unlock",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[2]",
+          "type": "action",
+          "id": "open_reddit",
+          "action": "open_app",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[3]",
+          "type": "action",
+          "id": "wait_reddit_idle",
+          "action": "wait_for_idle",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[4]",
+          "type": "action",
+          "id": "dump_ui_state",
+          "action": "ui_tree_dump",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[5]",
+          "type": "action",
+          "id": "capture_screen",
+          "action": "screenshot",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[6]",
+          "type": "action",
+          "id": "classify_local_state",
+          "action": "classify_reddit_health_scan",
+          "verification": "local_with_screenshot"
+        },
+        {
+          "path": "workflow.steps[7]",
+          "type": "checkpoint",
+          "id": "account_health_observed"
+        }
+      ]
+    }
+  },
+  "run": {
+    "id": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+    "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+    "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+    "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+    "shortDeviceId": "d35b34cb",
+    "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+    "workflowId": "be88cc81-1403-49b2-88a9-735139cf27ab",
+    "platform": "reddit",
+    "intent": "reddit_account_health_scan",
+    "safetyClass": "read_only",
+    "requestKey": null,
+    "cacheKey": "7a82acb95d691e53af1c7555",
+    "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+    "canonicalWorkflowVersion": "3.0.1",
+    "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+    "status": "completed",
+    "output": {
+      "error": "",
+      "loggedIn": "unknown",
+      "screenState": "unknown",
+      "homeFeedVisible": "unknown",
+      "observedUsername": "",
+      "challengeDetected": "unknown",
+      "loginWallDetected": "unknown",
+      "accountSwitcherVisible": "unknown",
+      "searchSurfaceAvailable": "unknown"
+    },
+    "tokenUsage": {
+      "total": 0,
+      "planner": {
+        "input": 0,
+        "output": 0
+      },
+      "executor": {
+        "calls": 0,
+        "input": 0,
+        "output": 0
+      },
+      "verifier": {
+        "calls": 0,
+        "input": 0,
+        "output": 0
+      }
+    },
+    "recoveryRequests": 0,
+    "error": null,
+    "context": {
+      "intent": "reddit_account_health_scan",
+      "source": "agency_workflow_runs",
+      "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+      "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+      "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+      "requestedBy": "nox",
+      "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+      "expectedAppVersion": "3.9.26",
+      "expectedOutputKeys": [
+        "loggedIn",
+        "homeFeedVisible",
+        "searchSurfaceAvailable",
+        "challengeDetected",
+        "loginWallDetected",
+        "accountSwitcherVisible",
+        "observedUsername",
+        "screenState",
+        "error"
+      ],
+      "expectedAgentVersion": "4.0.23",
+      "noInlineWorkflowPayload": true,
+      "requiresScreenshotArtifact": true,
+      "requiresRealClassifierOutput": true
+    },
+    "createdAt": "2026-05-22T16:28:47.136Z",
+    "updatedAt": "2026-05-22T16:28:47.136Z",
+    "startedAt": "2026-05-22T16:29:03.132Z",
+    "completedAt": "2026-05-22T16:29:03.207Z",
+    "accountUsername": "Consistent-Beyond386",
+    "accountPlatform": "reddit",
+    "clientName": "Sprint 2 Evidence",
+    "deviceName": "acasa"
+  },
+  "workflow": {
+    "id": "be88cc81-1403-49b2-88a9-735139cf27ab",
+    "templateId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+    "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+    "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+    "status": "running",
+    "currentStep": 3,
+    "totalSteps": 8,
+    "checkpoint": {
+      "error": null,
+      "source": "edge",
+      "progress": {
+        "step": 3,
+        "total": 8,
+        "variables": "{\"error\":\"\",\"taskId\":\"175cdf7d-6a39-4e58-b5ff-b85a5d6d1016\",\"loggedIn\":\"unknown\",\"screenState\":\"unknown\",\"homeFeedVisible\":\"unknown\",\"compiledPlanHash\":\"72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb\",\"observedUsername\":\"\",\"challengeDetected\":\"unknown\",\"generatedWorkflow\":true,\"loginWallDetected\":\"unknown\",\"canonicalWorkflowId\":\"agent_generated_reddit_account_health_scan_v3_classifier_artifact\",\"controlPlaneContext\":{\"source\":\"task_runner\",\"taskId\":\"175cdf7d-6a39-4e58-b5ff-b85a5d6d1016\",\"routine\":\"generated_workflow\",\"clientId\":\"4689161d-d706-4009-ad82-fe7d88f3eae4\",\"deviceId\":\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",\"platform\":\"reddit\",\"accountId\":\"ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722\"},\"generatedWorkflowId\":\"agent_generated_reddit_account_health_scan_v3_classifier_artifact\",\"accountSwitcherVisible\":\"unknown\",\"searchSurfaceAvailable\":\"unknown\",\"canonicalWorkflowVersion\":\"3.0.1\",\"generatedWorkflowCacheKey\":\"7a82acb95d691e53af1c7555\",\"generatedWorkflowRequestKey\":null}"
+      },
+      "loopStack": [],
+      "stepIndex": 3,
+      "variables": {
+        "error": "",
+        "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+        "loggedIn": "unknown",
+        "screenState": "unknown",
+        "homeFeedVisible": "unknown",
+        "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+        "observedUsername": "",
+        "challengeDetected": "unknown",
+        "generatedWorkflow": true,
+        "loginWallDetected": "unknown",
+        "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+        "controlPlaneContext": {
+          "source": "task_runner",
+          "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+          "routine": "generated_workflow",
+          "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "platform": "reddit",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722"
+        },
+        "generatedWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+        "accountSwitcherVisible": "unknown",
+        "searchSurfaceAvailable": "unknown",
+        "canonicalWorkflowVersion": "3.0.1",
+        "generatedWorkflowCacheKey": "7a82acb95d691e53af1c7555",
+        "generatedWorkflowRequestKey": null
+      },
+      "totalSteps": 8,
+      "checkpointAt": "2026-05-22T16:29:11.717Z",
+      "executionStats": {
+        "mode": "edge",
+        "vlmCalls": 0,
+        "failedSteps": 0,
+        "batchedSteps": 0,
+        "retriedSteps": 0,
+        "compileLlmCalls": 0,
+        "runtimeLlmCalls": 0,
+        "creativeLlmCalls": 0,
+        "recoveryAttempts": 0,
+        "recoveryLlmCalls": 0,
+        "deterministicSteps": 3,
+        "recoveryBudgetExhausted": 0
+      }
+    },
+    "executionStats": {
+      "mode": "edge",
+      "vlmCalls": 0,
+      "failedSteps": 0,
+      "batchedSteps": 0,
+      "retriedSteps": 0,
+      "compileLlmCalls": 0,
+      "runtimeLlmCalls": 0,
+      "creativeLlmCalls": 0,
+      "recoveryAttempts": 0,
+      "recoveryLlmCalls": 0,
+      "deterministicSteps": 3,
+      "recoveryBudgetExhausted": 0
+    },
+    "hbeParams": {
+      "mood": {
+        "mood": "casual",
+        "errorRate": 0.08,
+        "engagementRate": 0.2,
+        "explorationRate": 0.25,
+        "timingMultiplier": 1.3,
+        "sessionDurationMultiplier": 1
+      },
+      "drift": {
+        "phase": "growth",
+        "agedays": 30,
+        "dailySessionsMax": 4,
+        "timingMultiplier": 1.2163639352346511,
+        "errorRateMultiplier": 1.2163639352346511,
+        "engagementMultiplier": 0.6393934412755815,
+        "sessionLengthMultiplier": 0.7836360647653489
+      },
+      "timingMultiplier": 1.5812731158050466,
+      "scheduledSessions": [
+        {
+          "localHour": 18,
+          "durationMs": 1267334,
+          "scheduledAt": "2026-05-22T16:30:48.883Z"
+        },
+        {
+          "localHour": 19,
+          "durationMs": 938874,
+          "scheduledAt": "2026-05-22T17:13:18.037Z"
+        },
+        {
+          "localHour": 23,
+          "durationMs": 454673,
+          "scheduledAt": "2026-05-22T20:59:24.941Z"
+        }
+      ],
+      "sessionDurationMs": 671789.177835831
+    },
+    "startedAt": "2026-05-22T16:29:03.203Z",
+    "completedAt": null,
+    "error": null,
+    "createdAt": "2026-05-22T16:29:03.199Z"
+  },
+  "steps": [
+    {
+      "name": "health",
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:47.021Z",
+      "completedAt": "2026-05-22T16:28:47.086Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "status": "healthy",
+          "ts": "2026-05-22T16:28:47.078Z",
+          "appVersion": "3.9.26",
+          "buildCommit": "9fb329a2a7605b6944d7b7ac052acc954f76050a"
+        }
+      }
+    },
+    {
+      "name": "edge_status_before",
+      "method": "GET",
+      "path": "/api/edge/status",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:47.086Z",
+      "completedAt": "2026-05-22T16:28:47.109Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "totalOnline": 1,
+          "edgeCapable": 1,
+          "legacyOnly": 0,
+          "executionMode": "edge",
+          "devices": [
+            {
+              "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+              "shortDeviceId": "d35b34cb",
+              "agentVersion": "4.0.23",
+              "edgeCapable": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "task_runner_status",
+      "method": "GET",
+      "path": "/api/task-runner/status",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:47.109Z",
+      "completedAt": "2026-05-22T16:28:47.113Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "running": true,
+          "config": {
+            "pollIntervalMs": 30000,
+            "minGapBetweenTasksMs": 60000,
+            "batchSize": 10,
+            "maxRetries": 3,
+            "retryBackoffMs": 5000
+          },
+          "lockedDevices": [],
+          "deviceGaps": {}
+        }
+      }
+    },
+    {
+      "name": "resolve_cache",
+      "method": "POST",
+      "path": "/api/workflows/generated/cache/resolve",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:47.113Z",
+      "completedAt": "2026-05-22T16:28:47.132Z",
+      "requestBody": {
+        "workflow": {
+          "id": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "name": "Reddit account health scan with classifier artifact",
+          "platform": "reddit",
+          "description": "Read-only Reddit account/session health scan with edge classifier and screenshot evidence artifact.",
+          "version": "3.0.1",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "outputSchema": {
+            "required": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "properties": {
+              "loggedIn": {
+                "type": "string"
+              },
+              "homeFeedVisible": {
+                "type": "string"
+              },
+              "searchSurfaceAvailable": {
+                "type": "string"
+              },
+              "challengeDetected": {
+                "type": "string"
+              },
+              "loginWallDetected": {
+                "type": "string"
+              },
+              "accountSwitcherVisible": {
+                "type": "string"
+              },
+              "observedUsername": {
+                "type": "string"
+              },
+              "screenState": {
+                "type": "string"
+              },
+              "error": {
+                "type": "string"
+              }
+            }
+          },
+          "allowedRecoveryRequests": [
+            "refresh_screen_state",
+            "retry_current_step",
+            "abort_read_only_scan"
+          ],
+          "defaultVerificationStrategy": "local_with_screenshot",
+          "dataRetentionDays": 1,
+          "steps": [
+            {
+              "type": "action",
+              "id": "wake_screen",
+              "action": "screen_wake",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "action",
+              "id": "unlock_device",
+              "action": "unlock",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "action",
+              "id": "open_reddit",
+              "action": "open_app",
+              "params": {
+                "packageName": "com.reddit.frontpage"
+              },
+              "expectedScreen": "REDDIT_HOME_FEED",
+              "timeoutMs": 15000
+            },
+            {
+              "type": "action",
+              "id": "wait_reddit_idle",
+              "action": "wait_for_idle",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "action",
+              "id": "dump_ui_state",
+              "action": "ui_tree_dump",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "action",
+              "id": "capture_screen",
+              "action": "screenshot",
+              "params": {
+                "quality": 55
+              },
+              "verification": "local_with_screenshot",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "action",
+              "id": "classify_local_state",
+              "action": "classify_reddit_health_scan",
+              "timeoutMs": 10000
+            },
+            {
+              "type": "checkpoint",
+              "id": "account_health_observed",
+              "reason": "Read-only Reddit account health signals and screenshot artifact captured"
+            }
+          ]
+        },
+        "persist": true
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": false,
+          "cacheMiss": false,
+          "canExecuteFromCache": true,
+          "requestedCacheKey": null,
+          "requestedRequestKey": null,
+          "requestKey": null,
+          "nextAction": "reuse_cached_workflow",
+          "persisted": true,
+          "generated": true,
+          "dryRun": true,
+          "templateId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "platform": "reddit",
+          "version": "3.0.1",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "outputSchema": {
+            "required": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "properties": {
+              "loggedIn": {
+                "type": "string"
+              },
+              "homeFeedVisible": {
+                "type": "string"
+              },
+              "searchSurfaceAvailable": {
+                "type": "string"
+              },
+              "challengeDetected": {
+                "type": "string"
+              },
+              "loginWallDetected": {
+                "type": "string"
+              },
+              "accountSwitcherVisible": {
+                "type": "string"
+              },
+              "observedUsername": {
+                "type": "string"
+              },
+              "screenState": {
+                "type": "string"
+              },
+              "error": {
+                "type": "string"
+              }
+            }
+          },
+          "allowedRecoveryRequests": [
+            "refresh_screen_state",
+            "retry_current_step",
+            "abort_read_only_scan"
+          ],
+          "stepCount": 8,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "7a82acb95d691e53af1c7555",
+            "templateId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+            "platform": "reddit",
+            "templateVersion": "3.0.1",
+            "metadata": {
+              "intent": "reddit_account_health_scan",
+              "safetyClass": "read_only",
+              "outputSchema": {
+                "required": [
+                  "loggedIn",
+                  "homeFeedVisible",
+                  "searchSurfaceAvailable",
+                  "challengeDetected",
+                  "loginWallDetected",
+                  "accountSwitcherVisible",
+                  "observedUsername",
+                  "screenState",
+                  "error"
+                ],
+                "properties": {
+                  "loggedIn": {
+                    "type": "string"
+                  },
+                  "homeFeedVisible": {
+                    "type": "string"
+                  },
+                  "searchSurfaceAvailable": {
+                    "type": "string"
+                  },
+                  "challengeDetected": {
+                    "type": "string"
+                  },
+                  "loginWallDetected": {
+                    "type": "string"
+                  },
+                  "accountSwitcherVisible": {
+                    "type": "string"
+                  },
+                  "observedUsername": {
+                    "type": "string"
+                  },
+                  "screenState": {
+                    "type": "string"
+                  },
+                  "error": {
+                    "type": "string"
+                  }
+                }
+              },
+              "allowedRecoveryRequests": [
+                "refresh_screen_state",
+                "retry_current_step",
+                "abort_read_only_scan"
+              ]
+            },
+            "stepCount": 8,
+            "actionCount": 7,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "wake_screen",
+                "action": "screen_wake",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "action",
+                "id": "unlock_device",
+                "action": "unlock",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[3]",
+                "type": "action",
+                "id": "wait_reddit_idle",
+                "action": "wait_for_idle",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[4]",
+                "type": "action",
+                "id": "dump_ui_state",
+                "action": "ui_tree_dump",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[5]",
+                "type": "action",
+                "id": "capture_screen",
+                "action": "screenshot",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[6]",
+                "type": "action",
+                "id": "classify_local_state",
+                "action": "classify_reddit_health_scan",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[7]",
+                "type": "checkpoint",
+                "id": "account_health_observed"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "create_agency_run",
+      "method": "POST",
+      "path": "/api/agency/workflow-runs",
+      "status": 201,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:47.132Z",
+      "completedAt": "2026-05-22T16:28:47.159Z",
+      "requestBody": {
+        "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+        "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+        "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+        "intent": "reddit_account_health_scan",
+        "cacheKey": "7a82acb95d691e53af1c7555",
+        "context": {
+          "requestedBy": "nox",
+          "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+          "noInlineWorkflowPayload": true,
+          "expectedOutputKeys": [
+            "loggedIn",
+            "homeFeedVisible",
+            "searchSurfaceAvailable",
+            "challengeDetected",
+            "loginWallDetected",
+            "accountSwitcherVisible",
+            "observedUsername",
+            "screenState",
+            "error"
+          ],
+          "requiresScreenshotArtifact": true,
+          "requiresRealClassifierOutput": true,
+          "expectedAgentVersion": "4.0.23",
+          "expectedAppVersion": "3.9.26"
+        }
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+          "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "shortDeviceId": "d35b34cb",
+          "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+          "workflowId": null,
+          "platform": "reddit",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "requestKey": null,
+          "cacheKey": "7a82acb95d691e53af1c7555",
+          "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "canonicalWorkflowVersion": "3.0.1",
+          "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+          "status": "queued",
+          "output": {},
+          "tokenUsage": {},
+          "recoveryRequests": 0,
+          "error": null,
+          "context": {
+            "intent": "reddit_account_health_scan",
+            "source": "agency_workflow_runs",
+            "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+            "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+            "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+            "requestedBy": "nox",
+            "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+            "expectedAppVersion": "3.9.26",
+            "expectedOutputKeys": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "expectedAgentVersion": "4.0.23",
+            "noInlineWorkflowPayload": true,
+            "requiresScreenshotArtifact": true,
+            "requiresRealClassifierOutput": true
+          },
+          "createdAt": "2026-05-22T16:28:47.136Z",
+          "updatedAt": "2026-05-22T16:28:47.136Z",
+          "startedAt": null,
+          "completedAt": null,
+          "accountUsername": "Consistent-Beyond386",
+          "accountPlatform": "reddit",
+          "clientName": "Sprint 2 Evidence",
+          "deviceName": "acasa"
+        }
+      }
+    },
+    {
+      "name": "poll_agency_run_1",
+      "method": "GET",
+      "path": "/api/agency/workflow-runs/3fc978bb-4133-41bf-9d3c-066958dc6285",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:52.161Z",
+      "completedAt": "2026-05-22T16:28:52.195Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+          "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "shortDeviceId": "d35b34cb",
+          "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+          "workflowId": null,
+          "platform": "reddit",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "requestKey": null,
+          "cacheKey": "7a82acb95d691e53af1c7555",
+          "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "canonicalWorkflowVersion": "3.0.1",
+          "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+          "status": "queued",
+          "output": {},
+          "tokenUsage": {},
+          "recoveryRequests": 0,
+          "error": null,
+          "context": {
+            "intent": "reddit_account_health_scan",
+            "source": "agency_workflow_runs",
+            "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+            "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+            "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+            "requestedBy": "nox",
+            "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+            "expectedAppVersion": "3.9.26",
+            "expectedOutputKeys": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "expectedAgentVersion": "4.0.23",
+            "noInlineWorkflowPayload": true,
+            "requiresScreenshotArtifact": true,
+            "requiresRealClassifierOutput": true
+          },
+          "createdAt": "2026-05-22T16:28:47.136Z",
+          "updatedAt": "2026-05-22T16:28:47.136Z",
+          "startedAt": null,
+          "completedAt": null,
+          "accountUsername": "Consistent-Beyond386",
+          "accountPlatform": "reddit",
+          "clientName": "Sprint 2 Evidence",
+          "deviceName": "acasa"
+        }
+      }
+    },
+    {
+      "name": "poll_agency_run_2",
+      "method": "GET",
+      "path": "/api/agency/workflow-runs/3fc978bb-4133-41bf-9d3c-066958dc6285",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:28:57.197Z",
+      "completedAt": "2026-05-22T16:28:57.225Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+          "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "shortDeviceId": "d35b34cb",
+          "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+          "workflowId": null,
+          "platform": "reddit",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "requestKey": null,
+          "cacheKey": "7a82acb95d691e53af1c7555",
+          "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "canonicalWorkflowVersion": "3.0.1",
+          "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+          "status": "queued",
+          "output": {},
+          "tokenUsage": {},
+          "recoveryRequests": 0,
+          "error": null,
+          "context": {
+            "intent": "reddit_account_health_scan",
+            "source": "agency_workflow_runs",
+            "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+            "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+            "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+            "requestedBy": "nox",
+            "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+            "expectedAppVersion": "3.9.26",
+            "expectedOutputKeys": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "expectedAgentVersion": "4.0.23",
+            "noInlineWorkflowPayload": true,
+            "requiresScreenshotArtifact": true,
+            "requiresRealClassifierOutput": true
+          },
+          "createdAt": "2026-05-22T16:28:47.136Z",
+          "updatedAt": "2026-05-22T16:28:47.136Z",
+          "startedAt": null,
+          "completedAt": null,
+          "accountUsername": "Consistent-Beyond386",
+          "accountPlatform": "reddit",
+          "clientName": "Sprint 2 Evidence",
+          "deviceName": "acasa"
+        }
+      }
+    },
+    {
+      "name": "poll_agency_run_3",
+      "method": "GET",
+      "path": "/api/agency/workflow-runs/3fc978bb-4133-41bf-9d3c-066958dc6285",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:29:02.228Z",
+      "completedAt": "2026-05-22T16:29:02.256Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+          "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "shortDeviceId": "d35b34cb",
+          "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+          "workflowId": null,
+          "platform": "reddit",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "requestKey": null,
+          "cacheKey": "7a82acb95d691e53af1c7555",
+          "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "canonicalWorkflowVersion": "3.0.1",
+          "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+          "status": "queued",
+          "output": {},
+          "tokenUsage": {},
+          "recoveryRequests": 0,
+          "error": null,
+          "context": {
+            "intent": "reddit_account_health_scan",
+            "source": "agency_workflow_runs",
+            "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+            "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+            "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+            "requestedBy": "nox",
+            "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+            "expectedAppVersion": "3.9.26",
+            "expectedOutputKeys": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "expectedAgentVersion": "4.0.23",
+            "noInlineWorkflowPayload": true,
+            "requiresScreenshotArtifact": true,
+            "requiresRealClassifierOutput": true
+          },
+          "createdAt": "2026-05-22T16:28:47.136Z",
+          "updatedAt": "2026-05-22T16:28:47.136Z",
+          "startedAt": null,
+          "completedAt": null,
+          "accountUsername": "Consistent-Beyond386",
+          "accountPlatform": "reddit",
+          "clientName": "Sprint 2 Evidence",
+          "deviceName": "acasa"
+        }
+      }
+    },
+    {
+      "name": "poll_agency_run_4",
+      "method": "GET",
+      "path": "/api/agency/workflow-runs/3fc978bb-4133-41bf-9d3c-066958dc6285",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:29:12.261Z",
+      "completedAt": "2026-05-22T16:29:12.312Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "3fc978bb-4133-41bf-9d3c-066958dc6285",
+          "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "shortDeviceId": "d35b34cb",
+          "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+          "workflowId": "be88cc81-1403-49b2-88a9-735139cf27ab",
+          "platform": "reddit",
+          "intent": "reddit_account_health_scan",
+          "safetyClass": "read_only",
+          "requestKey": null,
+          "cacheKey": "7a82acb95d691e53af1c7555",
+          "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "canonicalWorkflowVersion": "3.0.1",
+          "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+          "status": "completed",
+          "output": {
+            "error": "",
+            "loggedIn": "unknown",
+            "screenState": "unknown",
+            "homeFeedVisible": "unknown",
+            "observedUsername": "",
+            "challengeDetected": "unknown",
+            "loginWallDetected": "unknown",
+            "accountSwitcherVisible": "unknown",
+            "searchSurfaceAvailable": "unknown"
+          },
+          "tokenUsage": {
+            "total": 0,
+            "planner": {
+              "input": 0,
+              "output": 0
+            },
+            "executor": {
+              "calls": 0,
+              "input": 0,
+              "output": 0
+            },
+            "verifier": {
+              "calls": 0,
+              "input": 0,
+              "output": 0
+            }
+          },
+          "recoveryRequests": 0,
+          "error": null,
+          "context": {
+            "intent": "reddit_account_health_scan",
+            "source": "agency_workflow_runs",
+            "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+            "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+            "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+            "requestedBy": "nox",
+            "evidenceSource": "reddit_health_scan_3_9_26_classifier_live",
+            "expectedAppVersion": "3.9.26",
+            "expectedOutputKeys": [
+              "loggedIn",
+              "homeFeedVisible",
+              "searchSurfaceAvailable",
+              "challengeDetected",
+              "loginWallDetected",
+              "accountSwitcherVisible",
+              "observedUsername",
+              "screenState",
+              "error"
+            ],
+            "expectedAgentVersion": "4.0.23",
+            "noInlineWorkflowPayload": true,
+            "requiresScreenshotArtifact": true,
+            "requiresRealClassifierOutput": true
+          },
+          "createdAt": "2026-05-22T16:28:47.136Z",
+          "updatedAt": "2026-05-22T16:28:47.136Z",
+          "startedAt": "2026-05-22T16:29:03.132Z",
+          "completedAt": "2026-05-22T16:29:03.207Z",
+          "accountUsername": "Consistent-Beyond386",
+          "accountPlatform": "reddit",
+          "clientName": "Sprint 2 Evidence",
+          "deviceName": "acasa"
+        }
+      }
+    },
+    {
+      "name": "workflow_detail",
+      "method": "GET",
+      "path": "/api/workflows/be88cc81-1403-49b2-88a9-735139cf27ab",
+      "status": 200,
+      "ok": true,
+      "startedAt": "2026-05-22T16:29:12.312Z",
+      "completedAt": "2026-05-22T16:29:12.348Z",
+      "requestBody": null,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "be88cc81-1403-49b2-88a9-735139cf27ab",
+          "templateId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+          "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722",
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "status": "running",
+          "currentStep": 3,
+          "totalSteps": 8,
+          "checkpoint": {
+            "error": null,
+            "source": "edge",
+            "progress": {
+              "step": 3,
+              "total": 8,
+              "variables": "{\"error\":\"\",\"taskId\":\"175cdf7d-6a39-4e58-b5ff-b85a5d6d1016\",\"loggedIn\":\"unknown\",\"screenState\":\"unknown\",\"homeFeedVisible\":\"unknown\",\"compiledPlanHash\":\"72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb\",\"observedUsername\":\"\",\"challengeDetected\":\"unknown\",\"generatedWorkflow\":true,\"loginWallDetected\":\"unknown\",\"canonicalWorkflowId\":\"agent_generated_reddit_account_health_scan_v3_classifier_artifact\",\"controlPlaneContext\":{\"source\":\"task_runner\",\"taskId\":\"175cdf7d-6a39-4e58-b5ff-b85a5d6d1016\",\"routine\":\"generated_workflow\",\"clientId\":\"4689161d-d706-4009-ad82-fe7d88f3eae4\",\"deviceId\":\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",\"platform\":\"reddit\",\"accountId\":\"ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722\"},\"generatedWorkflowId\":\"agent_generated_reddit_account_health_scan_v3_classifier_artifact\",\"accountSwitcherVisible\":\"unknown\",\"searchSurfaceAvailable\":\"unknown\",\"canonicalWorkflowVersion\":\"3.0.1\",\"generatedWorkflowCacheKey\":\"7a82acb95d691e53af1c7555\",\"generatedWorkflowRequestKey\":null}"
+            },
+            "loopStack": [],
+            "stepIndex": 3,
+            "variables": {
+              "error": "",
+              "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+              "loggedIn": "unknown",
+              "screenState": "unknown",
+              "homeFeedVisible": "unknown",
+              "compiledPlanHash": "72c3e9128d5d36a75d78409cb9acb1f727bd990acf926379589ab45f5dc3dabb",
+              "observedUsername": "",
+              "challengeDetected": "unknown",
+              "generatedWorkflow": true,
+              "loginWallDetected": "unknown",
+              "canonicalWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+              "controlPlaneContext": {
+                "source": "task_runner",
+                "taskId": "175cdf7d-6a39-4e58-b5ff-b85a5d6d1016",
+                "routine": "generated_workflow",
+                "clientId": "4689161d-d706-4009-ad82-fe7d88f3eae4",
+                "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+                "platform": "reddit",
+                "accountId": "ac20c2ef-b2c5-476a-b5b1-2a27d1ebc722"
+              },
+              "generatedWorkflowId": "agent_generated_reddit_account_health_scan_v3_classifier_artifact",
+              "accountSwitcherVisible": "unknown",
+              "searchSurfaceAvailable": "unknown",
+              "canonicalWorkflowVersion": "3.0.1",
+              "generatedWorkflowCacheKey": "7a82acb95d691e53af1c7555",
+              "generatedWorkflowRequestKey": null
+            },
+            "totalSteps": 8,
+            "checkpointAt": "2026-05-22T16:29:11.717Z",
+            "executionStats": {
+              "mode": "edge",
+              "vlmCalls": 0,
+              "failedSteps": 0,
+              "batchedSteps": 0,
+              "retriedSteps": 0,
+              "compileLlmCalls": 0,
+              "runtimeLlmCalls": 0,
+              "creativeLlmCalls": 0,
+              "recoveryAttempts": 0,
+              "recoveryLlmCalls": 0,
+              "deterministicSteps": 3,
+              "recoveryBudgetExhausted": 0
+            }
+          },
+          "executionStats": {
+            "mode": "edge",
+            "vlmCalls": 0,
+            "failedSteps": 0,
+            "batchedSteps": 0,
+            "retriedSteps": 0,
+            "compileLlmCalls": 0,
+            "runtimeLlmCalls": 0,
+            "creativeLlmCalls": 0,
+            "recoveryAttempts": 0,
+            "recoveryLlmCalls": 0,
+            "deterministicSteps": 3,
+            "recoveryBudgetExhausted": 0
+          },
+          "hbeParams": {
+            "mood": {
+              "mood": "casual",
+              "errorRate": 0.08,
+              "engagementRate": 0.2,
+              "explorationRate": 0.25,
+              "timingMultiplier": 1.3,
+              "sessionDurationMultiplier": 1
+            },
+            "drift": {
+              "phase": "growth",
+              "agedays": 30,
+              "dailySessionsMax": 4,
+              "timingMultiplier": 1.2163639352346511,
+              "errorRateMultiplier": 1.2163639352346511,
+              "engagementMultiplier": 0.6393934412755815,
+              "sessionLengthMultiplier": 0.7836360647653489
+            },
+            "timingMultiplier": 1.5812731158050466,
+            "scheduledSessions": [
+              {
+                "localHour": 18,
+                "durationMs": 1267334,
+                "scheduledAt": "2026-05-22T16:30:48.883Z"
+              },
+              {
+                "localHour": 19,
+                "durationMs": 938874,
+                "scheduledAt": "2026-05-22T17:13:18.037Z"
+              },
+              {
+                "localHour": 23,
+                "durationMs": 454673,
+                "scheduledAt": "2026-05-22T20:59:24.941Z"
+              }
+            ],
+            "sessionDurationMs": 671789.177835831
+          },
+          "startedAt": "2026-05-22T16:29:03.203Z",
+          "completedAt": null,
+          "error": null,
+          "createdAt": "2026-05-22T16:29:03.199Z"
+        }
+      }
+    }
+  ]
+}
