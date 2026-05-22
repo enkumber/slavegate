@@ -112,8 +112,8 @@ Implemented:
 ### Story B: First E2E Marketing Workflow
 
 Owner: FORGE -> VOLT
-Status: active, contract prepared, unreleased
-Commits: `d4db966`, `a4b9d4f` in `slavegate/server`
+Status: active, partial live evidence, unreleased
+Commits: `d4db966`, `c25b7e3`, `a4b9d4f` in `slavegate/server`
 
 Acceptance:
 
@@ -137,12 +137,14 @@ FORGE accepted this as first live E2E workflow and expanded the output contract.
 - Edge `WORKFLOW_STATUS` persistence now keeps `recoveryAttempts=0` and `recoveryBudgetExhausted=0` in happy-path stats instead of dropping those fields.
 - Validator safety coverage now explicitly rejects read-only Reddit workflows containing mutating semantics: vote/upvote/downvote, comment, post, join, follow, message, login, settings, profile edit, and `type_text`.
 - Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-cache generated-workflow-contract-fixtures` OK, 46 tests; `npm run test -- workflows workflow-compiler task-runner agency-workflow-runs` OK, 156 tests.
+- Partial live evidence exists in `reports/phone-network/2026-05-22-reddit-account-health-scan-live.md`: live `3.9.22` executed the scan from `requestKey` only on full UUID `deviceId`, no workflow payload, actions were `open_app`, `ui_tree_dump`, `screenshot`, `checkpoint`, workflow completed, and execution stats showed all LLM/VLM counters zero.
+- Remaining Story B NO-GO: final edge checkpoint returned empty variables, so required output fields were present in schema/request but not materialized in final result. Next live run must persist explicit output fields.
 
 ### Story C: Control Plane Skeleton
 
 Owner: ATLAS/FORGE -> SPARK
-Status: implemented, unreleased
-Commits: `7fc744c`, `3dd4ef3` in `slavegate/server`
+Status: implemented, unreleased, live route blocked until deployment
+Commits: `7fc744c`, `3dd4ef3`, `46fdfa2` in `slavegate/server`
 
 Acceptance:
 
@@ -162,6 +164,7 @@ Implemented:
 - Shared API contract types and route-level contract tests added.
 - Verification: `npm run build` OK; `npm run test -- workflows workflow-compiler task-runner agency-workflow-runs` OK, 156 tests.
 - No UI added and no Umbrel bump yet.
+- Live blocker captured in `reports/phone-network/2026-05-22-story-b-c-live-route-blocker.md`: live `3.9.22` runs `fee2089`, so `POST /api/agency/workflow-runs` returns 404. B+C live evidence through the agency run route requires an Umbrel/server update containing at least `3dd4ef3` and later safety hardening.
 
 ### Story D: QA/Review Gates
 
