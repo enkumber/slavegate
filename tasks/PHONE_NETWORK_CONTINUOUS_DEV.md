@@ -56,7 +56,7 @@ Acceptance:
 
 Owner: Nox
 Status: done, unreleased
-Commits: `3eb5c2e`, `691dcd4`
+Commits: `3eb5c2e`, `691dcd4`, `d230676`
 
 Acceptance:
 
@@ -69,9 +69,10 @@ Implemented:
 
 - `phone_network_generated_workflow_cache_lookup_total{endpoint,result}`
 - `phone_network_generated_workflow_executions_total{platform,cache_hit,source}`
-- `phone_network_generated_workflow_llm_avoided_total{source}`
+- `phone_network_generated_workflow_llm_avoided_total{platform,reason}`
 - Instrumented endpoints: `prompt`, `cache/resolve`, `execute`.
 - `llm_avoided` increments only after accepted cached execution with `happyPathRequests=0`.
+- Low-cardinality labels only; no `cacheKey`, `requestKey`, `deviceId`, or `templateId` labels.
 - Verified with `npm run build` and `npm run test -- workflows workflow-compiler`.
 
 ### Story 4: Release Verification Checklist
