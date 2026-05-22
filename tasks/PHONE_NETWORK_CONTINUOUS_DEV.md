@@ -112,7 +112,8 @@ Implemented:
 ### Story B: First E2E Marketing Workflow
 
 Owner: FORGE -> VOLT
-Status: active
+Status: active, contract prepared, unreleased
+Commit: `d4db966` in `slavegate/server`
 
 Acceptance:
 
@@ -128,6 +129,13 @@ Default workflow selected unless FORGE overrides with a stronger case:
 - Safety: `read_only`
 - Output: `loggedIn`, `homeFeedVisible`, `challengeDetected`, `loginWallDetected`, `error`
 - Live smoke must use existing Reddit account on device `acasa` and must not post, comment, vote, follow, DM, login, or change settings.
+
+FORGE accepted this as first live E2E workflow and expanded the output contract. Implemented prep:
+
+- Canonical output schema now requires `loggedIn`, `homeFeedVisible`, `searchSurfaceAvailable`, `challengeDetected`, `loginWallDetected`, `accountSwitcherVisible`, `observedUsername`, `screenState`, and `error`.
+- `detect_current_screen` and `set_variable` are allowed generated workflow actions because both are local/read-only and needed for deterministic account-health evidence.
+- Edge `WORKFLOW_STATUS` persistence now keeps `recoveryAttempts=0` and `recoveryBudgetExhausted=0` in happy-path stats instead of dropping those fields.
+- Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-cache generated-workflow-contract-fixtures generated-workflow-execution-smoke task-runner` OK, 57 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 150 tests.
 
 ### Story C: Control Plane Skeleton
 
