@@ -42,7 +42,8 @@ Acceptance:
 ### Story 2: Cached Generated Workflow Execution Smoke
 
 Owner: VOLT
-Status: assigned
+Status: done, pending ECHO review
+Commit: `7e21a7e`
 
 Acceptance:
 
@@ -51,6 +52,13 @@ Acceptance:
 - Must expose result fields: `cacheHit`, `cacheKey`, `requestKey`, `compiledPlan.llmBudget.happyPathRequests`.
 - Must not perform mutating Reddit actions: no post, comment, vote, follow, DM.
 - Test gate: unit/integration coverage plus live dry-run verification after release.
+
+Implemented:
+
+- Route-level smoke test covers cacheKey-only execution.
+- Route-level smoke test covers requestKey-only execution.
+- Tests assert `cacheHit=true`, `canExecuteFromCache=true`, `compiledPlan.llmBudget.happyPathRequests=0`.
+- Tests assert low-cardinality execution and LLM-avoided metrics.
 
 ### Story 3: LLM Avoided Metrics
 
@@ -94,7 +102,7 @@ Acceptance:
 ### Story 5: ECHO Review Gate
 
 Owner: ECHO
-Status: pending
+Status: assigned
 
 Acceptance:
 
