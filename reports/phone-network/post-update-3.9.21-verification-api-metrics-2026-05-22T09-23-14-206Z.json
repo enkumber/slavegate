@@ -1,0 +1,736 @@
+{
+  "ts": "2026-05-22T09:23:14.206Z",
+  "baseUrl": "http://enkzoned.go.ro:3000",
+  "tokenRedacted": true,
+  "expected": {
+    "appVersion": "3.9.21",
+    "buildCommit": "040fff78a2cc30d38c3be49d74d20be89804b1c4",
+    "requestKey": "185432c1eb0e390c80d94d21"
+  },
+  "selectedDeviceIdFull": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+  "selectedShortDeviceId": "d35b34cb",
+  "workflowId": "27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+  "finalWorkflowStatus": "completed",
+  "finalWorkflowStats": {
+    "mode": "edge",
+    "vlmCalls": 0,
+    "failedSteps": 0,
+    "batchedSteps": 0,
+    "retriedSteps": 0,
+    "compileLlmCalls": 0,
+    "runtimeLlmCalls": 0,
+    "creativeLlmCalls": 0,
+    "recoveryLlmCalls": 0,
+    "deterministicSteps": 3
+  },
+  "checks": {
+    "healthOk": true,
+    "edgeFullIdsOk": true,
+    "dryRunCacheHitOk": true,
+    "failureDidNotIncrementLlmAvoided": true,
+    "executeAcceptedCacheHitOk": true,
+    "workflowCompletedOk": true,
+    "metricsExecuteHitOk": true,
+    "metricsExecutionCacheHitOk": true,
+    "metricsLlmAvoidedOk": true,
+    "metricsLabelsLowCardinalityOk": true
+  },
+  "metrics": {
+    "before": {
+      "lines": [
+        "phone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 2",
+        "phone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 1",
+        "phone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 1"
+      ],
+      "cacheLookupExecuteHit": 2,
+      "cacheLookupExecuteMiss": 0,
+      "executionsCacheHitTrue": 1,
+      "executionsCacheHitFalse": 0,
+      "llmAvoidedCacheHit": 1
+    },
+    "beforeFailure": {
+      "lines": [
+        "phone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 3",
+        "phone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 1",
+        "phone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 1"
+      ],
+      "cacheLookupExecuteHit": 3,
+      "cacheLookupExecuteMiss": 0,
+      "executionsCacheHitTrue": 1,
+      "executionsCacheHitFalse": 0,
+      "llmAvoidedCacheHit": 1
+    },
+    "afterFailure": {
+      "lines": [
+        "phone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 3",
+        "phone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 1",
+        "phone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 1"
+      ],
+      "cacheLookupExecuteHit": 3,
+      "cacheLookupExecuteMiss": 0,
+      "executionsCacheHitTrue": 1,
+      "executionsCacheHitFalse": 0,
+      "llmAvoidedCacheHit": 1
+    },
+    "after": {
+      "lines": [
+        "phone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 4",
+        "phone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 2",
+        "phone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 2"
+      ],
+      "cacheLookupExecuteHit": 4,
+      "cacheLookupExecuteMiss": 0,
+      "executionsCacheHitTrue": 2,
+      "executionsCacheHitFalse": 0,
+      "llmAvoidedCacheHit": 2
+    }
+  },
+  "steps": [
+    {
+      "name": "health",
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "status": "healthy",
+          "ts": "2026-05-22T09:23:14.269Z",
+          "appVersion": "3.9.21",
+          "buildCommit": "040fff78a2cc30d38c3be49d74d20be89804b1c4"
+        }
+      }
+    },
+    {
+      "name": "edge-status",
+      "method": "GET",
+      "path": "/api/edge/status",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "totalOnline": 2,
+          "edgeCapable": 2,
+          "legacyOnly": 0,
+          "executionMode": "edge",
+          "devices": [
+            {
+              "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+              "shortDeviceId": "d35b34cb",
+              "agentVersion": "4.0.22",
+              "edgeCapable": true
+            },
+            {
+              "deviceId": "22cfa4b5-f35b-4949-982f-8bb4a15b059d",
+              "shortDeviceId": "22cfa4b5",
+              "agentVersion": "4.0.19",
+              "edgeCapable": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "metrics-before",
+      "method": "GET",
+      "path": "/api/metrics",
+      "status": 200,
+      "ok": true,
+      "requestBody": null,
+      "response": "# HELP process_cpu_user_seconds_total Total user CPU time spent in seconds.\n# TYPE process_cpu_user_seconds_total counter\nprocess_cpu_user_seconds_total{service=\"phone-network\"} 10.898859999999999\n\n# HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.\n# TYPE process_cpu_system_seconds_total counter\nprocess_cpu_system_seconds_total{service=\"phone-network\"} 3.845974\n\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total{service=\"phone-network\"} 14.744833999999999\n\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds{service=\"phone-network\"} 1779439281\n\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes{service=\"phone-network\"} 97083392\n\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes{service=\"phone-network\"} 774443008\n\n# HELP process_heap_bytes Process heap size in bytes.\n# TYPE process_heap_bytes gauge\nprocess_heap_bytes{service=\"phone-network\"} 121794560\n\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds{service=\"phone-network\"} 33\n\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds{service=\"phone-network\"} 524288\n\n# HELP nodejs_eventloop_lag_seconds Lag of event loop in seconds.\n# TYPE nodejs_eventloop_lag_seconds gauge\nnodejs_eventloop_lag_seconds{service=\"phone-network\"} 0.005616934\n\n# HELP nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_min_seconds gauge\nnodejs_eventloop_lag_min_seconds{service=\"phone-network\"} 0.009068544\n\n# HELP nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_max_seconds gauge\nnodejs_eventloop_lag_max_seconds{service=\"phone-network\"} 0.016687103\n\n# HELP nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_mean_seconds gauge\nnodejs_eventloop_lag_mean_seconds{service=\"phone-network\"} 0.010163511314632296\n\n# HELP nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_stddev_seconds gauge\nnodejs_eventloop_lag_stddev_seconds{service=\"phone-network\"} 0.0002854623376691102\n\n# HELP nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p50_seconds gauge\nnodejs_eventloop_lag_p50_seconds{service=\"phone-network\"} 0.010133503\n\n# HELP nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p90_seconds gauge\nnodejs_eventloop_lag_p90_seconds{service=\"phone-network\"} 0.010174463\n\n# HELP nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p99_seconds gauge\nnodejs_eventloop_lag_p99_seconds{service=\"phone-network\"} 0.011493375\n\n# HELP nodejs_active_resources Number of active resources that are currently keeping the event loop alive, grouped by async resource type.\n# TYPE nodejs_active_resources gauge\nnodejs_active_resources{type=\"PipeWrap\",service=\"phone-network\"} 2\nnodejs_active_resources{type=\"TCPSocketWrap\",service=\"phone-network\"} 14\nnodejs_active_resources{type=\"TCPServerWrap\",service=\"phone-network\"} 1\nnodejs_active_resources{type=\"Timeout\",service=\"phone-network\"} 13\nnodejs_active_resources{type=\"Immediate\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_resources_total Total number of active resources.\n# TYPE nodejs_active_resources_total gauge\nnodejs_active_resources_total{service=\"phone-network\"} 31\n\n# HELP nodejs_active_handles Number of active libuv handles grouped by handle type. Every handle type is C++ class name.\n# TYPE nodejs_active_handles gauge\nnodejs_active_handles{type=\"Socket\",service=\"phone-network\"} 16\nnodejs_active_handles{type=\"Server\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_handles_total Total number of active handles.\n# TYPE nodejs_active_handles_total gauge\nnodejs_active_handles_total{service=\"phone-network\"} 17\n\n# HELP nodejs_active_requests Number of active libuv requests grouped by request type. Every request type is C++ class name.\n# TYPE nodejs_active_requests gauge\n\n# HELP nodejs_active_requests_total Total number of active requests.\n# TYPE nodejs_active_requests_total gauge\nnodejs_active_requests_total{service=\"phone-network\"} 0\n\n# HELP nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.\n# TYPE nodejs_heap_size_total_bytes gauge\nnodejs_heap_size_total_bytes{service=\"phone-network\"} 29380608\n\n# HELP nodejs_heap_size_used_bytes Process heap size used from Node.js in bytes.\n# TYPE nodejs_heap_size_used_bytes gauge\nnodejs_heap_size_used_bytes{service=\"phone-network\"} 27739728\n\n# HELP nodejs_external_memory_bytes Node.js external memory size in bytes.\n# TYPE nodejs_external_memory_bytes gauge\nnodejs_external_memory_bytes{service=\"phone-network\"} 2736756\n\n# HELP nodejs_heap_space_size_total_bytes Process heap space size total from Node.js in bytes.\n# TYPE nodejs_heap_space_size_total_bytes gauge\nnodejs_heap_space_size_total_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"new\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_total_bytes{space=\"old\",service=\"phone-network\"} 21807104\nnodejs_heap_space_size_total_bytes{space=\"code\",service=\"phone-network\"} 2097152\nnodejs_heap_space_size_total_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted\",service=\"phone-network\"} 2670592\nnodejs_heap_space_size_total_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"large_object\",service=\"phone-network\"} 1601536\nnodejs_heap_space_size_total_bytes{space=\"code_large_object\",service=\"phone-network\"} 155648\nnodejs_heap_space_size_total_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_used_bytes Process heap space size used from Node.js in bytes.\n# TYPE nodejs_heap_space_size_used_bytes gauge\nnodejs_heap_space_size_used_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"new\",service=\"phone-network\"} 835832\nnodejs_heap_space_size_used_bytes{space=\"old\",service=\"phone-network\"} 20985752\nnodejs_heap_space_size_used_bytes{space=\"code\",service=\"phone-network\"} 1792512\nnodejs_heap_space_size_used_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted\",service=\"phone-network\"} 2432928\nnodejs_heap_space_size_used_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"large_object\",service=\"phone-network\"} 1558136\nnodejs_heap_space_size_used_bytes{space=\"code_large_object\",service=\"phone-network\"} 138432\nnodejs_heap_space_size_used_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_available_bytes Process heap space size available from Node.js in bytes.\n# TYPE nodejs_heap_space_size_available_bytes gauge\nnodejs_heap_space_size_available_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"new\",service=\"phone-network\"} 195080\nnodejs_heap_space_size_available_bytes{space=\"old\",service=\"phone-network\"} 399176\nnodejs_heap_space_size_available_bytes{space=\"code\",service=\"phone-network\"} 173312\nnodejs_heap_space_size_available_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted\",service=\"phone-network\"} 188984\nnodejs_heap_space_size_available_bytes{space=\"new_large_object\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_available_bytes{space=\"large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"code_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_version_info Node.js version info.\n# TYPE nodejs_version_info gauge\nnodejs_version_info{version=\"v22.22.3\",major=\"22\",minor=\"22\",patch=\"3\",service=\"phone-network\"} 1\n\n# HELP nodejs_gc_duration_seconds Garbage collection duration by kind, one of major, minor, incremental or weakcb.\n# TYPE nodejs_gc_duration_seconds histogram\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"minor\"} 62\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"minor\"} 0.05445092463493347\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"minor\"} 72\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"incremental\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"incremental\"} 0.0019587279558181763\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"major\"} 0\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"major\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"major\"} 0.017160943031311035\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"major\"} 2\n\n# HELP phone_network_workflow_total Total workflows started\n# TYPE phone_network_workflow_total counter\n\n# HELP phone_network_workflow_completed_total Workflows completed successfully\n# TYPE phone_network_workflow_completed_total counter\n\n# HELP phone_network_workflow_failed_total Workflows failed\n# TYPE phone_network_workflow_failed_total counter\n\n# HELP phone_network_workflow_duration_seconds Workflow execution duration\n# TYPE phone_network_workflow_duration_seconds histogram\n\n# HELP phone_network_generated_workflow_cache_lookup_total Generated workflow cache lookups by endpoint and result\n# TYPE phone_network_generated_workflow_cache_lookup_total counter\nphone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 2\n\n# HELP phone_network_generated_workflow_executions_total Generated workflow executions accepted by source and cache state\n# TYPE phone_network_generated_workflow_executions_total counter\nphone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 1\n\n# HELP phone_network_generated_workflow_llm_avoided_total Estimated LLM requests avoided by generated workflow cache-first execution\n# TYPE phone_network_generated_workflow_llm_avoided_total counter\nphone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 1\n\n# HELP phone_network_job_dispatched_total Jobs dispatched to devices\n# TYPE phone_network_job_dispatched_total counter\n\n# HELP phone_network_job_success_total Jobs completed successfully\n# TYPE phone_network_job_success_total counter\n\n# HELP phone_network_job_failed_total Jobs failed\n# TYPE phone_network_job_failed_total counter\n\n# HELP phone_network_job_latency_seconds Job round-trip latency\n# TYPE phone_network_job_latency_seconds histogram\n\n# HELP phone_network_devices_connected Currently connected devices\n# TYPE phone_network_devices_connected gauge\nphone_network_devices_connected{service=\"phone-network\"} 2\n\n# HELP phone_network_device_offline_total Device disconnect events\n# TYPE phone_network_device_offline_total counter\nphone_network_device_offline_total{service=\"phone-network\"} 2\n\n# HELP phone_network_device_battery_percent Device battery level %\n# TYPE phone_network_device_battery_percent gauge\nphone_network_device_battery_percent{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 68\nphone_network_device_battery_percent{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 72\n\n# HELP phone_network_device_memory_mb Device available memory MB\n# TYPE phone_network_device_memory_mb gauge\n\n# HELP phone_network_parser_extracted_total Content items extracted\n# TYPE phone_network_parser_extracted_total counter\n\n# HELP phone_network_parser_duplicates_total Duplicate items skipped\n# TYPE phone_network_parser_duplicates_total counter\n\n# HELP phone_network_parser_confidence Extraction confidence scores\n# TYPE phone_network_parser_confidence histogram\n\n# HELP phone_network_vlm_requests_total VLM API requests made\n# TYPE phone_network_vlm_requests_total counter\n\n# HELP phone_network_vlm_tokens_total VLM tokens consumed\n# TYPE phone_network_vlm_tokens_total counter\n\n# HELP phone_network_vlm_latency_seconds VLM API call latency\n# TYPE phone_network_vlm_latency_seconds histogram\n\n# HELP phone_network_vlm_errors_total VLM API errors\n# TYPE phone_network_vlm_errors_total counter\n\n# HELP phone_network_accounts_by_status Account count by status\n# TYPE phone_network_accounts_by_status gauge\n\n# HELP phone_network_account_banned_total Accounts banned\n# TYPE phone_network_account_banned_total counter\n\n# HELP phone_network_account_challenged_total Accounts challenged\n# TYPE phone_network_account_challenged_total counter\n\n# HELP phone_network_kill_switch_active Kill switch state (1=active)\n# TYPE phone_network_kill_switch_active gauge\nphone_network_kill_switch_active{service=\"phone-network\"} 0\n\n# HELP phone_network_detection_events_total Anti-detection events by type\n# TYPE phone_network_detection_events_total counter\n\n# HELP phone_network_parser_confidence_avg Parser avg confidence per platform\n# TYPE phone_network_parser_confidence_avg gauge\n\n# HELP phone_network_device_last_seen_seconds Unix timestamp of last device heartbeat\n# TYPE phone_network_device_last_seen_seconds gauge\nphone_network_device_last_seen_seconds{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 1779441775\nphone_network_device_last_seen_seconds{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 1779441790\n"
+    },
+    {
+      "name": "cache-only-dry-run",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 200,
+      "ok": true,
+      "requestBody": {
+        "dryRun": true,
+        "requestKey": "185432c1eb0e390c80d94d21"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "cacheHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "generated": true,
+          "dryRun": true,
+          "persisted": false,
+          "templateId": "release_reddit_home_smoke_v1",
+          "platform": "reddit",
+          "version": "1.0.0",
+          "stepCount": 3,
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "metrics-before-failure",
+      "method": "GET",
+      "path": "/api/metrics",
+      "status": 200,
+      "ok": true,
+      "requestBody": null,
+      "response": "# HELP process_cpu_user_seconds_total Total user CPU time spent in seconds.\n# TYPE process_cpu_user_seconds_total counter\nprocess_cpu_user_seconds_total{service=\"phone-network\"} 10.904499999999999\n\n# HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.\n# TYPE process_cpu_system_seconds_total counter\nprocess_cpu_system_seconds_total{service=\"phone-network\"} 3.846289\n\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total{service=\"phone-network\"} 14.750789\n\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds{service=\"phone-network\"} 1779439281\n\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes{service=\"phone-network\"} 97173504\n\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes{service=\"phone-network\"} 774459392\n\n# HELP process_heap_bytes Process heap size in bytes.\n# TYPE process_heap_bytes gauge\nprocess_heap_bytes{service=\"phone-network\"} 121810944\n\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds{service=\"phone-network\"} 33\n\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds{service=\"phone-network\"} 524288\n\n# HELP nodejs_eventloop_lag_seconds Lag of event loop in seconds.\n# TYPE nodejs_eventloop_lag_seconds gauge\nnodejs_eventloop_lag_seconds{service=\"phone-network\"} 0.002587501\n\n# HELP nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_min_seconds gauge\nnodejs_eventloop_lag_min_seconds{service=\"phone-network\"} 0.01077248\n\n# HELP nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_max_seconds gauge\nnodejs_eventloop_lag_max_seconds{service=\"phone-network\"} 0.010780671\n\n# HELP nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_mean_seconds gauge\nnodejs_eventloop_lag_mean_seconds{service=\"phone-network\"} 0.010776576\n\n# HELP nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_stddev_seconds gauge\nnodejs_eventloop_lag_stddev_seconds{service=\"phone-network\"} 0\n\n# HELP nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p50_seconds gauge\nnodejs_eventloop_lag_p50_seconds{service=\"phone-network\"} 0.010780671\n\n# HELP nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p90_seconds gauge\nnodejs_eventloop_lag_p90_seconds{service=\"phone-network\"} 0.010780671\n\n# HELP nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p99_seconds gauge\nnodejs_eventloop_lag_p99_seconds{service=\"phone-network\"} 0.010780671\n\n# HELP nodejs_active_resources Number of active resources that are currently keeping the event loop alive, grouped by async resource type.\n# TYPE nodejs_active_resources gauge\nnodejs_active_resources{type=\"PipeWrap\",service=\"phone-network\"} 2\nnodejs_active_resources{type=\"TCPSocketWrap\",service=\"phone-network\"} 14\nnodejs_active_resources{type=\"TCPServerWrap\",service=\"phone-network\"} 1\nnodejs_active_resources{type=\"Timeout\",service=\"phone-network\"} 13\nnodejs_active_resources{type=\"Immediate\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_resources_total Total number of active resources.\n# TYPE nodejs_active_resources_total gauge\nnodejs_active_resources_total{service=\"phone-network\"} 31\n\n# HELP nodejs_active_handles Number of active libuv handles grouped by handle type. Every handle type is C++ class name.\n# TYPE nodejs_active_handles gauge\nnodejs_active_handles{type=\"Socket\",service=\"phone-network\"} 16\nnodejs_active_handles{type=\"Server\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_handles_total Total number of active handles.\n# TYPE nodejs_active_handles_total gauge\nnodejs_active_handles_total{service=\"phone-network\"} 17\n\n# HELP nodejs_active_requests Number of active libuv requests grouped by request type. Every request type is C++ class name.\n# TYPE nodejs_active_requests gauge\n\n# HELP nodejs_active_requests_total Total number of active requests.\n# TYPE nodejs_active_requests_total gauge\nnodejs_active_requests_total{service=\"phone-network\"} 0\n\n# HELP nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.\n# TYPE nodejs_heap_size_total_bytes gauge\nnodejs_heap_size_total_bytes{service=\"phone-network\"} 29380608\n\n# HELP nodejs_heap_size_used_bytes Process heap size used from Node.js in bytes.\n# TYPE nodejs_heap_size_used_bytes gauge\nnodejs_heap_size_used_bytes{service=\"phone-network\"} 27511976\n\n# HELP nodejs_external_memory_bytes Node.js external memory size in bytes.\n# TYPE nodejs_external_memory_bytes gauge\nnodejs_external_memory_bytes{service=\"phone-network\"} 2747718\n\n# HELP nodejs_heap_space_size_total_bytes Process heap space size total from Node.js in bytes.\n# TYPE nodejs_heap_space_size_total_bytes gauge\nnodejs_heap_space_size_total_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"new\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_total_bytes{space=\"old\",service=\"phone-network\"} 21807104\nnodejs_heap_space_size_total_bytes{space=\"code\",service=\"phone-network\"} 2097152\nnodejs_heap_space_size_total_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted\",service=\"phone-network\"} 2670592\nnodejs_heap_space_size_total_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"large_object\",service=\"phone-network\"} 1601536\nnodejs_heap_space_size_total_bytes{space=\"code_large_object\",service=\"phone-network\"} 155648\nnodejs_heap_space_size_total_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_used_bytes Process heap space size used from Node.js in bytes.\n# TYPE nodejs_heap_space_size_used_bytes gauge\nnodejs_heap_space_size_used_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"new\",service=\"phone-network\"} 536248\nnodejs_heap_space_size_used_bytes{space=\"old\",service=\"phone-network\"} 21044016\nnodejs_heap_space_size_used_bytes{space=\"code\",service=\"phone-network\"} 1804416\nnodejs_heap_space_size_used_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted\",service=\"phone-network\"} 2434528\nnodejs_heap_space_size_used_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"large_object\",service=\"phone-network\"} 1558136\nnodejs_heap_space_size_used_bytes{space=\"code_large_object\",service=\"phone-network\"} 138432\nnodejs_heap_space_size_used_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_available_bytes Process heap space size available from Node.js in bytes.\n# TYPE nodejs_heap_space_size_available_bytes gauge\nnodejs_heap_space_size_available_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"new\",service=\"phone-network\"} 494664\nnodejs_heap_space_size_available_bytes{space=\"old\",service=\"phone-network\"} 340912\nnodejs_heap_space_size_available_bytes{space=\"code\",service=\"phone-network\"} 161408\nnodejs_heap_space_size_available_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted\",service=\"phone-network\"} 187384\nnodejs_heap_space_size_available_bytes{space=\"new_large_object\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_available_bytes{space=\"large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"code_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_version_info Node.js version info.\n# TYPE nodejs_version_info gauge\nnodejs_version_info{version=\"v22.22.3\",major=\"22\",minor=\"22\",patch=\"3\",service=\"phone-network\"} 1\n\n# HELP nodejs_gc_duration_seconds Garbage collection duration by kind, one of major, minor, incremental or weakcb.\n# TYPE nodejs_gc_duration_seconds histogram\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"minor\"} 63\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"minor\"} 0.05488359963893891\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"minor\"} 73\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"incremental\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"incremental\"} 0.0019587279558181763\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"major\"} 0\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"major\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"major\"} 0.017160943031311035\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"major\"} 2\n\n# HELP phone_network_workflow_total Total workflows started\n# TYPE phone_network_workflow_total counter\n\n# HELP phone_network_workflow_completed_total Workflows completed successfully\n# TYPE phone_network_workflow_completed_total counter\n\n# HELP phone_network_workflow_failed_total Workflows failed\n# TYPE phone_network_workflow_failed_total counter\n\n# HELP phone_network_workflow_duration_seconds Workflow execution duration\n# TYPE phone_network_workflow_duration_seconds histogram\n\n# HELP phone_network_generated_workflow_cache_lookup_total Generated workflow cache lookups by endpoint and result\n# TYPE phone_network_generated_workflow_cache_lookup_total counter\nphone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 3\n\n# HELP phone_network_generated_workflow_executions_total Generated workflow executions accepted by source and cache state\n# TYPE phone_network_generated_workflow_executions_total counter\nphone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 1\n\n# HELP phone_network_generated_workflow_llm_avoided_total Estimated LLM requests avoided by generated workflow cache-first execution\n# TYPE phone_network_generated_workflow_llm_avoided_total counter\nphone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 1\n\n# HELP phone_network_job_dispatched_total Jobs dispatched to devices\n# TYPE phone_network_job_dispatched_total counter\n\n# HELP phone_network_job_success_total Jobs completed successfully\n# TYPE phone_network_job_success_total counter\n\n# HELP phone_network_job_failed_total Jobs failed\n# TYPE phone_network_job_failed_total counter\n\n# HELP phone_network_job_latency_seconds Job round-trip latency\n# TYPE phone_network_job_latency_seconds histogram\n\n# HELP phone_network_devices_connected Currently connected devices\n# TYPE phone_network_devices_connected gauge\nphone_network_devices_connected{service=\"phone-network\"} 2\n\n# HELP phone_network_device_offline_total Device disconnect events\n# TYPE phone_network_device_offline_total counter\nphone_network_device_offline_total{service=\"phone-network\"} 2\n\n# HELP phone_network_device_battery_percent Device battery level %\n# TYPE phone_network_device_battery_percent gauge\nphone_network_device_battery_percent{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 68\nphone_network_device_battery_percent{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 72\n\n# HELP phone_network_device_memory_mb Device available memory MB\n# TYPE phone_network_device_memory_mb gauge\n\n# HELP phone_network_parser_extracted_total Content items extracted\n# TYPE phone_network_parser_extracted_total counter\n\n# HELP phone_network_parser_duplicates_total Duplicate items skipped\n# TYPE phone_network_parser_duplicates_total counter\n\n# HELP phone_network_parser_confidence Extraction confidence scores\n# TYPE phone_network_parser_confidence histogram\n\n# HELP phone_network_vlm_requests_total VLM API requests made\n# TYPE phone_network_vlm_requests_total counter\n\n# HELP phone_network_vlm_tokens_total VLM tokens consumed\n# TYPE phone_network_vlm_tokens_total counter\n\n# HELP phone_network_vlm_latency_seconds VLM API call latency\n# TYPE phone_network_vlm_latency_seconds histogram\n\n# HELP phone_network_vlm_errors_total VLM API errors\n# TYPE phone_network_vlm_errors_total counter\n\n# HELP phone_network_accounts_by_status Account count by status\n# TYPE phone_network_accounts_by_status gauge\n\n# HELP phone_network_account_banned_total Accounts banned\n# TYPE phone_network_account_banned_total counter\n\n# HELP phone_network_account_challenged_total Accounts challenged\n# TYPE phone_network_account_challenged_total counter\n\n# HELP phone_network_kill_switch_active Kill switch state (1=active)\n# TYPE phone_network_kill_switch_active gauge\nphone_network_kill_switch_active{service=\"phone-network\"} 0\n\n# HELP phone_network_detection_events_total Anti-detection events by type\n# TYPE phone_network_detection_events_total counter\n\n# HELP phone_network_parser_confidence_avg Parser avg confidence per platform\n# TYPE phone_network_parser_confidence_avg gauge\n\n# HELP phone_network_device_last_seen_seconds Unix timestamp of last device heartbeat\n# TYPE phone_network_device_last_seen_seconds gauge\nphone_network_device_last_seen_seconds{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 1779441775\nphone_network_device_last_seen_seconds{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 1779441790\n"
+    },
+    {
+      "name": "failure-path-unknown-request-key",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 400,
+      "ok": false,
+      "requestBody": {
+        "requestKey": "missing-release-gate-request-key-2026-05-22b",
+        "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd"
+      },
+      "response": {
+        "ok": false,
+        "error": "requestKey must be a 24-character lowercase hex string"
+      }
+    },
+    {
+      "name": "metrics-after-failure",
+      "method": "GET",
+      "path": "/api/metrics",
+      "status": 200,
+      "ok": true,
+      "requestBody": null,
+      "response": "# HELP process_cpu_user_seconds_total Total user CPU time spent in seconds.\n# TYPE process_cpu_user_seconds_total counter\nprocess_cpu_user_seconds_total{service=\"phone-network\"} 10.908255999999998\n\n# HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.\n# TYPE process_cpu_system_seconds_total counter\nprocess_cpu_system_seconds_total{service=\"phone-network\"} 3.847587\n\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total{service=\"phone-network\"} 14.755842999999999\n\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds{service=\"phone-network\"} 1779439281\n\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes{service=\"phone-network\"} 97259520\n\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes{service=\"phone-network\"} 774705152\n\n# HELP process_heap_bytes Process heap size in bytes.\n# TYPE process_heap_bytes gauge\nprocess_heap_bytes{service=\"phone-network\"} 122056704\n\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds{service=\"phone-network\"} 33\n\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds{service=\"phone-network\"} 524288\n\n# HELP nodejs_eventloop_lag_seconds Lag of event loop in seconds.\n# TYPE nodejs_eventloop_lag_seconds gauge\nnodejs_eventloop_lag_seconds{service=\"phone-network\"} 0.002269585\n\n# HELP nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_min_seconds gauge\nnodejs_eventloop_lag_min_seconds{service=\"phone-network\"} 9223372036.854776\n\n# HELP nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_max_seconds gauge\nnodejs_eventloop_lag_max_seconds{service=\"phone-network\"} 0\n\n# HELP nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_mean_seconds gauge\nnodejs_eventloop_lag_mean_seconds{service=\"phone-network\"} Nan\n\n# HELP nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_stddev_seconds gauge\nnodejs_eventloop_lag_stddev_seconds{service=\"phone-network\"} Nan\n\n# HELP nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p50_seconds gauge\nnodejs_eventloop_lag_p50_seconds{service=\"phone-network\"} 5.11e-7\n\n# HELP nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p90_seconds gauge\nnodejs_eventloop_lag_p90_seconds{service=\"phone-network\"} 5.11e-7\n\n# HELP nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p99_seconds gauge\nnodejs_eventloop_lag_p99_seconds{service=\"phone-network\"} 5.11e-7\n\n# HELP nodejs_active_resources Number of active resources that are currently keeping the event loop alive, grouped by async resource type.\n# TYPE nodejs_active_resources gauge\nnodejs_active_resources{type=\"PipeWrap\",service=\"phone-network\"} 2\nnodejs_active_resources{type=\"TCPSocketWrap\",service=\"phone-network\"} 14\nnodejs_active_resources{type=\"TCPServerWrap\",service=\"phone-network\"} 1\nnodejs_active_resources{type=\"Timeout\",service=\"phone-network\"} 13\nnodejs_active_resources{type=\"Immediate\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_resources_total Total number of active resources.\n# TYPE nodejs_active_resources_total gauge\nnodejs_active_resources_total{service=\"phone-network\"} 31\n\n# HELP nodejs_active_handles Number of active libuv handles grouped by handle type. Every handle type is C++ class name.\n# TYPE nodejs_active_handles gauge\nnodejs_active_handles{type=\"Socket\",service=\"phone-network\"} 16\nnodejs_active_handles{type=\"Server\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_handles_total Total number of active handles.\n# TYPE nodejs_active_handles_total gauge\nnodejs_active_handles_total{service=\"phone-network\"} 17\n\n# HELP nodejs_active_requests Number of active libuv requests grouped by request type. Every request type is C++ class name.\n# TYPE nodejs_active_requests gauge\n\n# HELP nodejs_active_requests_total Total number of active requests.\n# TYPE nodejs_active_requests_total gauge\nnodejs_active_requests_total{service=\"phone-network\"} 0\n\n# HELP nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.\n# TYPE nodejs_heap_size_total_bytes gauge\nnodejs_heap_size_total_bytes{service=\"phone-network\"} 30691328\n\n# HELP nodejs_heap_size_used_bytes Process heap size used from Node.js in bytes.\n# TYPE nodejs_heap_size_used_bytes gauge\nnodejs_heap_size_used_bytes{service=\"phone-network\"} 27262280\n\n# HELP nodejs_external_memory_bytes Node.js external memory size in bytes.\n# TYPE nodejs_external_memory_bytes gauge\nnodejs_external_memory_bytes{service=\"phone-network\"} 2721899\n\n# HELP nodejs_heap_space_size_total_bytes Process heap space size total from Node.js in bytes.\n# TYPE nodejs_heap_space_size_total_bytes gauge\nnodejs_heap_space_size_total_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"new\",service=\"phone-network\"} 2097152\nnodejs_heap_space_size_total_bytes{space=\"old\",service=\"phone-network\"} 22069248\nnodejs_heap_space_size_total_bytes{space=\"code\",service=\"phone-network\"} 2097152\nnodejs_heap_space_size_total_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted\",service=\"phone-network\"} 2670592\nnodejs_heap_space_size_total_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"large_object\",service=\"phone-network\"} 1601536\nnodejs_heap_space_size_total_bytes{space=\"code_large_object\",service=\"phone-network\"} 155648\nnodejs_heap_space_size_total_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_used_bytes Process heap space size used from Node.js in bytes.\n# TYPE nodejs_heap_space_size_used_bytes gauge\nnodejs_heap_space_size_used_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"new\",service=\"phone-network\"} 188328\nnodejs_heap_space_size_used_bytes{space=\"old\",service=\"phone-network\"} 21142240\nnodejs_heap_space_size_used_bytes{space=\"code\",service=\"phone-network\"} 1804416\nnodejs_heap_space_size_used_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted\",service=\"phone-network\"} 2434528\nnodejs_heap_space_size_used_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"large_object\",service=\"phone-network\"} 1558136\nnodejs_heap_space_size_used_bytes{space=\"code_large_object\",service=\"phone-network\"} 138432\nnodejs_heap_space_size_used_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_available_bytes Process heap space size available from Node.js in bytes.\n# TYPE nodejs_heap_space_size_available_bytes gauge\nnodejs_heap_space_size_available_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"new\",service=\"phone-network\"} 842584\nnodejs_heap_space_size_available_bytes{space=\"old\",service=\"phone-network\"} 500392\nnodejs_heap_space_size_available_bytes{space=\"code\",service=\"phone-network\"} 161408\nnodejs_heap_space_size_available_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted\",service=\"phone-network\"} 187384\nnodejs_heap_space_size_available_bytes{space=\"new_large_object\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_available_bytes{space=\"large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"code_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_version_info Node.js version info.\n# TYPE nodejs_version_info gauge\nnodejs_version_info{version=\"v22.22.3\",major=\"22\",minor=\"22\",patch=\"3\",service=\"phone-network\"} 1\n\n# HELP nodejs_gc_duration_seconds Garbage collection duration by kind, one of major, minor, incremental or weakcb.\n# TYPE nodejs_gc_duration_seconds histogram\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"minor\"} 63\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"minor\"} 0.05597697770595551\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"minor\"} 74\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"incremental\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"incremental\"} 0.0019587279558181763\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"major\"} 0\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"major\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"major\"} 0.017160943031311035\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"major\"} 2\n\n# HELP phone_network_workflow_total Total workflows started\n# TYPE phone_network_workflow_total counter\n\n# HELP phone_network_workflow_completed_total Workflows completed successfully\n# TYPE phone_network_workflow_completed_total counter\n\n# HELP phone_network_workflow_failed_total Workflows failed\n# TYPE phone_network_workflow_failed_total counter\n\n# HELP phone_network_workflow_duration_seconds Workflow execution duration\n# TYPE phone_network_workflow_duration_seconds histogram\n\n# HELP phone_network_generated_workflow_cache_lookup_total Generated workflow cache lookups by endpoint and result\n# TYPE phone_network_generated_workflow_cache_lookup_total counter\nphone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 3\n\n# HELP phone_network_generated_workflow_executions_total Generated workflow executions accepted by source and cache state\n# TYPE phone_network_generated_workflow_executions_total counter\nphone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 1\n\n# HELP phone_network_generated_workflow_llm_avoided_total Estimated LLM requests avoided by generated workflow cache-first execution\n# TYPE phone_network_generated_workflow_llm_avoided_total counter\nphone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 1\n\n# HELP phone_network_job_dispatched_total Jobs dispatched to devices\n# TYPE phone_network_job_dispatched_total counter\n\n# HELP phone_network_job_success_total Jobs completed successfully\n# TYPE phone_network_job_success_total counter\n\n# HELP phone_network_job_failed_total Jobs failed\n# TYPE phone_network_job_failed_total counter\n\n# HELP phone_network_job_latency_seconds Job round-trip latency\n# TYPE phone_network_job_latency_seconds histogram\n\n# HELP phone_network_devices_connected Currently connected devices\n# TYPE phone_network_devices_connected gauge\nphone_network_devices_connected{service=\"phone-network\"} 2\n\n# HELP phone_network_device_offline_total Device disconnect events\n# TYPE phone_network_device_offline_total counter\nphone_network_device_offline_total{service=\"phone-network\"} 2\n\n# HELP phone_network_device_battery_percent Device battery level %\n# TYPE phone_network_device_battery_percent gauge\nphone_network_device_battery_percent{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 68\nphone_network_device_battery_percent{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 72\n\n# HELP phone_network_device_memory_mb Device available memory MB\n# TYPE phone_network_device_memory_mb gauge\n\n# HELP phone_network_parser_extracted_total Content items extracted\n# TYPE phone_network_parser_extracted_total counter\n\n# HELP phone_network_parser_duplicates_total Duplicate items skipped\n# TYPE phone_network_parser_duplicates_total counter\n\n# HELP phone_network_parser_confidence Extraction confidence scores\n# TYPE phone_network_parser_confidence histogram\n\n# HELP phone_network_vlm_requests_total VLM API requests made\n# TYPE phone_network_vlm_requests_total counter\n\n# HELP phone_network_vlm_tokens_total VLM tokens consumed\n# TYPE phone_network_vlm_tokens_total counter\n\n# HELP phone_network_vlm_latency_seconds VLM API call latency\n# TYPE phone_network_vlm_latency_seconds histogram\n\n# HELP phone_network_vlm_errors_total VLM API errors\n# TYPE phone_network_vlm_errors_total counter\n\n# HELP phone_network_accounts_by_status Account count by status\n# TYPE phone_network_accounts_by_status gauge\n\n# HELP phone_network_account_banned_total Accounts banned\n# TYPE phone_network_account_banned_total counter\n\n# HELP phone_network_account_challenged_total Accounts challenged\n# TYPE phone_network_account_challenged_total counter\n\n# HELP phone_network_kill_switch_active Kill switch state (1=active)\n# TYPE phone_network_kill_switch_active gauge\nphone_network_kill_switch_active{service=\"phone-network\"} 0\n\n# HELP phone_network_detection_events_total Anti-detection events by type\n# TYPE phone_network_detection_events_total counter\n\n# HELP phone_network_parser_confidence_avg Parser avg confidence per platform\n# TYPE phone_network_parser_confidence_avg gauge\n\n# HELP phone_network_device_last_seen_seconds Unix timestamp of last device heartbeat\n# TYPE phone_network_device_last_seen_seconds gauge\nphone_network_device_last_seen_seconds{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 1779441775\nphone_network_device_last_seen_seconds{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 1779441790\n"
+    },
+    {
+      "name": "execute-cache-full-uuid",
+      "method": "POST",
+      "path": "/api/workflows/generated",
+      "status": 202,
+      "ok": true,
+      "requestBody": {
+        "requestKey": "185432c1eb0e390c80d94d21",
+        "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd"
+      },
+      "response": {
+        "ok": true,
+        "data": {
+          "workflowId": "27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+          "status": "running",
+          "mode": "edge",
+          "templateId": "release_reddit_home_smoke_v1",
+          "generated": true,
+          "cacheHit": true,
+          "canExecuteFromCache": true,
+          "cacheKey": "e008bc222ce4f68047ab6c28",
+          "requestKey": "185432c1eb0e390c80d94d21",
+          "compiledPlan": {
+            "planVersion": "generated-workflow-plan/v1",
+            "cacheKey": "e008bc222ce4f68047ab6c28",
+            "templateId": "release_reddit_home_smoke_v1",
+            "platform": "reddit",
+            "templateVersion": "1.0.0",
+            "stepCount": 3,
+            "actionCount": 1,
+            "checkpointCount": 1,
+            "maxDepth": 1,
+            "llmBudget": {
+              "happyPathRequests": 0,
+              "recoveryRequests": "only_on_failure"
+            },
+            "steps": [
+              {
+                "path": "workflow.steps[0]",
+                "type": "action",
+                "id": "open_reddit",
+                "action": "open_app",
+                "verification": "local_with_screenshot"
+              },
+              {
+                "path": "workflow.steps[1]",
+                "type": "wait",
+                "id": "wait_for_home"
+              },
+              {
+                "path": "workflow.steps[2]",
+                "type": "checkpoint",
+                "id": "home_loaded"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "workflow-poll-1",
+      "method": "GET",
+      "path": "/api/workflows/27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+          "templateId": "release_reddit_home_smoke_v1",
+          "accountId": null,
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "status": "running",
+          "currentStep": 0,
+          "totalSteps": 3,
+          "checkpoint": {
+            "hbeParams": {
+              "mood": {
+                "mood": "focused",
+                "errorRate": 0.02,
+                "engagementRate": 0.15,
+                "explorationRate": 0.05,
+                "timingMultiplier": 0.85,
+                "sessionDurationMultiplier": 0.8
+              },
+              "drift": {
+                "phase": "growth",
+                "agedays": 30,
+                "dailySessionsMax": 4,
+                "timingMultiplier": 1.2163639352346511,
+                "errorRateMultiplier": 1.2163639352346511,
+                "engagementMultiplier": 0.6393934412755815,
+                "sessionLengthMultiplier": 0.7836360647653489
+              },
+              "timingMultiplier": 1.0339093449494534,
+              "scheduledSessions": [
+                {
+                  "localHour": 12,
+                  "durationMs": 523800,
+                  "scheduledAt": "2026-05-22T09:43:49.675Z"
+                },
+                {
+                  "localHour": 12,
+                  "durationMs": 519211,
+                  "scheduledAt": "2026-05-22T10:30:39.948Z"
+                },
+                {
+                  "localHour": 22,
+                  "durationMs": 808054,
+                  "scheduledAt": "2026-05-22T20:43:32.243Z"
+                }
+              ],
+              "sessionDurationMs": 727944.583752776
+            },
+            "loopStack": [],
+            "stepIndex": 0,
+            "variables": {
+              "generatedWorkflow": true,
+              "generatedWorkflowId": "release_reddit_home_smoke_v1"
+            },
+            "checkpointAt": "2026-05-22T09:23:14.350Z",
+            "executionStats": {
+              "mode": "edge",
+              "vlmCalls": 0,
+              "failedSteps": 0,
+              "batchedSteps": 0,
+              "retriedSteps": 0,
+              "compileLlmCalls": 0,
+              "runtimeLlmCalls": 0,
+              "creativeLlmCalls": 0,
+              "recoveryLlmCalls": 0,
+              "deterministicSteps": 0
+            }
+          },
+          "executionStats": {
+            "mode": "edge",
+            "vlmCalls": 0,
+            "failedSteps": 0,
+            "batchedSteps": 0,
+            "retriedSteps": 0,
+            "compileLlmCalls": 0,
+            "runtimeLlmCalls": 0,
+            "creativeLlmCalls": 0,
+            "recoveryLlmCalls": 0,
+            "deterministicSteps": 0
+          },
+          "hbeParams": {
+            "mood": {
+              "mood": "focused",
+              "errorRate": 0.02,
+              "engagementRate": 0.15,
+              "explorationRate": 0.05,
+              "timingMultiplier": 0.85,
+              "sessionDurationMultiplier": 0.8
+            },
+            "drift": {
+              "phase": "growth",
+              "agedays": 30,
+              "dailySessionsMax": 4,
+              "timingMultiplier": 1.2163639352346511,
+              "errorRateMultiplier": 1.2163639352346511,
+              "engagementMultiplier": 0.6393934412755815,
+              "sessionLengthMultiplier": 0.7836360647653489
+            },
+            "timingMultiplier": 1.0339093449494534,
+            "scheduledSessions": [
+              {
+                "localHour": 12,
+                "durationMs": 523800,
+                "scheduledAt": "2026-05-22T09:43:49.675Z"
+              },
+              {
+                "localHour": 12,
+                "durationMs": 519211,
+                "scheduledAt": "2026-05-22T10:30:39.948Z"
+              },
+              {
+                "localHour": 22,
+                "durationMs": 808054,
+                "scheduledAt": "2026-05-22T20:43:32.243Z"
+              }
+            ],
+            "sessionDurationMs": 727944.583752776
+          },
+          "startedAt": "2026-05-22T09:23:14.353Z",
+          "completedAt": null,
+          "error": null,
+          "createdAt": "2026-05-22T09:23:14.350Z"
+        }
+      }
+    },
+    {
+      "name": "workflow-poll-2",
+      "method": "GET",
+      "path": "/api/workflows/27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+          "templateId": "release_reddit_home_smoke_v1",
+          "accountId": null,
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "status": "running",
+          "currentStep": 0,
+          "totalSteps": 3,
+          "checkpoint": {
+            "error": null,
+            "source": "edge",
+            "progress": {
+              "step": 0,
+              "total": 3,
+              "variables": "{}"
+            },
+            "loopStack": [],
+            "stepIndex": 0,
+            "variables": {},
+            "totalSteps": 3,
+            "checkpointAt": "2026-05-22T09:23:15.830Z",
+            "executionStats": {
+              "mode": "edge",
+              "vlmCalls": 0,
+              "failedSteps": 0,
+              "batchedSteps": 0,
+              "retriedSteps": 0,
+              "compileLlmCalls": 0,
+              "runtimeLlmCalls": 0,
+              "creativeLlmCalls": 0,
+              "recoveryLlmCalls": 0,
+              "deterministicSteps": 0
+            }
+          },
+          "executionStats": {
+            "mode": "edge",
+            "vlmCalls": 0,
+            "failedSteps": 0,
+            "batchedSteps": 0,
+            "retriedSteps": 0,
+            "compileLlmCalls": 0,
+            "runtimeLlmCalls": 0,
+            "creativeLlmCalls": 0,
+            "recoveryLlmCalls": 0,
+            "deterministicSteps": 0
+          },
+          "hbeParams": {
+            "mood": {
+              "mood": "focused",
+              "errorRate": 0.02,
+              "engagementRate": 0.15,
+              "explorationRate": 0.05,
+              "timingMultiplier": 0.85,
+              "sessionDurationMultiplier": 0.8
+            },
+            "drift": {
+              "phase": "growth",
+              "agedays": 30,
+              "dailySessionsMax": 4,
+              "timingMultiplier": 1.2163639352346511,
+              "errorRateMultiplier": 1.2163639352346511,
+              "engagementMultiplier": 0.6393934412755815,
+              "sessionLengthMultiplier": 0.7836360647653489
+            },
+            "timingMultiplier": 1.0339093449494534,
+            "scheduledSessions": [
+              {
+                "localHour": 12,
+                "durationMs": 523800,
+                "scheduledAt": "2026-05-22T09:43:49.675Z"
+              },
+              {
+                "localHour": 12,
+                "durationMs": 519211,
+                "scheduledAt": "2026-05-22T10:30:39.948Z"
+              },
+              {
+                "localHour": 22,
+                "durationMs": 808054,
+                "scheduledAt": "2026-05-22T20:43:32.243Z"
+              }
+            ],
+            "sessionDurationMs": 727944.583752776
+          },
+          "startedAt": "2026-05-22T09:23:14.353Z",
+          "completedAt": null,
+          "error": null,
+          "createdAt": "2026-05-22T09:23:14.350Z"
+        }
+      }
+    },
+    {
+      "name": "workflow-poll-3",
+      "method": "GET",
+      "path": "/api/workflows/27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+          "templateId": "release_reddit_home_smoke_v1",
+          "accountId": null,
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "status": "running",
+          "currentStep": 1,
+          "totalSteps": 3,
+          "checkpoint": {
+            "error": null,
+            "source": "edge",
+            "progress": {
+              "step": 1,
+              "total": 3,
+              "variables": "{}"
+            },
+            "loopStack": [],
+            "stepIndex": 1,
+            "variables": {},
+            "totalSteps": 3,
+            "checkpointAt": "2026-05-22T09:23:17.252Z",
+            "executionStats": {
+              "mode": "edge",
+              "vlmCalls": 0,
+              "failedSteps": 0,
+              "batchedSteps": 0,
+              "retriedSteps": 0,
+              "compileLlmCalls": 0,
+              "runtimeLlmCalls": 0,
+              "creativeLlmCalls": 0,
+              "recoveryLlmCalls": 0,
+              "deterministicSteps": 1
+            }
+          },
+          "executionStats": {
+            "mode": "edge",
+            "vlmCalls": 0,
+            "failedSteps": 0,
+            "batchedSteps": 0,
+            "retriedSteps": 0,
+            "compileLlmCalls": 0,
+            "runtimeLlmCalls": 0,
+            "creativeLlmCalls": 0,
+            "recoveryLlmCalls": 0,
+            "deterministicSteps": 1
+          },
+          "hbeParams": {
+            "mood": {
+              "mood": "focused",
+              "errorRate": 0.02,
+              "engagementRate": 0.15,
+              "explorationRate": 0.05,
+              "timingMultiplier": 0.85,
+              "sessionDurationMultiplier": 0.8
+            },
+            "drift": {
+              "phase": "growth",
+              "agedays": 30,
+              "dailySessionsMax": 4,
+              "timingMultiplier": 1.2163639352346511,
+              "errorRateMultiplier": 1.2163639352346511,
+              "engagementMultiplier": 0.6393934412755815,
+              "sessionLengthMultiplier": 0.7836360647653489
+            },
+            "timingMultiplier": 1.0339093449494534,
+            "scheduledSessions": [
+              {
+                "localHour": 12,
+                "durationMs": 523800,
+                "scheduledAt": "2026-05-22T09:43:49.675Z"
+              },
+              {
+                "localHour": 12,
+                "durationMs": 519211,
+                "scheduledAt": "2026-05-22T10:30:39.948Z"
+              },
+              {
+                "localHour": 22,
+                "durationMs": 808054,
+                "scheduledAt": "2026-05-22T20:43:32.243Z"
+              }
+            ],
+            "sessionDurationMs": 727944.583752776
+          },
+          "startedAt": "2026-05-22T09:23:14.353Z",
+          "completedAt": null,
+          "error": null,
+          "createdAt": "2026-05-22T09:23:14.350Z"
+        }
+      }
+    },
+    {
+      "name": "workflow-poll-4",
+      "method": "GET",
+      "path": "/api/workflows/27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+      "status": 200,
+      "ok": true,
+      "response": {
+        "ok": true,
+        "data": {
+          "id": "27fb595a-a4c6-4222-a884-e373aa6f5ca3",
+          "templateId": "release_reddit_home_smoke_v1",
+          "accountId": null,
+          "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+          "status": "completed",
+          "currentStep": 3,
+          "totalSteps": 3,
+          "checkpoint": {
+            "error": null,
+            "result": {
+              "step": 3,
+              "total": 3,
+              "variables": {}
+            },
+            "source": "edge",
+            "loopStack": [],
+            "stepIndex": 3,
+            "variables": {},
+            "totalSteps": 3,
+            "checkpointAt": "2026-05-22T09:23:18.316Z",
+            "executionStats": {
+              "mode": "edge",
+              "vlmCalls": 0,
+              "failedSteps": 0,
+              "batchedSteps": 0,
+              "retriedSteps": 0,
+              "compileLlmCalls": 0,
+              "runtimeLlmCalls": 0,
+              "creativeLlmCalls": 0,
+              "recoveryLlmCalls": 0,
+              "deterministicSteps": 3
+            }
+          },
+          "executionStats": {
+            "mode": "edge",
+            "vlmCalls": 0,
+            "failedSteps": 0,
+            "batchedSteps": 0,
+            "retriedSteps": 0,
+            "compileLlmCalls": 0,
+            "runtimeLlmCalls": 0,
+            "creativeLlmCalls": 0,
+            "recoveryLlmCalls": 0,
+            "deterministicSteps": 3
+          },
+          "hbeParams": {
+            "mood": {
+              "mood": "focused",
+              "errorRate": 0.02,
+              "engagementRate": 0.15,
+              "explorationRate": 0.05,
+              "timingMultiplier": 0.85,
+              "sessionDurationMultiplier": 0.8
+            },
+            "drift": {
+              "phase": "growth",
+              "agedays": 30,
+              "dailySessionsMax": 4,
+              "timingMultiplier": 1.2163639352346511,
+              "errorRateMultiplier": 1.2163639352346511,
+              "engagementMultiplier": 0.6393934412755815,
+              "sessionLengthMultiplier": 0.7836360647653489
+            },
+            "timingMultiplier": 1.0339093449494534,
+            "scheduledSessions": [
+              {
+                "localHour": 12,
+                "durationMs": 523800,
+                "scheduledAt": "2026-05-22T09:43:49.675Z"
+              },
+              {
+                "localHour": 12,
+                "durationMs": 519211,
+                "scheduledAt": "2026-05-22T10:30:39.948Z"
+              },
+              {
+                "localHour": 22,
+                "durationMs": 808054,
+                "scheduledAt": "2026-05-22T20:43:32.243Z"
+              }
+            ],
+            "sessionDurationMs": 727944.583752776
+          },
+          "startedAt": "2026-05-22T09:23:14.353Z",
+          "completedAt": "2026-05-22T09:23:18.316Z",
+          "error": null,
+          "createdAt": "2026-05-22T09:23:14.350Z"
+        }
+      }
+    },
+    {
+      "name": "metrics-after",
+      "method": "GET",
+      "path": "/api/metrics",
+      "status": 200,
+      "ok": true,
+      "requestBody": null,
+      "response": "# HELP process_cpu_user_seconds_total Total user CPU time spent in seconds.\n# TYPE process_cpu_user_seconds_total counter\nprocess_cpu_user_seconds_total{service=\"phone-network\"} 10.937703999999998\n\n# HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.\n# TYPE process_cpu_system_seconds_total counter\nprocess_cpu_system_seconds_total{service=\"phone-network\"} 3.87151\n\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total{service=\"phone-network\"} 14.809213999999999\n\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds{service=\"phone-network\"} 1779439281\n\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes{service=\"phone-network\"} 97390592\n\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes{service=\"phone-network\"} 774770688\n\n# HELP process_heap_bytes Process heap size in bytes.\n# TYPE process_heap_bytes gauge\nprocess_heap_bytes{service=\"phone-network\"} 122122240\n\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds{service=\"phone-network\"} 31\n\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds{service=\"phone-network\"} 524288\n\n# HELP nodejs_eventloop_lag_seconds Lag of event loop in seconds.\n# TYPE nodejs_eventloop_lag_seconds gauge\nnodejs_eventloop_lag_seconds{service=\"phone-network\"} 0.001923743\n\n# HELP nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_min_seconds gauge\nnodejs_eventloop_lag_min_seconds{service=\"phone-network\"} 0.009142272\n\n# HELP nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.\n# TYPE nodejs_eventloop_lag_max_seconds gauge\nnodejs_eventloop_lag_max_seconds{service=\"phone-network\"} 0.012189695\n\n# HELP nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_mean_seconds gauge\nnodejs_eventloop_lag_mean_seconds{service=\"phone-network\"} 0.010157861546666667\n\n# HELP nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_stddev_seconds gauge\nnodejs_eventloop_lag_stddev_seconds{service=\"phone-network\"} 0.00021991148295368254\n\n# HELP nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p50_seconds gauge\nnodejs_eventloop_lag_p50_seconds{service=\"phone-network\"} 0.010149887\n\n# HELP nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p90_seconds gauge\nnodejs_eventloop_lag_p90_seconds{service=\"phone-network\"} 0.010190847\n\n# HELP nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded event loop delays.\n# TYPE nodejs_eventloop_lag_p99_seconds gauge\nnodejs_eventloop_lag_p99_seconds{service=\"phone-network\"} 0.011288575\n\n# HELP nodejs_active_resources Number of active resources that are currently keeping the event loop alive, grouped by async resource type.\n# TYPE nodejs_active_resources gauge\nnodejs_active_resources{type=\"PipeWrap\",service=\"phone-network\"} 2\nnodejs_active_resources{type=\"TCPSocketWrap\",service=\"phone-network\"} 12\nnodejs_active_resources{type=\"TCPServerWrap\",service=\"phone-network\"} 1\nnodejs_active_resources{type=\"Timeout\",service=\"phone-network\"} 13\nnodejs_active_resources{type=\"Immediate\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_resources_total Total number of active resources.\n# TYPE nodejs_active_resources_total gauge\nnodejs_active_resources_total{service=\"phone-network\"} 29\n\n# HELP nodejs_active_handles Number of active libuv handles grouped by handle type. Every handle type is C++ class name.\n# TYPE nodejs_active_handles gauge\nnodejs_active_handles{type=\"Socket\",service=\"phone-network\"} 14\nnodejs_active_handles{type=\"Server\",service=\"phone-network\"} 1\n\n# HELP nodejs_active_handles_total Total number of active handles.\n# TYPE nodejs_active_handles_total gauge\nnodejs_active_handles_total{service=\"phone-network\"} 15\n\n# HELP nodejs_active_requests Number of active libuv requests grouped by request type. Every request type is C++ class name.\n# TYPE nodejs_active_requests gauge\n\n# HELP nodejs_active_requests_total Total number of active requests.\n# TYPE nodejs_active_requests_total gauge\nnodejs_active_requests_total{service=\"phone-network\"} 0\n\n# HELP nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.\n# TYPE nodejs_heap_size_total_bytes gauge\nnodejs_heap_size_total_bytes{service=\"phone-network\"} 29642752\n\n# HELP nodejs_heap_size_used_bytes Process heap size used from Node.js in bytes.\n# TYPE nodejs_heap_size_used_bytes gauge\nnodejs_heap_size_used_bytes{service=\"phone-network\"} 27484464\n\n# HELP nodejs_external_memory_bytes Node.js external memory size in bytes.\n# TYPE nodejs_external_memory_bytes gauge\nnodejs_external_memory_bytes{service=\"phone-network\"} 2751385\n\n# HELP nodejs_heap_space_size_total_bytes Process heap space size total from Node.js in bytes.\n# TYPE nodejs_heap_space_size_total_bytes gauge\nnodejs_heap_space_size_total_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"new\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_total_bytes{space=\"old\",service=\"phone-network\"} 22069248\nnodejs_heap_space_size_total_bytes{space=\"code\",service=\"phone-network\"} 2097152\nnodejs_heap_space_size_total_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted\",service=\"phone-network\"} 2670592\nnodejs_heap_space_size_total_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"large_object\",service=\"phone-network\"} 1601536\nnodejs_heap_space_size_total_bytes{space=\"code_large_object\",service=\"phone-network\"} 155648\nnodejs_heap_space_size_total_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_total_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_used_bytes Process heap space size used from Node.js in bytes.\n# TYPE nodejs_heap_space_size_used_bytes gauge\nnodejs_heap_space_size_used_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"new\",service=\"phone-network\"} 337624\nnodejs_heap_space_size_used_bytes{space=\"old\",service=\"phone-network\"} 21192424\nnodejs_heap_space_size_used_bytes{space=\"code\",service=\"phone-network\"} 1823232\nnodejs_heap_space_size_used_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted\",service=\"phone-network\"} 2438448\nnodejs_heap_space_size_used_bytes{space=\"new_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"large_object\",service=\"phone-network\"} 1558136\nnodejs_heap_space_size_used_bytes{space=\"code_large_object\",service=\"phone-network\"} 138432\nnodejs_heap_space_size_used_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_used_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_heap_space_size_available_bytes Process heap space size available from Node.js in bytes.\n# TYPE nodejs_heap_space_size_available_bytes gauge\nnodejs_heap_space_size_available_bytes{space=\"read_only\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"new\",service=\"phone-network\"} 693288\nnodejs_heap_space_size_available_bytes{space=\"old\",service=\"phone-network\"} 450208\nnodejs_heap_space_size_available_bytes{space=\"code\",service=\"phone-network\"} 142592\nnodejs_heap_space_size_available_bytes{space=\"shared\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted\",service=\"phone-network\"} 183464\nnodejs_heap_space_size_available_bytes{space=\"new_large_object\",service=\"phone-network\"} 1048576\nnodejs_heap_space_size_available_bytes{space=\"large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"code_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"shared_large_object\",service=\"phone-network\"} 0\nnodejs_heap_space_size_available_bytes{space=\"trusted_large_object\",service=\"phone-network\"} 0\n\n# HELP nodejs_version_info Node.js version info.\n# TYPE nodejs_version_info gauge\nnodejs_version_info{version=\"v22.22.3\",major=\"22\",minor=\"22\",patch=\"3\",service=\"phone-network\"} 1\n\n# HELP nodejs_gc_duration_seconds Garbage collection duration by kind, one of major, minor, incremental or weakcb.\n# TYPE nodejs_gc_duration_seconds histogram\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"minor\"} 64\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"minor\"} 0.056628839731216435\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"minor\"} 75\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"incremental\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"incremental\"} 0.0019587279558181763\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"incremental\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"0.001\",service=\"phone-network\",kind=\"major\"} 0\nnodejs_gc_duration_seconds_bucket{le=\"0.01\",service=\"phone-network\",kind=\"major\"} 1\nnodejs_gc_duration_seconds_bucket{le=\"0.1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"1\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"2\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"5\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_bucket{le=\"+Inf\",service=\"phone-network\",kind=\"major\"} 2\nnodejs_gc_duration_seconds_sum{service=\"phone-network\",kind=\"major\"} 0.017160943031311035\nnodejs_gc_duration_seconds_count{service=\"phone-network\",kind=\"major\"} 2\n\n# HELP phone_network_workflow_total Total workflows started\n# TYPE phone_network_workflow_total counter\n\n# HELP phone_network_workflow_completed_total Workflows completed successfully\n# TYPE phone_network_workflow_completed_total counter\n\n# HELP phone_network_workflow_failed_total Workflows failed\n# TYPE phone_network_workflow_failed_total counter\n\n# HELP phone_network_workflow_duration_seconds Workflow execution duration\n# TYPE phone_network_workflow_duration_seconds histogram\n\n# HELP phone_network_generated_workflow_cache_lookup_total Generated workflow cache lookups by endpoint and result\n# TYPE phone_network_generated_workflow_cache_lookup_total counter\nphone_network_generated_workflow_cache_lookup_total{endpoint=\"execute\",result=\"hit\",service=\"phone-network\"} 4\n\n# HELP phone_network_generated_workflow_executions_total Generated workflow executions accepted by source and cache state\n# TYPE phone_network_generated_workflow_executions_total counter\nphone_network_generated_workflow_executions_total{platform=\"reddit\",cache_hit=\"true\",source=\"request_key\",service=\"phone-network\"} 2\n\n# HELP phone_network_generated_workflow_llm_avoided_total Estimated LLM requests avoided by generated workflow cache-first execution\n# TYPE phone_network_generated_workflow_llm_avoided_total counter\nphone_network_generated_workflow_llm_avoided_total{platform=\"reddit\",reason=\"cache_hit\",service=\"phone-network\"} 2\n\n# HELP phone_network_job_dispatched_total Jobs dispatched to devices\n# TYPE phone_network_job_dispatched_total counter\n\n# HELP phone_network_job_success_total Jobs completed successfully\n# TYPE phone_network_job_success_total counter\n\n# HELP phone_network_job_failed_total Jobs failed\n# TYPE phone_network_job_failed_total counter\n\n# HELP phone_network_job_latency_seconds Job round-trip latency\n# TYPE phone_network_job_latency_seconds histogram\n\n# HELP phone_network_devices_connected Currently connected devices\n# TYPE phone_network_devices_connected gauge\nphone_network_devices_connected{service=\"phone-network\"} 2\n\n# HELP phone_network_device_offline_total Device disconnect events\n# TYPE phone_network_device_offline_total counter\nphone_network_device_offline_total{service=\"phone-network\"} 2\n\n# HELP phone_network_device_battery_percent Device battery level %\n# TYPE phone_network_device_battery_percent gauge\nphone_network_device_battery_percent{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 68\nphone_network_device_battery_percent{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 72\n\n# HELP phone_network_device_memory_mb Device available memory MB\n# TYPE phone_network_device_memory_mb gauge\n\n# HELP phone_network_parser_extracted_total Content items extracted\n# TYPE phone_network_parser_extracted_total counter\n\n# HELP phone_network_parser_duplicates_total Duplicate items skipped\n# TYPE phone_network_parser_duplicates_total counter\n\n# HELP phone_network_parser_confidence Extraction confidence scores\n# TYPE phone_network_parser_confidence histogram\n\n# HELP phone_network_vlm_requests_total VLM API requests made\n# TYPE phone_network_vlm_requests_total counter\n\n# HELP phone_network_vlm_tokens_total VLM tokens consumed\n# TYPE phone_network_vlm_tokens_total counter\n\n# HELP phone_network_vlm_latency_seconds VLM API call latency\n# TYPE phone_network_vlm_latency_seconds histogram\n\n# HELP phone_network_vlm_errors_total VLM API errors\n# TYPE phone_network_vlm_errors_total counter\n\n# HELP phone_network_accounts_by_status Account count by status\n# TYPE phone_network_accounts_by_status gauge\n\n# HELP phone_network_account_banned_total Accounts banned\n# TYPE phone_network_account_banned_total counter\n\n# HELP phone_network_account_challenged_total Accounts challenged\n# TYPE phone_network_account_challenged_total counter\n\n# HELP phone_network_kill_switch_active Kill switch state (1=active)\n# TYPE phone_network_kill_switch_active gauge\nphone_network_kill_switch_active{service=\"phone-network\"} 0\n\n# HELP phone_network_detection_events_total Anti-detection events by type\n# TYPE phone_network_detection_events_total counter\n\n# HELP phone_network_parser_confidence_avg Parser avg confidence per platform\n# TYPE phone_network_parser_confidence_avg gauge\n\n# HELP phone_network_device_last_seen_seconds Unix timestamp of last device heartbeat\n# TYPE phone_network_device_last_seen_seconds gauge\nphone_network_device_last_seen_seconds{device_id=\"d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd\",service=\"phone-network\"} 1779441775\nphone_network_device_last_seen_seconds{device_id=\"22cfa4b5-f35b-4949-982f-8bb4a15b059d\",service=\"phone-network\"} 1779441790\n"
+    }
+  ]
+}
