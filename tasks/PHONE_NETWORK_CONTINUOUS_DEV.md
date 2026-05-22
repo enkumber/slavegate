@@ -112,7 +112,7 @@ Implemented:
 ### Story B: First E2E Marketing Workflow
 
 Owner: FORGE -> VOLT
-Status: assigned
+Status: active
 
 Acceptance:
 
@@ -122,10 +122,18 @@ Acceptance:
 - Creative LLM is allowed only if the workflow explicitly needs content generation.
 - Live evidence includes workflow id, device id, account/client context, execution stats, and safety result.
 
+Default workflow selected unless FORGE overrides with a stronger case:
+
+- Intent: `reddit_account_health_scan`
+- Safety: `read_only`
+- Output: `loggedIn`, `homeFeedVisible`, `challengeDetected`, `loginWallDetected`, `error`
+- Live smoke must use existing Reddit account on device `acasa` and must not post, comment, vote, follow, DM, login, or change settings.
+
 ### Story C: Control Plane Skeleton
 
 Owner: ATLAS/FORGE -> SPARK
-Status: assigned
+Status: partial, unreleased
+Commit: `7fc744c` in `slavegate/server`
 
 Acceptance:
 
@@ -133,16 +141,31 @@ Acceptance:
 - Add only the smallest missing API/schema piece needed to tie a generated workflow run to client/campaign/account.
 - Avoid UI work until the API contract is usable and tested.
 
+Implemented:
+
+- Generated workflow API accepts `clientId` and `campaignId` alongside existing `accountId`/`deviceId`.
+- API and task-runner dispatch attach a structured `controlPlaneContext` to workflow checkpoint variables and execution responses/results.
+- Task-runner derives `clientId` from `accounts.client_id` where available and keeps campaign context from task params.
+- No new DB tables or UI added; this reuses existing `clients`, `accounts`, `tasks`, `workflows`, and `execution_logs`.
+- Verification: `npm run build` OK; `npm run test -- generated-workflow-execution-smoke task-runner` OK, 11 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 150 tests.
+
 ### Story D: QA/Review Gates
 
 Owner: LENS/ECHO
-Status: assigned
+Status: active
 
 Acceptance:
 
 - LENS defines evidence before next Umbrel release.
 - ECHO defines safety and review gates before implementation merges.
 - No next release claim until E2E evidence exists.
+
+LENS gate received:
+
+- Local build/tests must pass.
+- Live smoke must include raw request/response, workflow action list, execution stats, `/api/metrics` before/after, and account/device/client context.
+- Read-only happy path must keep all runtime/recovery LLM and VLM counters at zero.
+- NO-GO on any Reddit mutation or absent context evidence.
 
 ## Previous Block: Generated Workflow Execution Hardening
 
