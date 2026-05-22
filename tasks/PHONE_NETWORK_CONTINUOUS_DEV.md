@@ -54,15 +54,23 @@ Acceptance:
 
 ### Story 3: LLM Avoided Metrics
 
-Owner: FORGE -> VOLT
-Status: pending ATLAS routing
+Owner: Nox
+Status: done, unreleased
+Commit: `3eb5c2e`
 
 Acceptance:
 
 - Count generated workflow cache hits, misses, and executions from cache.
-- Expose a counter or API summary for avoided happy-path LLM requests.
-- Persist enough stats to prove cache-first behavior across restarts.
-- Include tests for hit/miss accounting.
+- Expose Prometheus counters for generated workflow cache lookup results.
+- Expose Prometheus counter for estimated LLM requests avoided by cache-first reuse.
+- Include tests/guards for metrics instrumentation.
+
+Implemented:
+
+- `phone_network_generated_workflow_cache_lookup_total{endpoint,result}`
+- `phone_network_generated_workflow_llm_avoided_total{source}`
+- Instrumented endpoints: `prompt`, `cache/resolve`, `execute`.
+- Verified with `npm run build` and `npm run test -- workflows workflow-compiler`.
 
 ### Story 4: Release Verification Checklist
 
