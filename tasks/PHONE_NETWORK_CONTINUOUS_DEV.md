@@ -87,8 +87,8 @@ Implemented:
 ### Story 1.5: Recovery Budget Enforcement
 
 Owner: ATLAS/FORGE -> Nox/VOLT/SPARK
-Status: implemented, pending LENS QA + ECHO review
-Commit: `4ff8965` in `slavegate/server`
+Status: implemented, pending LENS QA + ECHO review after ECHO NO-GO fix
+Commit: `9609842` in `slavegate/server` (`4ff8965` + batch execution recovery-budget fix)
 
 Acceptance:
 
@@ -104,7 +104,8 @@ Implemented:
 - Generated workflow executor persists recovery attempts in checkpoint variables and execution stats; a repeated failure on the same step fails with `RECOVERY_BUDGET_EXCEEDED`.
 - Recovery metrics added: `phone_network_generated_workflow_recovery_attempt_total{platform,reason}` and `phone_network_generated_workflow_recovery_budget_exhausted_total{platform}`.
 - Happy-path cache/canonical generated workflow execution initializes and preserves zero `recoveryLlmCalls`, `runtimeLlmCalls`, `recoveryAttempts`, and `recoveryBudgetExhausted`.
-- Verification: `npm run build` OK; `npm run test -- workflow-compiler recovery workflow.blocking generated-workflow-execution-smoke task-runner` OK, 96 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 150 tests.
+- ECHO NO-GO on `4ff8965` found batch execution exceptions bypassing generated workflow recovery budget. Fixed in `9609842`: the `executeBatchSteps()` catch now records failed step, recovery attempt/budget exhaustion, persists checkpoint, and throws `RECOVERY_BUDGET_EXCEEDED` when exhausted.
+- Verification: `npm run build` OK; `npm run test -- workflow.blocking generated-workflow-execution-smoke recovery runner-recovery-budget` OK, 56 tests; `npm run test -- workflows workflow-compiler task-runner` OK, 150 tests.
 - No Umbrel bump yet; release decision remains after LENS QA and ECHO review.
 
 ### Story B: First E2E Marketing Workflow
