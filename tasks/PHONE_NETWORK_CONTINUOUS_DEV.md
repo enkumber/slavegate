@@ -19,6 +19,7 @@ Nox owns continuity. Small patches are not stopping points. Work only pauses whe
 - Live Umbrel release: `3.9.20`
 - Live server commit: `d8398a1baf14b3b0441ec18d1af83804340c4796`
 - Unreleased server commit: `9e56262` (`feat: expose generated workflow prompt cache readiness`)
+- Latest unreleased server commit: `9789dc5` (`fix: constrain generated workflow safety surface`)
 - Happy path requirement: generated workflow execution remains `llmBudget.happyPathRequests=0`
 - Workflow source of truth: dynamically generated templates via DB/API, not hardcoded runtime templates
 
@@ -42,7 +43,7 @@ Acceptance:
 ### Story 2: Cached Generated Workflow Execution Smoke
 
 Owner: VOLT
-Status: done, pending ECHO review
+Status: done, pending final ECHO/LENS re-check
 Commit: `7e21a7e`
 
 Acceptance:
@@ -102,7 +103,7 @@ Acceptance:
 ### Story 5: ECHO Review Gate
 
 Owner: ECHO
-Status: assigned
+Status: changes requested once, fix pushed
 
 Acceptance:
 
@@ -112,6 +113,12 @@ Acceptance:
   - secrets in responses/logs,
   - release readiness.
 - Findings must be blocker/important/nice-to-have.
+
+Findings addressed:
+
+- `9789dc5` constrains generated workflow `action` to a strict non-root/non-VLM/non-file allowlist before persist/dispatch.
+- `9789dc5` normalizes generated workflow `platform` to a bounded set before it can be used as a Prometheus label.
+- Verification: `npm run build` OK; `npm run test -- generated-workflow-canary workflow.blocking generated-workflow-cache generated-workflow-execution-smoke generated-workflow-prompt` OK, 47 tests; `npm run test -- workflows workflow-compiler` OK, 127 tests.
 
 ## Next Orchestration Step
 
