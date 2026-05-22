@@ -1,0 +1,74 @@
+{
+  "startedAt": "2026-05-22T14:11:40.279Z",
+  "deviceId": "d35b34cb-b2ee-4f6e-a8c6-a72cca14a0dd",
+  "targetApp": "com.reddit.frontpage",
+  "jobs": [
+    {
+      "id": "e07d89c5-57ef-4e90-8b66-362f75db6221",
+      "type": "screen_wake",
+      "status": "completed",
+      "error": "null",
+      "createdAt": "2026-05-22T14:11:40.318Z",
+      "completedAt": "2026-05-22T14:11:45.203Z",
+      "durationMs": 4642,
+      "output": {
+        "screenOn": true
+      }
+    },
+    {
+      "id": "faaed428-80cb-4791-8d59-676cd154211f",
+      "type": "unlock",
+      "status": "completed",
+      "error": "null",
+      "createdAt": "2026-05-22T14:11:45.562Z",
+      "completedAt": "2026-05-22T14:11:50.108Z",
+      "durationMs": 4512,
+      "output": {
+        "note": "was_already_unlocked",
+        "unlocked": true
+      }
+    },
+    {
+      "id": "1cd39aff-7032-4ea3-a756-dabd8f8686fe",
+      "type": "open_app_fresh",
+      "status": "completed",
+      "error": "null",
+      "createdAt": "2026-05-22T14:11:50.803Z",
+      "completedAt": "2026-05-22T14:11:54.111Z",
+      "durationMs": 3293
+    },
+    {
+      "id": "be820cdd-2fac-4a50-97fa-dce5ee29cb16",
+      "type": "screenshot_for_vlm",
+      "status": "completed",
+      "error": "null",
+      "createdAt": "2026-05-22T14:12:00.028Z",
+      "completedAt": "2026-05-22T14:12:07.097Z",
+      "durationMs": 6935,
+      "output": {
+        "width": 540,
+        "height": 1080,
+        "original_width": 1080,
+        "original_height": 2160,
+        "format": "jpeg",
+        "quality": 85,
+        "path": "/data/.openclaw/workspace/reports/phone-network/acasa-reddit-rerun-screenshot-2026-05-22T14-09Z.jpg",
+        "bytes": 89445
+      }
+    },
+    {
+      "id": "1f4e8774-2732-4e63-a0f5-3b738f4c14cf",
+      "type": "ui_tree_dump",
+      "status": "completed",
+      "error": "null",
+      "createdAt": "2026-05-22T14:12:07.344Z",
+      "completedAt": "2026-05-22T14:12:12.767Z",
+      "durationMs": 5387,
+      "outputSummary": {
+        "chars": 32901,
+        "sample": "{\"uiTree\":\"{\\\"packageName\\\":\\\"com.reddit.frontpage\\\",\\\"className\\\":\\\"android.widget.FrameLayout\\\",\\\"resourceId\\\":\\\"\\\",\\\"text\\\":\\\"\\\",\\\"contentDescription\\\":\\\"\\\",\\\"checkable\\\":false,\\\"checked\\\":false,\\\"clickable\\\":false,\\\"editable\\\":false,\\\"enabled\\\":true,\\\"focused\\\":false,\\\"scrollable\\\":false,\\\"selected\\\":false,\\\"visible\\\":true,\\\"bounds\\\":{\\\"left\\\":0,\\\"top\\\":0,\\\"right\\\":1080,\\\"bottom\\\":2160},\\\"children\\\":[{\\\"packageName\\\":\\\"com.reddit.frontpage\\\",\\\"className\\\":\\\"androidx.drawerlayout.widget.DrawerLayout\\\",\\\"resourceId\\\":\\\"com.reddit.frontpage:id\\\\/drawer_layout\\\",\\\"text\\\":\\\"\\\",\\\"contentDescription\\\":\\\"\\\",\\\"checkable\\\":false,\\\"checked\\\":false,\\\"clickable\\\":false,\\\"editable\\\":false,\\\"enabled\\\":true,\\\"focused\\\":false,\\\"scrollable\\\":false,\\\"selected\\\":false,\\\"visible\\\":true,\\\"bounds\\\":{\\\"left\\\":0,\\\"top\\\":0,\\\"right\\\":1080,\\\"bottom\\\":2160},\\\"children\\\":[{\\\"packageName\\\":\\\"com.reddit.frontpage\\\",\\\"className\\\":\\\"android.widget.FrameLayout\\\",\\\"resourceId\\\":\\\"com.reddit.frontpage:id\\\\/frame_container\\\",\\\"text\\\":\\\"\\\",\\\"contentDescription\\\":\\\"\\\",\\\"checkable\\\":false,\\\"checked\\\":false,\\\"clickable\\\":false,\\\"editable\\\":false,\\\"enabled\\\":true,\\\"focused\\\":false,\\\"scrollable\\\":false,\\\"selected\\\":false,\\\"visible\\\":true,\\\"bounds\\\":{\\\"left\\\":0,\\\"top\\\":0,\\\"right\\\":1080,\\\"bottom\\\":2160},\\\"children\\\":[{\\\"packageName\\\":\\\"com.reddit.frontpage\\\",\\\"className\\\":\\\"android.view.ViewGroup\\\",\\\"resourceId\\\":\\\"com.reddit.frontpage:id\\\\/main_activity_navhost\\\",\\\"text\\\":\\\"\\\",\\\"contentDescription\\\":\\\"\\\",\\\"checkable\\\":false,\\\"checked\\\":false,\\\"clickable\\\":false,\\\"editable\\\":false,\\\"enabled\\\":true,\\\"focused\\\":false,\\\"scrollable\\\":false,\\\"selected\\\":false,\\\"visible\\\":true,\\\"bounds\\\":{\\\"left\\\":0,\\\"top\\\":0,\\\"right\\\":1080,\\\"bottom\\\":2160},\\\"children\\\":[{\\\"packageName\\\":\\\"com.reddit.frontpage\\\",\\\"className\\\":\\\"android.view.View\\\",\\\"resourceId\\\":\\\"\\\",\\\"text\\\":\\\"\\\",\\\"contentDescription\\\":\\\"\\\",\\\"checkable\\\":false,\\\"checked\\\":false,\\\"clickable\\\":false,\\\"editable\\\":false,\\\"enabled\\\":true,\\\"focused\\\":false,\\\"scrollabl"
+      }
+    }
+  ],
+  "completedAt": "2026-05-22T14:12:13.591Z"
+}
