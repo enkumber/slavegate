@@ -6,6 +6,7 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useState, useEffect, useCallback } from "react";
 import { AgencyLayout } from "../components/AgencyLayout";
 import { agencyApi } from "../api/agency";
+import { subscribeWorkflowEvents } from "../api/workflowEvents";
 // ─── Status Badge ─────────────────────────────────────────────────────────────
 const statusConfig = {
     queued: { bg: "#374151", color: "#9ca3af", label: "Queued" },
@@ -26,7 +27,7 @@ function StatusBadge({ status }) {
             animation: config.pulse ? "pulse 2s infinite" : undefined,
         }, children: [status === "running" && "⚡ ", config.label] }));
 }
-function TaskModal({ task, onClose, onAction }) {
+function TaskModal({ task, workflowEvent, onClose, onAction }) {
     const [acting, setActing] = useState(false);
     const handleAction = async (action) => {
         setActing(true);
@@ -75,7 +76,12 @@ function TaskModal({ task, onClose, onAction }) {
                                 gridTemplateColumns: "1fr 1fr",
                                 gap: "16px",
                                 marginBottom: "20px",
-                            }, children: [_jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Device" }), _jsx("div", { style: { color: "#fff", fontSize: "13px" }, children: task.device_name || task.device_id })] }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Account" }), _jsxs("div", { style: { color: "#fff", fontSize: "13px" }, children: ["@", task.account_username || "N/A", task.account_platform && _jsxs("span", { style: { color: "#888" }, children: [" \u00B7 ", task.account_platform] })] })] }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Scheduled" }), _jsx("div", { style: { color: "#fff", fontSize: "13px" }, children: new Date(task.scheduled_time).toLocaleString() })] }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Batch ID" }), _jsx("div", { style: { color: "#fff", fontSize: "13px" }, children: task.batch_id || "—" })] })] }), _jsxs("div", { style: { marginBottom: "20px" }, children: [_jsx("h4", { style: { color: "#888", fontSize: "12px", marginBottom: "8px" }, children: "Timeline" }), _jsxs("div", { style: { display: "flex", flexDirection: "column", gap: "8px" }, children: [_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: "Created:" }), _jsx("span", { children: new Date(task.created_at).toLocaleString() })] }), task.started_at && (_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: "Started:" }), _jsx("span", { children: new Date(task.started_at).toLocaleString() })] })), task.completed_at && (_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: "Completed:" }), _jsx("span", { children: new Date(task.completed_at).toLocaleString() })] }))] })] }), _jsxs("div", { children: [_jsx("h4", { style: { color: "#888", fontSize: "12px", marginBottom: "8px" }, children: "Parameters" }), _jsx("pre", { style: {
+                            }, children: [_jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Device" }), _jsx("div", { style: { color: "#fff", fontSize: "13px" }, children: task.device_name || task.device_id })] }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Account" }), _jsxs("div", { style: { color: "#fff", fontSize: "13px" }, children: ["@", task.account_username || "N/A", task.account_platform && _jsxs("span", { style: { color: "#888" }, children: [" \u00B7 ", task.account_platform] })] })] }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Scheduled" }), _jsx("div", { style: { color: "#fff", fontSize: "13px" }, children: new Date(task.scheduled_time).toLocaleString() })] }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsx("div", { style: { color: "#666", fontSize: "11px", marginBottom: "4px" }, children: "Batch ID" }), _jsx("div", { style: { color: "#fff", fontSize: "13px" }, children: task.batch_id || "—" })] })] }), _jsxs("div", { style: { marginBottom: "20px" }, children: [_jsx("h4", { style: { color: "#888", fontSize: "12px", marginBottom: "8px" }, children: "Timeline" }), _jsxs("div", { style: { display: "flex", flexDirection: "column", gap: "8px" }, children: [_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: "Created:" }), _jsx("span", { children: new Date(task.created_at).toLocaleString() })] }), task.started_at && (_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: "Started:" }), _jsx("span", { children: new Date(task.started_at).toLocaleString() })] })), task.completed_at && (_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: "Completed:" }), _jsx("span", { children: new Date(task.completed_at).toLocaleString() })] }))] })] }), workflowEvent && (_jsxs("div", { style: { marginBottom: "20px" }, children: [_jsx("h4", { style: { color: "#888", fontSize: "12px", marginBottom: "8px" }, children: "Live Workflow" }), _jsxs("div", { style: { background: "#0a0a0a", padding: "12px", borderRadius: "6px" }, children: [_jsxs("div", { style: { display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }, children: [_jsx("span", { children: workflowEvent.event.replace(/_/g, " ") }), _jsx("span", { children: new Date(workflowEvent.occurredAt).toLocaleTimeString() })] }), workflowEvent.workflowId && (_jsx("div", { style: { color: "#666", fontSize: "11px", marginTop: "6px", fontFamily: "monospace" }, children: workflowEvent.workflowId })), workflowEvent.totalSteps !== undefined && (_jsxs("div", { style: { marginTop: "10px" }, children: [_jsx("div", { style: { height: "6px", background: "#222", borderRadius: "3px", overflow: "hidden" }, children: _jsx("div", { style: {
+                                                            height: "100%",
+                                                            width: `${Math.min(100, Math.round(((workflowEvent.currentStep ?? ((workflowEvent.stepIndex ?? 0) + 1)) /
+                                                                Math.max(1, workflowEvent.totalSteps)) * 100))}%`,
+                                                            background: workflowEvent.status === "failed" ? "#f87171" : "#60a5fa",
+                                                        } }) }), _jsxs("div", { style: { color: "#888", fontSize: "11px", marginTop: "6px" }, children: ["Step ", Math.min(workflowEvent.currentStep ?? ((workflowEvent.stepIndex ?? 0) + 1), workflowEvent.totalSteps), " of ", workflowEvent.totalSteps] })] })), typeof workflowEvent.details?.error === "string" && (_jsx("div", { style: { color: "#f87171", fontSize: "12px", marginTop: "8px" }, children: workflowEvent.details.error }))] })] })), _jsxs("div", { children: [_jsx("h4", { style: { color: "#888", fontSize: "12px", marginBottom: "8px" }, children: "Parameters" }), _jsx("pre", { style: {
                                         background: "#0a0a0a",
                                         padding: "12px",
                                         borderRadius: "6px",
@@ -128,6 +134,8 @@ export function TasksPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedTask, setSelectedTask] = useState(null);
+    const [workflowEventsByTask, setWorkflowEventsByTask] = useState({});
+    const [workflowStreamConnected, setWorkflowStreamConnected] = useState(false);
     // Filters
     const [statusFilter, setStatusFilter] = useState("");
     // Stats
@@ -146,6 +154,7 @@ export function TasksPage() {
                 pageSize: 100,
             });
             setTasks(data.items);
+            setSelectedTask((current) => data.items.find((task) => task.id === current?.id) ?? current);
             setError(null);
         }
         catch (e) {
@@ -160,6 +169,26 @@ export function TasksPage() {
         // Poll for updates
         const interval = setInterval(fetchTasks, 10000);
         return () => clearInterval(interval);
+    }, [fetchTasks]);
+    useEffect(() => {
+        return subscribeWorkflowEvents((event) => {
+            if (event.taskId) {
+                setWorkflowEventsByTask((current) => ({ ...current, [event.taskId]: event }));
+            }
+            if (event.taskId && event.status && event.event.startsWith("task_")) {
+                const taskStatus = event.status;
+                setTasks((current) => current.map((task) => (task.id === event.taskId ? { ...task, status: taskStatus } : task)));
+                setSelectedTask((current) => {
+                    if (!current || current.id !== event.taskId)
+                        return current;
+                    return { ...current, status: taskStatus };
+                });
+            }
+        }, (connected) => {
+            setWorkflowStreamConnected(connected);
+            if (connected)
+                void fetchTasks();
+        });
     }, [fetchTasks]);
     // Group by date
     const groupedByDate = tasks.reduce((acc, task) => {
@@ -191,7 +220,7 @@ export function TasksPage() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.6; }
           }
-        ` }), _jsxs("div", { style: { marginBottom: "24px" }, children: [_jsx("h1", { style: { color: "#fff", margin: 0, fontSize: "24px" }, children: "\u26A1 Tasks" }), _jsx("p", { style: { color: "#666", margin: "8px 0 0", fontSize: "13px" }, children: "Scheduled automation tasks and their execution status" })] }), _jsx("div", { style: {
+        ` }), _jsxs("div", { style: { marginBottom: "24px" }, children: [_jsx("h1", { style: { color: "#fff", margin: 0, fontSize: "24px" }, children: "\u26A1 Tasks" }), _jsxs("p", { style: { color: "#666", margin: "8px 0 0", fontSize: "13px" }, children: ["Scheduled automation tasks and their execution status", _jsx("span", { style: { color: workflowStreamConnected ? "#4ade80" : "#666", marginLeft: "10px" }, children: workflowStreamConnected ? "Live stream connected" : "Polling fallback active" })] })] }), _jsx("div", { style: {
                     display: "flex",
                     gap: "12px",
                     marginBottom: "24px",
@@ -245,5 +274,5 @@ export function TasksPage() {
                                 paddingLeft: "4px",
                             }, children: ["\uD83D\uDCC5 ", date] }), _jsx("div", { style: { display: "flex", flexDirection: "column", gap: "8px" }, children: groupedByDate[date]
                                 .sort((a, b) => new Date(b.scheduled_time).getTime() - new Date(a.scheduled_time).getTime())
-                                .map((task) => (_jsx(TaskRow, { task: task, onClick: () => setSelectedTask(task) }, task.id))) })] }, date))) })), selectedTask && (_jsx(TaskModal, { task: selectedTask, onClose: () => setSelectedTask(null), onAction: (action) => handleAction(selectedTask.id, action) }))] }));
+                                .map((task) => (_jsx(TaskRow, { task: task, onClick: () => setSelectedTask(task) }, task.id))) })] }, date))) })), selectedTask && (_jsx(TaskModal, { task: selectedTask, workflowEvent: workflowEventsByTask[selectedTask.id], onClose: () => setSelectedTask(null), onAction: (action) => handleAction(selectedTask.id, action) }))] }));
 }

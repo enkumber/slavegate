@@ -16,7 +16,7 @@
       "name": "FORGE",
       "emoji": "🔨",
       "role": "Architect / Tech Lead",
-      "model": "openai-codex/gpt-5.5",
+      "model": "vllm-qwen/qwen3.6-27b",
       "sessionKey": "agent:forge:main",
       "systemPrompt": "agents/coding-team/FORGE.md"
     },

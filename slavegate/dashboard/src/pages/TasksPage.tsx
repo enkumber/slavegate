@@ -6,6 +6,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { AgencyLayout } from "../components/AgencyLayout";
 import { agencyApi, Task } from "../api/agency";
+import { subscribeWorkflowEvents, WorkflowEvent } from "../api/workflowEvents";
 
 // ─── Status Badge ─────────────────────────────────────────────────────────────
 
@@ -41,11 +42,12 @@ function StatusBadge({ status }: { status: Task["status"] }) {
 
 interface TaskModalProps {
   task: Task;
+  workflowEvent?: WorkflowEvent;
   onClose: () => void;
   onAction: (action: "pause" | "resume" | "cancel") => Promise<void>;
 }
 
-function TaskModal({ task, onClose, onAction }: TaskModalProps) {
+function TaskModal({ task, workflowEvent, onClose, onAction }: TaskModalProps) {
   const [acting, setActing] = useState(false);
 
   const handleAction = async (action: "pause" | "resume" | "cancel") => {
@@ -179,6 +181,48 @@ function TaskModal({ task, onClose, onAction }: TaskModalProps) {
               )}
             </div>
           </div>
+
+          {/* Live workflow progress */}
+          {workflowEvent && (
+            <div style={{ marginBottom: "20px" }}>
+              <h4 style={{ color: "#888", fontSize: "12px", marginBottom: "8px" }}>Live Workflow</h4>
+              <div style={{ background: "#0a0a0a", padding: "12px", borderRadius: "6px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "12px" }}>
+                  <span>{workflowEvent.event.replace(/_/g, " ")}</span>
+                  <span>{new Date(workflowEvent.occurredAt).toLocaleTimeString()}</span>
+                </div>
+                {workflowEvent.workflowId && (
+                  <div style={{ color: "#666", fontSize: "11px", marginTop: "6px", fontFamily: "monospace" }}>
+                    {workflowEvent.workflowId}
+                  </div>
+                )}
+                {workflowEvent.totalSteps !== undefined && (
+                  <div style={{ marginTop: "10px" }}>
+                    <div style={{ height: "6px", background: "#222", borderRadius: "3px", overflow: "hidden" }}>
+                      <div
+                        style={{
+                          height: "100%",
+                          width: `${Math.min(100, Math.round((
+                            (workflowEvent.currentStep ?? ((workflowEvent.stepIndex ?? 0) + 1)) /
+                            Math.max(1, workflowEvent.totalSteps)
+                          ) * 100))}%`,
+                          background: workflowEvent.status === "failed" ? "#f87171" : "#60a5fa",
+                        }}
+                      />
+                    </div>
+                    <div style={{ color: "#888", fontSize: "11px", marginTop: "6px" }}>
+                      Step {Math.min(workflowEvent.currentStep ?? ((workflowEvent.stepIndex ?? 0) + 1), workflowEvent.totalSteps)} of {workflowEvent.totalSteps}
+                    </div>
+                  </div>
+                )}
+                {typeof workflowEvent.details?.error === "string" && (
+                  <div style={{ color: "#f87171", fontSize: "12px", marginTop: "8px" }}>
+                    {workflowEvent.details.error}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Params */}
           <div>
@@ -322,6 +366,8 @@ export function TasksPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [workflowEventsByTask, setWorkflowEventsByTask] = useState<Record<string, WorkflowEvent>>({});
+  const [workflowStreamConnected, setWorkflowStreamConnected] = useState(false);
 
   // Filters
   const [statusFilter, setStatusFilter] = useState<string>("");
@@ -343,6 +389,7 @@ export function TasksPage() {
         pageSize: 100,
       });
       setTasks(data.items);
+      setSelectedTask((current) => data.items.find((task) => task.id === current?.id) ?? current);
       setError(null);
     } catch (e) {
       setError((e as Error).message);
@@ -356,6 +403,28 @@ export function TasksPage() {
     // Poll for updates
     const interval = setInterval(fetchTasks, 10000);
     return () => clearInterval(interval);
+  }, [fetchTasks]);
+
+  useEffect(() => {
+    return subscribeWorkflowEvents((event) => {
+      if (event.taskId) {
+        setWorkflowEventsByTask((current) => ({ ...current, [event.taskId!]: event }));
+      }
+
+      if (event.taskId && event.status && event.event.startsWith("task_")) {
+        const taskStatus = event.status as Task["status"];
+        setTasks((current) => current.map((task) => (
+          task.id === event.taskId ? { ...task, status: taskStatus } : task
+        )));
+        setSelectedTask((current) => {
+          if (!current || current.id !== event.taskId) return current;
+          return { ...current, status: taskStatus };
+        });
+      }
+    }, (connected) => {
+      setWorkflowStreamConnected(connected);
+      if (connected) void fetchTasks();
+    });
   }, [fetchTasks]);
 
   // Group by date
@@ -405,6 +474,9 @@ export function TasksPage() {
         <h1 style={{ color: "#fff", margin: 0, fontSize: "24px" }}>⚡ Tasks</h1>
         <p style={{ color: "#666", margin: "8px 0 0", fontSize: "13px" }}>
           Scheduled automation tasks and their execution status
+          <span style={{ color: workflowStreamConnected ? "#4ade80" : "#666", marginLeft: "10px" }}>
+            {workflowStreamConnected ? "Live stream connected" : "Polling fallback active"}
+          </span>
         </p>
       </div>
 
@@ -537,6 +609,7 @@ export function TasksPage() {
       {selectedTask && (
         <TaskModal
           task={selectedTask}
+          workflowEvent={workflowEventsByTask[selectedTask.id]}
           onClose={() => setSelectedTask(null)}
           onAction={(action) => handleAction(selectedTask.id, action)}
         />
