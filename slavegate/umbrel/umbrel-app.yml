@@ -2,14 +2,14 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.33"
+version: "3.9.34"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
   monitoring, and automation. Includes device registration, task queuing,
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
-releaseNotes: "v3.9.33: Unified workflow runs via POST /api/workflow-runs, app-map seed import for self-learning discovery, deterministic execution, and legacy template execution disabled."
+releaseNotes: "v3.9.34: Rebuild server image with valid GHCR full-SHA tag and align Umbrel packaging versions for a clean update."
 developer: enkumber
 website: https://github.com/enkumber/slavegate-server
 repo: https://github.com/enkumber/slavegate-server.git

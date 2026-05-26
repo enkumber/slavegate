@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.31"
+version: "3.9.34"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.31: Unified creative workflow runs — single endpoint `POST /api/workflow-runs` accepting natural language instructions, app-map seed import for self-learning discovery, deterministic execution with LLM recovery, legacy template execution disabled.
+  v3.9.34: Rebuild server image with valid GHCR full-SHA tag and align Umbrel packaging versions for a clean update.
 
 gallery: []
 dependencies: []
