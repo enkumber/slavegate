@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.35"
+version: "3.9.36"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.35: Fix DirectWs reconnects by routing WebSocket upgrades centrally so dashboard WS cannot corrupt /ws-direct sockets.
+  v3.9.36: Expose app map selector quality stats and provenance for generated Reddit workflows.
 
 gallery: []
 dependencies: []
