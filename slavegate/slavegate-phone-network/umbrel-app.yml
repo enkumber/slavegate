@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.68"
+version: "3.9.69"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.68: fail unacknowledged edge workflows and clean stale dashboard runs
+  v3.9.69: fix Reddit first-post comments selector for current UI
 
 gallery: []
 dependencies: []
