@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.76"
+version: "3.9.77"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.76: add wake/unlock preamble to AI human workflows
+  v3.9.77: force Umbrel refresh for wake/unlock AI human workflows
 
 gallery: []
 dependencies: []
