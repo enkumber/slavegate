@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.71"
+version: "3.9.72"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: >-
-  v3.9.71: route unknown human workflows to AI compiler and purge stale Reddit open-app cache
+  v3.9.72: speed up AI human workflow compile for Qwen and compact app-map prompts
 
 gallery: []
 dependencies: []
