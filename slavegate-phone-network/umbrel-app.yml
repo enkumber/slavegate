@@ -29,9 +29,9 @@ description: >-
   - App mapping with PostgreSQL persistence
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
-releaseNotes: >-
-  v3.9.95: accept cached requestKey at runtime
-
+releaseNotes: |
+  v3.9.97: Fix human workflow validation for android platform. Added android to platform whitelist.
+  v3.9.62: compile Reddit first-post comment button shortcut without LLM
 gallery: []
 dependencies: []
 path: ""
