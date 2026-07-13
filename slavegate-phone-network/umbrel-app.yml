@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.103"
+version: "3.9.104"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
-  v3.9.103: fail unresolved Android intent_send and ship agent 4.0.27
+  v3.9.104: try Android intent launches before failing and ship agent 4.0.27
 gallery: []
 dependencies: []
 path: ""
