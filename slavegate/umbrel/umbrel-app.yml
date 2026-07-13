@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.105"
+version: "3.9.106"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,7 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
-  v3.9.105: ship Android OTA manifest 4.0.27 with intent-send fix
+  v3.9.106: open explicit Gmail app workflows in Gmail
 developer: enkumber
 website: https://github.com/enkumber/slavegate-server
 repo: https://github.com/enkumber/slavegate-server.git

@@ -5,7 +5,7 @@ services:
       APP_PORT: 21211
 
   phone-network-server:
-    image: ghcr.io/enkumber/slavegate-server:aaf1192f80c0b68ddecff450d132d37e17694b0e
+    image: ghcr.io/enkumber/slavegate-server:d38406a28b01d72f6692efe68f05533f0361c27c
     env_file:
       - .env
     restart: unless-stopped
@@ -18,7 +18,7 @@ services:
       REDIS_URL: "redis://phone-network-redis:6379"
       TRANSPORT_MODE: "direct"
       DATA_DIR: /data
-      PHONE_NETWORK_APP_VERSION: "3.9.105"
+      PHONE_NETWORK_APP_VERSION: "3.9.106"
     healthcheck:
       test:
         - CMD
