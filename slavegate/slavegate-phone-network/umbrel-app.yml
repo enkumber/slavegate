@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.125"
+version: "3.9.126"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,10 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.126: add Compiler Awareness remediation hints
   v3.9.125: add Compiler Awareness eligibility details
+  v3.9.124: add Compiler Awareness decision outcomes
+  v3.9.123: add Compiler Awareness audit history
   v3.9.122: include Compiler Awareness dashboard bundle
   v3.9.121: add read-only Compiler Awareness
   v3.9.120: add read-only Compiler Knowledge Base
