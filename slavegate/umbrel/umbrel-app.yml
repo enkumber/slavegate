@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.121"
+version: "3.9.122"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,8 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.122: include Compiler Awareness dashboard bundle
+  v3.9.121: add read-only Compiler Awareness
   v3.9.120: add read-only Compiler Knowledge Base
   v3.9.119: add Step Library promotion audit history
 developer: enkumber
