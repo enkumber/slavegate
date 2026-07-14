@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.131"
+version: "3.9.132"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.132: add live Compiler Awareness policy gate summary
   v3.9.131: add policy gate summary to Compiler Awareness audit
   v3.9.130: map Compiler Awareness blockers to explicit policy gates
   v3.9.129: restore Compiler Policy Gates with verified GHCR image
