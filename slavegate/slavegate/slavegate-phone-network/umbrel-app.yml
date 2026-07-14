@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.107"
+version: "3.9.108"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
-  v3.9.107: invalidate stale Gmail workflow cache
+  v3.9.108: gate workflow cache and purge failed workflows
 gallery: []
 dependencies: []
 path: ""
