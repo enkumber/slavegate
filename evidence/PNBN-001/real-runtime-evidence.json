@@ -1,0 +1,71 @@
+{
+  "story": "PNBN-001",
+  "lane": "B",
+  "kind": "real-browser-runtime",
+  "startedAt": "2026-07-15T13:16:26.365Z",
+  "environment": {
+    "pwd": "/data/worktrees/slavegate-pnbn-001",
+    "head": "20807bf871623614a13ce803bb7fe77f0aef1cd6",
+    "statusShort": "M evidence/PNBN-001/README.md\n M evidence/PNBN-001/lane-b-evidence.json\n M scripts/evidence/pnbn-001-run.js\n?? evidence/PNBN-001/real-runtime-evidence.json\n?? scripts/evidence/pnbn-001-real-runtime.mjs\n?? test/integration/health-runtime.test.js",
+    "node": "v22.23.1",
+    "chromium": "/usr/bin/chromium",
+    "xvfb": null,
+    "display": null
+  },
+  "interfaces": {
+    "packageJson": true,
+    "tsconfig": true,
+    "browserWorker": true,
+    "executor": true,
+    "controlClient": true,
+    "health": true,
+    "ssrf": true,
+    "paths": true,
+    "redact": true,
+    "builtBrowserWorker": true,
+    "builtExecutor": true,
+    "builtHealth": true
+  },
+  "proofs": {
+    "healthModule503": {
+      "statusCode": 503,
+      "body": {
+        "ok": false,
+        "worker": true,
+        "xvfb": false,
+        "browser": false
+      }
+    },
+    "indexWithoutXvfb": {
+      "command": "node slavegate-browser-node/dist/src/index.js",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "node:internal/fs/promises:606\n  return await PromisePrototypeThen(\n         ^\n\nError: ENOENT: no such file or directory, access '/tmp/.X11-unix/X77'\n    at async Object.access (node:internal/fs/promises:606:10)\n    at async file:///data/worktrees/slavegate-pnbn-001/slavegate-browser-node/dist/src/index.js:11:1 {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'access',\n  path: '/tmp/.X11-unix/X77'\n}\n\nNode.js v22.23.1\n"
+    },
+    "fixtureUrlPolicy": {
+      "fileUrlRejected": true,
+      "localhostRejected": true,
+      "fixture": "test/fixtures/browser-fixture.html"
+    }
+  },
+  "dependencies": [
+    {
+      "owner": "runtime",
+      "dependency": "Xvfb binary/service in the verification environment",
+      "impact": "Cannot launch Chromium with Playwright headless=false for AC3 positive runtime proof."
+    },
+    {
+      "owner": "VOLT",
+      "dependency": "A test fixture origin hook for BrowserWorker, such as an allowlisted fixture HTTP origin, injectable SSRF resolver, or explicit fixture mode.",
+      "impact": "BrowserWorker currently rejects file:// and localhost fixture pages, so local fixture navigate/click/fill/select/wait/extract/screenshot cannot be proven through the real browser adapter without weakening production SSRF policy."
+    },
+    {
+      "owner": "VOLT",
+      "dependency": "Start health server before the Xvfb socket readiness gate, or expose a runtime state harness that can report xvfb=false/browser=false via /healthz.",
+      "impact": "The current entrypoint exits before /healthz exists when Xvfb is absent, so endpoint-level health-failure evidence cannot be captured from index.ts."
+    }
+  ],
+  "status": "blocked",
+  "finishedAt": "2026-07-15T13:16:26.842Z"
+}

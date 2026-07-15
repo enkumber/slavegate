@@ -52,6 +52,11 @@ const baseline = {
 
 const integration = run("node", ["--test", "test/integration/*.test.js"]);
 const security = run("node", ["--test", "test/security/*.test.js"]);
+const realRuntime = run("node", ["scripts/evidence/pnbn-001-real-runtime.mjs"]);
+const realRuntimeEvidencePath = path.join(evidenceDir, "real-runtime-evidence.json");
+const realRuntimeEvidence = fs.existsSync(realRuntimeEvidencePath)
+  ? JSON.parse(fs.readFileSync(realRuntimeEvidencePath, "utf8"))
+  : null;
 
 const evidence = {
   story: "PNBN-001",
@@ -61,13 +66,19 @@ const evidence = {
   baseline,
   tests: {
     integrationExitCode: integration.exitCode,
-    securityExitCode: security.exitCode
+    securityExitCode: security.exitCode,
+    realRuntimeExitCode: realRuntime.exitCode
   },
-  blockers: baseline.browserNodePresent
-    ? []
-    : [
-        "slavegate-browser-node/ is absent in this worktree, so tests used the fixture executor adapter instead of VOLT's live worker executor."
-      ],
+  blockers: [
+    ...(
+      baseline.browserNodePresent
+        ? []
+        : ["slavegate-browser-node/ is absent in this worktree, so tests used the fixture executor adapter instead of VOLT's live worker executor."]
+    ),
+    ...(
+      realRuntimeEvidence?.dependencies?.map((item) => `${item.owner}: ${item.dependency} Impact: ${item.impact}`) || []
+    )
+  ],
   commands
 };
 
@@ -103,6 +114,7 @@ Generated: ${evidenceRecord.finishedAt}
 
 - Integration harness exit: \`${evidenceRecord.tests.integrationExitCode}\`
 - Security harness exit: \`${evidenceRecord.tests.securityExitCode}\`
+- Real runtime evidence exit: \`${evidenceRecord.tests.realRuntimeExitCode}\`
 - Browser node present: \`${evidenceRecord.baseline.browserNodePresent}\`
 - Worker source present: \`${evidenceRecord.baseline.workerSrcPresent}\`
 - Compose present: \`${evidenceRecord.baseline.composePresent}\`
@@ -118,5 +130,6 @@ node scripts/evidence/pnbn-001-run.js
 \`\`\`
 
 The JSON transcript is stored in \`evidence/PNBN-001/lane-b-evidence.json\`.
+Real browser runtime dependency evidence is stored in \`evidence/PNBN-001/real-runtime-evidence.json\`.
 `;
 }

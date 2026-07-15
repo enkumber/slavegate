@@ -1,13 +1,13 @@
 {
   "story": "PNBN-001",
   "lane": "B",
-  "startedAt": "2026-07-15T13:10:49.133Z",
-  "finishedAt": "2026-07-15T13:10:49.585Z",
+  "startedAt": "2026-07-15T13:16:25.656Z",
+  "finishedAt": "2026-07-15T13:16:26.860Z",
   "baseline": {
     "pwd": "/data/worktrees/slavegate-pnbn-001",
     "branch": "feature/pnbn-001-browser-node",
-    "head": "f3b354a3c59a8518e12c550ea119a7e7d09cb9b9",
-    "statusShort": "M test/integration/mock-control-harness.test.js",
+    "head": "20807bf871623614a13ce803bb7fe77f0aef1cd6",
+    "statusShort": "M evidence/PNBN-001/README.md\n M evidence/PNBN-001/lane-b-evidence.json\n M scripts/evidence/pnbn-001-run.js\n?? evidence/PNBN-001/real-runtime-evidence.json\n?? scripts/evidence/pnbn-001-real-runtime.mjs\n?? test/integration/health-runtime.test.js",
     "node": "v22.23.1",
     "npm": "10.9.8",
     "browserNodePresent": true,
@@ -16,9 +16,14 @@
   },
   "tests": {
     "integrationExitCode": 0,
-    "securityExitCode": 0
+    "securityExitCode": 0,
+    "realRuntimeExitCode": 0
   },
-  "blockers": [],
+  "blockers": [
+    "runtime: Xvfb binary/service in the verification environment Impact: Cannot launch Chromium with Playwright headless=false for AC3 positive runtime proof.",
+    "VOLT: A test fixture origin hook for BrowserWorker, such as an allowlisted fixture HTTP origin, injectable SSRF resolver, or explicit fixture mode. Impact: BrowserWorker currently rejects file:// and localhost fixture pages, so local fixture navigate/click/fill/select/wait/extract/screenshot cannot be proven through the real browser adapter without weakening production SSRF policy.",
+    "VOLT: Start health server before the Xvfb socket readiness gate, or expose a runtime state harness that can report xvfb=false/browser=false via /healthz. Impact: The current entrypoint exits before /healthz exists when Xvfb is absent, so endpoint-level health-failure evidence cannot be captured from index.ts."
+  ],
   "commands": [
     {
       "command": "git branch --show-current",
@@ -29,13 +34,13 @@
     {
       "command": "git rev-parse HEAD",
       "exitCode": 0,
-      "stdout": "f3b354a3c59a8518e12c550ea119a7e7d09cb9b9\n",
+      "stdout": "20807bf871623614a13ce803bb7fe77f0aef1cd6\n",
       "stderr": ""
     },
     {
       "command": "git status --short",
       "exitCode": 0,
-      "stdout": " M test/integration/mock-control-harness.test.js\n",
+      "stdout": " M evidence/PNBN-001/README.md\n M evidence/PNBN-001/lane-b-evidence.json\n M scripts/evidence/pnbn-001-run.js\n?? evidence/PNBN-001/real-runtime-evidence.json\n?? scripts/evidence/pnbn-001-real-runtime.mjs\n?? test/integration/health-runtime.test.js\n",
       "stderr": ""
     },
     {
@@ -53,13 +58,19 @@
     {
       "command": "node --test test/integration/*.test.js",
       "exitCode": 0,
-      "stdout": "TAP version 13\n# Subtest: pair/register is single-use and handshake is authenticated\nok 1 - pair/register is single-use and handshake is authenticated\n  ---\n  duration_ms: 7.908951\n  type: 'test'\n  ...\n# Subtest: heartbeat, command/result, disconnect, and reconnect/backoff\nok 2 - heartbeat, command/result, disconnect, and reconnect/backoff\n  ---\n  duration_ms: 34.83358\n  type: 'test'\n  ...\n# Subtest: idempotency, concurrency, and deadlines are enforced\nok 3 - idempotency, concurrency, and deadlines are enforced\n  ---\n  duration_ms: 2.126995\n  type: 'test'\n  ...\n# Subtest: executor binding reports whether VOLT worker path is present\nok 4 - executor binding reports whether VOLT worker path is present\n  ---\n  duration_ms: 0.448429\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 121.242788\n",
+      "stdout": "TAP version 13\n# Subtest: health endpoint returns 503 when Xvfb or browser readiness is false\nok 1 - health endpoint returns 503 when Xvfb or browser readiness is false\n  ---\n  duration_ms: 60.608709\n  type: 'test'\n  ...\n# Subtest: health endpoint returns 200 only when worker, Xvfb, and browser are ready\nok 2 - health endpoint returns 200 only when worker, Xvfb, and browser are ready\n  ---\n  duration_ms: 6.203911\n  type: 'test'\n  ...\n# Subtest: pair/register is single-use and handshake is authenticated\nok 3 - pair/register is single-use and handshake is authenticated\n  ---\n  duration_ms: 10.853826\n  type: 'test'\n  ...\n# Subtest: heartbeat, command/result, disconnect, and reconnect/backoff\nok 4 - heartbeat, command/result, disconnect, and reconnect/backoff\n  ---\n  duration_ms: 36.005877\n  type: 'test'\n  ...\n# Subtest: idempotency, concurrency, and deadlines are enforced\nok 5 - idempotency, concurrency, and deadlines are enforced\n  ---\n  duration_ms: 3.417593\n  type: 'test'\n  ...\n# Subtest: executor binding reports whether VOLT worker path is present\nok 6 - executor binding reports whether VOLT worker path is present\n  ---\n  duration_ms: 0.430164\n  type: 'test'\n  ...\n1..6\n# tests 6\n# suites 0\n# pass 6\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 192.453572\n",
       "stderr": ""
     },
     {
       "command": "node --test test/security/*.test.js",
       "exitCode": 0,
-      "stdout": "TAP version 13\n# Subtest: compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\nok 1 - compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\n  ---\n  duration_ms: 1.728009\n  type: 'test'\n  ...\n# Subtest: compose does not mount docker socket when browser node exists\nok 2 - compose does not mount docker socket when browser node exists\n  ---\n  duration_ms: 0.365189\n  type: 'test'\n  ...\n# Subtest: source does not expose remote shell helpers when browser node exists\nok 3 - source does not expose remote shell helpers when browser node exists\n  ---\n  duration_ms: 2.634306\n  type: 'test'\n  ...\n# Subtest: allows public http and https destinations\nok 4 - allows public http and https destinations\n  ---\n  duration_ms: 9.247\n  type: 'test'\n  ...\n# Subtest: denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\nok 5 - denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\n  ---\n  duration_ms: 2.315083\n  type: 'test'\n  ...\n# Subtest: denies hostnames that resolve to private addresses\nok 6 - denies hostnames that resolve to private addresses\n  ---\n  duration_ms: 1.429935\n  type: 'test'\n  ...\n# Subtest: denies redirects to private destinations\nok 7 - denies redirects to private destinations\n  ---\n  duration_ms: 0.539561\n  type: 'test'\n  ...\n# Subtest: denies DNS rebinding when any observed resolution is private\nok 8 - denies DNS rebinding when any observed resolution is private\n  ---\n  duration_ms: 0.483548\n  type: 'test'\n  ...\n# Subtest: allows files under the configured transfer root\nok 9 - allows files under the configured transfer root\n  ---\n  duration_ms: 1.702853\n  type: 'test'\n  ...\n# Subtest: rejects absolute paths and traversal\nok 10 - rejects absolute paths and traversal\n  ---\n  duration_ms: 0.811143\n  type: 'test'\n  ...\n# Subtest: rejects symlink escape from transfer root\nok 11 - rejects symlink escape from transfer root\n  ---\n  duration_ms: 2.731324\n  type: 'test'\n  ...\n# Subtest: rejects configured size-limit violations\nok 12 - rejects configured size-limit violations\n  ---\n  duration_ms: 0.257607\n  type: 'test'\n  ...\n1..12\n# tests 12\n# suites 0\n# pass 12\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 108.093259\n",
+      "stdout": "TAP version 13\n# Subtest: compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\nok 1 - compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\n  ---\n  duration_ms: 5.711325\n  type: 'test'\n  ...\n# Subtest: compose does not mount docker socket when browser node exists\nok 2 - compose does not mount docker socket when browser node exists\n  ---\n  duration_ms: 0.373584\n  type: 'test'\n  ...\n# Subtest: source does not expose remote shell helpers when browser node exists\nok 3 - source does not expose remote shell helpers when browser node exists\n  ---\n  duration_ms: 1.838081\n  type: 'test'\n  ...\n# Subtest: allows public http and https destinations\nok 4 - allows public http and https destinations\n  ---\n  duration_ms: 22.394717\n  type: 'test'\n  ...\n# Subtest: denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\nok 5 - denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\n  ---\n  duration_ms: 2.376194\n  type: 'test'\n  ...\n# Subtest: denies hostnames that resolve to private addresses\nok 6 - denies hostnames that resolve to private addresses\n  ---\n  duration_ms: 1.883296\n  type: 'test'\n  ...\n# Subtest: denies redirects to private destinations\nok 7 - denies redirects to private destinations\n  ---\n  duration_ms: 0.350347\n  type: 'test'\n  ...\n# Subtest: denies DNS rebinding when any observed resolution is private\nok 8 - denies DNS rebinding when any observed resolution is private\n  ---\n  duration_ms: 0.362543\n  type: 'test'\n  ...\n# Subtest: allows files under the configured transfer root\nok 9 - allows files under the configured transfer root\n  ---\n  duration_ms: 2.188868\n  type: 'test'\n  ...\n# Subtest: rejects absolute paths and traversal\nok 10 - rejects absolute paths and traversal\n  ---\n  duration_ms: 0.873293\n  type: 'test'\n  ...\n# Subtest: rejects symlink escape from transfer root\nok 11 - rejects symlink escape from transfer root\n  ---\n  duration_ms: 1.031828\n  type: 'test'\n  ...\n# Subtest: rejects configured size-limit violations\nok 12 - rejects configured size-limit violations\n  ---\n  duration_ms: 0.253526\n  type: 'test'\n  ...\n1..12\n# tests 12\n# suites 0\n# pass 12\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 148.663925\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/evidence/pnbn-001-real-runtime.mjs",
+      "exitCode": 0,
+      "stdout": "wrote evidence/PNBN-001/real-runtime-evidence.json\nreal runtime proof blocked by 3 dependency/dependencies\n",
       "stderr": ""
     }
   ]
