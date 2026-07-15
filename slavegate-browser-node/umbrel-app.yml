@@ -1,0 +1,20 @@
+manifestVersion: 1
+id: slavegate-browser-node
+name: Slavegate Browser Node
+tagline: Private single-slot browser worker
+category: automation
+version: "0.1.0"
+port: 0
+description: >-
+  An outbound-only Chromium worker for Slavegate. It exposes no browser, desktop,
+  shell, or Docker control interface.
+developer: Slavegate
+website: https://github.com/slavegate
+support: https://github.com/slavegate
+dependencies: []
+repo: https://github.com/slavegate/slavegate
+submission: https://github.com/slavegate/slavegate
+releaseNotes: Initial private worker runtime.
+path: ""
+defaultUsername: ""
+defaultPassword: ""

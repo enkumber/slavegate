@@ -1,0 +1,30 @@
+services:
+  browser-node:
+    build: .
+    platform: linux/amd64
+    restart: on-failure
+    init: true
+    environment:
+      APP_DATA_DIR: /data
+      CONTROL_WSS_URL: ${CONTROL_WSS_URL}
+      CONTROL_TOKEN: ${CONTROL_TOKEN:-}
+      WORKER_ID: ${WORKER_ID:-browser-node-1}
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/healthz').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 30s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    shm_size: 256mb
+    networks:
+      - outbound
+
+networks:
+  outbound:
+    internal: false
