@@ -14,8 +14,7 @@ export const BROWSER_CAPABILITIES = [
   'wait',
   'extract',
   'screenshot',
-  'upload',
-  'download'
+  'upload'
 ] as const;
 
 export type BrowserCapability = (typeof BROWSER_CAPABILITIES)[number];
@@ -234,10 +233,14 @@ function validateAction(value: unknown, index: number): asserts value is Action 
       if (!Array.isArray(action.files) || action.files.length === 0 || !action.files.every(isNonEmptyString)) {
         throw invalid(`job.actions[${index}].files must be a non-empty string array`);
       }
+      if (action.mimeType !== undefined) requireNonEmptyString(action.mimeType, `job.actions[${index}].mimeType`);
+      if (action.mimeTypes !== undefined) {
+        const mimeTypes = requireRecord(action.mimeTypes, `job.actions[${index}].mimeTypes`);
+        for (const file of action.files as string[]) {
+          requireNonEmptyString(mimeTypes[file], `job.actions[${index}].mimeTypes[${file}]`);
+        }
+      }
       break;
-    case 'download':
-      // Reserved capability: its action schema is introduced with the transfer executor.
-      throw invalid('download action is not supported by this worker version');
   }
 }
 

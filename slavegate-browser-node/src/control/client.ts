@@ -19,17 +19,21 @@ export class ControlClient {
   private stopped = false;
   private reconnect?: NodeJS.Timeout;
   private heartbeat?: NodeJS.Timeout;
+  private heartbeatDeadline?: NodeJS.Timeout;
   private reconnectAttempt = 0;
   private active = false;
   private readonly completed = new Map<string, WorkerMessage>();
 
-  constructor(private readonly url: string, private readonly token: string | undefined, private readonly workerId: string, private readonly executor: Executor) {}
+  constructor(private readonly url: string, private readonly token: string | undefined, private readonly workerId: string, private readonly executor: Executor) {
+    if (url && !token) throw new Error('CONTROL_TOKEN is required when CONTROL_WSS_URL is configured');
+  }
   get connected(): boolean { return this.socket?.readyState === WebSocket.OPEN; }
   start(): void { if (this.url) this.connect(); }
   stop(): void {
     this.stopped = true;
     if (this.reconnect) clearTimeout(this.reconnect);
     if (this.heartbeat) clearInterval(this.heartbeat);
+    if (this.heartbeatDeadline) clearTimeout(this.heartbeatDeadline);
     this.socket?.close();
   }
 
@@ -44,6 +48,7 @@ export class ControlClient {
     this.socket.on('message', (data) => void this.onMessage(String(data)));
     this.socket.on('close', () => {
       if (this.heartbeat) clearInterval(this.heartbeat);
+      if (this.heartbeatDeadline) clearTimeout(this.heartbeatDeadline);
       if (!this.stopped) {
         const delay = nextReconnectDelay(this.reconnectAttempt);
         this.reconnectAttempt += 1;
@@ -55,7 +60,13 @@ export class ControlClient {
 
   private startHeartbeat(): void {
     if (this.heartbeat) clearInterval(this.heartbeat);
-    this.heartbeat = setInterval(() => this.send(createHeartbeat(this.workerId)), HEARTBEAT_TTL_MS / 2);
+    const beat = () => {
+      this.send(createHeartbeat(this.workerId));
+      if (this.heartbeatDeadline) clearTimeout(this.heartbeatDeadline);
+      this.heartbeatDeadline = setTimeout(() => this.socket?.close(4000, 'heartbeat acknowledgement expired'), HEARTBEAT_TTL_MS);
+    };
+    beat();
+    this.heartbeat = setInterval(beat, HEARTBEAT_TTL_MS / 2);
   }
 
   private send(value: WorkerMessage): void {
@@ -67,7 +78,10 @@ export class ControlClient {
     let started = false;
     try {
       const message = parseServerMessage(raw);
-      if (message.type === 'heartbeat_ack') return;
+      if (message.type === 'heartbeat_ack') {
+        if (this.heartbeatDeadline) clearTimeout(this.heartbeatDeadline);
+        return;
+      }
 
       command = message;
       const prior = this.completed.get(command.idempotencyKey);
