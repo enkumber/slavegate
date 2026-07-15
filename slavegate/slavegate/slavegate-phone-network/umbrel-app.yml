@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.142"
+version: "3.9.143"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
-  v3.9.142: complete workflow definition control plane
+  v3.9.143: enable controlled workflow definition auto-use
   v3.9.140: add promotion readiness, confidence, scope details, and rollback preview
   v3.9.139: add controlled manual workflow definition promotion
   v3.9.138: enrich Workflow Validation Pipeline with fixtures, coverage, readiness scoring
