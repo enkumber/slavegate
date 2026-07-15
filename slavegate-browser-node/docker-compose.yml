@@ -2,10 +2,12 @@ services:
   browser-node:
     build: .
     platform: linux/amd64
-    restart: on-failure
+    restart: unless-stopped
     init: true
     environment:
       APP_DATA_DIR: /data
+      CHROMIUM_PATH: /ms-playwright/chromium-1169/chrome-linux/chrome
+      DISPLAY: :99
       CONTROL_WSS_URL: ${CONTROL_WSS_URL}
       CONTROL_TOKEN: ${CONTROL_TOKEN:-}
       WORKER_ID: ${WORKER_ID:-browser-node-1}
@@ -22,6 +24,7 @@ services:
     cap_drop:
       - ALL
     shm_size: 256mb
+    stop_grace_period: 15s
     networks:
       - outbound
 

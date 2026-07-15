@@ -14,6 +14,7 @@ function integer(name: string, fallback: number): number {
 
 export function loadConfig(): Config {
   const appDataDir = path.resolve(process.env.APP_DATA_DIR ?? '/data');
+  if (appDataDir === path.parse(appDataDir).root) throw new Error('APP_DATA_DIR must be a dedicated directory');
   const controlUrl = process.env.CONTROL_WSS_URL ?? '';
   if (controlUrl && new URL(controlUrl).protocol !== 'wss:') throw new Error('CONTROL_WSS_URL must use wss://');
   return {

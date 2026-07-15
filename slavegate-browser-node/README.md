@@ -1,10 +1,10 @@
 # Slavegate Browser Node
 
-Single-slot amd64 Umbrel browser worker. It runs one Chromium persistent context on Xvfb and accepts work only over an outbound TLS WebSocket. No CDP, WebDriver, X11, VNC, shell, host network, or Docker socket is exposed. The Compose service is pinned to `linux/amd64`.
+Single-slot amd64 Umbrel browser worker. It runs one Chromium persistent context on Xvfb and accepts work only over an outbound TLS WebSocket. No CDP, WebDriver, X11, VNC, shell, host network, or Docker socket is exposed. The Compose service is pinned to `linux/amd64`. The runtime image is pinned to Playwright 1.52.0, matching `playwright-core`, and packages Chromium revision 1169 plus Xvfb without installing operating-system packages during the app build.
 
 ## Runtime
 
-The persistent Chromium profile and controlled `uploads/`, `downloads/`, and `evidence/` directories live beneath `APP_DATA_DIR`. The container starts Node immediately after spawning Xvfb; the loopback health server therefore starts before the runtime waits for the X socket or initializes Chromium. It remains reachable with HTTP 503 if either dependency is unavailable and returns 200 only when worker, Xvfb, and Chromium are ready. Executor concurrency is exactly one; completed idempotency keys return their cached structured result.
+The persistent Chromium profile and controlled `uploads/`, `downloads/`, and `evidence/` directories live beneath `APP_DATA_DIR`. Compose mounts Umbrel's `${APP_DATA_DIR}/data` at `/data`, so browser cookies and other profile state survive container replacement and restart. The container starts Node immediately after spawning Xvfb; the loopback health server therefore starts before the runtime waits for the X socket or initializes Chromium. It remains reachable with HTTP 503 if either dependency is unavailable and returns 200 only when worker, Xvfb, and Chromium are ready. Executor concurrency is exactly one; completed idempotency keys return their cached structured result.
 
 Supported actions are `navigate`, `click`, `fill`, `select`, `wait`, `extract`, `screenshot`, and `upload`. Selectors may use CSS, while click/fill also support ARIA `role` and accessible `name`. Every top-level navigation, redirect, and subresource is checked after URL normalization and DNS resolution. Loopback, private, link-local, multicast, metadata, `.local`, `.internal`, Umbrel, and mixed public/private DNS destinations are blocked.
 
