@@ -1,13 +1,13 @@
 # PNBN-001 Lane B Evidence
 
-Generated: 2026-07-15T13:05:55.618Z
+Generated: 2026-07-15T13:07:24.272Z
 
 ## Baseline
 
 - Worktree: `/data/worktrees/slavegate-pnbn-001`
 - Branch: `feature/pnbn-001-browser-node`
-- HEAD: `2a16d40ff8b3862f3a120072e9fdd13214c61370`
-- Status: `?? stories/`
+- HEAD: `7b58b248e15391e78428823806138a35c393b829`
+- Status: `clean`
 - Node: `v22.23.1`
 - npm: `10.9.8`
 
