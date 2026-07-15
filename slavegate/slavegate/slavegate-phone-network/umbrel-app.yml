@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.144"
+version: "3.9.145"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.145: tighten workflow definition resolution for auto-use
   v3.9.144: fix workflow definition auto-use template persistence
   v3.9.143: enable controlled workflow definition auto-use
   v3.9.140: add promotion readiness, confidence, scope details, and rollback preview
