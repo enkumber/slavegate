@@ -1,4 +1,4 @@
-import { createHmac } from 'crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 
 export class DeviceRegistry {
   constructor() {
@@ -18,6 +18,7 @@ export class DeviceRegistry {
       type,
       ws: null,
       metadata,
+      authenticated: false,
       registeredAt: Date.now(),
       lastHeartbeat: Date.now()
     });
@@ -38,7 +39,13 @@ export class DeviceRegistry {
       .update(challenge)
       .digest('hex');
 
-    return expected === signature;
+    try {
+      const expectedBuffer = Buffer.from(expected, 'hex');
+      const actualBuffer = Buffer.from(signature, 'hex');
+      return expectedBuffer.length === actualBuffer.length && timingSafeEqual(expectedBuffer, actualBuffer);
+    } catch {
+      return false;
+    }
   }
 
   /**
@@ -62,6 +69,7 @@ export class DeviceRegistry {
     const device = this.devices.get(deviceId);
     if (device) {
       device.ws = ws;
+      device.authenticated = false;
     }
   }
 
@@ -72,6 +80,7 @@ export class DeviceRegistry {
     const device = this.devices.get(deviceId);
     if (device) {
       device.ws = null;
+      device.authenticated = false;
     }
   }
 

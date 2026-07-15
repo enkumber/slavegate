@@ -1,11 +1,12 @@
 import { WebSocketServer } from 'ws';
+import { fileURLToPath } from 'url';
 import { DeviceRegistry } from './device-registry.js';
 import { MessageHandler, MSG } from './message-handler.js';
 import { HeartbeatTracker } from './heartbeat-tracker.js';
 
 export class RelayServer {
   constructor(options = {}) {
-    this.port = options.port || parseInt(process.env.PORT) || 18792;
+    this.port = options.port ?? (parseInt(process.env.PORT) || 18792);
     this.wss = null;
     this.registry = new DeviceRegistry();
     this.handler = new MessageHandler(this.registry);
@@ -177,6 +178,7 @@ export class RelayServer {
   shutdown() {
     this.heartbeat.stop();
     if (this.wss) {
+      for (const client of this.wss.clients) client.close(1001, 'server shutdown');
       this.wss.close();
     }
     this._ready = false;
@@ -199,5 +201,7 @@ export class RelayServer {
 }
 
 // Auto-start if run directly
-const server = new RelayServer();
-server.listen();
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const server = new RelayServer();
+  server.listen();
+}

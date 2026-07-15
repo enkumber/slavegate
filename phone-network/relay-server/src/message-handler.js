@@ -59,12 +59,15 @@ export class MessageHandler {
         return this._handleChallengeResponse(deviceId, msg, ws);
 
       case MSG.HEARTBEAT:
+        if (!this._isAuthenticated(deviceId)) return { type: MSG.ERROR, code: 'UNAUTHENTICATED', message: 'Challenge authentication required' };
         return this._handleHeartbeat(deviceId, msg, ws);
 
       case MSG.COMMAND:
+        if (!this._isAuthenticated(deviceId)) return { type: MSG.ERROR, code: 'UNAUTHENTICATED', message: 'Challenge authentication required' };
         return this._handleCommand(deviceId, msg, ws);
 
       case MSG.RESPONSE:
+        if (!this._isAuthenticated(deviceId)) return { type: MSG.ERROR, code: 'UNAUTHENTICATED', message: 'Challenge authentication required' };
         return this._handleResponse(deviceId, msg, ws);
 
       default:
@@ -79,11 +82,16 @@ export class MessageHandler {
     return Math.random().toString(36).substring(2) + Date.now().toString(36);
   }
 
+  _isAuthenticated(deviceId) {
+    return Boolean(this.registry.get(deviceId)?.authenticated);
+  }
+
   /**
    * Handle device registration
    */
   _handleRegister(deviceId, msg, ws) {
-    const { secret, type } = msg;
+    const { secret } = msg;
+    const type = msg.deviceType;
 
     if (!deviceId || !secret || !type) {
       return { type: MSG.REGISTER_ACK, success: false, error: 'Missing required fields' };
@@ -131,6 +139,7 @@ export class MessageHandler {
 
     if (valid) {
       delete device.challenge;
+      device.authenticated = true;
       return { type: MSG.AUTH_SUCCESS, deviceId };
     } else {
       return { type: MSG.AUTH_FAILURE, error: 'Invalid signature' };
