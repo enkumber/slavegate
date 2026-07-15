@@ -35,6 +35,20 @@ test('persistent profile is always nested below APP_DATA_DIR', () => {
   }
 });
 
+test('WSS configuration fails closed without bearer token', () => {
+  const priorUrl = process.env.CONTROL_WSS_URL;
+  const priorToken = process.env.CONTROL_TOKEN;
+  process.env.CONTROL_WSS_URL = 'wss://control.example.test/browser';
+  delete process.env.CONTROL_TOKEN;
+  try { assert.throws(() => loadConfig(), /CONTROL_TOKEN is required/); }
+  finally {
+    if (priorUrl === undefined) delete process.env.CONTROL_WSS_URL;
+    else process.env.CONTROL_WSS_URL = priorUrl;
+    if (priorToken === undefined) delete process.env.CONTROL_TOKEN;
+    else process.env.CONTROL_TOKEN = priorToken;
+  }
+});
+
 test('APP_DATA_DIR cannot be the filesystem root', () => {
   const prior = process.env.APP_DATA_DIR;
   process.env.APP_DATA_DIR = '/';

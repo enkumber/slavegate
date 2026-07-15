@@ -44,6 +44,7 @@ test('hello negotiates protocol version, one slot, and explicit capabilities', (
     capabilities: BROWSER_CAPABILITIES
   });
   assert.throws(() => createHello(''), /workerId must be a non-empty string/);
+  assert.equal(BROWSER_CAPABILITIES.includes('download' as never), false);
 });
 
 test('constructs versioned heartbeat, result, error, and reconnect envelopes', () => {
@@ -123,6 +124,8 @@ test('rejects version mismatch, expired deadlines, identity mismatch, and unknow
 
 test('rejects malformed actions and oversized messages', () => {
   assertProtocolError(command({ job: { id: 'cmd-1', idempotencyKey: 'idem-1', actions: [{ type: 'click' }] } }), 'INVALID_MESSAGE');
+  assertProtocolError(command({ job: { id: 'cmd-1', idempotencyKey: 'idem-1', actions: [{ type: 'download' }] } }), 'INVALID_MESSAGE');
+  assert.doesNotThrow(() => parseServerMessage(JSON.stringify(command({ job: { id: 'cmd-1', idempotencyKey: 'idem-1', actions: [{ type: 'upload', selector: 'input', files: ['a.txt'], mimeTypes: { 'a.txt': 'text/plain' } }] } })), now));
   assert.throws(
     () => parseServerMessage(' '.repeat(MAX_CONTROL_MESSAGE_BYTES + 1), now),
     (error: unknown) => error instanceof ProtocolValidationError && error.code === 'INVALID_MESSAGE'
