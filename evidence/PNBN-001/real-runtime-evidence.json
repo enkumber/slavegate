@@ -2,11 +2,11 @@
   "story": "PNBN-001",
   "lane": "B",
   "kind": "real-browser-runtime",
-  "startedAt": "2026-07-15T13:16:26.365Z",
+  "startedAt": "2026-07-15T13:17:13.684Z",
   "environment": {
     "pwd": "/data/worktrees/slavegate-pnbn-001",
-    "head": "20807bf871623614a13ce803bb7fe77f0aef1cd6",
-    "statusShort": "M evidence/PNBN-001/README.md\n M evidence/PNBN-001/lane-b-evidence.json\n M scripts/evidence/pnbn-001-run.js\n?? evidence/PNBN-001/real-runtime-evidence.json\n?? scripts/evidence/pnbn-001-real-runtime.mjs\n?? test/integration/health-runtime.test.js",
+    "head": "c81035f5174c345451273dc82b5b41e1f9e3ae42",
+    "statusShort": "",
     "node": "v22.23.1",
     "chromium": "/usr/bin/chromium",
     "xvfb": null,
@@ -67,5 +67,5 @@
     }
   ],
   "status": "blocked",
-  "finishedAt": "2026-07-15T13:16:26.842Z"
+  "finishedAt": "2026-07-15T13:17:14.192Z"
 }
