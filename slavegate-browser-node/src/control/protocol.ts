@@ -2,6 +2,9 @@ import type { Action, Job, JobResult } from '../types.js';
 
 export const PROTOCOL_VERSION = 1 as const;
 export const MAX_CONTROL_MESSAGE_BYTES = 1_048_576;
+export const HEARTBEAT_TTL_MS = 30_000;
+export const INITIAL_RECONNECT_BACKOFF_MS = 500;
+export const MAX_RECONNECT_BACKOFF_MS = 10_000;
 
 export const BROWSER_CAPABILITIES = [
   'navigate',
@@ -22,6 +25,16 @@ interface Envelope {
   type: string;
 }
 
+export interface PairingRecord {
+  used: boolean;
+  nodeId?: string;
+}
+
+export interface PairingStore {
+  get(pairCode: string): PairingRecord | undefined;
+  set(pairCode: string, record: PairingRecord): void;
+}
+
 export interface HelloMessage extends Envelope {
   type: 'hello';
   workerId: string;
@@ -38,6 +51,7 @@ export interface HeartbeatMessage extends Envelope {
 export interface HeartbeatAckMessage extends Envelope {
   type: 'heartbeat_ack';
   receivedAt: string;
+  expiresAt: string;
 }
 
 export interface JobMessage extends Envelope {
@@ -86,6 +100,46 @@ export function createHello(workerId: string): HelloMessage {
   };
 }
 
+export function createHeartbeat(workerId: string, now = Date.now()): HeartbeatMessage {
+  requireNonEmptyString(workerId, 'workerId');
+  return {
+    version: PROTOCOL_VERSION,
+    type: 'heartbeat',
+    workerId,
+    sentAt: new Date(now).toISOString()
+  };
+}
+
+export function createResult(command: JobMessage, result: JobResult): ResultMessage {
+  return {
+    version: PROTOCOL_VERSION,
+    type: 'result',
+    commandId: command.commandId,
+    idempotencyKey: command.idempotencyKey,
+    result
+  };
+}
+
+export function createProtocolError(error: ProtocolValidationError | Error | string, commandId?: string): ProtocolErrorMessage {
+  return {
+    version: PROTOCOL_VERSION,
+    type: 'protocol_error',
+    commandId,
+    code: error instanceof ProtocolValidationError ? error.code : 'INVALID_MESSAGE',
+    error: error instanceof Error ? error.message : String(error)
+  };
+}
+
+export function claimPairCode(store: PairingStore, pairCode: string, nodeId: string): PairingRecord {
+  requireNonEmptyString(pairCode, 'pairCode');
+  requireNonEmptyString(nodeId, 'nodeId');
+  const record = store.get(pairCode);
+  if (!record || record.used) throw invalid('pair code rejected');
+  const claimed = { ...record, used: true, nodeId };
+  store.set(pairCode, claimed);
+  return claimed;
+}
+
 export function parseServerMessage(raw: string | Buffer, now = Date.now()): ServerMessage {
   const bytes = Buffer.byteLength(raw);
   if (bytes > MAX_CONTROL_MESSAGE_BYTES) {
@@ -106,6 +160,8 @@ export function parseServerMessage(raw: string | Buffer, now = Date.now()): Serv
 
   if (message.type === 'heartbeat_ack') {
     requireIsoTimestamp(message.receivedAt, 'receivedAt');
+    const expiresAt = requireIsoTimestamp(message.expiresAt, 'expiresAt');
+    if (expiresAt <= now) throw invalid('heartbeat acknowledgement expired');
     return message as unknown as HeartbeatAckMessage;
   }
 
@@ -134,6 +190,11 @@ export function parseServerMessage(raw: string | Buffer, now = Date.now()): Serv
   }
 
   return message as unknown as JobMessage;
+}
+
+export function nextReconnectDelay(attempt: number): number {
+  if (!Number.isInteger(attempt) || attempt < 0) throw invalid('reconnect attempt must be a non-negative integer');
+  return Math.min(MAX_RECONNECT_BACKOFF_MS, INITIAL_RECONNECT_BACKOFF_MS * 2 ** attempt);
 }
 
 function validateAction(value: unknown, index: number): asserts value is Action {

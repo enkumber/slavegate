@@ -8,6 +8,14 @@ const test = require("node:test");
 const { EventEmitter } = require("node:events");
 const { loadWorkerExecutor } = require("./worker-adapter");
 
+const PROTOCOL_VERSION = 1;
+const HEARTBEAT_TTL_MS = 30_000;
+const SECRET_PATTERN = /token_[a-f0-9]+|Bearer\s+[A-Za-z0-9._~+/=-]+/g;
+
+function redacted(value) {
+  return JSON.parse(JSON.stringify(value).replace(SECRET_PATTERN, "[REDACTED]"));
+}
+
 class MockControlServer extends EventEmitter {
   constructor() {
     super();
@@ -64,12 +72,21 @@ class MockControlServer extends EventEmitter {
   heartbeat(session) {
     this.#assertSession(session);
     this.nodes.get(session.nodeId).heartbeats += 1;
-    return { type: "heartbeat_ack", at: new Date(0).toISOString() };
+    const receivedAt = new Date().toISOString();
+    return {
+      version: PROTOCOL_VERSION,
+      type: "heartbeat_ack",
+      receivedAt,
+      expiresAt: new Date(Date.parse(receivedAt) + HEARTBEAT_TTL_MS).toISOString()
+    };
   }
 
   async dispatch(session, command, execute) {
     this.#assertSession(session);
-    if (Date.now() > command.deadlineAt) {
+    if (command.version !== PROTOCOL_VERSION || command.type !== "job") {
+      throw Object.assign(new Error("invalid protocol envelope"), { code: "INVALID_MESSAGE" });
+    }
+    if (Date.now() > Date.parse(command.deadlineAt)) {
       throw Object.assign(new Error("deadline expired"), { code: "DEADLINE_EXPIRED" });
     }
     if (this.results.has(command.idempotencyKey)) {
@@ -83,7 +100,8 @@ class MockControlServer extends EventEmitter {
     try {
       const output = await execute(command.payload);
       const result = {
-        type: "command_result",
+        version: PROTOCOL_VERSION,
+        type: "result",
         commandId: command.commandId,
         idempotencyKey: command.idempotencyKey,
         ok: true,
@@ -131,7 +149,7 @@ class MockBrowserNode {
   connect() {
     this.session = this.server.connect({
       ...this.identity,
-      protocolVersion: 1,
+      protocolVersion: PROTOCOL_VERSION,
       capabilities: {
         browser: "chromium",
         headed: true,
@@ -147,7 +165,7 @@ class MockBrowserNode {
 
   reconnectAfterDrop(maxAttempts = 3) {
     for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
-      this.backoffs.push(100 * 2 ** attempt);
+      this.backoffs.push(Math.min(10_000, 500 * 2 ** attempt));
     }
     return this.connect();
   }
@@ -155,9 +173,11 @@ class MockBrowserNode {
 
 function command(commandId, idempotencyKey, payload, deadlineOffsetMs = 1000) {
   return {
+    version: PROTOCOL_VERSION,
+    type: "job",
     commandId,
     idempotencyKey,
-    deadlineAt: Date.now() + deadlineOffsetMs,
+    deadlineAt: new Date(Date.now() + deadlineOffsetMs).toISOString(),
     payload
   };
 }
@@ -175,12 +195,16 @@ test("pair/register is single-use and handshake is authenticated", async () => {
 
   const session = node.connect();
   assert.equal(session.authenticated, true);
-  assert.equal(session.protocolVersion, 1);
+  assert.equal(session.protocolVersion, PROTOCOL_VERSION);
   assert.equal(session.capabilities.concurrency, 1);
   assert.throws(
-    () => server.connect({ nodeId: identity.nodeId, token: "wrong", protocolVersion: 1 }),
+    () => server.connect({ nodeId: identity.nodeId, token: "wrong", protocolVersion: PROTOCOL_VERSION }),
     /authentication failed/
   );
+  assert.deepEqual(redacted({ authorization: `Bearer ${identity.token}`, token: identity.token }), {
+    authorization: "[REDACTED]",
+    token: "[REDACTED]"
+  });
 });
 
 test("heartbeat, command/result, disconnect, and reconnect/backoff", async () => {
@@ -190,10 +214,10 @@ test("heartbeat, command/result, disconnect, and reconnect/backoff", async () =>
   node.pair(server.issuePairCode());
   node.connect();
 
-  assert.deepEqual(server.heartbeat(node.session), {
-    type: "heartbeat_ack",
-    at: "1970-01-01T00:00:00.000Z"
-  });
+  const heartbeat = server.heartbeat(node.session);
+  assert.equal(heartbeat.version, PROTOCOL_VERSION);
+  assert.equal(heartbeat.type, "heartbeat_ack");
+  assert.ok(Date.parse(heartbeat.expiresAt) - Date.parse(heartbeat.receivedAt) === HEARTBEAT_TTL_MS);
 
   const fixtureUrl = `file://${path.resolve(__dirname, "..", "fixtures", "browser-fixture.html")}`;
   assert.equal((await node.run(command("cmd-1", "idem-1", { type: "navigate", url: fixtureUrl }))).ok, true);
@@ -213,7 +237,7 @@ test("heartbeat, command/result, disconnect, and reconnect/backoff", async () =>
   assert.throws(() => server.heartbeat(node.session), /session unavailable/);
   const reconnected = node.reconnectAfterDrop();
   assert.equal(reconnected.authenticated, true);
-  assert.deepEqual(node.backoffs, [100, 200, 400]);
+  assert.deepEqual(node.backoffs, [500, 1000, 2000]);
 });
 
 test("idempotency, concurrency, and deadlines are enforced", async () => {
