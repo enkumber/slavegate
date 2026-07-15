@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PNBN Fixture</title>
+  </head>
+  <body>
+    <main>
+      <h1 id="title">PNBN Fixture</h1>
+      <button id="counter" type="button">Count: 0</button>
+      <label>
+        Name
+        <input id="name" name="name" autocomplete="off">
+      </label>
+      <label>
+        Mode
+        <select id="mode" name="mode">
+          <option value="alpha">Alpha</option>
+          <option value="beta">Beta</option>
+        </select>
+      </label>
+      <p id="status" data-ready="false">Waiting</p>
+    </main>
+    <script>
+      const counter = document.querySelector("#counter");
+      const status = document.querySelector("#status");
+      let count = 0;
+
+      counter.addEventListener("click", () => {
+        count += 1;
+        counter.textContent = `Count: ${count}`;
+      });
+
+      setTimeout(() => {
+        status.textContent = "Ready";
+        status.dataset.ready = "true";
+      }, 25);
+    </script>
+  </body>
+</html>
