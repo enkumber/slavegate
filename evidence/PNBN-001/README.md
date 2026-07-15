@@ -1,13 +1,13 @@
 # PNBN-001 Lane B Evidence
 
-Generated: 2026-07-15T13:07:24.272Z
+Generated: 2026-07-15T13:10:49.585Z
 
 ## Baseline
 
 - Worktree: `/data/worktrees/slavegate-pnbn-001`
 - Branch: `feature/pnbn-001-browser-node`
-- HEAD: `7b58b248e15391e78428823806138a35c393b829`
-- Status: `clean`
+- HEAD: `f3b354a3c59a8518e12c550ea119a7e7d09cb9b9`
+- Status: `M test/integration/mock-control-harness.test.js`
 - Node: `v22.23.1`
 - npm: `10.9.8`
 

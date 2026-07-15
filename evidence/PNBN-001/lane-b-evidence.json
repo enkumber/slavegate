@@ -1,13 +1,13 @@
 {
   "story": "PNBN-001",
   "lane": "B",
-  "startedAt": "2026-07-15T13:07:23.799Z",
-  "finishedAt": "2026-07-15T13:07:24.272Z",
+  "startedAt": "2026-07-15T13:10:49.133Z",
+  "finishedAt": "2026-07-15T13:10:49.585Z",
   "baseline": {
     "pwd": "/data/worktrees/slavegate-pnbn-001",
     "branch": "feature/pnbn-001-browser-node",
-    "head": "7b58b248e15391e78428823806138a35c393b829",
-    "statusShort": "",
+    "head": "f3b354a3c59a8518e12c550ea119a7e7d09cb9b9",
+    "statusShort": "M test/integration/mock-control-harness.test.js",
     "node": "v22.23.1",
     "npm": "10.9.8",
     "browserNodePresent": true,
@@ -29,13 +29,13 @@
     {
       "command": "git rev-parse HEAD",
       "exitCode": 0,
-      "stdout": "7b58b248e15391e78428823806138a35c393b829\n",
+      "stdout": "f3b354a3c59a8518e12c550ea119a7e7d09cb9b9\n",
       "stderr": ""
     },
     {
       "command": "git status --short",
       "exitCode": 0,
-      "stdout": "",
+      "stdout": " M test/integration/mock-control-harness.test.js\n",
       "stderr": ""
     },
     {
@@ -53,13 +53,13 @@
     {
       "command": "node --test test/integration/*.test.js",
       "exitCode": 0,
-      "stdout": "TAP version 13\n# Subtest: pair/register is single-use and handshake is authenticated\nok 1 - pair/register is single-use and handshake is authenticated\n  ---\n  duration_ms: 7.759322\n  type: 'test'\n  ...\n# Subtest: heartbeat, command/result, disconnect, and reconnect/backoff\nok 2 - heartbeat, command/result, disconnect, and reconnect/backoff\n  ---\n  duration_ms: 36.068828\n  type: 'test'\n  ...\n# Subtest: idempotency, concurrency, and deadlines are enforced\nok 3 - idempotency, concurrency, and deadlines are enforced\n  ---\n  duration_ms: 1.523336\n  type: 'test'\n  ...\n# Subtest: executor binding reports whether VOLT worker path is present\nok 4 - executor binding reports whether VOLT worker path is present\n  ---\n  duration_ms: 0.332302\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 121.851921\n",
+      "stdout": "TAP version 13\n# Subtest: pair/register is single-use and handshake is authenticated\nok 1 - pair/register is single-use and handshake is authenticated\n  ---\n  duration_ms: 7.908951\n  type: 'test'\n  ...\n# Subtest: heartbeat, command/result, disconnect, and reconnect/backoff\nok 2 - heartbeat, command/result, disconnect, and reconnect/backoff\n  ---\n  duration_ms: 34.83358\n  type: 'test'\n  ...\n# Subtest: idempotency, concurrency, and deadlines are enforced\nok 3 - idempotency, concurrency, and deadlines are enforced\n  ---\n  duration_ms: 2.126995\n  type: 'test'\n  ...\n# Subtest: executor binding reports whether VOLT worker path is present\nok 4 - executor binding reports whether VOLT worker path is present\n  ---\n  duration_ms: 0.448429\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 121.242788\n",
       "stderr": ""
     },
     {
       "command": "node --test test/security/*.test.js",
       "exitCode": 0,
-      "stdout": "TAP version 13\n# Subtest: compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\nok 1 - compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\n  ---\n  duration_ms: 12.864614\n  type: 'test'\n  ...\n# Subtest: compose does not mount docker socket when browser node exists\nok 2 - compose does not mount docker socket when browser node exists\n  ---\n  duration_ms: 0.355851\n  type: 'test'\n  ...\n# Subtest: source does not expose remote shell helpers when browser node exists\nok 3 - source does not expose remote shell helpers when browser node exists\n  ---\n  duration_ms: 2.050384\n  type: 'test'\n  ...\n# Subtest: allows public http and https destinations\nok 4 - allows public http and https destinations\n  ---\n  duration_ms: 7.025844\n  type: 'test'\n  ...\n# Subtest: denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\nok 5 - denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\n  ---\n  duration_ms: 2.720021\n  type: 'test'\n  ...\n# Subtest: denies hostnames that resolve to private addresses\nok 6 - denies hostnames that resolve to private addresses\n  ---\n  duration_ms: 3.19599\n  type: 'test'\n  ...\n# Subtest: denies redirects to private destinations\nok 7 - denies redirects to private destinations\n  ---\n  duration_ms: 0.351622\n  type: 'test'\n  ...\n# Subtest: denies DNS rebinding when any observed resolution is private\nok 8 - denies DNS rebinding when any observed resolution is private\n  ---\n  duration_ms: 0.377177\n  type: 'test'\n  ...\n# Subtest: allows files under the configured transfer root\nok 9 - allows files under the configured transfer root\n  ---\n  duration_ms: 4.314433\n  type: 'test'\n  ...\n# Subtest: rejects absolute paths and traversal\nok 10 - rejects absolute paths and traversal\n  ---\n  duration_ms: 2.228934\n  type: 'test'\n  ...\n# Subtest: rejects symlink escape from transfer root\nok 11 - rejects symlink escape from transfer root\n  ---\n  duration_ms: 2.292956\n  type: 'test'\n  ...\n# Subtest: rejects configured size-limit violations\nok 12 - rejects configured size-limit violations\n  ---\n  duration_ms: 3.036043\n  type: 'test'\n  ...\n1..12\n# tests 12\n# suites 0\n# pass 12\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 125.121551\n",
+      "stdout": "TAP version 13\n# Subtest: compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\nok 1 - compose does not publish CDP, WebDriver, X11, or VNC ports when browser node exists\n  ---\n  duration_ms: 1.728009\n  type: 'test'\n  ...\n# Subtest: compose does not mount docker socket when browser node exists\nok 2 - compose does not mount docker socket when browser node exists\n  ---\n  duration_ms: 0.365189\n  type: 'test'\n  ...\n# Subtest: source does not expose remote shell helpers when browser node exists\nok 3 - source does not expose remote shell helpers when browser node exists\n  ---\n  duration_ms: 2.634306\n  type: 'test'\n  ...\n# Subtest: allows public http and https destinations\nok 4 - allows public http and https destinations\n  ---\n  duration_ms: 9.247\n  type: 'test'\n  ...\n# Subtest: denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\nok 5 - denies loopback, RFC1918, link-local, metadata, IPv6 local, and ULA targets\n  ---\n  duration_ms: 2.315083\n  type: 'test'\n  ...\n# Subtest: denies hostnames that resolve to private addresses\nok 6 - denies hostnames that resolve to private addresses\n  ---\n  duration_ms: 1.429935\n  type: 'test'\n  ...\n# Subtest: denies redirects to private destinations\nok 7 - denies redirects to private destinations\n  ---\n  duration_ms: 0.539561\n  type: 'test'\n  ...\n# Subtest: denies DNS rebinding when any observed resolution is private\nok 8 - denies DNS rebinding when any observed resolution is private\n  ---\n  duration_ms: 0.483548\n  type: 'test'\n  ...\n# Subtest: allows files under the configured transfer root\nok 9 - allows files under the configured transfer root\n  ---\n  duration_ms: 1.702853\n  type: 'test'\n  ...\n# Subtest: rejects absolute paths and traversal\nok 10 - rejects absolute paths and traversal\n  ---\n  duration_ms: 0.811143\n  type: 'test'\n  ...\n# Subtest: rejects symlink escape from transfer root\nok 11 - rejects symlink escape from transfer root\n  ---\n  duration_ms: 2.731324\n  type: 'test'\n  ...\n# Subtest: rejects configured size-limit violations\nok 12 - rejects configured size-limit violations\n  ---\n  duration_ms: 0.257607\n  type: 'test'\n  ...\n1..12\n# tests 12\n# suites 0\n# pass 12\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 108.093259\n",
       "stderr": ""
     }
   ]

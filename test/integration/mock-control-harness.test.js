@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
+const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
 const { EventEmitter } = require("node:events");
@@ -257,6 +258,11 @@ test("idempotency, concurrency, and deadlines are enforced", async () => {
 test("executor binding reports whether VOLT worker path is present", async () => {
   const executor = await loadWorkerExecutor();
   assert.ok(["worker", "fixture"].includes(executor.mode));
+  const workerSourceExists = fs.existsSync(path.resolve(__dirname, "..", "..", "slavegate-browser-node", "src", "executor.ts"));
+  if (workerSourceExists) {
+    assert.equal(executor.mode, "worker", "VOLT executor source exists, so fixture fallback is not acceptable");
+    assert.equal(executor.path, "slavegate-browser-node/dist/src/executor.js");
+  }
   if (executor.mode === "fixture") {
     assert.equal(executor.path, null);
     assert.ok(executor.checked.some((item) => item.startsWith("slavegate-browser-node/src/")));
