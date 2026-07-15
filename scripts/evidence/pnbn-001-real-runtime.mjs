@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const evidenceDir = path.join(repoRoot, 'evidence', 'PNBN-001');
 await fsp.mkdir(evidenceDir, { recursive: true });
+const requireReal = process.argv.includes('--require-real');
 
 const record = {
   story: 'PNBN-001',
@@ -39,11 +40,24 @@ const record = {
     builtHealth: exists('slavegate-browser-node/dist/src/health.js')
   },
   proofs: {},
-  dependencies: []
+  attemptedCommands: {},
+  mandatoryChecks: {},
+  dependencies: [],
+  reproducibleCommands: {
+    currentEnvironment: 'node scripts/evidence/pnbn-001-real-runtime.mjs',
+    requireRealMode: 'node scripts/evidence/pnbn-001-real-runtime.mjs --require-real',
+    containerCi: [
+      'docker run --rm -v "$PWD":/workspace -w /workspace mcr.microsoft.com/playwright:v1.52.0-noble bash -lc',
+      "'cd slavegate-browser-node && npm ci && npm run build && Xvfb :99 -screen 0 1280x720x24 -nolisten tcp >/tmp/xvfb.log 2>&1 & export DISPLAY=:99 CHROMIUM_PATH=/usr/bin/chromium APP_DATA_DIR=/tmp/pnbn-browser-data; cd /workspace && node scripts/evidence/pnbn-001-real-runtime.mjs --require-real'"
+    ].join(' ')
+  }
 };
 
+record.attemptedCommands.findXvfb = run('bash', ['-lc', 'command -v Xvfb']);
+record.attemptedCommands.findChromium = run('bash', ['-lc', 'command -v chromium || command -v chromium-browser || command -v google-chrome']);
 record.proofs.healthModule503 = await proveHealthModule503();
 record.proofs.indexWithoutXvfb = proveIndexFailsWithoutXvfb();
+record.attemptedCommands.startEntrypointWithoutXvfb = record.proofs.indexWithoutXvfb;
 
 if (!record.environment.xvfb) {
   record.dependencies.push({
@@ -70,6 +84,25 @@ if (record.proofs.indexWithoutXvfb.exitCode !== 0 && record.proofs.indexWithoutX
   });
 }
 
+record.mandatoryChecks.headedChromiumOnXvfb = record.environment.xvfb
+  ? { status: 'not-run', reason: 'Xvfb exists, but this harness still requires fixture-origin support before claiming AC3.' }
+  : { status: 'blocked', reason: 'Xvfb binary/service is absent; Chromium cannot be launched with Playwright headless=false on Xvfb.' };
+
+record.mandatoryChecks.fixtureNavigationActionsScreenshotRealAdapter = record.dependencies.some((item) => item.dependency.includes('test fixture origin hook'))
+  ? { status: 'blocked', reason: 'BrowserWorker SSRF policy rejects file:// and localhost fixture origins; no safe fixture hook is exposed.' }
+  : { status: 'not-run', reason: 'Fixture origin dependency cleared, rerun with --require-real to require positive proof.' };
+
+record.mandatoryChecks.persistentProfileAcrossRestart = record.environment.xvfb
+  ? { status: 'not-run', reason: 'Requires headed BrowserWorker launch and a permitted fixture/public origin to set and verify profile state across worker restart.' }
+  : { status: 'blocked', reason: 'Xvfb is absent, so BrowserWorker cannot launch Chromium headless=false for profile persistence proof.' };
+
+record.mandatoryChecks.healthFailureWhenXvfbOrBrowserAbsent = {
+  status: record.proofs.healthModule503.statusCode === 503 ? 'partial' : 'blocked',
+  reason: record.proofs.healthModule503.statusCode === 503
+    ? 'createHealthServer returns 503 for xvfb=false/browser=false; index.ts still exits before /healthz exists when Xvfb socket is absent.'
+    : 'Health module did not return expected 503.'
+};
+
 record.status = record.dependencies.length === 0 ? 'ready' : 'blocked';
 record.finishedAt = new Date().toISOString();
 
@@ -78,6 +111,9 @@ await fsp.writeFile(outPath, `${JSON.stringify(record, null, 2)}\n`);
 console.log(`wrote ${path.relative(repoRoot, outPath)}`);
 if (record.status === 'blocked') {
   console.log(`real runtime proof blocked by ${record.dependencies.length} dependency/dependencies`);
+}
+if (requireReal && record.status !== 'ready') {
+  process.exitCode = 2;
 }
 
 function exists(relativePath) {

@@ -2,11 +2,11 @@
   "story": "PNBN-001",
   "lane": "B",
   "kind": "real-browser-runtime",
-  "startedAt": "2026-07-15T13:17:13.684Z",
+  "startedAt": "2026-07-15T13:19:38.162Z",
   "environment": {
     "pwd": "/data/worktrees/slavegate-pnbn-001",
-    "head": "c81035f5174c345451273dc82b5b41e1f9e3ae42",
-    "statusShort": "",
+    "head": "7246fc1a7312eca9f292eedaa62f0f794d21b218",
+    "statusShort": "M scripts/evidence/pnbn-001-real-runtime.mjs",
     "node": "v22.23.1",
     "chromium": "/usr/bin/chromium",
     "xvfb": null,
@@ -49,6 +49,47 @@
       "fixture": "test/fixtures/browser-fixture.html"
     }
   },
+  "attemptedCommands": {
+    "findXvfb": {
+      "command": "bash -lc command -v Xvfb",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    "findChromium": {
+      "command": "bash -lc command -v chromium || command -v chromium-browser || command -v google-chrome",
+      "exitCode": 0,
+      "signal": null,
+      "stdout": "/usr/bin/chromium\n",
+      "stderr": ""
+    },
+    "startEntrypointWithoutXvfb": {
+      "command": "node slavegate-browser-node/dist/src/index.js",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "node:internal/fs/promises:606\n  return await PromisePrototypeThen(\n         ^\n\nError: ENOENT: no such file or directory, access '/tmp/.X11-unix/X77'\n    at async Object.access (node:internal/fs/promises:606:10)\n    at async file:///data/worktrees/slavegate-pnbn-001/slavegate-browser-node/dist/src/index.js:11:1 {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'access',\n  path: '/tmp/.X11-unix/X77'\n}\n\nNode.js v22.23.1\n"
+    }
+  },
+  "mandatoryChecks": {
+    "headedChromiumOnXvfb": {
+      "status": "blocked",
+      "reason": "Xvfb binary/service is absent; Chromium cannot be launched with Playwright headless=false on Xvfb."
+    },
+    "fixtureNavigationActionsScreenshotRealAdapter": {
+      "status": "blocked",
+      "reason": "BrowserWorker SSRF policy rejects file:// and localhost fixture origins; no safe fixture hook is exposed."
+    },
+    "persistentProfileAcrossRestart": {
+      "status": "blocked",
+      "reason": "Xvfb is absent, so BrowserWorker cannot launch Chromium headless=false for profile persistence proof."
+    },
+    "healthFailureWhenXvfbOrBrowserAbsent": {
+      "status": "partial",
+      "reason": "createHealthServer returns 503 for xvfb=false/browser=false; index.ts still exits before /healthz exists when Xvfb socket is absent."
+    }
+  },
   "dependencies": [
     {
       "owner": "runtime",
@@ -66,6 +107,11 @@
       "impact": "The current entrypoint exits before /healthz exists when Xvfb is absent, so endpoint-level health-failure evidence cannot be captured from index.ts."
     }
   ],
+  "reproducibleCommands": {
+    "currentEnvironment": "node scripts/evidence/pnbn-001-real-runtime.mjs",
+    "requireRealMode": "node scripts/evidence/pnbn-001-real-runtime.mjs --require-real",
+    "containerCi": "docker run --rm -v \"$PWD\":/workspace -w /workspace mcr.microsoft.com/playwright:v1.52.0-noble bash -lc 'cd slavegate-browser-node && npm ci && npm run build && Xvfb :99 -screen 0 1280x720x24 -nolisten tcp >/tmp/xvfb.log 2>&1 & export DISPLAY=:99 CHROMIUM_PATH=/usr/bin/chromium APP_DATA_DIR=/tmp/pnbn-browser-data; cd /workspace && node scripts/evidence/pnbn-001-real-runtime.mjs --require-real'"
+  },
   "status": "blocked",
-  "finishedAt": "2026-07-15T13:17:14.192Z"
+  "finishedAt": "2026-07-15T13:19:38.642Z"
 }
