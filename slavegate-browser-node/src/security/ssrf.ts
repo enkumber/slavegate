@@ -5,18 +5,42 @@ export type Resolver = (hostname: string) => Promise<Array<{ address: string; fa
 const BLOCKED_NAMES = new Set(['localhost', 'localhost.localdomain', 'host.docker.internal', 'umbrel.local', 'metadata.google.internal']);
 
 function ipv4Blocked(ip: string): boolean {
-  const p = ip.split('.').map(Number); if (p.length !== 4 || p.some((n) => !Number.isInteger(n) || n < 0 || n > 255)) return true;
-  const [a,b] = p;
-  return a === 0 || a === 10 || a === 127 || (a === 100 && b >= 64 && b <= 127) || (a === 169 && b === 254) ||
-    (a === 172 && b >= 16 && b <= 31) || (a === 192 && (b === 0 || b === 168)) ||
-    (a === 198 && (b === 18 || b === 19 || b === 51)) || (a === 203 && b === 0) || a >= 224;
+  const p = ip.split('.').map(Number);
+  if (p.length !== 4 || p.some((n) => !Number.isInteger(n) || n < 0 || n > 255)) return true;
+  const [a, b, c] = p;
+  return a === 0 || a === 10 || a === 127 ||
+    (a === 100 && b >= 64 && b <= 127) ||
+    (a === 169 && b === 254) ||
+    (a === 172 && b >= 16 && b <= 31) ||
+    (a === 192 && (b === 0 || b === 168)) ||
+    (a === 198 && (b === 18 || b === 19 || (b === 51 && c === 100))) ||
+    (a === 203 && b === 0 && c === 113) ||
+    a >= 224;
+}
+
+function ipv4FromMappedIpv6(ip: string): string | undefined {
+  const tail = ip.slice(7);
+  if (tail.includes('.')) return tail;
+  const parts = tail.split(':');
+  if (parts.length !== 2) return undefined;
+  const high = Number.parseInt(parts[0], 16);
+  const low = Number.parseInt(parts[1], 16);
+  if (!Number.isInteger(high) || !Number.isInteger(low) || high < 0 || high > 0xffff || low < 0 || low > 0xffff) return undefined;
+  return `${high >> 8}.${high & 0xff}.${low >> 8}.${low & 0xff}`;
 }
 
 function ipv6Blocked(ip: string): boolean {
   const normalized = ip.toLowerCase().split('%')[0];
   if (normalized === '::' || normalized === '::1') return true;
-  if (normalized.startsWith('::ffff:')) return ipv4Blocked(normalized.slice(7));
-  return normalized.startsWith('fc') || normalized.startsWith('fd') || /^fe[89ab]/.test(normalized) || normalized.startsWith('ff') || normalized.startsWith('2001:db8:');
+  if (normalized.startsWith('::ffff:')) return ipv4Blocked(ipv4FromMappedIpv6(normalized) ?? '');
+  return normalized.startsWith('fc') ||
+    normalized.startsWith('fd') ||
+    /^fe[89ab]/.test(normalized) ||
+    normalized.startsWith('ff') ||
+    normalized.startsWith('64:ff9b:') ||
+    normalized.startsWith('100:') ||
+    normalized.startsWith('2001:db8:') ||
+    normalized.startsWith('2002:');
 }
 
 export function isBlockedAddress(ip: string): boolean {
@@ -53,7 +77,9 @@ export async function assertPublicUrl(raw: string, resolver: Resolver = systemRe
 }
 
 export async function assertPublicRedirect(from: URL, location: string, resolver: Resolver = systemResolver): Promise<URL> {
-  return assertPublicUrl(new URL(location, from).href, resolver);
+  let next: URL;
+  try { next = new URL(location, from); } catch { throw new Error('invalid redirect URL'); }
+  return assertPublicUrl(next.href, resolver);
 }
 
 export async function resolveAndPinPublicUrl(raw: string, resolver: Resolver = systemResolver): Promise<{url: URL; addresses: string[]}> {
