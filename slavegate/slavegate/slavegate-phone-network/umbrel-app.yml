@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.148"
+version: "3.9.149"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.149: add generated workflow self-healing retry loop
   v3.9.148: repair failed generated workflows with LLM candidates
   v3.9.147: add generic generated workflow learning loop
   v3.9.146: execute Workflow Definitions from promoted DB artifacts
