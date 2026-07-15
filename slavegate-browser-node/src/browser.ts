@@ -6,10 +6,30 @@ import { assertPublicUrl } from './security/ssrf.js';
 import { withinRoot } from './security/paths.js';
 import type { Action } from './types.js';
 
+export interface BrowserWorkerOptions { fixtureOrigin?: string; }
+
+export function createBrowserUrlGuard(options: BrowserWorkerOptions = {}): (raw: string) => Promise<URL> {
+  let fixtureOrigin: string | undefined;
+  if (options.fixtureOrigin !== undefined) {
+    if (process.env.NODE_ENV !== 'test') throw new Error('fixtureOrigin is available only when NODE_ENV=test');
+    const fixture = new URL(options.fixtureOrigin);
+    if (fixture.protocol !== 'http:' || !['127.0.0.1', '[::1]'].includes(fixture.hostname) || fixture.username || fixture.password || fixture.pathname !== '/' || fixture.search || fixture.hash) {
+      throw new Error('fixtureOrigin must be an exact loopback HTTP origin');
+    }
+    fixtureOrigin = fixture.origin;
+  }
+  return async (raw: string): Promise<URL> => {
+    const candidate = new URL(raw);
+    if (fixtureOrigin && candidate.origin === fixtureOrigin) return candidate;
+    return assertPublicUrl(raw);
+  };
+}
+
 export class BrowserWorker {
   private context?: BrowserContext;
   private page?: Page;
-  constructor(private readonly config: Config) {}
+  private readonly assertAllowedUrl: (raw: string) => Promise<URL>;
+  constructor(private readonly config: Config, options: BrowserWorkerOptions = {}) { this.assertAllowedUrl = createBrowserUrlGuard(options); }
   get ready(): boolean { return Boolean(this.context && this.page); }
 
   async start(): Promise<void> {
@@ -22,7 +42,7 @@ export class BrowserWorker {
     this.page = this.context.pages()[0] ?? await this.context.newPage();
     await this.context.route('**/*', async (route) => {
       const req: Request = route.request();
-      try { await assertPublicUrl(req.url()); await route.continue(); } catch { await route.abort('blockedbyclient'); }
+      try { await this.assertAllowedUrl(req.url()); await route.continue(); } catch { await route.abort('blockedbyclient'); }
     });
     this.page.on('popup', (popup) => void popup.close());
   }
@@ -40,10 +60,10 @@ export class BrowserWorker {
     if (!this.page) throw new Error('browser unavailable');
     switch (action.type) {
       case 'navigate': {
-        const url = await assertPublicUrl(action.url);
+        const url = await this.assertAllowedUrl(action.url);
         const response = await this.page.goto(url.href, { waitUntil: 'domcontentloaded' });
         // Playwright route interception validates every redirect and subresource; also verify final URL explicitly.
-        await assertPublicUrl(this.page.url());
+        await this.assertAllowedUrl(this.page.url());
         return { value: { url: this.page.url(), status: response?.status() } };
       }
       case 'click': await this.locator(action).click(); return {};
