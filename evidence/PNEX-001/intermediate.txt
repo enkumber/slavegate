@@ -1,0 +1,19 @@
+PNEX-001 intermediate
+server=3a98d78b8e85c77778fd643d956b3c1c0e4f438c
+android=ddd6112a13bc26d3e23de642150d075fab1de5e2
+PASS=7 FAIL=15 TOTAL=22
+FAIL LEASE-001.all-wire-sends-require-issued-lease: expected="all three guarded" actual="sendJob/sendBatch/workflow lease guards"
+FAIL LEASE-002.server-maxConcurrent-device-1: expected="1" actual="one active map entry/device"
+FAIL LEASE-003.android-maxConcurrent-device-1: expected="one shared semaphore around JOB, BATCH_START and WORKFLOW_START" actual="no shared DirectWsClient device semaphore"
+FAIL ORDER-001.Busta-vs-Busta-FIFO: expected="queued acquire FIFO" actual="production uses tryAcquire"
+FAIL ORDER-002.Busta-vs-raw-FIFO: expected="accepted then ordered terminal events" actual="second ingress returns false/throws DEVICE_BUSY"
+FAIL ORDER-003.workflow-vs-workflow-FIFO: expected="accepted/queued/running/terminal FIFO" actual="edge workflows use tryAcquire"
+FAIL TOKEN-001.stale-token-fenced: expected="three result guards" actual="three result guards"
+FAIL EXPIRY-001.expiry-promotes-FIFO: expected="expired owner releases FIFO head" actual="expire deletes active lease without promote"
+FAIL CANCEL-001.cancel-releases-lease: expected="cancel terminal releases lease" actual="cancel send has no lease release"
+FAIL FAIL-001.failure-releases-lease: expected="failure releases" actual="workflow terminal release"
+FAIL RECONNECT-001.disconnect-reconnect-preserves-owner-token: expected="recovering + resume token" actual="recovering + resume token"
+FAIL RESTART-001.restart-safe-reconciliation: expected="no overlapping active owners after restart" actual="startup expires orphan active leases and reloads fencing token"
+FAIL LATE-001.late-result-cannot-complete-new-owner: expected="fenced" actual="owner/token/current checks"
+FAIL RETRY-001.idempotent-requestKey-one-terminal-run: expected="same requestKey returns same owner/run and one terminal" actual="requestKey persisted but never used for deduplication"
+FAIL DEADLOCK-001.no-expiry-or-cancel-deadlock: expected="all terminal paths promote queue" actual="expiry/cancel can strand device"

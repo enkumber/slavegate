@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "generated_workflow",
+  "name": "bustabit_bankroll_check",
+  "appId": "au.generic",
+  "requestKey": "b057ab17ba4b011c0ffee001",
+  "template": {
+    "id": "au.generic.bustabit_bankroll_check.v1",
+    "steps": [
+      { "action": "open_app", "params": { "packageName": "${AU_PACKAGE}" } },
+      { "action": "ui_tree_dump", "params": {} },
+      { "action": "extract_text", "params": { "selector": "${BANKROLL_SELECTOR}", "output": "bankroll" } }
+    ]
+  },
+  "runs": [
+    { "runId": "pnex-001-au-run-001", "status": "completed", "terminalEventCount": 1, "result": { "bankroll": "fixture-value" } }
+  ]
+}

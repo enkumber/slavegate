@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "ticket": "PNEX-001",
+  "lane": "B",
+  "generatedAt": "2026-07-15T14:34:37.938Z",
+  "serverRevision": "3a98d78b8e85c77778fd643d956b3c1c0e4f438c",
+  "androidRevision": "ddd6112a13bc26d3e23de642150d075fab1de5e2",
+  "requestedRevision": "3a98d78",
+  "inventory": [
+    {
+      "file": "src/api/routes.ts",
+      "line": 680,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await transport.sendJob(body.deviceId, {"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 231,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await backAdapter.sendJob(req.deviceId, {"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 244,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await homeAdapter.sendJob(req.deviceId, {"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 483,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await skillTapAdapter.sendJob(req.deviceId, {"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 593,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await a11yAdapter.sendJob(req.deviceId, {"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 631,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await ocrAdapter.sendJob(req.deviceId, {"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 1149,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await uniA11yAdapter.sendJob(deviceId, { jobId, type: \"a11y_find_tap\", params: params as any, timeoutMs });"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 1170,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await uniOcrAdapter.sendJob(deviceId, { jobId, type: \"ocr_find_tap\", params, timeoutMs });"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 1190,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await vlmScreenAdapter.sendJob(deviceId, { jobId: screenshotJobId, type: \"screenshot_for_vlm\", params: {}, timeoutMs: 10000 });"
+    },
+    {
+      "file": "src/modules/skills/skill.cascade.ts",
+      "line": 1241,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "await tapAdapter.sendJob(deviceId, { jobId, type: \"tap\", params: { x: pixelX, y: pixelY }, timeoutMs: 5000 });"
+    },
+    {
+      "file": "src/modules/workflow-compiler/runner.service.ts",
+      "line": 520,
+      "symbol": "sendBatch",
+      "kind": "call",
+      "excerpt": "if (!directWsServer.sendBatch(deviceId, batchPayload)) {"
+    },
+    {
+      "file": "src/modules/workflows/generated-workflow-execution.service.ts",
+      "line": 191,
+      "symbol": "sendWorkflowStart",
+      "kind": "call",
+      "excerpt": "const sent = directWsServer.sendWorkflowStart("
+    },
+    {
+      "file": "src/modules/workflows/workflow.executor.ts",
+      "line": 1696,
+      "symbol": "sendBatch",
+      "kind": "call",
+      "excerpt": "const sent = directWsServer.sendBatch(deviceId, batchPayload);"
+    },
+    {
+      "file": "src/transport/transport.ts",
+      "line": 18,
+      "symbol": "sendJob",
+      "kind": "call",
+      "excerpt": "return directWsServer.sendJob(deviceId, payload);"
+    },
+    {
+      "file": "src/ws/direct-ws.server.ts",
+      "line": 196,
+      "symbol": "sendJob",
+      "kind": "definition",
+      "excerpt": "sendJob(deviceId: string, payload: JobDispatchPayload): boolean {"
+    },
+    {
+      "file": "src/ws/direct-ws.server.ts",
+      "line": 230,
+      "symbol": "sendBatch",
+      "kind": "definition",
+      "excerpt": "sendBatch(deviceId: string, batchPayload: Record<string, unknown>): boolean {"
+    },
+    {
+      "file": "src/ws/direct-ws.server.ts",
+      "line": 244,
+      "symbol": "sendWorkflowStart",
+      "kind": "definition",
+      "excerpt": "sendWorkflowStart("
+    },
+    {
+      "file": "src/ws/gateway.ts",
+      "line": 145,
+      "symbol": "sendJob",
+      "kind": "definition",
+      "excerpt": "sendJob(deviceId: string, payload: JobDispatchPayload): boolean {"
+    },
+    {
+      "file": "src/ws/ws.server.ts",
+      "line": 130,
+      "symbol": "sendJob",
+      "kind": "definition",
+      "excerpt": "sendJob(deviceId: string, payload: JobDispatchPayload): boolean {"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "INV-001.every-production-send-inventoried",
+      "ok": true,
+      "expected": ">=4 calls",
+      "actual": "14 calls"
+    },
+    {
+      "id": "INV-002.no-direct-dispatch-bypass",
+      "ok": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "id": "LEASE-001.all-wire-sends-require-issued-lease",
+      "ok": false,
+      "expected": "all three guarded",
+      "actual": "sendJob/sendBatch/workflow lease guards"
+    },
+    {
+      "id": "LEASE-002.server-maxConcurrent-device-1",
+      "ok": false,
+      "expected": "1",
+      "actual": "one active map entry/device"
+    },
+    {
+      "id": "LEASE-003.android-maxConcurrent-device-1",
+      "ok": false,
+      "expected": "one shared semaphore around JOB, BATCH_START and WORKFLOW_START",
+      "actual": "no shared DirectWsClient device semaphore"
+    },
+    {
+      "id": "ORDER-001.Busta-vs-Busta-FIFO",
+      "ok": false,
+      "expected": "queued acquire FIFO",
+      "actual": "production uses tryAcquire"
+    },
+    {
+      "id": "ORDER-002.Busta-vs-raw-FIFO",
+      "ok": false,
+      "expected": "accepted then ordered terminal events",
+      "actual": "second ingress returns false/throws DEVICE_BUSY"
+    },
+    {
+      "id": "ORDER-003.workflow-vs-workflow-FIFO",
+      "ok": false,
+      "expected": "accepted/queued/running/terminal FIFO",
+      "actual": "edge workflows use tryAcquire"
+    },
+    {
+      "id": "TOKEN-001.stale-token-fenced",
+      "ok": false,
+      "expected": "three result guards",
+      "actual": "three result guards"
+    },
+    {
+      "id": "EXPIRY-001.expiry-promotes-FIFO",
+      "ok": false,
+      "expected": "expired owner releases FIFO head",
+      "actual": "expire deletes active lease without promote"
+    },
+    {
+      "id": "CANCEL-001.cancel-releases-lease",
+      "ok": false,
+      "expected": "cancel terminal releases lease",
+      "actual": "cancel send has no lease release"
+    },
+    {
+      "id": "FAIL-001.failure-releases-lease",
+      "ok": false,
+      "expected": "failure releases",
+      "actual": "workflow terminal release"
+    },
+    {
+      "id": "RECONNECT-001.disconnect-reconnect-preserves-owner-token",
+      "ok": false,
+      "expected": "recovering + resume token",
+      "actual": "recovering + resume token"
+    },
+    {
+      "id": "RESTART-001.restart-safe-reconciliation",
+      "ok": false,
+      "expected": "no overlapping active owners after restart",
+      "actual": "startup expires orphan active leases and reloads fencing token"
+    },
+    {
+      "id": "LATE-001.late-result-cannot-complete-new-owner",
+      "ok": false,
+      "expected": "fenced",
+      "actual": "owner/token/current checks"
+    },
+    {
+      "id": "RETRY-001.idempotent-requestKey-one-terminal-run",
+      "ok": false,
+      "expected": "same requestKey returns same owner/run and one terminal",
+      "actual": "requestKey persisted but never used for deduplication"
+    },
+    {
+      "id": "DEADLOCK-001.no-expiry-or-cancel-deadlock",
+      "ok": false,
+      "expected": "all terminal paths promote queue",
+      "actual": "expiry/cancel can strand device"
+    },
+    {
+      "id": "AU-001.generic-bankroll-artifact",
+      "ok": true,
+      "expected": "bustabit_bankroll_check/au.generic",
+      "actual": "bustabit_bankroll_check/au.generic"
+    },
+    {
+      "id": "AU-002.exactly-one-key",
+      "ok": true,
+      "expected": "exactly one cacheKey or requestKey",
+      "actual": {
+        "requestKey": "b057ab17ba4b011c0ffee001"
+      }
+    },
+    {
+      "id": "AU-003.one-terminal-run",
+      "ok": true,
+      "expected": "one terminal run",
+      "actual": [
+        {
+          "runId": "pnex-001-au-run-001",
+          "status": "completed",
+          "terminalEventCount": 1,
+          "result": {
+            "bankroll": "fixture-value"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AU-004.no-raw-job-chain",
+      "ok": true,
+      "expected": "artifact workflow only",
+      "actual": "no raw job-chain fields"
+    },
+    {
+      "id": "AU-005.no-server-hardcoding",
+      "ok": true,
+      "expected": "no server hardcoding",
+      "actual": "canonical server contains no fixture name"
+    }
+  ],
+  "summary": {
+    "pass": 7,
+    "fail": 15,
+    "total": 22
+  }
+}
