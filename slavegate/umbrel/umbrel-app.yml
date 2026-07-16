@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.157"
+version: "3.9.158"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.158: start PNQ child timeout only after device dispatch
   v3.9.157: release terminal undispatched PNQ workflow roots
   v3.9.156: reconcile undispatched PNQ roots and preserve queued workflow state
   v3.9.155: await PNQ replay for queued server workflow child jobs
