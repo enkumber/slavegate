@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.154"
+version: "3.9.155"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.155: await PNQ replay for queued server workflow child jobs
   v3.9.154: fix queued workflow replay and BustaBuster compile recovery
   v3.9.153: enable approved local GX10 model endpoints
   v3.9.152: add secure model configuration and queue safety hardening
