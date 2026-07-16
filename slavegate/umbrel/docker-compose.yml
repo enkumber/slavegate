@@ -18,7 +18,8 @@ services:
       REDIS_URL: "redis://phone-network-redis:6379"
       TRANSPORT_MODE: "direct"
       DATA_DIR: /data
-      PHONE_NETWORK_APP_VERSION: "3.9.152"
+      MODEL_CONFIG_ENDPOINT_ALLOWLIST: "local:enkzoned.go.ro"
+      PHONE_NETWORK_APP_VERSION: "3.9.153"
     healthcheck:
       test:
         - CMD
