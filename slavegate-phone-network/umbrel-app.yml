@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.164"
+version: "3.9.165"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.165: add Queue v2 shadow real-route readiness gate
   v3.9.164: reconcile terminal PNQ roots with stale blocked child jobs
   v3.9.161: register workflow result waiter before device dispatch
   v3.9.160: continue server workflows after timeout-tolerant device effects
