@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.173"
+version: "3.9.174"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.174: persist executable workflow bundles atomically and ship Android 4.0.29 browser-content readiness
   v3.9.173: align OTA manifest metadata with the bundled Android 4.0.28 APK
   v3.9.172: compile HBE into full device workflow bundles with local execution and durable checkpoints
   v3.9.170: add a simple PostgreSQL FIFO workflow queue per device without changing step execution
