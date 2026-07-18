@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.167"
+version: "3.9.168"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.168: make generated workflow cache persistence atomic and disable gate self-healing
   v3.9.167: isolate legacy workflow execution while Queue v2 remains available
   v3.9.166: restore the legacy DirectWS path while Queue v2 is disabled
   v3.9.165: add Queue v2 shadow real-route readiness gate
