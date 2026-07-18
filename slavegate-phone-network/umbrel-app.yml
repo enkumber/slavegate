@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.171"
+version: "3.9.172"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
-  v3.9.171: close workflow queue bypasses for raw jobs and the deprecated workflow-run endpoint
+  v3.9.172: compile HBE into full device workflow bundles with local execution and durable checkpoints
   v3.9.170: add a simple PostgreSQL FIFO workflow queue per device without changing step execution
   v3.9.169: restore the verified baseline from before Queue v1 and Queue v2 for live validation
   v3.9.168: make generated workflow cache persistence atomic and disable gate self-healing
