@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.169"
+version: "3.9.170"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.170: add a simple PostgreSQL FIFO workflow queue per device without changing step execution
   v3.9.169: restore the verified baseline from before Queue v1 and Queue v2 for live validation
   v3.9.168: make generated workflow cache persistence atomic and disable gate self-healing
   v3.9.167: isolate legacy workflow execution while Queue v2 remains available
