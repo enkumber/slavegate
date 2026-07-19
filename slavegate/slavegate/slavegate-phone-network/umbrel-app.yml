@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.177"
+version: "3.9.178"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.178: restore Accessibility service binding automatically after Android OTA and ship Android 4.0.31
   v3.9.177: add generic device-local step verification, bounded retries, real per-step results, and Android 4.0.30
   v3.9.176: isolate Chrome app segments from Android system navigation and report hybrid compilation accurately
   v3.9.175: reuse validated app and Android system workflow segments across workflows, compiling only missing gaps
