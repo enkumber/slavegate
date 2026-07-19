@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.180"
+version: "3.9.181"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.181: poll device-local postconditions during UI transitions before retrying an action and ship Android 4.0.34
   v3.9.180: verify generic Android intent navigation locally against the resolved foreground package and ship Android 4.0.33
   v3.9.179: keep the Android Accessibility rebind watchdog active until the post-OTA service reconnects
   v3.9.178: restore Accessibility service binding automatically after Android OTA and ship Android 4.0.31
