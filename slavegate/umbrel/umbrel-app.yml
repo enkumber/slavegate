@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.187"
+version: "3.9.188"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.188: release stale dashboard AI runs so explicit retries create new executions
   v3.9.187: fail closed on missing device results and persist per-job execution traces
   v3.9.185: allow authorized workflow credentials and make Retry compile requeue failed AI jobs
   v3.9.184: verify conditional waits locally, fail closed on unknown conditions, and ship Android 4.0.37
