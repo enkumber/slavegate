@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.197"
+version: "3.9.198"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.198: keep screen-off jobs awake, make rooted unlock terminal, and ship Android 4.0.47
   v3.9.197: recover Android execution after OTA, bound root actions, and ship Android 4.0.44
   v3.9.196: guarantee terminal Android intent launches, normalize conditional wait durations, and ship Android 4.0.43
   v3.9.195: keep Android screenshot and UI-tree observation jobs out of recursive verification and ship Android 4.0.42
