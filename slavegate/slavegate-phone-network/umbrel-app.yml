@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.185"
+version: "3.9.186"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.186: persist raw Qwen compiler output and real model metadata for admin debugging
   v3.9.185: allow authorized workflow credentials and make Retry compile requeue failed AI jobs
   v3.9.184: verify conditional waits locally, fail closed on unknown conditions, and ship Android 4.0.37
   v3.9.182: refresh the live Accessibility controller for device-local postcondition polling and ship Android 4.0.35
