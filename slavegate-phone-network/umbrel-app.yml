@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.193"
+version: "3.9.194"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.194: correct Android 4.0.41 OTA metadata so devices install the bundled agent
   v3.9.193: launch package-hidden Android apps through root fallback and ship Android 4.0.41
   v3.9.192: support Android Add Account settings intents and ship Android 4.0.40
   v3.9.191: guarantee terminal Android app launch results and ship Android 4.0.39
