@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.192"
+version: "3.9.193"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.193: launch package-hidden Android apps through root fallback and ship Android 4.0.41
   v3.9.192: support Android Add Account settings intents and ship Android 4.0.40
   v3.9.191: guarantee terminal Android app launch results and ship Android 4.0.39
   v3.9.190: bound Android direct jobs and trace agent receive/start events
