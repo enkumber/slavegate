@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.205"
+version: "3.9.206"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.206: use UI-tree package proof when Android foreground detection briefly has no active window
   v3.9.205: move app runtime profiles and mapping recipes into PostgreSQL with a generic fail-closed refresh engine
   v3.9.203: fail closed on ambiguous UI states, honor zero recovery budgets, and reconcile stale graph edges
   v3.9.202: require mandatory UI anchors even when structural fingerprints collide
