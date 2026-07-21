@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.211"
+version: "3.9.212"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.212: replay recovered Accessibility targets through ordered semantic fallbacks and learn only after verified execution
   v3.9.211: republish the corrected 3.9.210 server image under a fresh Umbrel release version
   v3.9.210: replay recovered Accessibility targets with one strongest stable selector
   v3.9.209: adapt stale selectors from actionable UI-tree evidence and reject invalid workflow IDs safely
