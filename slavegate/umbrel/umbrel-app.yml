@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.202"
+version: "3.9.203"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.203: fail closed on ambiguous UI states, honor zero recovery budgets, and reconcile stale graph edges
   v3.9.202: require mandatory UI anchors even when structural fingerprints collide
   v3.9.201: normalize Android UI-tree envelopes for live graph state resolution
   v3.9.200: ship the UI Graph dashboard and make dashboard builds update the Docker bundle
