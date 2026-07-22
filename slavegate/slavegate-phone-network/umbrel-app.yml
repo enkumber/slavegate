@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.222"
+version: "3.9.223"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.223: make UI learning and promotion device-agnostic while retaining device telemetry
   v3.9.222: apply DB-owned state detection overrides during map load and UI graph materialization
   v3.9.221: disambiguate overlapping UI states with DB-owned forbidden-anchor rules
   v3.9.220: add deterministic screen readiness steps and stable learning-candidate identity
