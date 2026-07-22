@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.227"
+version: "3.9.228"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.228: register dynamic edge templates before dispatch, bound UI-tree observations, and ship agent 4.0.50
   v3.9.227: make Android navigation fully workflow-driven, DB-owned, and locally executed with explicit LLM steps
   v3.9.226: keep server-side workflow child verification UI-tree-first and avoid redundant screenshot latency
   v3.9.225: align portable Android key execution and ship signed agent 4.0.48
