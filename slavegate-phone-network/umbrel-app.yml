@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.241"
+version: "3.9.242"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.242: retrieve saved workflows, verified fragments, UI graph knowledge, and prior failures before LLM compilation
   v3.9.241: reuse promoted workflow capabilities across devices and natural-language formulations before LLM fallback
   v3.9.240: add an explicit Device only target for accountless AI workflows
   v3.9.239: reconcile superseded incidents, correct recovery telemetry and ownership, and enforce explicit artifact safety
