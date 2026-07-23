@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.246"
+version: "3.9.247"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.247: reject malformed database goal contracts safely and route invalid LLM plans through generic repair
   v3.9.246: enforce database-owned goal contracts, generic runtime bindings, read-only UI input semantics, and ship agent 4.0.64
   v3.9.245: enforce semantic search-result extraction plans and ship viewport-safe Accessibility targeting with agent 4.0.63
   v3.9.244: reconcile authoritative late edge completion before failing runs or quarantining valid workflow artifacts
