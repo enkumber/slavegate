@@ -5,7 +5,7 @@ services:
       APP_PORT: 21211
 
   phone-network-server:
-    image: ghcr.io/enkumber/slavegate-server:f587a535fce88c3c7ca8490b20db3f43d5667cb7
+    image: ghcr.io/enkumber/slavegate-server:2defad46fc3bcd03e53b7484cce0f2ff5d7c671a
     env_file:
       - ${APP_DATA_DIR}/.env
     restart: unless-stopped
@@ -19,7 +19,7 @@ services:
       TRANSPORT_MODE: direct
       DATA_DIR: /data
       MODEL_CONFIG_ENDPOINT_ALLOWLIST: "local:enkzoned.go.ro"
-      PHONE_NETWORK_APP_VERSION: "3.9.237"
+      PHONE_NETWORK_APP_VERSION: "3.9.239"
       UI_GRAPH_RUNTIME_MODE: "shadow"
       UI_GRAPH_SELECTOR_FIRST: "true"
       UI_GRAPH_GRAPH_RUNTIME: "true"

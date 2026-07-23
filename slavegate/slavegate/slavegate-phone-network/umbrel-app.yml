@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.238"
+version: "3.9.239"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.239: reconcile superseded incidents, correct recovery telemetry and ownership, and enforce explicit artifact safety
   v3.9.237: learn new verified read-only edge segments through compact hybrid bindings and ship agent 4.0.61
   v3.9.236: connect verified edge workflow results to shared learning and remove the legacy server runner
   v3.9.235: auto-promote read-only navigation knowledge after five clean verified runs and degrade it on failure
