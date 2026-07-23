@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.247"
+version: "3.9.248"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.248: move product and workflow semantics to PostgreSQL and retire legacy code-owned catalogs
   v3.9.247: reject malformed database goal contracts safely and route invalid LLM plans through generic repair
   v3.9.246: enforce database-owned goal contracts, generic runtime bindings, read-only UI input semantics, and ship agent 4.0.64
   v3.9.245: enforce semantic search-result extraction plans and ship viewport-safe Accessibility targeting with agent 4.0.63
