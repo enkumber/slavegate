@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.256"
+version: "3.9.257"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.257: resume completed Segment Builder jobs through their promoted PostgreSQL composition
   v3.9.256: route missing workflow segments to a durable authenticated OpenClaw builder and harden its context API against server restarts
   v3.9.254: connect promoted PostgreSQL compositions automatically and let canary runs retrieve their candidate artifacts
   v3.9.253: add PostgreSQL workflow segments, deterministic composition, runtime bindings, verified canary promotion, and retire legacy semantic compilers
