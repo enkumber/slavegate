@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.250"
+version: "3.9.251"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.251: use the PostgreSQL-owned direct VIEW intent contract for browser URL navigation
   v3.9.250: make the human-workflow compiler fully PostgreSQL-authoritative and fail closed on missing policy
   v3.9.249: keep compiler normalization inside database Goal Contracts and add the Chrome runtime profile
   v3.9.248: move product and workflow semantics to PostgreSQL and retire legacy code-owned catalogs
