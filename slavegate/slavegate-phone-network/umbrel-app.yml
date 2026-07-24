@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.251"
+version: "3.9.252"
 port: 21211
 
 developer: Dan
@@ -30,7 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
-  v3.9.251: use the PostgreSQL-owned direct VIEW intent contract for browser URL navigation
+  v3.9.252: reject cross-intent workflow cache reuse and empty dashboard outputs
   v3.9.250: make the human-workflow compiler fully PostgreSQL-authoritative and fail closed on missing policy
   v3.9.249: keep compiler normalization inside database Goal Contracts and add the Chrome runtime profile
   v3.9.248: move product and workflow semantics to PostgreSQL and retire legacy code-owned catalogs
