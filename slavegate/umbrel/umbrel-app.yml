@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.267"
+version: "3.9.268"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,7 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
-  v3.9.267: manage lifecycle stale policies directly in PostgreSQL through an authenticated generic control plane
+  v3.9.268: move workflow execution, agency runs, and research lifecycles into the generic PostgreSQL registry
   v3.9.265: move the task lifecycle contract into PostgreSQL-owned states and transitions, without runtime status lists
   v3.9.264: align task cancellation with the PostgreSQL status contract so administratively closed tasks cannot remain retry-eligible
   v3.9.263: keep the bundled Android 4.0.83 OTA manifest consistent across Umbrel updates
