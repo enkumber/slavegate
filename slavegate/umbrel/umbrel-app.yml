@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.259"
+version: "3.9.260"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.260: recover expired Segment Builder leases when PostgreSQL returns native timestamps
   v3.9.259: recover interrupted Segment Builder leases and expire offline queued canaries automatically
   v3.9.258: keep Segment Builder previews polling until the promoted plan is ready
   v3.9.257: resume completed Segment Builder jobs through their promoted PostgreSQL composition

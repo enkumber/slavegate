@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.259"
+version: "3.9.260"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.260: recover expired Segment Builder leases when PostgreSQL returns native timestamps
   v3.9.259: recover interrupted Segment Builder leases and expire offline queued canaries automatically
   v3.9.258: keep Segment Builder previews polling until the promoted plan is ready
   v3.9.257: resume completed Segment Builder jobs through their promoted PostgreSQL composition
