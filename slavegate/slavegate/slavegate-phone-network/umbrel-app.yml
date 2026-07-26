@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.271"
+version: "3.9.272"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.272: make lifecycle binding migrations idempotent across repeated container restarts
   v3.9.271: make PostgreSQL-authoritative migrations upgrade-safe for existing Phone Network databases
   v3.9.270: make runtime lifecycle, retry, dispatch, and dashboard transition policy PostgreSQL-authoritative
   v3.9.269: remove packaged lifecycle semantics; states, transitions, bindings, and policies are PostgreSQL-only
