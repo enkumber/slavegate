@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.276"
+version: "3.9.277"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.277: restore AI Workflow compilation through PostgreSQL lifecycle bindings and keep the bundled Android 4.0.84 OTA manifest consistent
   v3.9.276: restart safely when PostgreSQL lifecycle bindings target resources without a lifecycle_key column
   v3.9.275: restore PostgreSQL-controlled job dispatch and keep the server healthy when an operational policy is missing
   v3.9.274: recover Android DirectWS automatically after transient authentication failures using PostgreSQL-owned retry policy
