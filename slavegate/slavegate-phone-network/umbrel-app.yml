@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.281"
+version: "3.9.282"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.282: resolve workflow version validation, promotion, rollback, and success checks through PostgreSQL resource bindings
   v3.9.281: resolve Segment Builder context lifecycles through PostgreSQL resource bindings
   v3.9.280: repair PostgreSQL lifecycle joins used by Segment Builder context retrieval
   v3.9.279: qualify generated workflow cache ordering after PostgreSQL lifecycle joins
