@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.277"
+version: "3.9.280"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,8 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.280: repair PostgreSQL lifecycle joins used by Segment Builder context retrieval
+  v3.9.279: qualify generated workflow cache ordering after PostgreSQL lifecycle joins
   v3.9.277: restore AI Workflow compilation through PostgreSQL lifecycle bindings and keep the bundled Android 4.0.84 OTA manifest consistent
   v3.9.276: restart safely when PostgreSQL lifecycle bindings target resources without a lifecycle_key column
   v3.9.275: restore PostgreSQL-controlled job dispatch and keep the server healthy when an operational policy is missing
