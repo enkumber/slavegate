@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.292"
+version: "3.9.293"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.293: propagate PostgreSQL verification policy through local edge primitives and ship Android agent 4.0.88
   v3.9.292: enforce PostgreSQL UI Graph rollout on edge learning with stable workflow identity
   v3.9.291: keep UI Graph state and transition reads healthy after PostgreSQL lifecycle joins
   v3.9.290: prevent Android verification Binder calls from stalling edge workflows and ship agent 4.0.87
