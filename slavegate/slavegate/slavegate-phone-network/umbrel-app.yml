@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.304"
+version: "3.9.305"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.305: preserve PostgreSQL Segment safety contracts through composition and fail closed on policy conflicts
   v3.9.304: initialize workflow execution lifecycle state from PostgreSQL resource bindings on first insert
   v3.9.303: resolve workflow execution lifecycle state exclusively through PostgreSQL resource bindings
   v3.9.302: preserve the generic workflow-run error-details invariant during PostgreSQL lifecycle transitions
