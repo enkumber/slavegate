@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.297"
+version: "3.9.298"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.298: enforce PostgreSQL lifecycle dispatchability and idempotent UI Graph rollback
   v3.9.297: remove legacy status CHECK constraints generically from PostgreSQL lifecycle-bound resources
   v3.9.296: apply PostgreSQL-authorized UI Graph auto-promotion through the control-plane validation path
   v3.9.295: drive UI Graph candidate materialization, promotion attribution, and automatic rollback entirely from PostgreSQL

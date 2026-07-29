@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.297"
+version: "3.9.298"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.298: enforce PostgreSQL lifecycle dispatchability and idempotent UI Graph rollback
   v3.9.297: remove legacy status CHECK constraints generically from PostgreSQL lifecycle-bound resources
   v3.9.296: apply PostgreSQL-authorized UI Graph auto-promotion through the control-plane validation path
   v3.9.295: drive UI Graph candidate materialization, promotion attribution, and automatic rollback entirely from PostgreSQL
