@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.301"
+version: "3.9.302"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.302: preserve the generic workflow-run error-details invariant during PostgreSQL lifecycle transitions
   v3.9.301: consolidate PostgreSQL-owned safety admission with exact request binding, replay, budgets, and fail-closed migrations
   v3.9.300: enforce PostgreSQL-owned workflow admission with approval, exact-once idempotency, bounded budgets, and dispatch-bound receipts
   v3.9.299: preserve PostgreSQL-owned workflow safety classes and fail closed on missing or conflicting policy metadata
