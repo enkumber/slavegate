@@ -5,7 +5,7 @@ services:
       APP_PORT: 21211
 
   phone-network-server:
-    image: ghcr.io/enkumber/slavegate-server:505f3cddb707bef1dcd510ebde4edd966b245ca9
+    image: ghcr.io/enkumber/slavegate-server:5e04878b663f93083783a72acf4a63b5707245d6
     env_file:
       - .env
     restart: unless-stopped
@@ -19,7 +19,7 @@ services:
       TRANSPORT_MODE: "direct"
       DATA_DIR: /data
       MODEL_CONFIG_ENDPOINT_ALLOWLIST: "local:enkzoned.go.ro"
-      PHONE_NETWORK_APP_VERSION: "3.9.312"
+      PHONE_NETWORK_APP_VERSION: "3.9.313"
     healthcheck:
       test:
         - CMD
