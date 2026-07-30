@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.309"
+version: "3.9.310"
 port: 21211
 
 developer: Dan
@@ -30,6 +30,7 @@ description: >-
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
 releaseNotes: |
+  v3.9.310: resolve capability artifacts through configured PostgreSQL lifecycle bindings with real-schema retrieval coverage
   v3.9.309: resolve detailed intents through PostgreSQL capability aliases and promoted composition Goal Contracts
   v3.9.308: activate Segment Builder capabilities through PostgreSQL lifecycle bindings and compiler-retrieval policy
   v3.9.307: preserve Segment Builder capability identity and goal contracts through reconciliation
