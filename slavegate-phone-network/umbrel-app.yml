@@ -6,7 +6,7 @@ tagline: Fleet management for Android devices with edge workflow execution
 icon: https://raw.githubusercontent.com/dan-ciprian/phone-network/main/assets/icon.png
 
 category: automation
-version: "3.9.315"
+version: "3.9.316"
 port: 21211
 
 developer: Dan
@@ -29,8 +29,8 @@ description: >-
   - App mapping with PostgreSQL persistence
   - Workflow Compiler: NL instructions to executable workflows with AI fallback
 
-releaseNotes: |
-  v3.9.315: materialize edge workflow structural discriminators for generated countMatches canaries
+releaseNotes: >-
+  v3.9.316: fix: materialize edge workflow structural discriminators
   v3.9.314: ship Android agent 4.0.89 with generic UI-tree countMatches support and workflow-scope cleanup
   v3.9.313: harden PostgreSQL incident and ops monitoring, expose the open backlog, and add isolated restart, egress, and reconciliation gates
   v3.9.312: fix daily incident audit PostgreSQL parameter binding and add real PostgreSQL regression coverage
