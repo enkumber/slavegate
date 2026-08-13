@@ -2,7 +2,7 @@ manifestVersion: 1
 id: phone-network
 category: networking
 name: Phone Network
-version: "3.9.321"
+version: "3.9.322"
 tagline: Fleet management for Android devices with edge workflow execution
 description: >-
   Phone Network manages a fleet of Android devices for remote control,
@@ -10,6 +10,7 @@ description: >-
   workflow templates with edge execution (ADR-001), human behavior emulation,
   and a web dashboard for fleet oversight.
 releaseNotes: >-
+  v3.9.322: enforce PostgreSQL proof authority and reject legacy false-positive workflow artifacts
   v3.9.321: make composition canary reruns fresh and collision-safe
   v3.9.320: allow promoted Segment Builder composition canary reruns
   v3.9.319: normalize nested observation primitive params before validation
